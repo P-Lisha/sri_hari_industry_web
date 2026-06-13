@@ -1,0 +1,10 @@
+# Deploy / build artifacts
+*.zip
+.vercel/
+node_modules/
+
+# Old multi-page backup — not part of the live site
+_old_backup/
+
+# Python cache
+__pycache__/
