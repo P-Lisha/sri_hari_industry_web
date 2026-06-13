@@ -1088,7 +1088,7 @@ const PCATS=[
 ];
 const PRODUCTS=[];
 PCATS.forEach(g=>g.items.forEach(it=>PRODUCTS.push({
- name:it[0],img:"images/products/"+it[1]+".jpg",
+ name:it[0],img:"images/products/"+it[1]+".jpg?v=2",
  desc:it[2]||(it[0]+" — "+g.tag),
  short:it[2]||(g.tag.charAt(0).toUpperCase()+g.tag.slice(1)),
  feat:it[3]||g.feats,specs:it[4]||null,cat:g.cat})));
