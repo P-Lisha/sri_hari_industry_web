@@ -12,7 +12,6 @@ __pycache__/
 # temp / diagnostic / backup files
 __resp_*
 __diag*
-__theme2_*
 index.backup.html
 index.before-rebuild.*.html
 index.prebuild.*.html
