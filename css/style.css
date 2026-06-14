@@ -57,7 +57,7 @@ a{text-decoration:none;color:inherit}img{display:block;max-width:100%}
 .nav.scrolled{box-shadow:0 10px 30px -18px rgba(11,26,74,.4)}
 .nav .wrap{width:min(1600px,96%);display:flex;align-items:center;gap:1rem;padding:.6rem 0}
 .brand{display:flex;align-items:center;gap:.6rem}
-.brand__mark{height:50px;width:31px;flex:none;background:url(images/logo.png) no-repeat left center/auto 50px}
+.brand__mark{height:50px;width:31px;flex:none;background:url(../images/logo.png) no-repeat left center/auto 50px}
 .brand__txt{display:flex;flex-direction:column;line-height:1.04}
 .brand__txt b{font-family:'Poppins',sans-serif;font-weight:800;font-size:1.18rem;letter-spacing:.005em;text-transform:uppercase;color:var(--blue);white-space:nowrap}
 .brand__txt b .g{color:var(--green-d)}
@@ -414,7 +414,7 @@ a{text-decoration:none;color:inherit}img{display:block;max-width:100%}
 .foot a{color:#9fb2cc;display:block;margin-bottom:.55rem;transition:var(--t)}
 .foot a:hover{color:var(--yellow)}
 .fbrand{display:flex;align-items:center;gap:.55rem;margin-bottom:.9rem}
-.fbrand__mark{height:46px;width:29px;flex:none;background:url(images/logo-footer.png) no-repeat left center/auto 46px}
+.fbrand__mark{height:46px;width:29px;flex:none;background:url(../images/logo-footer.png) no-repeat left center/auto 46px}
 .fbrand__txt{display:flex;flex-direction:column;line-height:1.05}
 .fbrand__txt b{font-family:'Poppins',sans-serif;font-weight:800;font-size:1.05rem;letter-spacing:.01em;text-transform:uppercase;color:#fff}
 .fbrand__txt b .g{color:var(--green)}
