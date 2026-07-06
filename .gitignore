@@ -1,18 +1,34 @@
-# Deploy / build artifacts
-*.zip
-.vercel/
-node_modules/
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
 
-# Old multi-page backup — not part of the live site
-_old_backup/
+# next.js
+/.next/
+/out/
 
-# Python cache
-__pycache__/
+# production
+/build
 
-# temp / diagnostic / backup files
-__resp_*
-__diag*
-__theme2_*
-index.backup.html
-index.before-rebuild.*.html
-index.prebuild.*.html
+# misc
+.DS_Store
+*.pem
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# local env files
+.env*.local
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+# vercel
+.vercel
+
+# local TLS root bundle (machine-specific) + server log
+.certs/
+.server.log

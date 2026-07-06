@@ -1,0 +1,4 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="125" height="52" viewBox="0 0 125 52" role="img" aria-label="Grand">
+  <path d="M20 12 L32 26 L20 40 L8 26 Z" fill="none" stroke="#c9962b" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="42" y="35" font-family="Poppins, Arial, sans-serif" font-size="23" font-weight="700" letter-spacing=".5" fill="#1f2a44">Grand</text>
+</svg>
