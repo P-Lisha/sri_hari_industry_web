@@ -156,13 +156,85 @@ export const PRODUCTS_BY_CAT: { cat: string; ico: string; products: Product[] }[
     products: PRODUCTS.filter((p) => p.cat === g.cat),
   }));
 
-/** Eight varied products shown as the featured grid (4×2) on the home page. */
-const FEATURED_NAMES = [
-  'Bulk Cooking Range', 'Chapati Making Machine', 'Wet Grinder', 'Work Table',
-  'Bain-Marie Counter', 'Cold Room', 'Deep Fryer', 'Steam Boiler',
+/** Category filter tabs shown above the featured product grid. */
+export const PFILTERS = ['All', 'Cooking', 'Preparation', 'Refrigeration', 'Washing', 'Storage'] as const;
+export type PFilter = (typeof PFILTERS)[number];
+export type PGroup = Exclude<PFilter, 'All'>;
+
+/** A featured product enriched with the info the premium card + modal need. */
+export interface Featured extends Product {
+  group: PGroup;
+  bestseller: boolean;
+  material: string;
+}
+
+/** Twelve featured products (4×3 desktop, 2-up mobile), spread across the
+    five filter groups so every tab shows real results. */
+const FEATURED_DEFS: { name: string; group: PGroup; bestseller?: boolean }[] = [
+  { name: 'Bulk Cooking Range', group: 'Cooking', bestseller: true },
+  { name: 'Deep Fryer', group: 'Cooking', bestseller: true },
+  { name: 'Tandoori', group: 'Cooking' },
+  { name: 'Wet Grinder', group: 'Preparation', bestseller: true },
+  { name: 'Veg Cutting Machine', group: 'Preparation' },
+  { name: 'Work Table', group: 'Preparation' },
+  { name: 'Cold Room', group: 'Refrigeration', bestseller: true },
+  { name: 'Work Top Freezer', group: 'Refrigeration' },
+  { name: 'Two Sink Unit', group: 'Washing' },
+  { name: 'Dish Washer', group: 'Washing' },
+  { name: 'Utility Trolley', group: 'Storage' },
+  { name: 'Pot Rack', group: 'Storage' },
 ];
-export const FEATURED: Product[] = FEATURED_NAMES
-  .map((n) => PRODUCTS.find((p) => p.name === n))
-  .filter((p): p is Product => Boolean(p));
+
+export const FEATURED: Featured[] = FEATURED_DEFS
+  .map((d) => {
+    const p = PRODUCTS.find((x) => x.name === d.name);
+    return p ? { ...p, group: d.group, bestseller: Boolean(d.bestseller), material: 'SS304' } : null;
+  })
+  .filter((p): p is Featured => Boolean(p));
+
+/** Typical use-cases shown as emoji tags under "Applications" on the detail page. */
+export const APPLICATIONS: { icon: string; label: string }[] = [
+  { icon: '🏨', label: 'Hotels' },
+  { icon: '🍽️', label: 'Restaurants' },
+  { icon: '🏥', label: 'Hospitals' },
+  { icon: '🏭', label: 'Industries' },
+  { icon: '🏫', label: 'Institutions' },
+  { icon: '🍲', label: 'Canteens' },
+];
+
+/** Homepage featured set — the four bestsellers (compact cards + View All). */
+export const HOME_FEATURED: Featured[] = FEATURED.filter((p) => p.bestseller).slice(0, 4);
+
+/** Find a single product by its slug. */
+export function getProduct(slug: string): Product | undefined {
+  return PRODUCTS.find((p) => p.slug === slug);
+}
+
+/** Up to `n` other products from the same category (for "Related Products"). */
+export function relatedProducts(slug: string, n = 4): Product[] {
+  const p = getProduct(slug);
+  if (!p) return [];
+  return PRODUCTS.filter((x) => x.cat === p.cat && x.slug !== slug).slice(0, n);
+}
+
+/** Technical-spec rows for the detail page. Uses the product's own specs when
+    defined and always includes truthful, non-fabricated stainless-steel
+    attributes — no invented weights/dimensions. */
+export function techSpecs(p: Product): Spec[] {
+  const rows: Spec[] = [];
+  const seen = new Set<string>();
+  const add = (label: string, value: string) => {
+    const key = label.toLowerCase();
+    if (seen.has(key)) return;
+    seen.add(key);
+    rows.push([label, value]);
+  };
+  add('Material', 'SS 304 food-grade stainless steel');
+  (p.specs ?? []).forEach(([k, v]) => add(k, v));
+  add('Build', 'Heavy-duty commercial grade');
+  add('Customisation', 'Custom sizes made to order');
+  add('Finish', 'Hygienic, rust-free stainless steel');
+  return rows;
+}
 
 export { titleCase };

@@ -15,6 +15,7 @@ export function IconSprite() {
       <symbol id="i-sparkles" viewBox="0 0 24 24"><path d="M12 3.5 13.9 9 19.5 10 13.9 11 12 16.5 10.1 11 4.5 10 10.1 9Z" /><path d="M18 5.5v2M5 16v2M19 17h1.5" /></symbol>
       <symbol id="i-cross" viewBox="0 0 24 24"><path d="M10 3a1 1 0 0 0-1 1v4H5a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h4v4a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-4h4a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1h-4V4a1 1 0 0 0-1-1Z" /></symbol>
       <symbol id="i-hat" viewBox="0 0 24 24"><path d="M6 13.9A4 4 0 0 1 7.4 6 5 5 0 0 1 16.6 6 4 4 0 0 1 18 13.9V20a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1Z" /><path d="M6 17h12" /></symbol>
+      <symbol id="i-cup" viewBox="0 0 24 24"><path d="M5 8h11v6a5 5 0 0 1-5 5h-1a5 5 0 0 1-5-5Z" /><path d="M16 9h2a2.5 2.5 0 0 1 0 5h-2" /><path d="M8 2.5v2M12 2.5v2" /></symbol>
       <symbol id="i-bag" viewBox="0 0 24 24"><path d="M6 2 3 6.5V20a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1V6.5L18 2Z" /><path d="M3 6.5h18" /><path d="M16 10a4 4 0 0 1-8 0" /></symbol>
       <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z" /><path d="m9 12 2 2 4-4" /></symbol>
       <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" /><path d="M12 7v5l3.5 2" /></symbol>

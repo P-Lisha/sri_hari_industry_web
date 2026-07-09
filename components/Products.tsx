@@ -1,40 +1,26 @@
 'use client';
 
 import { useCallback, useEffect, useState } from 'react';
-import { FEATURED, PRODUCTS, PRODUCTS_BY_CAT, PCATS, type Product } from '@/lib/data';
-import { waLink } from '@/lib/site';
+import {
+  HOME_FEATURED, PRODUCTS, PRODUCTS_BY_CAT, PCATS, APPLICATIONS, type Product,
+} from '@/lib/data';
+import { SITE, waLink } from '@/lib/site';
 import { Icon } from './Icons';
+import { ProductImg } from './ProductImg';
+import { ProductCard } from './ProductCard';
 
 function enquiry(p: Product) {
-  return waLink(`Hi, I am interested in the ${p.name}. Please share details & a quote.`);
+  return waLink(`Hi, I'm interested in the ${p.name}. Please share full details & a quote.`);
 }
 
-/* ---- image with graceful placeholder fallback ---- */
-function FallbackImg({
-  src, alt, className,
-}: { src: string; alt: string; className?: string }) {
-  const [err, setErr] = useState(false);
-  if (err) return null;
-  return (
-    // eslint-disable-next-line @next/next/no-img-element
-    <img
-      src={src}
-      alt={alt}
-      className={className}
-      loading="lazy"
-      onError={() => setErr(true)}
-    />
-  );
-}
-
+/** Featured products + full catalogue, all shown in popups (no separate pages). */
 export function Products() {
   const [open, setOpen] = useState(false);
   const [view, setView] = useState<'list' | 'detail'>('detail');
   const [current, setCurrent] = useState<Product | null>(null);
   const [from, setFrom] = useState<'' | 'catalogue'>('');
-  const [zoom, setZoom] = useState(false);
 
-  // lock body scroll while any overlay is open
+  // lock body scroll while the modal is open
   useEffect(() => {
     document.body.style.overflow = open ? 'hidden' : '';
     return () => {
@@ -42,7 +28,7 @@ export function Products() {
     };
   }, [open]);
 
-  const openDetail = useCallback((p: Product, origin: '' | 'catalogue') => {
+  const openDetail = useCallback((p: Product, origin: '' | 'catalogue' = '') => {
     setCurrent(p);
     setFrom(origin);
     setView('detail');
@@ -55,74 +41,59 @@ export function Products() {
     setOpen(true);
   }, []);
 
-  const close = useCallback(() => {
-    setOpen(false);
-    setZoom(false);
-  }, []);
+  const close = useCallback(() => setOpen(false), []);
 
   const back = useCallback(() => {
     if (from === 'catalogue') setView('list');
     else close();
   }, [from, close]);
 
-  // Esc closes zoom first, then the modal
+  // Esc closes the modal
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
-      if (e.key !== 'Escape') return;
-      if (zoom) setZoom(false);
-      else if (open) close();
+      if (e.key === 'Escape' && open) close();
     };
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
-  }, [zoom, open, close]);
+  }, [open, close]);
 
   return (
     <>
       <section className="sec" id="products">
         <div className="wrap">
           <div className="head reveal">
-            <span className="eyebrow">What We Manufacture</span>
-            <h2>Our Products</h2>
-            <p>Tap any product for full details &amp; a quick WhatsApp quote.</p>
+            <span className="eyebrow">Our Products</span>
+            <h2>Premium Commercial Kitchen Equipment</h2>
+            <p>
+              Food-grade stainless-steel equipment built for hotels, restaurants, hospitals and
+              institutional kitchens. Tap any product for full details &amp; a quick quote.
+            </p>
           </div>
 
-          <div className="pcat" id="pcatalog">
-            {FEATURED.map((p) => (
-              <button
-                className="pcard"
+          <div className="prodgrid prodgrid--home reveal">
+            {HOME_FEATURED.map((p) => (
+              <ProductCard
                 key={p.slug}
-                aria-label={p.name}
-                onClick={() => openDetail(p, '')}
-              >
-                <div className="pcard__media">
-                  <span className="pcard__tag">{p.cat}</span>
-                  <div className="pcard__ph">
-                    <Icon name="i-image" />
-                    <span>Photo coming soon</span>
-                  </div>
-                  <FallbackImg src={p.img} alt={p.name} />
-                </div>
-                <div className="pcard__body">
-                  <h3>{p.name}</h3>
-                  <p className="pcard__desc">{p.desc}</p>
-                  <span className="pcard__btn">View Details</span>
-                </div>
-              </button>
+                p={p}
+                bestseller={p.bestseller}
+                material={p.material}
+                onOpen={openDetail}
+              />
             ))}
           </div>
 
           <div className="ptools reveal">
             <button className="btn btn--blue" type="button" onClick={openCatalogue}>
-              View Full Catalogue →
+              View All Products →
             </button>
           </div>
         </div>
       </section>
 
-      {/* ---- Catalogue / detail modal ---- */}
+      {/* ---- Catalogue + detail popup ---- */}
       <div className={`modal${open ? ' open' : ''}`} aria-hidden={!open}>
         <div className="modal__bg" onClick={close} />
-        <div className="pmodal__box" role="dialog" aria-modal="true">
+        <div className={`pmodal__box${view === 'detail' ? ' pmodal__box--wide' : ''}`} role="dialog" aria-modal="true">
           <button className="modal__close" onClick={close} aria-label="Close">
             ×
           </button>
@@ -134,8 +105,8 @@ export function Products() {
                   <Icon name="i-pot" />
                 </span>
                 <div>
-                  <span className="eyebrow">Product Category</span>
-                  <h3>Full Product Catalogue</h3>
+                  <span className="eyebrow">Full Catalogue</span>
+                  <h3>All Products</h3>
                   <p>
                     All {PRODUCTS.length} models across {PCATS.length} categories — tap any product for details.
                   </p>
@@ -156,10 +127,7 @@ export function Products() {
                         onClick={() => openDetail(p, 'catalogue')}
                       >
                         <div className="pmtile__media">
-                          <div className="pmtile__ph">
-                            <Icon name="i-image" />
-                          </div>
-                          <FallbackImg src={p.img} alt={p.name} />
+                          <ProductImg src={p.img} alt={p.name} />
                         </div>
                         <h4>{p.name}</h4>
                       </button>
@@ -172,58 +140,56 @@ export function Products() {
 
           {view === 'detail' && current && (
             <div>
-              <button className="pmback" onClick={back}>
-                <svg className="ic" viewBox="0 0 24 24">
-                  <path d="M19 12H5M11 18l-6-6 6-6" />
-                </svg>
-                <span>{from === 'catalogue' ? 'Back to Catalogue' : 'Back'}</span>
-              </button>
-              <div className="pmdetail">
-                <div
-                  className="pmdetail__img"
-                  title="Click to zoom"
-                  onClick={() => setZoom(true)}
-                >
-                  <div className="pmdetail__ph">
-                    <Icon name="i-image" />
-                    <span>Product photo</span>
-                  </div>
-                  <FallbackImg key={current.slug} src={current.img} alt={current.name} />
-                  <span className="pmdetail__zoom" aria-hidden="true">
-                    <svg className="ic" viewBox="0 0 24 24">
-                      <circle cx="11" cy="11" r="7" />
-                      <path d="M21 21l-4.35-4.35M11 8.5v5M8.5 11h5" />
-                    </svg>
-                  </span>
+              {from === 'catalogue' && (
+                <button className="pmback" onClick={back}>
+                  <svg className="ic" viewBox="0 0 24 24">
+                    <path d="M19 12H5M11 18l-6-6 6-6" />
+                  </svg>
+                  <span>Back to Catalogue</span>
+                </button>
+              )}
+
+              <div className="pdp pdp--modal">
+                <div className="pdp__media">
+                  <span className="pdp__mat">SS304</span>
+                  <ProductImg key={current.slug} src={current.img} alt={current.name} className="pdp__img" />
                 </div>
-                <div className="pmdetail__info">
+
+                <div className="pdp__info">
                   <span className="eyebrow">{current.cat}</span>
                   <h3>{current.name}</h3>
-                  <p>{current.desc}</p>
-                  {current.specs && current.specs.length > 0 && (
-                    <div className="mspecs" style={{ display: 'grid' }}>
-                      {current.specs.map(([k, v]) => (
-                        <div key={k}>
-                          <span>{k}</span>
-                          <b>{v}</b>
-                        </div>
-                      ))}
-                    </div>
-                  )}
-                  <h4 className="pmspectitle">Specifications</h4>
-                  <ul className="pmfeat">
+                  <div className="pdp__stars" aria-label="Rated 5 out of 5">
+                    <span aria-hidden="true">★★★★★</span>
+                    <small>Trusted commercial-grade quality</small>
+                  </div>
+                  <p className="pdp__lead">{current.desc}</p>
+
+                  <h4 className="pdp__h">Specifications</h4>
+                  <ul className="pdp__specs">
                     {current.feat.map((f) => (
                       <li key={f}>{f}</li>
                     ))}
                   </ul>
-                  <div className="modal__cta">
-                    <a
-                      className="btn btn--g"
-                      href={enquiry(current)}
-                      target="_blank"
-                      rel="noopener"
-                    >
-                      WhatsApp Enquiry
+
+                  <h4 className="pdp__h">Applications</h4>
+                  <div className="pdp__apps">
+                    {APPLICATIONS.map((a) => (
+                      <span className="pdp__app" key={a.label}>
+                        <i aria-hidden="true">{a.icon}</i>
+                        {a.label}
+                      </span>
+                    ))}
+                  </div>
+
+                  <div className="pdp__actions">
+                    <a className="btn btn--g" href={enquiry(current)} target="_blank" rel="noopener">
+                      WhatsApp Quote
+                    </a>
+                    <a className="btn btn--blue" href={`tel:${SITE.phoneHref}`}>
+                      Call Now
+                    </a>
+                    <a className="btn btn--line" href={SITE.brochure} target="_blank" rel="noopener">
+                      Download Brochure
                     </a>
                   </div>
                 </div>
@@ -231,21 +197,6 @@ export function Products() {
             </div>
           )}
         </div>
-      </div>
-
-      {/* ---- Image zoom lightbox ---- */}
-      <div
-        className={`pzoom${zoom ? ' open' : ''}`}
-        aria-hidden={!zoom}
-        onClick={() => setZoom(false)}
-      >
-        <button className="pzoom__close" aria-label="Close" onClick={() => setZoom(false)}>
-          ×
-        </button>
-        {zoom && current && (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img src={current.img} alt={current.name} onClick={(e) => e.stopPropagation()} />
-        )}
       </div>
     </>
   );
