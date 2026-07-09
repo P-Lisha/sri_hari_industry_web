@@ -264,7 +264,7 @@ a{text-decoration:none;color:inherit}img{display:block;max-width:100%}
 .ccats .ccard:nth-child(4n+4) .ccard__ico{background:var(--blue-soft);color:var(--blue-d)}
 
 /* ---------- Product cards (search results) ---------- */
-.pcat{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;align-items:start}
+.pcat{display:grid;grid-template-columns:repeat(5,1fr);gap:1.5rem;align-items:stretch}
 .pcard{position:relative;background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;cursor:pointer;text-align:left;padding:0;font:inherit;color:inherit;width:100%;display:flex;flex-direction:column;transition:var(--t)}
 .pcard:hover{transform:translateY(-6px);box-shadow:var(--shadow);border-color:transparent}
 .pcard__media{position:relative;aspect-ratio:4/3;background:#fff;overflow:hidden;border-bottom:1px solid var(--line)}
@@ -324,10 +324,12 @@ a{text-decoration:none;color:inherit}img{display:block;max-width:100%}
 .pempty svg{width:54px;height:54px;color:var(--line);stroke-width:1.3;margin-bottom:.8rem}
 .pempty b{display:block;color:var(--slate);font-family:var(--font-poppins);font-size:1.05rem;margin-bottom:.3rem}
 @media(max-width:1050px){.ccats{grid-template-columns:repeat(3,1fr)}}
-@media(max-width:1080px){.pcat{grid-template-columns:repeat(3,1fr)}}
-@media(max-width:900px){.ccats{grid-template-columns:repeat(2,1fr)}.pcat{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:1080px){.pcat{grid-template-columns:repeat(4,1fr)}}
+@media(max-width:900px){.ccats{grid-template-columns:repeat(2,1fr)}.pcat{grid-template-columns:repeat(3,1fr)}
+  /* a lone last card in a 3-up row sits centered, not stranded left */
+  .pcat .pcard:last-child:nth-child(3n+1){grid-column:2}}
 @media(max-width:680px){.pmgrid{grid-template-columns:repeat(2,1fr)}.pmodal__box{padding:1.5rem}.pmdetail{grid-template-columns:1fr;gap:1.2rem}.pmdetail__img{min-height:230px}}
-@media(max-width:520px){.ccats{grid-template-columns:1fr}.pcat{grid-template-columns:1fr}}
+@media(max-width:520px){.ccats{grid-template-columns:1fr}.pcat{grid-template-columns:repeat(3,1fr)}}
 
 /* ---------- Detail modal: placeholder + specs + product mode ---------- */
 .modal__ph{position:absolute;inset:0;z-index:0;display:flex;flex-direction:column;gap:.55rem;align-items:center;justify-content:center;color:rgba(255,255,255,.6);background:linear-gradient(135deg,var(--blue-d2),var(--blue))}
@@ -564,8 +566,9 @@ a{text-decoration:none;color:inherit}img{display:block;max-width:100%}
 @media(max-width:640px){
   .pfilters{flex-wrap:nowrap;justify-content:flex-start;overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:.5rem;margin-inline:-4%;padding-inline:4%;scrollbar-width:none}
   .pfilters::-webkit-scrollbar{display:none}
+  /* featured product grid stays 3-up on phones */
   .pfilter{flex:0 0 auto}
-  .pcat{grid-template-columns:1fr}
+  .pcat{grid-template-columns:repeat(3,1fr)}
 }
 
 /* ===========================================================
@@ -643,89 +646,178 @@ body::before{
 .pills .pill:nth-child(4) .ic{color:#86e4a4}
 
 /* ===========================================================
-   "How We Work" → PROCESS: clean LIGHT horizontal timeline
-   Six steps in a row: white navy-icon circle + gold step-number
-   badge, linked by one thin connector line. No dark band, no
-   glow, no charts — matches the light page and the navy+gold
-   brand. Markup: components/Process.tsx (.ptl / .ptl__step).
+   "How We Work" → PROCESS: night-navy CIRCUIT BOARD journey
+   Six glowing "ports" (discs with floating 3D objects) joined by
+   right-angled PCB traces. Via pads twinkle at the bends and a
+   bright gold signal pulse races trace-by-trace from step 1 → 6
+   forever. Desktop: one row, discs alternate high/low. ≤900px:
+   two per row; the trace SNAKES (right, right-angle U-turn down
+   the edge, left, down again) — low scroll.
+   Each disc holds a Fluent-3D render (MIT) that bobs gently on
+   real 3D depth; hover tilts the disc and speeds the float.
+   Connector geometry is % / var-based so it survives any width.
+   Markup: components/Process.tsx (.pflow / .pstep / .parc).
    =========================================================== */
-/* animatable angle for the rotating conic ring around each step icon */
+/* animatable angle for the spinning brand ring behind each disc */
 @property --ang{syntax:'<angle>';initial-value:0deg;inherits:false}
 
-#process{position:relative;overflow:hidden;background:linear-gradient(180deg,#fbfcfe,#f2f6fc)}
+/* NIGHT-MAP band: deep navy between the two light-blue sections —
+   the glowing route + gold traveller read like GPS navigation at
+   night. Blue aurora top-left, warm gold haze bottom-right. */
+#process{position:relative;overflow:hidden;padding:2.4rem 0;color:var(--on-navy);
+  background:
+    radial-gradient(900px 460px at 10% -5%,rgba(58,110,210,.38),transparent 65%),
+    radial-gradient(820px 460px at 92% 105%,rgba(246,178,27,.16),transparent 62%),
+    linear-gradient(180deg,#0a1730,#0e2148 55%,#0a1730)}
+/* cartography dot-grid, faded at the edges — the "map paper" */
+#process::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+  background-image:radial-gradient(rgba(150,185,240,.14) 1px,transparent 1.4px);
+  background-size:26px 26px;
+  -webkit-mask:radial-gradient(ellipse at 50% 45%,#000 25%,transparent 80%);
+          mask:radial-gradient(ellipse at 50% 45%,#000 25%,transparent 80%)}
+#process .wrap{position:relative;z-index:1}
+/* headings flip to night colours */
+#process .head{margin-bottom:1rem}
+#process .head h2{color:#fff}
+#process .head p{color:var(--on-navy-2)}
+#process .eyebrow--y{background:rgba(246,178,27,.16);color:var(--yellow)}
 
-.ptl{list-style:none;position:relative;display:grid;grid-template-columns:repeat(6,1fr);
-  gap:1.6rem 1.2rem;margin:2.6rem 0 0;padding:0}
-/* connector = a faint static track (::before, draws in) + a bright energy
-   pulse that keeps travelling left->right along it (::after) */
-.ptl::before{content:"";position:absolute;top:34px;left:calc(100%/12);right:calc(100%/12);height:2px;transform-origin:left center;
-  background:linear-gradient(90deg,transparent,var(--blue) 10%,var(--blue) 90%,transparent);opacity:.18;z-index:0}
-.ptl::after{content:"";position:absolute;top:32.5px;left:calc(100%/12);right:calc(100%/12);height:3px;border-radius:3px;z-index:0;opacity:0;
-  background:linear-gradient(90deg,transparent 40%,var(--yellow) 46%,var(--green) 50%,var(--blue) 54%,transparent 60%);
-  background-size:260% 100%;filter:blur(.4px)}
-.ptl.in::after{opacity:.9;animation:ptlFlow 3.4s linear .9s infinite}
-@keyframes ptlFlow{from{background-position:120% 0}to{background-position:-70% 0}}
+/* --pd = disc diameter, --pgx/--pgy = grid gaps; the connector
+   geometry below is computed from these, so change them here only */
+.pflow{list-style:none;margin:1.9rem 0 0;padding:0;--pd:112px;--pgx:1.1rem;
+  display:grid;grid-template-columns:repeat(6,1fr);gap:1.5rem var(--pgx)}
+.pstep{position:relative;display:flex;flex-direction:column;align-items:center;text-align:center}
+/* the wave: even steps sit 52px lower (margin, not transform, so the
+   entrance animation below doesn't fight it) */
+.pstep:nth-child(even){margin-top:52px}
 
-.ptl__step{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;text-align:center}
-.ptl__mark{position:relative;width:68px;height:68px;margin-bottom:1.15rem}
-/* rotating conic-gradient halo hugging the icon circle (brand navy→green→gold) */
-.ptl__mark::before{content:"";position:absolute;inset:-5px;border-radius:50%;z-index:0;opacity:.5;
-  background:conic-gradient(from var(--ang),var(--blue),var(--green),var(--yellow),var(--blue));
-  -webkit-mask:radial-gradient(farthest-side,transparent calc(100% - 4px),#000 calc(100% - 3px));
-          mask:radial-gradient(farthest-side,transparent calc(100% - 4px),#000 calc(100% - 3px));
-  transition:opacity var(--t)}
-.ptl.in .ptl__mark::before{animation:ptlSpin 8s linear infinite}
-@keyframes ptlSpin{to{--ang:360deg}}
-.ptl__step:hover .ptl__mark::before{opacity:1;animation-duration:2.4s}
-.ptl__ico{position:absolute;inset:0;border-radius:50%;display:grid;place-items:center;
-  background:#fff;border:1.5px solid var(--line);color:var(--blue);
-  box-shadow:0 10px 24px -14px rgba(11,26,74,.5);transition:var(--t)}
-.ptl__ico svg{width:28px;height:28px;stroke:currentColor;fill:none;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round}
-.ptl__step:hover .ptl__ico{transform:translateY(-4px);border-color:transparent;color:#fff;
-  background:linear-gradient(135deg,var(--blue),var(--blue-d));box-shadow:0 16px 30px -14px rgba(42,83,165,.6)}
-/* gold step-number badge on the circle corner */
-.ptl__num{position:absolute;top:-4px;right:-4px;min-width:26px;height:26px;padding:0 7px;border-radius:50px;
+/* ---- the circuit traces ----------------------------------------
+   Each connector SVG spans from this disc's centre to the next
+   disc's centre: left:50% + width:(100% + gap) ends exactly at the
+   neighbouring column's 50%. Height/top place the endpoints on the
+   disc centres (trace y=10/62 inside the 72-high viewBox). */
+.parc{position:absolute;z-index:0;pointer-events:none;overflow:visible}
+.parc--w{top:calc(var(--pd)/2 - 10px);left:50%;width:calc(100% + var(--pgx));height:72px}
+.pstep:nth-child(even) .parc--w{top:calc(var(--pd)/2 - 62px)}
+.parc--m{display:none}
+/* PCB trace: dim solid copper-light track (the right-angle bends
+   live in the path data); via pads — zero-length round-cap dashes,
+   so they stay perfect screen-size circles — glow at the bends */
+.parc__trace{stroke:rgba(130,175,250,.33);stroke-width:2.5}
+.parc__via{stroke:rgba(175,208,255,.95);stroke-width:7;
+  filter:drop-shadow(0 0 4px rgba(140,190,255,.9))}
+.pflow.in .parc__via{animation:viaTwinkle 3.75s ease-in-out infinite}
+@keyframes viaTwinkle{0%,100%{opacity:.5}50%{opacity:1}}
+/* the signal: a 12-unit gold pulse swept across by dashoffset.
+   All five traces share one 7.5s clock; the per-step delays hand
+   the pulse from one trace to the next, so a single signal appears
+   to race 1 → 6 forever. */
+.parc__run{stroke:var(--yellow);stroke-width:4.5;stroke-dasharray:12 488;stroke-dashoffset:12;opacity:0;
+  filter:drop-shadow(0 0 7px rgba(246,178,27,1))}
+.pflow.in .parc__run{opacity:1;animation:parcRun 7.5s linear infinite}
+@keyframes parcRun{0%{stroke-dashoffset:12}20%{stroke-dashoffset:-100}100%{stroke-dashoffset:-100}}
+.pstep:nth-child(1) .parc__run{animation-delay:.4s}
+.pstep:nth-child(2) .parc__run{animation-delay:1.9s}
+.pstep:nth-child(3) .parc__run{animation-delay:3.4s}
+.pstep:nth-child(4) .parc__run{animation-delay:4.9s}
+.pstep:nth-child(5) .parc__run{animation-delay:6.4s}
+
+/* ---- the 3D disc (embossed "map pin" button) ---- */
+.pstep__node{position:relative;z-index:1;width:var(--pd);height:var(--pd);margin-bottom:1.1rem;
+  transform-style:preserve-3d;--rx:0deg;--ry:0deg;
+  transform:perspective(640px) rotateX(var(--rx)) rotateY(var(--ry));
+  transition:transform .45s cubic-bezier(.22,.61,.36,1)}
+.pstep__node:hover{transition-duration:.08s}
+/* partial brand ring behind the disc — a different angle per step
+   (rotate by --i), spins when hovered */
+.pstep__ring{display:none;position:absolute;inset:-8px;border-radius:50%;opacity:.95;
+  background:conic-gradient(from var(--ang),
+    var(--blue) 0 148deg,transparent 148deg 170deg,
+    var(--yellow) 170deg 240deg,transparent 240deg 262deg,
+    var(--green) 262deg 318deg,transparent 318deg 360deg);
+  -webkit-mask:radial-gradient(farthest-side,transparent calc(100% - 9px),#000 calc(100% - 8px));
+          mask:radial-gradient(farthest-side,transparent calc(100% - 9px),#000 calc(100% - 8px));
+  transform:translateZ(-12px) rotate(calc(var(--i,0)*57deg));transition:opacity var(--t)}
+.pstep__node:hover .pstep__ring{opacity:1;animation:pRingSpin 2.6s linear infinite}
+@keyframes pRingSpin{to{--ang:360deg}}
+/* glowing circuit "port": dished navy disc on a white rim with blue
+   glow; the 3D object floats ABOVE it on real depth (translateZ) and
+   bobs gently. No overflow clip — the renders are transparent PNGs.
+   (inset shadows paint under children, so the dish shading never
+   dims the floating object) */
+.pstep__face{position:absolute;inset:0;display:grid;place-items:center;
+  transform-style:preserve-3d;
+  transform:translateZ(16px);transition:var(--t)}
+.pstep__face img{width:124%;height:124%;object-fit:contain;
+  filter:drop-shadow(0 14px 12px rgba(0,0,0,.5));
+  transform:translateZ(38px);transition:filter var(--t)}
+/* gentle 3D float, staggered per step so the row feels alive */
+.pflow.in .pstep__face img{animation:p3dFloat 3.6s ease-in-out calc(var(--i,0)*.45s) infinite}
+@keyframes p3dFloat{0%,100%{transform:translateZ(38px) scale(1)}
+  50%{transform:translateZ(38px) scale(1.04)}}
+.pstep__node:hover .pstep__face{transform:translateZ(24px)}
+.pstep__node:hover .pstep__face img{animation-duration:1.7s;
+  filter:drop-shadow(0 18px 16px rgba(0,0,0,.55)) drop-shadow(0 0 14px rgba(246,178,27,.4))}
+/* gold step-number badge floating above everything */
+.pstep__num{position:absolute;top:-7px;right:-8px;min-width:32px;height:32px;padding:0 8px;border-radius:50px;
   display:grid;place-items:center;background:linear-gradient(135deg,var(--yellow),var(--yellow-d));color:#3a2900;
-  font-family:var(--font-poppins),system-ui,sans-serif;font-weight:800;font-size:.74rem;
-  box-shadow:0 6px 14px -6px rgba(221,142,0,.75);border:2px solid #fff}
-.ptl__step h3{font-family:var(--font-poppins),system-ui,sans-serif;font-size:1.02rem;color:var(--slate);
-  margin:0 0 .35rem;line-height:1.25}
-.ptl__step p{color:var(--muted);font-size:.85rem;line-height:1.5;max-width:180px;margin:0}
+  font-family:var(--font-poppins),system-ui,sans-serif;font-weight:800;font-size:.78rem;
+  border:2px solid #fff;box-shadow:0 8px 16px -7px rgba(221,142,0,.8);transform:translateZ(72px)}
+.pstep h3{font-family:var(--font-poppins),system-ui,sans-serif;font-size:.98rem;color:#fff;
+  margin:0 0 .3rem;line-height:1.22}
+.pstep p{color:var(--on-navy-2);font-size:.8rem;line-height:1.5;max-width:220px;margin:0 auto}
 
-@media(max-width:1050px){.ptl{grid-template-columns:repeat(3,1fr);gap:2.2rem 1.4rem}.ptl::before,.ptl::after{display:none}}
-@media(max-width:640px){.ptl{grid-template-columns:1fr 1fr;gap:1.8rem 1rem}.ptl__step p{max-width:210px}}
-@media(max-width:400px){.ptl{grid-template-columns:1fr}.ptl__step p{max-width:280px}}
+/* ---- ≤900px: two per row, route snakes down the page -----------
+   Row 1 runs 1→2 left-to-right, the route U-turns down the right
+   edge to 3, row 2 runs 3→4 right-to-left, U-turns down the left
+   edge to 5, row 3 runs 5→6 left-to-right. grid-auto-rows:1fr keeps
+   every row the same height so the % -based vertical connectors
+   land exactly on the next disc's centre. */
+/* ---- ≤900px: two per row, the route serpentines down the page ---- */
+@media(max-width:900px){
+  .pflow{grid-template-columns:repeat(2,1fr);grid-auto-rows:1fr;--pd:104px;--pgx:1.5rem;--pgy:2rem;
+    gap:var(--pgy) var(--pgx);margin-top:2.4rem}
+  .pstep:nth-child(even){margin-top:0}
+  .pstep:nth-child(3){grid-column:2;grid-row:2}
+  .pstep:nth-child(4){grid-column:1;grid-row:2}
+  .pstep:nth-child(5){grid-column:1;grid-row:3}
+  .pstep:nth-child(6){grid-column:2;grid-row:3}
+  .parc--w{display:none}
+  .parc--m{display:block}
+  .parc--m-h{top:calc(var(--pd)/2 - 20px);left:50%;width:calc(100% + var(--pgx));height:40px}
+  .parc--m-hl{top:calc(var(--pd)/2 - 20px);left:calc(-50% - var(--pgx));width:calc(100% + var(--pgx));
+    height:40px;transform:scaleX(-1)}
+  .parc--m-v{top:calc(var(--pd)/2);left:calc(50% - 14px);width:90px;height:calc(100% + var(--pgy))}
+  .pstep:nth-child(4) .parc--m-v{left:calc(50% - 76px);transform:scaleX(-1)}
+  .pstep__num{min-width:28px;height:28px;font-size:.7rem;top:-6px;right:-6px}
+  .pstep h3{font-size:.93rem}
+  .pstep p{font-size:.78rem;line-height:1.5;max-width:none}
+}
 
-/* ---- staggered step entrance: each step fades + slides up in sequence,
-        the connector line draws in left->right. `.ptl` gets `.in` from
-        ScrollReveal; its own box is kept static so the per-step cascade
-        reads cleanly (no competing block-fade). ---- */
-.js .ptl.reveal{opacity:1;transform:none;transition:none}
-.js .ptl:not(.in) .ptl__step{opacity:0}
-/* one --d delay per step drives the whole cascade (text slides up, icon
-   springs in with an overshoot, gold badge pops last) */
-.ptl.in .ptl__step:nth-child(1){--d:.06s}
-.ptl.in .ptl__step:nth-child(2){--d:.16s}
-.ptl.in .ptl__step:nth-child(3){--d:.26s}
-.ptl.in .ptl__step:nth-child(4){--d:.36s}
-.ptl.in .ptl__step:nth-child(5){--d:.46s}
-.ptl.in .ptl__step:nth-child(6){--d:.56s}
-.ptl.in .ptl__step{animation:ptlIn .6s var(--t) var(--d,0s) backwards}
-.ptl.in .ptl__mark{animation:ptlPop .6s cubic-bezier(.34,1.56,.64,1) var(--d,0s) backwards}
-.ptl.in .ptl__num{animation:ptlBadge .55s cubic-bezier(.34,1.56,.64,1) calc(var(--d,0s) + .14s) backwards}
-@keyframes ptlIn{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
-@keyframes ptlPop{from{opacity:0;transform:scale(.4)}to{opacity:1;transform:scale(1)}}
-@keyframes ptlBadge{from{opacity:0;transform:scale(0) rotate(-35deg)}to{opacity:1;transform:scale(1) rotate(0)}}
-/* connector line draws in behind the cascading steps (desktop only) */
-.js .ptl:not(.in)::before{transform:scaleX(0)}
-.ptl.in::before{animation:ptlLine .7s var(--t) .1s backwards}
-@keyframes ptlLine{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+/* ---- entrance cascade: discs pop out of the page one by one,
+   then the route fades in behind them. .pflow gets .in from
+   ScrollReveal; its own box stays static so the per-step cascade
+   reads cleanly. --i (inline per step) drives the stagger. ---- */
+.js .pflow.reveal{opacity:1;transform:none;transition:none}
+.js .pflow:not(.in) .pstep{opacity:0}
+.js .pflow:not(.in) .parc{opacity:0}
+.pflow.in .pstep{animation:pstepIn .65s cubic-bezier(.22,.61,.36,1) calc(var(--i,0)*.1s) backwards}
+.pflow.in .pstep__node{animation:pstepPop .7s cubic-bezier(.34,1.56,.64,1) calc(var(--i,0)*.1s) backwards}
+.pflow.in .pstep__num{animation:pstepBadge .5s cubic-bezier(.34,1.56,.64,1) calc(var(--i,0)*.1s + .25s) backwards}
+.pflow.in .parc{animation:parcIn .6s ease calc(var(--i,0)*.1s + .45s) backwards}
+@keyframes pstepIn{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}
+@keyframes pstepPop{from{transform:perspective(640px) translateZ(-90px) rotateX(-30deg)}
+  to{transform:perspective(640px) rotateX(0deg) rotateY(0deg)}}
+@keyframes pstepBadge{from{opacity:0;transform:translateZ(72px) scale(0) rotate(-40deg)}
+  to{opacity:1;transform:translateZ(72px) scale(1) rotate(0deg)}}
+@keyframes parcIn{from{opacity:0}to{opacity:1}}
+
 @media(prefers-reduced-motion:reduce){
-  .ptl.in .ptl__step,.ptl.in .ptl__mark,.ptl.in .ptl__num,
-  .ptl.in .ptl__mark::before,.ptl.in::before,.ptl.in::after{animation:none}
-  .ptl.in::after{opacity:0}
-  .js .ptl:not(.in) .ptl__step{opacity:1;transform:none}
-  .js .ptl:not(.in)::before{transform:none}
+  /* the global reduce rule kills all animations; make sure nothing
+     is left hidden or tilted, and park the gold comet off-path */
+  .js .pflow:not(.in) .pstep,.js .pflow:not(.in) .parc{opacity:1}
+  .pstep__node,.pstep__node:hover{transform:none;transition:none}
+  .parc__run{opacity:0}
 }
 
 /* ---- Stats: one slim panel, inline figures separated by dividers ---- */
@@ -756,16 +848,16 @@ html,body{max-width:100%;overflow-x:hidden}
 .stat:hover{background:linear-gradient(140deg,var(--blue),var(--blue-d));transform:translateY(-8px);box-shadow:0 34px 60px -26px rgba(14,44,92,.7)}
 
 /* ===========================================================
-   COMPACT PRODUCTS ON MOBILE (less scroll: 2-up, smaller, no desc)
+   COMPACT PRODUCTS ON MOBILE (less scroll: 3-up, smaller, no desc)
    =========================================================== */
 @media(max-width:640px){
-  .pcat{grid-template-columns:repeat(2,1fr)!important;gap:.7rem}
+  .pcat{grid-template-columns:repeat(3,1fr)!important;gap:.6rem}
   .pcat .pcard__media img{padding:0}
-  .pcat .pcard__body{padding:.7rem .8rem .85rem;gap:.25rem}
-  .pcat .pcard__body h3{font-size:.9rem;line-height:1.2}
+  .pcat .pcard__body{padding:.5rem .55rem .6rem;gap:.2rem}
+  .pcat .pcard__body h3{font-size:.78rem;line-height:1.18}
   .pcat .pcard__desc{display:none}
-  .pcat .pcard__tag{font-size:.56rem;padding:.26rem .52rem}
-  .pcat .pcard__btn{font-size:.76rem;margin-top:.35rem;padding-top:.5rem}
+  .pcat .pcard__tag{font-size:.5rem;padding:.22rem .44rem}
+  .pcat .pcard__btn{font-size:.68rem;margin-top:.3rem;padding-top:.45rem}
 }
 
 /* ===========================================================
@@ -839,10 +931,10 @@ html,body{max-width:100%;overflow-x:hidden}
 /* category chip — technical spec-badge style */
 .pcat .pcard__tag{position:absolute;top:10px;left:10px;z-index:3;max-width:calc(100% - 20px);background:rgba(255,255,255,.96);color:var(--blue-d);font-family:var(--font-poppins);font-weight:700;font-size:.58rem;letter-spacing:.055em;text-transform:uppercase;padding:.32rem .66rem;border-radius:6px;box-shadow:0 2px 8px rgba(11,26,74,.16);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 /* structured body: name, short line, real CTA button */
-.pcat .pcard__body{padding:.85rem .9rem .9rem;display:flex;flex-direction:column;gap:.3rem;flex:1}
-.pcat .pcard__body h3{color:var(--slate);font-family:var(--font-poppins);font-weight:700;font-size:.95rem;line-height:1.24;margin:0}
-.pcat .pcard__desc{color:var(--muted);font-size:.78rem;line-height:1.45;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-.pcat .pcard__btn{margin-top:.7rem;display:inline-flex;align-items:center;justify-content:center;gap:.4rem;width:100%;padding:.56rem .9rem;border-radius:9px;background:var(--blue-soft);color:var(--blue-d);font-family:var(--font-poppins);font-weight:700;font-size:.78rem;letter-spacing:.01em;transition:var(--t)}
+.pcat .pcard__body{padding:.65rem .8rem .75rem;display:flex;flex-direction:column;gap:.22rem;flex:1}
+.pcat .pcard__body h3{color:var(--slate);font-family:var(--font-poppins);font-weight:700;font-size:.9rem;line-height:1.25;margin:0;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;min-height:2.5em}
+.pcat .pcard__desc{color:var(--muted);font-size:.76rem;line-height:1.4;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.pcat .pcard__btn{margin-top:auto;display:inline-flex;align-items:center;justify-content:center;gap:.4rem;width:100%;padding:.5rem .9rem;border-radius:9px;background:var(--blue-soft);color:var(--blue-d);font-family:var(--font-poppins);font-weight:700;font-size:.76rem;letter-spacing:.01em;transition:var(--t)}
 .pcat .pcard__btn::after{content:"→";transition:transform var(--t)}
 .pcat .pcard:hover .pcard__btn{background:linear-gradient(135deg,var(--blue),var(--blue-d));color:#fff;box-shadow:0 10px 20px -10px rgba(42,83,165,.6)}
 .pcat .pcard:hover .pcard__btn::after{transform:translateX(4px)}
@@ -858,7 +950,7 @@ html,body{max-width:100%;overflow-x:hidden}
 .pmdetail .modal__cta .btn{flex:1 1 auto;justify-content:center}
 
 /* Shorter product cards */
-.pcat .pcard__media{aspect-ratio:4/3}
+.pcat .pcard__media{aspect-ratio:16/10}
 .ptools{display:flex;justify-content:center;margin-top:1.9rem}
 .pmcat-h{grid-column:1/-1;display:flex;align-items:center;gap:.5rem;font-family:var(--font-poppins);font-weight:700;font-size:.96rem;color:var(--blue-d);margin:1.1rem 0 .1rem;padding-bottom:.5rem;border-bottom:1px solid var(--line)}
 .pmcat-h:first-child{margin-top:0}
@@ -901,12 +993,20 @@ html,body{max-width:100%;overflow-x:hidden}
    MOBILE FEATURED CARD — square media, compact clean body
    =========================================================== */
 @media(max-width:640px){
-  .pcat .pcard__media{aspect-ratio:4/3}
+  .pcat .pcard__media{aspect-ratio:1/1}
   .pcat .pcard__media img{padding:0}
   .pcat .pcard__desc{display:none}
-  .pcat .pcard__body{padding:.6rem .7rem .7rem;gap:.15rem}
-  .pcat .pcard__body h3{font-size:.86rem}
-  .pcat .pcard__btn{margin-top:.4rem;font-size:.74rem}
+  .pcat .pcard__body{padding:.45rem .5rem .55rem;gap:.12rem}
+  .pcat .pcard__body h3{font-size:.76rem;line-height:1.16}
+  .pcat .pcard__btn{margin-top:auto;font-size:.62rem;padding:.4rem .35rem;gap:.2rem;white-space:nowrap}
+}
+/* very small phones: keep 3-up readable */
+@media(max-width:400px){
+  .pcat{gap:.45rem}
+  .pcat .pcard__body{padding:.4rem .42rem .48rem}
+  .pcat .pcard__body h3{font-size:.7rem}
+  .pcat .pcard__tag{font-size:.46rem;padding:.2rem .38rem}
+  .pcat .pcard__btn{font-size:.62rem}
 }
 
 /* ===========================================================
@@ -1002,52 +1102,96 @@ html,body{max-width:100%;overflow-x:hidden}
 /* ===========================================================
    CLIENTS — industry icon cards + rating bar + testimonial stars
    =========================================================== */
-/* Industries We Serve — premium clickable light tiles: gradient
-   icon badge with glow, colour-coded accent, staggered scroll-in
-   + subtle idle icon float. Each tile → pre-filled WhatsApp enquiry. */
-#industries{position:relative;overflow:hidden}
+/* Industries We Serve — premium 12-col BENTO showcase:
+   3 photo feature cards (real install shots, navy scrim, glass icon
+   chip) + 9 compact glass sector chips + 1 navy CTA card. Split
+   header with gradient-text fact chips. Staggered scroll-in + idle
+   icon float. Every card → pre-filled WhatsApp enquiry. */
+#industries{position:relative;overflow:hidden;padding:clamp(1.5rem,3vw,2rem) 0}
 #industries::before{content:"";position:absolute;top:-8%;left:50%;transform:translateX(-50%);width:min(920px,94%);height:440px;background:radial-gradient(ellipse at 50% 40%,rgba(42,83,165,.10),transparent 68%);pointer-events:none;z-index:0}
+#industries::after{content:"";position:absolute;bottom:-140px;right:-90px;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,rgba(246,178,27,.16),transparent 70%);filter:blur(46px);pointer-events:none}
 #industries .wrap{position:relative;z-index:1}
 
-.inds{display:grid;grid-template-columns:repeat(4,1fr);gap:.85rem;margin-top:2rem}
-.indtile{position:relative;display:flex;flex-direction:column;align-items:center;text-align:center;gap:.6rem;padding:1.25rem .9rem 1.05rem;background:linear-gradient(165deg,#fff,var(--soft));border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow-sm);color:inherit;text-decoration:none;cursor:pointer;transition:var(--t);overflow:hidden}
-.indtile::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;background:currentColor;opacity:0;transform:scaleX(.35);transition:var(--t)}
-.indtile:hover{transform:translateY(-6px);box-shadow:0 26px 46px -22px color-mix(in srgb,currentColor 55%,rgba(11,26,74,.4));border-color:color-mix(in srgb,currentColor 40%,transparent)}
-.indtile:hover::after{opacity:1;transform:scaleX(1)}
-.indtile__ico{width:50px;height:50px;border-radius:15px;display:grid;place-items:center;color:inherit;box-shadow:inset 0 0 0 1px color-mix(in srgb,currentColor 16%,transparent),0 10px 20px -12px color-mix(in srgb,currentColor 55%,transparent);transition:var(--t)}
-.indtile__ico .ic{width:24px;height:24px;stroke-width:1.7;animation:indFloat 5s ease-in-out infinite}
-.indtile:hover .indtile__ico{background:currentColor;color:#fff;transform:scale(1.07) rotate(-4deg);box-shadow:0 14px 28px -8px color-mix(in srgb,currentColor 60%,transparent)}
-.indtile b{font-family:var(--font-poppins);font-weight:600;font-size:.84rem;color:var(--slate);line-height:1.28}
-.indtile__cue{font-family:var(--font-poppins);font-weight:600;font-size:.72rem;letter-spacing:.02em;color:currentColor;display:inline-flex;align-items:center;gap:.28rem;opacity:0;transform:translateY(5px);transition:var(--t)}
-.indtile:hover .indtile__cue{opacity:1;transform:none}
-/* colour tones (drive icon colour, badge gradient tint + accent + glow) */
-.indtile--blue{color:var(--blue)}   .indtile--blue   .indtile__ico{background:linear-gradient(150deg,var(--blue-soft),#fff)}
-.indtile--green{color:var(--green-d)}.indtile--green  .indtile__ico{background:linear-gradient(150deg,var(--green-soft),#fff)}
-.indtile--yellow{color:var(--yellow-d)}.indtile--yellow .indtile__ico{background:linear-gradient(150deg,var(--yellow-soft),#fff)}
-.indtile--red{color:var(--red)}     .indtile--red    .indtile__ico{background:linear-gradient(150deg,var(--red-soft),#fff)}
+/* split header — copy left, fact chips right */
+.indhead{display:flex;align-items:flex-end;justify-content:space-between;gap:1.6rem;margin-bottom:1rem}
+.indhead h2{font-size:clamp(1.8rem,4vw,2.4rem);color:var(--slate);margin:.55rem 0 .45rem}
+.indhead h2 em{font-style:normal;background:linear-gradient(120deg,var(--blue),var(--green));-webkit-background-clip:text;background-clip:text;color:transparent}
+.indhead p{color:var(--muted);max-width:560px}
+.indhead__facts{display:flex;gap:.8rem;flex:none}
+.fact{min-width:112px;text-align:center;padding:.6rem 1rem;background:rgba(255,255,255,.75);backdrop-filter:blur(8px);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow-sm)}
+.fact b{display:block;font-family:var(--font-poppins);font-weight:800;font-size:1.35rem;line-height:1.15;background:linear-gradient(120deg,var(--blue-d),var(--blue));-webkit-background-clip:text;background-clip:text;color:transparent}
+.fact span{font-size:.72rem;font-weight:600;letter-spacing:.03em;color:var(--muted)}
+
+/* image-free tile grid: uniform sector tiles auto-fill 4/3/2-up,
+   CTA card spans the whole closing row */
+.bento{display:grid;grid-template-columns:repeat(auto-fill,minmax(232px,1fr));gap:.8rem}
+
+/* uniform premium sector tiles — icon badge, name, one-liner + hover cue */
+.itile{position:relative;isolation:isolate;overflow:hidden;display:flex;flex-direction:column;gap:.45rem;min-height:0;padding:.85rem 1rem;background:rgba(255,255,255,.82);backdrop-filter:blur(6px);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow-sm);cursor:pointer;transition:var(--t)}
+.itile::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;background:currentColor;opacity:0;transform:scaleX(.35);transform-origin:left;transition:var(--t)}
+.itile:hover{transform:translateY(-6px);border-color:color-mix(in srgb,currentColor 40%,transparent);box-shadow:0 24px 44px -22px color-mix(in srgb,currentColor 55%,rgba(11,26,74,.4))}
+.itile:hover::after{opacity:.9;transform:none}
+.itile__ico{flex:none;width:44px;height:44px;border-radius:12px;display:grid;place-items:center;color:currentColor;box-shadow:inset 0 0 0 1px color-mix(in srgb,currentColor 16%,transparent);transition:var(--t)}
+.itile__ico .ic{width:22px;height:22px;stroke-width:1.7;animation:indFloat 5s ease-in-out infinite}
+.itile:hover .itile__ico{background:currentColor;color:#fff;transform:scale(1.06) rotate(-4deg)}
+.itile__body{display:flex;flex-direction:column;gap:.12rem}
+.itile__body b{font-family:var(--font-poppins);font-weight:700;font-size:1.02rem;color:var(--slate);line-height:1.25}
+.itile__sub{color:var(--muted);font-size:.82rem;line-height:1.4}
+/* colour tones (drive icon colour, badge tint, accent bar + hover glow) */
+.itile--blue{color:var(--blue)}     .itile--blue   .itile__ico{background:linear-gradient(150deg,var(--blue-soft),#fff)}
+.itile--green{color:var(--green-d)}  .itile--green  .itile__ico{background:linear-gradient(150deg,var(--green-soft),#fff)}
+.itile--yellow{color:var(--yellow-d)}.itile--yellow .itile__ico{background:linear-gradient(150deg,var(--yellow-soft),#fff)}
+.itile--red{color:var(--red)}       .itile--red    .itile__ico{background:linear-gradient(150deg,var(--red-soft),#fff)}
+
+/* navy CTA card closing the grid (spans the full row) */
+.bcta{grid-column:1/-1;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:space-between;gap:1.2rem;padding:.7rem 1.2rem;border-radius:14px;color:#fff;background:linear-gradient(135deg,var(--blue-d2),var(--blue-d) 60%,var(--blue));box-shadow:var(--shadow-sm)}
+.bcta::after{content:"";position:absolute;top:-60%;right:-6%;width:240px;height:240px;border-radius:50%;background:radial-gradient(circle,rgba(246,178,27,.35),transparent 70%);pointer-events:none}
+.bcta__txt b{display:block;font-family:var(--font-poppins);font-weight:700;font-size:1rem}
+.bcta__txt p{color:var(--on-navy);font-size:.84rem;margin:.1rem 0 0;max-width:520px}
+.bcta .btn{flex:none;position:relative;z-index:1;padding:.6rem 1.2rem;font-size:.85rem}
+
 /* staggered scroll-in (container gets .in from ScrollReveal) */
-.js .inds:not(.in) .indtile{opacity:0;transform:translateY(18px)}
-.inds.in .indtile{animation:indIn .55s backwards}
-.inds.in .indtile:nth-child(1){animation-delay:.02s}
-.inds.in .indtile:nth-child(2){animation-delay:.07s}
-.inds.in .indtile:nth-child(3){animation-delay:.12s}
-.inds.in .indtile:nth-child(4){animation-delay:.17s}
-.inds.in .indtile:nth-child(5){animation-delay:.22s}
-.inds.in .indtile:nth-child(6){animation-delay:.27s}
-.inds.in .indtile:nth-child(7){animation-delay:.32s}
-.inds.in .indtile:nth-child(8){animation-delay:.37s}
-.inds.in .indtile:nth-child(9){animation-delay:.42s}
-.inds.in .indtile:nth-child(10){animation-delay:.47s}
-.inds.in .indtile:nth-child(11){animation-delay:.52s}
-.inds.in .indtile:nth-child(12){animation-delay:.57s}
+.js .bento:not(.in)>*{opacity:0;transform:translateY(18px)}
+.bento.in>*{animation:indIn .55s backwards}
+.bento.in>*:nth-child(1){animation-delay:.02s}
+.bento.in>*:nth-child(2){animation-delay:.07s}
+.bento.in>*:nth-child(3){animation-delay:.12s}
+.bento.in>*:nth-child(4){animation-delay:.17s}
+.bento.in>*:nth-child(5){animation-delay:.22s}
+.bento.in>*:nth-child(6){animation-delay:.27s}
+.bento.in>*:nth-child(7){animation-delay:.32s}
+.bento.in>*:nth-child(8){animation-delay:.37s}
+.bento.in>*:nth-child(9){animation-delay:.42s}
+.bento.in>*:nth-child(10){animation-delay:.47s}
+.bento.in>*:nth-child(11){animation-delay:.52s}
+.bento.in>*:nth-child(12){animation-delay:.57s}
+.bento.in>*:nth-child(13){animation-delay:.62s}
 /* desync the idle float so it reads organic, not a synced wave */
-.indtile:nth-child(2n) .ic{animation-delay:-1.4s}
-.indtile:nth-child(3n) .ic{animation-delay:-2.7s}
+.itile:nth-of-type(2n) .ic{animation-delay:-1.4s}
+.itile:nth-of-type(3n) .ic{animation-delay:-2.7s}
 @keyframes indIn{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
 @keyframes indFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-2.5px)}}
-@media(max-width:860px){.inds{grid-template-columns:repeat(3,1fr)}}
-@media(max-width:600px){.inds{grid-template-columns:repeat(2,1fr);gap:.8rem}.indtile{padding:1.5rem .8rem 1.2rem;gap:.7rem}.indtile__ico{width:54px;height:54px}}
-@media(prefers-reduced-motion:reduce){.indtile__ico .ic,.inds.in .indtile{animation:none}.js .inds:not(.in) .indtile{opacity:1;transform:none}}
+@media(max-width:900px){
+  .indhead{flex-direction:column;align-items:flex-start;gap:.9rem}
+  .bcta{flex-wrap:wrap}
+}
+@media(max-width:640px){
+  .bento{grid-template-columns:repeat(2,1fr);gap:.65rem}
+  .itile{min-height:108px;padding:.8rem .85rem}
+  .itile__ico{width:40px;height:40px}
+  .itile__ico .ic{width:21px;height:21px}
+  .itile__body b{font-size:.92rem}
+  .itile__sub{font-size:.76rem}
+  .indhead__facts{width:100%}
+  .fact{flex:1;min-width:0}
+}
+@media(max-width:380px){
+  .bento{grid-template-columns:1fr}
+}
+@media(prefers-reduced-motion:reduce){
+  .itile__ico .ic,.bento.in>*{animation:none}
+  .js .bento:not(.in)>*{opacity:1;transform:none}
+}
 
 /* ---- Clients — BOLD dark showcase band: navy gradient + green glow,
    frosted-white glass cards, logos grayscale -> full colour on hover ---- */
@@ -1155,3 +1299,191 @@ html,body{max-width:100%;overflow-x:hidden}
 #contact{background:linear-gradient(180deg,#eaf1fd,#dfeaf8)}    /* blue  */
 #clients{background:linear-gradient(160deg,var(--navy) 0%,var(--navy-2) 100%)} /* BOLD dark band */
 #about{background:linear-gradient(180deg,#fbfcfe,#f2f6fc)}      /* white */
+
+/* ===========================================================
+   PREMIUM INDUSTRIAL PRODUCT CARDS  (v2)
+   3-up desktop / 2-up mobile · floating image · badges ·
+   feature checklist · gradient CTA. Uses fresh .prod* classes
+   so none of the legacy .pcat/.pcard rules interfere.
+   =========================================================== */
+.prodgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem;align-items:stretch}
+
+.procard{position:relative;display:flex;flex-direction:column;text-align:left;padding:0;margin:0;font:inherit;color:inherit;cursor:pointer;background:#fff;border:1px solid #e5e7eb;border-radius:20px;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,.08);transition:transform .38s var(--t),box-shadow .38s var(--t),border-color .38s var(--t)}
+.procard:hover{transform:translateY(-8px);box-shadow:0 28px 52px -18px rgba(11,26,74,.30);border-color:rgba(42,83,165,.35)}
+
+/* media panel: soft gradient, product image floats & contains */
+.procard__media{position:relative;height:140px;display:flex;align-items:center;justify-content:center;padding:.8rem;background:linear-gradient(160deg,#f7f9fc,#e9eef7);border-bottom:1px solid #eef1f6;overflow:hidden}
+.procard__img{position:relative;z-index:1;max-width:88%;max-height:116px;object-fit:contain;border-radius:8px;filter:drop-shadow(0 12px 16px rgba(11,26,74,.22));transition:transform .55s var(--t)}
+.procard:hover .procard__img{transform:scale(1.05)}
+.procard__ph{position:absolute;inset:0;z-index:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.5rem;color:var(--ph)}
+.procard__ph .ic{width:46px;height:46px;stroke-width:1.3}
+.procard__ph span{font-size:.7rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase}
+
+/* badges — bestseller (glows on hover) + material chip */
+.procard__badge{position:absolute;top:12px;z-index:3;font-family:var(--font-poppins);font-weight:700;font-size:.6rem;letter-spacing:.05em;text-transform:uppercase;padding:.34rem .62rem;border-radius:50px;box-shadow:0 4px 10px rgba(11,26,74,.14);transition:box-shadow .38s var(--t)}
+.procard__badge--star{left:12px;display:inline-flex;align-items:center;gap:.28rem;background:linear-gradient(135deg,#ffb62e,#ff8f00);color:#402700}
+.procard__badge--mat{right:12px;background:rgba(255,255,255,.97);color:var(--blue-d)}
+.procard:hover .procard__badge--star{box-shadow:0 0 0 3px rgba(255,176,32,.30),0 8px 16px rgba(255,143,0,.5)}
+
+/* body */
+.procard__body{display:flex;flex-direction:column;gap:.4rem;padding:.8rem .9rem .9rem;flex:1}
+.procard__cat{font-family:var(--font-poppins);font-weight:700;font-size:.65rem;letter-spacing:.08em;text-transform:uppercase;color:var(--blue)}
+.procard__name{margin:0;font-family:var(--font-poppins);font-weight:600;font-size:1.04rem;line-height:1.22;color:var(--slate);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;min-height:2.44em}
+.procard__feats{list-style:none;margin:.08rem 0 0;padding:0;display:flex;flex-direction:column;gap:.3rem}
+.procard__feats li{position:relative;padding-left:1.4rem;font-size:.78rem;line-height:1.3;color:var(--muted)}
+.procard__feats li::before{content:"✓";position:absolute;left:0;top:.02rem;display:inline-flex;align-items:center;justify-content:center;width:1rem;height:1rem;border-radius:50%;background:var(--blue-soft);color:var(--blue-d);font-size:.62rem;font-weight:800}
+.procard__btn{margin-top:auto;display:inline-flex;align-items:center;justify-content:center;gap:.45rem;width:100%;padding:.56rem .8rem;border-radius:11px;background:linear-gradient(135deg,var(--blue),var(--blue-d));color:#fff;font-family:var(--font-poppins);font-weight:700;font-size:.82rem;letter-spacing:.01em;box-shadow:0 10px 20px -12px rgba(42,83,165,.75);transition:filter .3s var(--t),box-shadow .3s var(--t)}
+.procard__arrow{font-style:normal;transition:transform var(--t)}
+.procard:hover .procard__btn{filter:brightness(1.06);box-shadow:0 16px 30px -12px rgba(42,83,165,.85)}
+.procard:hover .procard__arrow{transform:translateX(5px)}
+
+/* staggered entrance */
+.prodgrid .procard{animation:cardIn .5s var(--t) both}
+.prodgrid .procard:nth-child(4n+2){animation-delay:.05s}
+.prodgrid .procard:nth-child(4n+3){animation-delay:.1s}
+.prodgrid .procard:nth-child(4n+4){animation-delay:.15s}
+
+/* ---- Applications list in the detail modal ---- */
+.pmapps{list-style:none;margin:.1rem 0 .3rem;padding:0;display:flex;flex-wrap:wrap;gap:.5rem}
+.pmapps li{display:inline-flex;align-items:center;gap:.4rem;font-size:.86rem;font-weight:600;color:var(--blue-d);background:var(--blue-soft);border:1px solid rgba(42,83,165,.16);padding:.34rem .72rem;border-radius:50px}
+.pmapps li::before{content:"";width:.42rem;height:.42rem;border-radius:50%;background:var(--blue)}
+
+/* ---- responsive: 3-up → 2-up (tablet & mobile) ---- */
+@media(max-width:1200px){.prodgrid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:991px){
+  .prodgrid{grid-template-columns:repeat(2,1fr);gap:1rem}
+  .procard__media{height:158px}
+  .procard__img{max-height:132px}
+  .procard__name{font-size:1.12rem}
+}
+@media(max-width:640px){
+  .prodgrid{gap:.85rem}
+  .procard{border-radius:16px}
+  .procard__media{height:120px;padding:.7rem}
+  .procard__img{max-height:100px;max-width:92%}
+  .procard__body{padding:.85rem .9rem .95rem;gap:.45rem}
+  .procard__cat{font-size:.64rem;letter-spacing:.06em}
+  .procard__name{font-size:1.02rem;min-height:2.5em}
+  .procard__feats{gap:.34rem}
+  .procard__feats li{font-size:.78rem;padding-left:1.4rem}
+  .procard__feats li:nth-child(3){display:none}   /* 2 features on mobile */
+  .procard__feats li::before{width:1rem;height:1rem;font-size:.62rem}
+  .procard__btn{padding:.58rem .8rem;font-size:.82rem;border-radius:10px}
+  .procard__badge{font-size:.52rem;padding:.28rem .5rem;top:9px}
+  .procard__badge--star{left:9px}
+  .procard__badge--mat{right:9px}
+  .pmapps li{font-size:.78rem;padding:.3rem .6rem}
+}
+@media(max-width:359px){
+  /* only very narrow phones drop to a single column */
+  .procard__media{height:150px}
+  .procard__name{font-size:.98rem}
+}
+
+/* ===========================================================
+   MULTI-PAGE: card-as-link, /products catalogue, detail page
+   =========================================================== */
+a.procard{text-decoration:none}
+
+/* missing-photo placeholder (reusable ProductImg) */
+.prodimg-ph{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.4rem;color:var(--ph);background:linear-gradient(160deg,#f7f9fc,#e9eef7)}
+.prodimg-ph .ic{width:38px;height:38px;stroke-width:1.3}
+.prodimg-ph span{font-size:.64rem;font-weight:600;letter-spacing:.03em;text-transform:uppercase}
+
+/* homepage featured: 4-up wide → 2-up (keeps 4 items in clean rows).
+   Stays 2-up on normal phones to keep the homepage short (2×2); only very
+   narrow (<360px) drops to 1-up. */
+.prodgrid--home{grid-template-columns:repeat(4,1fr)}
+@media(max-width:991px){.prodgrid--home{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:359px){.prodgrid--home{grid-template-columns:1fr}}
+
+/* full catalogue grid: 2-up on phones, 1-up only on very narrow screens */
+@media(max-width:359px){.prodgrid{grid-template-columns:1fr}}
+
+/* outline button for "Download Brochure" on light backgrounds */
+.btn--line{border-color:rgba(42,83,165,.4);color:var(--blue-d);background:#fff}
+.btn--line:hover{background:var(--blue-soft);border-color:var(--blue);transform:translateY(-3px)}
+
+/* ---- sub-page shell (sticky nav is in-flow; just add breathing room) ---- */
+.subpage{padding-top:1.2rem}
+.catpage h1,.pdp__info h1{font-family:var(--font-poppins);font-weight:800;color:var(--slate)}
+.catpage h1{font-size:clamp(1.9rem,4vw,2.6rem);line-height:1.1}
+
+/* ---- /products catalogue: search + filter bar ---- */
+.catbar{display:flex;flex-direction:column;gap:1.1rem;margin-bottom:1.9rem}
+.catsearch{position:relative;width:100%;max-width:460px;margin:0 auto}
+.catsearch .ic{position:absolute;left:1rem;top:50%;transform:translateY(-50%);width:20px;height:20px;color:var(--muted);pointer-events:none}
+.catsearch input{width:100%;padding:.85rem 1rem .85rem 2.9rem;border:1.5px solid var(--line);border-radius:50px;background:#fff;font:inherit;font-size:.95rem;color:var(--ink);transition:var(--t)}
+.catsearch input:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 4px rgba(42,83,165,.12)}
+.catfilters{margin-bottom:0}
+.catempty{text-align:center;color:var(--muted);padding:2.5rem 1rem;font-size:1rem}
+.catcount{text-align:center;color:var(--muted);font-size:.85rem;margin-top:1.6rem}
+
+/* ---- product detail page ---- */
+.pdp-wrap{padding-bottom:1rem}
+.pdp-back{display:inline-flex;align-items:center;gap:.5rem;margin:0 0 1.4rem;color:var(--blue-d);font-family:var(--font-poppins);font-weight:700;font-size:.9rem;text-decoration:none;transition:var(--t)}
+.pdp-back .ic{width:18px;height:18px}
+.pdp-back:hover{gap:.75rem;color:var(--blue)}
+
+.pdp{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:2.5rem;align-items:start}
+.pdp__media{position:relative;aspect-ratio:1/1;max-height:420px;display:flex;align-items:center;justify-content:center;padding:1.6rem;background:linear-gradient(160deg,#f7f9fc,#e9eef7);border:1px solid var(--line);border-radius:20px;overflow:hidden}
+.pdp__img{max-width:92%;max-height:100%;object-fit:contain;filter:drop-shadow(0 20px 26px rgba(11,26,74,.24))}
+.pdp__mat{position:absolute;top:14px;right:14px;z-index:2;background:rgba(255,255,255,.97);color:var(--blue-d);font-family:var(--font-poppins);font-weight:700;font-size:.66rem;letter-spacing:.05em;padding:.36rem .66rem;border-radius:50px;box-shadow:0 4px 10px rgba(11,26,74,.14)}
+
+.pdp__info{display:flex;flex-direction:column}
+.pdp__info .eyebrow{color:var(--blue);font-weight:700}
+.pdp__info h1{font-size:clamp(1.7rem,3.4vw,2.4rem);line-height:1.14;margin:.35rem 0 .5rem}
+.pdp__stars{display:flex;align-items:center;gap:.6rem;margin-bottom:.9rem;flex-wrap:wrap}
+.pdp__stars span{color:#ffb020;font-size:1.05rem;letter-spacing:.12em}
+.pdp__stars small{color:var(--muted);font-size:.82rem}
+.pdp__lead{color:var(--muted);font-size:1rem;line-height:1.65;margin:0 0 1.3rem}
+.pdp__h{font-family:var(--font-poppins);font-weight:700;font-size:1.05rem;color:var(--blue-d);margin:0 0 .75rem;padding-bottom:.5rem;border-bottom:1px solid var(--line)}
+
+.pdp__specs{list-style:none;margin:0 0 1.5rem;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:.55rem .9rem}
+.pdp__specs li{position:relative;padding-left:1.7rem;font-size:.9rem;line-height:1.4;color:var(--ink)}
+.pdp__specs li::before{content:"✓";position:absolute;left:0;top:0;display:inline-flex;align-items:center;justify-content:center;width:1.2rem;height:1.2rem;border-radius:50%;background:var(--blue-soft);color:var(--blue-d);font-size:.72rem;font-weight:800}
+
+.pdp__apps{display:flex;flex-wrap:wrap;gap:.55rem;margin-bottom:1.7rem}
+.pdp__app{display:inline-flex;align-items:center;gap:.4rem;background:#fff;border:1px solid var(--line);border-radius:50px;padding:.42rem .82rem;font-size:.85rem;font-weight:600;color:var(--slate);box-shadow:0 3px 8px -4px rgba(11,26,74,.18)}
+.pdp__app i{font-style:normal;font-size:1rem;line-height:1}
+
+.pdp__actions{display:flex;flex-wrap:wrap;gap:.7rem}
+.pdp__actions .btn{flex:1 1 auto;justify-content:center;padding:.82rem 1.2rem;font-size:.9rem}
+
+.pdp__tech{margin-top:2.6rem}
+.pdp__tech table{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.pdp__tech tr:not(:last-child){border-bottom:1px solid var(--line)}
+.pdp__tech th{text-align:left;width:34%;padding:.85rem 1.1rem;font-family:var(--font-poppins);font-weight:700;font-size:.86rem;color:var(--blue-d);background:var(--blue-soft);vertical-align:top}
+.pdp__tech td{padding:.85rem 1.1rem;font-size:.9rem;color:var(--ink)}
+.pdp__note{margin:1rem 0 0;color:var(--muted);font-size:.86rem}
+.pdp__note a{color:var(--blue-d);font-weight:700}
+
+.related{margin-top:2.8rem}
+
+@media(max-width:820px){
+  .pdp{grid-template-columns:1fr;gap:1.4rem}
+  .pdp__media{max-height:320px;aspect-ratio:16/10}
+}
+@media(max-width:560px){
+  .pdp__specs{grid-template-columns:1fr}
+  .pdp__actions .btn{flex:1 1 100%}
+  .pdp__tech th{width:44%}
+}
+
+/* ===========================================================
+   PRODUCT DETAIL SHOWN INSIDE THE POPUP (compact side-by-side)
+   =========================================================== */
+.pmodal__box--wide{max-width:900px}
+.pdp--modal{gap:1.9rem}
+.pdp--modal .pdp__media{aspect-ratio:auto;height:clamp(210px,26vw,290px);max-height:none;border-radius:16px}
+.pdp--modal .pdp__info h3{font-family:var(--font-poppins);font-weight:800;color:var(--slate);font-size:clamp(1.35rem,2.6vw,1.85rem);line-height:1.15;margin:.3rem 0 .5rem}
+.pdp--modal .pdp__lead{font-size:.92rem;line-height:1.6;margin-bottom:1rem}
+.pdp--modal .pdp__h{font-size:1rem;margin-bottom:.6rem}
+.pdp--modal .pdp__specs{gap:.5rem .8rem;margin-bottom:1.1rem}
+.pdp--modal .pdp__apps{margin-bottom:1.2rem}
+.pdp--modal .pdp__actions .btn{padding:.7rem 1rem;font-size:.86rem}
+@media(max-width:760px){
+  .pdp--modal{grid-template-columns:1fr;gap:1.1rem}
+  .pdp--modal .pdp__media{height:200px;aspect-ratio:16/10}
+  .pdp--modal .pdp__specs{grid-template-columns:1fr}
+}

@@ -1,107 +1,98 @@
 /* ===========================================================
-   SRI HARI INDUSTRIES — "Our Process" (clean light timeline)
+   SRI HARI INDUSTRIES — "Our Process" (up/down wave timeline)
    -----------------------------------------------------------
-   Six steps in a single row: a white circle holding a navy line
-   icon, a gold step-number badge on the corner, and a title +
-   one-line description below — all linked by one thin connector
-   line. Light and on-brand (navy + gold), no dark band / glow.
-   Styling lives in globals.css under #process / .ptl*.
+   Six steps in one row; discs alternate high/low and a signal
+   pulse races trace-by-trace 1→6. Each step holds a floating
+   3D object (public/images/process/*-f.png — cleaned, equal-
+   sized isometric renders) that tilts toward the cursor.
+   Phones: two per row, the route serpentines down the page.
+   Styling lives in globals.css under #process / .pflow / .pstep.
    EDIT STEP CONTENT in STEPS below.
    =========================================================== */
+'use client';
 
-import type { ReactNode } from 'react';
+import type { CSSProperties, PointerEvent } from 'react';
 
-/* shared attrs for the 24×24 line glyphs inside each circle.
-   Two-tone: navy stroke (currentColor) + a gold-filled accent shape
-   per icon. Accents set their own fill/stroke inline so the global
-   `fill:none` on .ptl__ico svg doesn't flatten them. */
-const gAttr = {
-  viewBox: '0 0 24 24',
-  fill: 'none',
-  stroke: 'currentColor',
-  strokeLinecap: 'round' as const,
-  strokeLinejoin: 'round' as const,
-  'aria-hidden': true,
-};
-
-/* brand gold used for every icon's accent (matches --yellow) */
-const GOLD = '#f6b21b';
-
-const STEPS: { title: string; text: string; icon: ReactNode }[] = [
+const STEPS: { title: string; text: string; img: string }[] = [
   {
     title: 'Consultation',
     text: 'Understanding your operational requirements and kitchen workflow.',
-    icon: (
-      <svg {...gAttr}>
-        {/* speech bubble with a tail + gold "typing" dots */}
-        <path d="M6 4h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-7l-4 3.5V16H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Z" />
-        <circle cx="9" cy="10" r="1.15" fill={GOLD} stroke="none" />
-        <circle cx="12" cy="10" r="1.15" fill={GOLD} stroke="none" />
-        <circle cx="15" cy="10" r="1.15" fill={GOLD} stroke="none" />
-      </svg>
-    ),
+    img: '/images/process/meeting-f.png',
   },
   {
     title: 'Design',
     text: 'Planning customised kitchen layouts and equipment configurations.',
-    icon: (
-      <svg {...gAttr}>
-        {/* floor-plan sheet with internal walls + a gold placed unit */}
-        <rect x="3.5" y="4" width="17" height="16" rx="2" />
-        <path d="M3.5 11h7M10.5 11V4M14 20v-5M14 15h6.5" />
-        <rect x="5" y="14.4" width="3.6" height="3.2" rx="0.6" fill={GOLD} stroke="none" />
-      </svg>
-    ),
+    img: '/images/process/cad-f.png',
   },
   {
     title: 'Manufacturing',
     text: 'Precision fabrication using advanced machinery and quality materials.',
-    icon: (
-      <svg {...gAttr}>
-        {/* gear body with rim teeth + gold hub */}
-        <circle cx="12" cy="12" r="6.4" />
-        <path d="M12 5.6V3M12 21v-2.6M18.4 12H21M3 12h2.6M16.53 7.47l1.84-1.84M5.63 18.37l1.84-1.84M16.53 16.53l1.84 1.84M5.63 5.63l1.84 1.84" />
-        <circle cx="12" cy="12" r="2.5" fill={GOLD} stroke="none" />
-      </svg>
-    ),
+    img: '/images/process/laser-cutting-f.png',
   },
   {
     title: 'Quality Inspection',
     text: 'Every product is thoroughly inspected before dispatch.',
-    icon: (
-      <svg {...gAttr}>
-        {/* shield + gold tick */}
-        <path d="M12 2.5 4.5 5.5v5.5c0 4.6 3.2 8.3 7.5 9.5 4.3-1.2 7.5-4.9 7.5-9.5V5.5L12 2.5Z" />
-        <path d="M8.4 12.2 11 14.8l4.7-4.9" fill="none" stroke={GOLD} strokeWidth={2.1} />
-      </svg>
-    ),
+    img: '/images/process/inspection-f.png',
   },
   {
     title: 'Delivery & Installation',
     text: 'Safe transportation, professional installation and commissioning.',
-    icon: (
-      <svg {...gAttr}>
-        {/* delivery truck with a gold cargo package inside */}
-        <path d="M2.5 7.5h10.5v6.5H2.5z" />
-        <path d="M13 10h4l3 3v1h-7z" />
-        <circle cx="6" cy="16.2" r="1.7" />
-        <circle cx="16" cy="16.2" r="1.7" />
-        <rect x="4.6" y="9" width="4" height="3.7" rx="0.5" fill={GOLD} stroke="none" />
-      </svg>
-    ),
+    img: '/images/process/installation-f.png',
   },
   {
     title: 'After-Sales Support',
     text: 'Prompt maintenance and technical assistance for uninterrupted performance.',
-    icon: (
-      <svg {...gAttr}>
-        {/* wrench + gold service sparkle */}
-        <path d="M14.5 6.2a3.8 3.8 0 0 0-5 4.9L3.9 16.7a2 2 0 0 0 2.8 2.8l5.6-5.6a3.8 3.8 0 0 0 4.9-5l-2.6 2.6-2.2-.4-.4-2.2 2.5-2.5Z" />
-        <path d="M18.8 15.4c.35 1.5.75 1.9 2.25 2.25-1.5.35-1.9.75-2.25 2.25-.35-1.5-.75-1.9-2.25-2.25 1.5-.35 1.9-.75 2.25-2.25z" fill={GOLD} stroke="none" />
-      </svg>
-    ),
+    img: '/images/process/support-final.png',
   },
 ];
+
+/* per-step phone connector kind: h = right, v = U-turn down, hl = left */
+const M_ARCS = ['h', 'v', 'hl', 'v', 'h'] as const;
+
+const pathProps = {
+  fill: 'none',
+  strokeLinecap: 'round' as const,
+  vectorEffect: 'non-scaling-stroke' as const,
+  pathLength: 100,
+};
+
+function Arc({ cls, viewBox, d, vias }: { cls: string; viewBox: string; d: string; vias: string }) {
+  return (
+    <svg className={`parc ${cls}`} viewBox={viewBox} preserveAspectRatio="none" aria-hidden>
+      <path className="parc__trace" d={d} {...pathProps} />
+      <path className="parc__via" d={vias} fill="none" strokeLinecap="round" vectorEffect="non-scaling-stroke" />
+      <path className="parc__run" d={d} {...pathProps} />
+    </svg>
+  );
+}
+
+/* desktop wave: high→low / low→high traces with a rounded mid bend */
+const W_HILO = 'M0,10 H38 Q46,10 46,18 V54 Q46,62 54,62 H100';
+const W_LOHI = 'M0,62 H38 Q46,62 46,54 V18 Q46,10 54,10 H100';
+const W_VIAS = 'M46,18 h.01 M46,54 h.01';
+/* phone horizontal jog */
+const M_H = 'M0,20 H30 Q36,20 36,14 Q36,8 42,8 H58 Q64,8 64,14 Q64,20 70,20 H100';
+const M_H_VIAS = 'M42,8 h.01 M58,8 h.01';
+/* phone vertical U-turn */
+const M_V = 'M14,0 H60 Q68,0 68,8 V92 Q68,100 60,100 H14';
+const M_V_VIAS = 'M68,8 h.01 M68,92 h.01';
+
+/* Tilt the hovered 3D object toward the cursor (mouse only). */
+function tilt(e: PointerEvent<HTMLDivElement>) {
+  if (e.pointerType !== 'mouse') return;
+  const node = e.currentTarget;
+  const r = node.getBoundingClientRect();
+  const px = (e.clientX - r.left) / r.width; // 0..1
+  const py = (e.clientY - r.top) / r.height; // 0..1
+  node.style.setProperty('--ry', `${(px - 0.5) * 20}deg`);
+  node.style.setProperty('--rx', `${(0.5 - py) * 20}deg`);
+}
+
+function reset(e: PointerEvent<HTMLDivElement>) {
+  const node = e.currentTarget;
+  node.style.setProperty('--rx', '0deg');
+  node.style.setProperty('--ry', '0deg');
+}
 
 export function Process() {
   return (
@@ -113,12 +104,32 @@ export function Process() {
           <p>From concept to complete kitchen solution.</p>
         </div>
 
-        <ol className="ptl reveal">
+        <ol className="pflow reveal">
           {STEPS.map((s, i) => (
-            <li className="ptl__step" key={s.title}>
-              <div className="ptl__mark">
-                <span className="ptl__ico">{s.icon}</span>
-                <b className="ptl__num">{String(i + 1).padStart(2, '0')}</b>
+            <li className="pstep" key={s.title} style={{ '--i': i } as CSSProperties}>
+              {i < 5 && (
+                <>
+                  <Arc
+                    cls="parc--w"
+                    viewBox="0 0 100 72"
+                    d={i % 2 === 0 ? W_HILO : W_LOHI}
+                    vias={W_VIAS}
+                  />
+                  <Arc
+                    cls={`parc--m parc--m-${M_ARCS[i]}`}
+                    viewBox={M_ARCS[i] === 'v' ? '0 0 90 100' : '0 0 100 40'}
+                    d={M_ARCS[i] === 'v' ? M_V : M_H}
+                    vias={M_ARCS[i] === 'v' ? M_V_VIAS : M_H_VIAS}
+                  />
+                </>
+              )}
+              <div className="pstep__node" onPointerMove={tilt} onPointerLeave={reset}>
+                <span className="pstep__ring" aria-hidden />
+                <span className="pstep__face">
+                  {/* decorative: the adjacent <h3> names the step */}
+                  <img src={s.img} alt="" loading="lazy" width={480} height={480} />
+                </span>
+                <b className="pstep__num">{String(i + 1).padStart(2, '0')}</b>
               </div>
               <h3>{s.title}</h3>
               <p>{s.text}</p>
