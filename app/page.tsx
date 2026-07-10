@@ -1,7 +1,6 @@
 import { TopBar } from '@/components/TopBar';
 import { Nav } from '@/components/Nav';
 import { Hero } from '@/components/Hero';
-import { Pills } from '@/components/Pills';
 import { Stats } from '@/components/Stats';
 import { Products } from '@/components/Products';
 import { Process } from '@/components/Process';
@@ -22,14 +21,13 @@ export default function Home() {
       <Nav />
       <main>
         <Hero />
-        <Pills />
+        <About />
         <Stats />
         <Products />
         <Process />
         <Services />
-        <Clients />
         <Gallery />
-        <About />
+        <Clients />
         <Contact />
       </main>
       <Footer />

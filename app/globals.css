@@ -102,14 +102,10 @@ a{text-decoration:none;color:inherit}img{display:block;max-width:100%}
 .hero__dots b.on{background:var(--yellow);width:30px;border-radius:50px}
 .hero__tagstrip{position:absolute;bottom:0;left:0;right:0;z-index:6;background:linear-gradient(90deg,var(--yellow),var(--yellow-d));color:#3a2900;font-family:var(--font-poppins);font-weight:700;font-size:.86rem;letter-spacing:.06em;text-align:center;padding:.5rem;display:none}
 
-/* ---------- Trust pills ---------- */
-.pills{background:#fff;border-bottom:1px solid var(--line);position:relative;z-index:7}
-.pills .wrap{display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between;padding:1.2rem 0}
-.pill{display:flex;align-items:center;gap:.6rem;font-weight:600;color:var(--slate);font-size:.92rem}
-.pill .ic{width:22px;height:22px;color:var(--blue)}
-.pill:nth-child(2) .ic{color:var(--green-d)}
-.pill:nth-child(3) .ic{color:var(--yellow-d)}
-.pill:nth-child(4) .ic{color:var(--blue)}
+/* ---------- Hero feature badges (floating glass pills below the CTAs) ---------- */
+.hero__features{display:flex;flex-wrap:wrap;gap:.55rem .7rem;margin-top:1.7rem;padding:0;list-style:none}
+.hero__feat{display:inline-flex;align-items:center;gap:.5rem;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.24);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);color:#fff;font-weight:600;font-size:.82rem;padding:.5rem .9rem;border-radius:50px}
+.hero__feat .ic{width:17px;height:17px;color:var(--yellow)}
 
 /* ---------- Sections ---------- */
 .sec{padding:2.8rem 0}
@@ -496,7 +492,6 @@ a{text-decoration:none;color:inherit}img{display:block;max-width:100%}
   .fcols>div:first-child{grid-column:1/-1}
   .stats .wrap{grid-template-columns:repeat(2,1fr);padding:2.6rem 0}
   .stat:nth-child(2)::after{display:none}
-  .pills .wrap{justify-content:center;gap:.8rem 1.4rem}
   .topbar__r{display:none}
   .nav .wrap{flex-wrap:wrap;row-gap:0}
   .burger{display:flex}
@@ -516,14 +511,14 @@ a{text-decoration:none;color:inherit}img{display:block;max-width:100%}
   .bandbox{padding:2.2rem}
   .cform .row{grid-template-columns:1fr}
   .head{margin-bottom:1.3rem}
-  .hero{height:clamp(430px,66vh,520px)}
+  .hero{height:clamp(560px,82vh,660px)}
   .hero p{margin:.7rem 0 1.2rem;font-size:.96rem}
   .pcat{gap:.7rem}
   .ptools{margin-top:1.1rem}
   .foot{font-size:.88rem}
-  .pills .wrap{padding:.7rem 0;gap:.5rem 1rem}
-  .pill{font-size:.78rem;gap:.4rem}
-  .pill .ic{width:17px;height:17px}
+  .hero__features{gap:.4rem .5rem;margin-top:1.2rem}
+  .hero__feat{font-size:.74rem;padding:.4rem .7rem;gap:.4rem}
+  .hero__feat .ic{width:15px;height:15px}
   .csplit__media{min-height:200px}
   .hero .cta .btn{flex:1 1 auto;justify-content:center}
   .stat:not(:last-child)::after{display:none}
@@ -574,10 +569,9 @@ a{text-decoration:none;color:inherit}img{display:block;max-width:100%}
 /* ===========================================================
    GLASSMORPHISM + RICH ANIMATIONS
    =========================================================== */
-/* ---- Frosted glass nav & pills ---- */
+/* ---- Frosted glass nav ---- */
 .nav{background:rgba(255,255,255,.62);backdrop-filter:blur(18px) saturate(170%);-webkit-backdrop-filter:blur(18px) saturate(170%);border-bottom:1px solid rgba(255,255,255,.55);box-shadow:0 8px 30px -22px rgba(11,26,74,.55)}
 .nav.scrolled{background:rgba(255,255,255,.8)}
-.pills{background:rgba(255,255,255,.66);backdrop-filter:blur(12px) saturate(150%);-webkit-backdrop-filter:blur(12px) saturate(150%)}
 
 /* ---- Frosted glass cards ---- */
 .wcard,.ccard,.pcard,.tcard,.cat{
@@ -618,32 +612,19 @@ a{text-decoration:none;color:inherit}img{display:block;max-width:100%}
 .eyebrow{backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
 
 /* ===========================================================
-   BOLD BLUE BRAND SKIN (banner look — reduces the "all white" feel)
+   NEUTRAL PAGE BASE
    =========================================================== */
-/* Light classic blue-and-white page backdrop — soft blue wash so the frosted
-   glass cards clearly pop. A fixed pseudo-layer carries soft blue/indigo/steel
-   colour blobs the whole page long (iOS-safe, unlike background-attachment:fixed). */
-body{background:linear-gradient(180deg,#eef4fc,#e6eef9 60%,#eef4fc)}
-body::before{
-  content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
-  background:
-    radial-gradient(720px 560px at 8% -6%, rgba(42,83,165,.14), transparent 60%),
-    radial-gradient(680px 520px at 100% 4%, rgba(21,44,92,.10), transparent 60%);
-}
+/* Plain white page base. Each section owns its own background
+   (white / light-gray, with dark Stats·Process·Footer accent bands),
+   so the page no longer reads as an all-blue wash. The transparent
+   Stats strip now shows this white behind its floating navy card. */
+body{background:#ffffff}
 .sec{background:transparent}
 .sec.soft{background:rgba(255,255,255,.5)}
 .sec.bluesoft{background:linear-gradient(180deg,#e8f1fd,#f4f8fd)}
 
 /* Yellow accent line under the nav (like the banner) */
 .nav{border-bottom:3px solid var(--yellow)}
-
-/* Trust-pills become a bold blue strip with white + yellow icons */
-.pills{background:linear-gradient(90deg,var(--blue-d),var(--blue));border-bottom:3px solid var(--yellow)}
-.pills .pill{color:#fff}
-.pills .pill .ic{color:#fff}
-.pills .pill:nth-child(2) .ic{color:var(--yellow)}
-.pills .pill:nth-child(3) .ic{color:var(--yellow)}
-.pills .pill:nth-child(4) .ic{color:#86e4a4}
 
 /* ===========================================================
    "How We Work" → PROCESS: night-navy CIRCUIT BOARD journey
@@ -1128,6 +1109,10 @@ html,body{max-width:100%;overflow-x:hidden}
 
 /* uniform premium sector tiles — icon badge, name, one-liner + hover cue */
 .itile{position:relative;isolation:isolate;overflow:hidden;display:flex;flex-direction:column;gap:.45rem;min-height:0;padding:.85rem 1rem;background:rgba(255,255,255,.82);backdrop-filter:blur(6px);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow-sm);cursor:pointer;transition:var(--t)}
+/* Persistent 3px top accent in each tile's own tone — gives the Industries
+   grid a distinct identity vs the plain white Product cards. Clipped to the
+   rounded top corners by the tile's overflow:hidden. */
+.itile::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:currentColor;z-index:2}
 .itile::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;background:currentColor;opacity:0;transform:scaleX(.35);transform-origin:left;transition:var(--t)}
 .itile:hover{transform:translateY(-6px);border-color:color-mix(in srgb,currentColor 40%,transparent);box-shadow:0 24px 44px -22px color-mix(in srgb,currentColor 55%,rgba(11,26,74,.4))}
 .itile:hover::after{opacity:.9;transform:none}
@@ -1193,19 +1178,11 @@ html,body{max-width:100%;overflow-x:hidden}
   .js .bento:not(.in)>*{opacity:1;transform:none}
 }
 
-/* ---- Clients — BOLD dark showcase band: navy gradient + green glow,
-   frosted-white glass cards, logos grayscale -> full colour on hover ---- */
-.sec.clients{position:relative;padding:clamp(2rem,4vw,3rem) 0;overflow:hidden;background:linear-gradient(160deg,var(--navy) 0%,var(--navy-2) 100%)}
-/* soft green light-blooms in the corners for depth */
-.sec.clients::before,.sec.clients::after{content:"";position:absolute;border-radius:50%;pointer-events:none;filter:blur(70px)}
-.sec.clients::before{top:-110px;left:-80px;width:290px;height:290px;background:radial-gradient(circle,rgba(13,147,71,.55),transparent 70%)}
-.sec.clients::after{bottom:-120px;right:-60px;width:320px;height:320px;background:radial-gradient(circle,rgba(22,201,95,.30),transparent 70%)}
-.sec.clients .wrap{position:relative;z-index:1}
-
-.clients__head{text-align:center;margin-bottom:clamp(1.1rem,2.5vw,1.6rem)}
-.clients__head .eyebrow--g{background:rgba(22,201,95,.14);color:#7ff0ab;border:1px solid rgba(22,201,95,.35)}
-.clients__head h2{font-size:clamp(1.45rem,3vw,2rem);font-weight:700;color:#fff;margin:.6rem 0 .35rem}
-.clients__head p{color:var(--on-navy-2);font-size:.98rem;max-width:540px;margin:0 auto}
+/* ---- Clients — compact, lightweight logo strip on a soft band:
+   a small centred heading over one auto-scrolling row of glass logo cards. ---- */
+.clientstrip{position:relative;padding:clamp(2rem,4vw,2.8rem) 0;overflow:hidden}
+.clientstrip__head{text-align:center;margin-bottom:clamp(1.1rem,2.5vw,1.6rem)}
+.clientstrip__head h2{font-size:clamp(1.3rem,2.8vw,1.9rem);font-weight:700;color:var(--slate);margin:.6rem 0 0;max-width:600px;margin-inline:auto}
 
 /* frosted-white glass logo cards flowing in a two-row infinite marquee.
    Rows scroll opposite ways at different speeds; the whole strip fades at
@@ -1223,7 +1200,7 @@ html,body{max-width:100%;overflow-x:hidden}
 @keyframes cmarScroll{to{transform:translateX(-50%)}}
 .cmar .logocard{flex:0 0 auto;width:172px}
 
-.logocard{display:grid;place-items:center;min-height:74px;padding:.75rem .9rem;background:rgba(255,255,255,.94);border:1px solid rgba(255,255,255,.14);border-radius:14px;box-shadow:0 12px 32px -18px rgba(0,0,0,.7);transition:var(--t)}
+.logocard{display:grid;place-items:center;min-height:74px;padding:.75rem .9rem;background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:0 10px 26px -18px rgba(11,26,74,.4);transition:var(--t)}
 /* logos: grayscale + slightly muted by default, full colour on hover */
 .logocard img{height:34px;width:auto;max-width:140px;object-fit:contain;filter:grayscale(1);opacity:.7;transition:var(--t)}
 .logocard:hover{transform:translateY(-6px);border-color:rgba(22,201,95,.6);box-shadow:0 20px 42px -16px rgba(0,0,0,.75),0 0 0 3px rgba(13,147,71,.22),0 0 28px -4px rgba(22,201,95,.45)}
@@ -1290,15 +1267,17 @@ html,body{max-width:100%;overflow-x:hidden}
    id rules override the .sec / .sec.soft backgrounds above.
    Order: products·process·industries·clients·gallery·about·contact
    =========================================================== */
-/* Cohesive 2-tone rhythm — soft blue <-> soft white. No lavender/periwinkle
-   jumps. Order (products·process·industries·clients·gallery·about·contact)
-   alternates blue/white; process (near-white) sits between two blues. */
-#products{background:linear-gradient(180deg,#eaf1fd,#dfeaf8)}   /* blue  */
-#industries{background:linear-gradient(180deg,#eaf1fd,#dfeaf8)} /* blue  */
-#gallery{background:linear-gradient(180deg,#eaf1fd,#dfeaf8)}    /* blue  */
-#contact{background:linear-gradient(180deg,#eaf1fd,#dfeaf8)}    /* blue  */
-#clients{background:linear-gradient(160deg,var(--navy) 0%,var(--navy-2) 100%)} /* BOLD dark band */
-#about{background:linear-gradient(180deg,#fbfcfe,#f2f6fc)}      /* white */
+/* Neutral rhythm — white / light-gray sections with dark accent bands
+   (Stats, Process, Footer) for contrast. Deliberately drops the old
+   all-blue look so no two adjacent light sections read the same.
+   Flow: About(white) · Stats(dark) · Products(gray) · Process(dark) ·
+   Industries(white) · Gallery(gray) · Clients(white) · Contact(gray). */
+#about{background:#ffffff}      /* white       */
+#products{background:#f8fafc}   /* light gray  */
+#industries{background:#ffffff} /* white       */
+#gallery{background:#f8fafc}    /* light gray  */
+#clients{background:#ffffff}    /* white       */
+#contact{background:#f8fafc}    /* light gray  */
 
 /* ===========================================================
    PREMIUM INDUSTRIAL PRODUCT CARDS  (v2)
