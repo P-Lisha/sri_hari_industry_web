@@ -79,31 +79,22 @@ function renderCard(c: Client, key: string, dup: boolean) {
 }
 
 export function Clients() {
-  const rev = [...CLIENTS].reverse(); // second row flows the other way
-
   return (
-    <section className="sec" id="clients">
+    <section className="sec clientstrip" id="clients">
       <div className="wrap">
-        <div className="clients__head reveal">
+        <div className="clientstrip__head reveal">
           <span className="eyebrow eyebrow--g">Our Clients</span>
-          <h2>Some of our valuable clients</h2>
-          <p>Trusted by leading restaurants, hotels &amp; institutions across South India</p>
+          <h2>Trusted by leading restaurants, hotels &amp; institutions across South India</h2>
         </div>
 
-        {/* ---- Two-row infinite logo marquee (flows opposite ways, pauses on
-               hover, fades at the edges). Each row is doubled for a seamless
-               loop; the duplicate half is aria-hidden. ---- */}
+        {/* ---- Compact single-row logo strip: one auto-scrolling row that
+               pauses on hover and fades at the edges. The row is doubled so
+               the loop is seamless; the duplicate half is aria-hidden. ---- */}
         <div className="cmar reveal" aria-label="Some of our clients">
           <div className="cmar__row">
             <div className="cmar__track">
               {CLIENTS.map((c, i) => renderCard(c, `a1-${i}`, false))}
               {CLIENTS.map((c, i) => renderCard(c, `a2-${i}`, true))}
-            </div>
-          </div>
-          <div className="cmar__row cmar__row--rev" aria-hidden="true">
-            <div className="cmar__track">
-              {rev.map((c, i) => renderCard(c, `b1-${i}`, true))}
-              {rev.map((c, i) => renderCard(c, `b2-${i}`, true))}
             </div>
           </div>
         </div>

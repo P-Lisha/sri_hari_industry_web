@@ -1,6 +1,16 @@
 'use client';
 
 import { useCallback, useEffect, useRef, useState } from 'react';
+import { Icon } from './Icons';
+
+// Quick trust/feature badges shown as floating pills inside the hero
+// (previously the separate "Pills" strip below the hero).
+const FEATURES: [string, string][] = [
+  ['i-truck', 'Quick Delivery'],
+  ['i-shield', 'Food-Grade SS 304'],
+  ['i-wrench', 'AMC Available'],
+  ['i-clock', '24/7 Service'],
+];
 
 interface Slide {
   img: string;
@@ -101,6 +111,14 @@ export function Hero() {
                     </a>
                   ))}
                 </div>
+                <ul className="hero__features">
+                  {FEATURES.map(([ico, label]) => (
+                    <li className="hero__feat" key={label}>
+                      <Icon name={ico} />
+                      {label}
+                    </li>
+                  ))}
+                </ul>
               </div>
             </div>
           </div>
