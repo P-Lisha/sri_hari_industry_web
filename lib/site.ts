@@ -62,11 +62,32 @@ export const SITE = {
 export const WEB3FORMS_KEY =
   process.env.NEXT_PUBLIC_WEB3FORMS_KEY ?? 'c9ef760e-200a-44fd-9ab5-bc7de71b1952';
 
-/** Build a wa.me deep-link with a pre-filled message. */
+/**
+ * Build a wa.me click-to-chat deep-link with a pre-filled message.
+ * SITE.whatsapp is already in WhatsApp's required format — country code, no
+ * leading zero, no '+', spaces or dashes — and encodeURIComponent safely
+ * encodes spaces, emoji and the newlines (%0A) inside the templates below.
+ */
 export function waLink(message: string): string {
   return `https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent(message)}`;
 }
 
-export const WA_GENERIC = waLink(
-  "Hi, I'd like a quote for kitchen equipment"
-);
+/*
+ * Pre-filled WhatsApp enquiry messages — one consistent voice for the whole
+ * site. These follow the standard click-to-chat pattern: a short, friendly
+ * one-liner that names the business and the exact product, so the customer can
+ * send it with one tap. (Deliberately no blank "Name / Location" fields —
+ * pre-filled links are meant to stay short; use a form to collect details.)
+ */
+const WA_HI = `Hi ${SITE.name},`;
+
+export const WA_MESSAGES = {
+  generic: `${WA_HI} I'd like a quote for commercial kitchen equipment. Can you share the details?`,
+  product: (name: string) =>
+    `${WA_HI} I'm interested in the ${name}. Can you share full details and a price quote?`,
+  sector: (sector: string) =>
+    `${WA_HI} I'm looking for commercial kitchen equipment for the ${sector} sector. Can you share details and a quote?`,
+  turnkey: `${WA_HI} I run a food business and need a custom / turnkey commercial kitchen. Can you guide me?`,
+} as const;
+
+export const WA_GENERIC = waLink(WA_MESSAGES.generic);

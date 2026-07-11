@@ -13,7 +13,7 @@
    =========================================================== */
 
 import { Icon } from './Icons';
-import { waLink } from '@/lib/site';
+import { waLink, WA_MESSAGES } from '@/lib/site';
 
 // The sectors we build for. `tone` cycles the brand colours (blue/green/
 // yellow/red) to keep the grid lively; `ico` references an Icons sprite id.
@@ -32,10 +32,7 @@ const SECTORS: { label: string; text: string; ico: string; tone: string }[] = [
   { label: 'Marriage Halls', text: 'Banquet-scale cooking & service lines.', ico: 'i-sparkles', tone: 'yellow' },
 ];
 
-const enquiry = (sector: string) =>
-  waLink(
-    `Hi, I'm looking for commercial kitchen equipment for the ${sector} sector. Please share details and a quote.`
-  );
+const enquiry = (sector: string) => waLink(WA_MESSAGES.sector(sector));
 
 export function Services() {
   return (
@@ -95,9 +92,7 @@ export function Services() {
             </div>
             <a
               className="btn btn--y"
-              href={waLink(
-                'Hi, I run a food business and need custom commercial kitchen equipment. Please guide me.'
-              )}
+              href={waLink(WA_MESSAGES.turnkey)}
               target="_blank"
               rel="noopener"
             >

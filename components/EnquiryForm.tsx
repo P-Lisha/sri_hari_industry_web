@@ -27,10 +27,32 @@ export function EnquiryForm() {
     const form = e.currentTarget;
     setState('sending');
 
-    const data = new FormData(form);
+    const src = new FormData(form);
+    const name = (src.get('name') ?? '').toString().trim();
+    const phone = (src.get('phone') ?? '').toString().trim();
+    const email = (src.get('email') ?? '').toString().trim();
+    const product = (src.get('product') ?? 'General Enquiry').toString().trim();
+    const message = (src.get('message') ?? '').toString().trim();
+
+    // Rebuild the payload with neatly-labelled fields so the email that lands
+    // in the inbox reads cleanly (Web3Forms shows each key as-is).
+    const data = new FormData();
     data.append('access_key', WEB3FORMS_KEY);
-    data.append('subject', 'New website enquiry — Sri Hari Industries');
     data.append('from_name', 'Sri Hari Industries Website');
+    data.append('subject', `New enquiry — ${product} (from ${name})`);
+
+    // Reply-To so you can reply straight to the customer from your inbox.
+    if (email) data.append('replyto', email);
+    // Honeypot passthrough — only present when a bot ticked it.
+    const botcheck = src.get('botcheck');
+    if (botcheck) data.append('botcheck', botcheck.toString());
+
+    // Order here = order in the email body.
+    data.append('Name', name);
+    data.append('Phone / WhatsApp', phone);
+    data.append('Email', email || '—');
+    data.append('Requirement', product);
+    data.append('Message', message);
 
     try {
       const res = await fetch('https://api.web3forms.com/submit', {
