@@ -4,13 +4,13 @@ import { useCallback, useEffect, useState } from 'react';
 import {
   HOME_FEATURED, PRODUCTS, PRODUCTS_BY_CAT, PCATS, APPLICATIONS, type Product,
 } from '@/lib/data';
-import { SITE, waLink } from '@/lib/site';
+import { waLink, WA_MESSAGES } from '@/lib/site';
 import { Icon } from './Icons';
 import { ProductImg } from './ProductImg';
 import { ProductCard } from './ProductCard';
 
 function enquiry(p: Product) {
-  return waLink(`Hi, I'm interested in the ${p.name}. Please share full details & a quote.`);
+  return waLink(WA_MESSAGES.product(p.name));
 }
 
 /** Featured products + full catalogue, all shown in popups (no separate pages). */
@@ -171,8 +171,8 @@ export function Products() {
                     ))}
                   </ul>
 
-                  <h4 className="pdp__h">Applications</h4>
-                  <div className="pdp__apps">
+                  <h4 className="pdp__h pdp__h--apps">Applications</h4>
+                  <div className="pdp__apps pdp__apps--block">
                     {APPLICATIONS.map((a) => (
                       <span className="pdp__app" key={a.label}>
                         <i aria-hidden="true">{a.icon}</i>
@@ -183,13 +183,7 @@ export function Products() {
 
                   <div className="pdp__actions">
                     <a className="btn btn--g" href={enquiry(current)} target="_blank" rel="noopener">
-                      WhatsApp Quote
-                    </a>
-                    <a className="btn btn--blue" href={`tel:${SITE.phoneHref}`}>
-                      Call Now
-                    </a>
-                    <a className="btn btn--line" href={SITE.brochure} target="_blank" rel="noopener">
-                      Download Brochure
+                      WhatsApp Enquiry
                     </a>
                   </div>
                 </div>

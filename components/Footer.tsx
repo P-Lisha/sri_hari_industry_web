@@ -1,4 +1,4 @@
-import { SITE } from '@/lib/site';
+import { SITE, WA_GENERIC } from '@/lib/site';
 import { Icon } from './Icons';
 
 export function Footer() {
@@ -28,7 +28,7 @@ export function Footer() {
               <a href={SITE.social.youtube} aria-label="YouTube" target="_blank" rel="noopener">
                 <svg viewBox="0 0 24 24"><path d="M23 12s0-3.4-.4-5a2.6 2.6 0 0 0-1.8-1.8C19.1 4.8 12 4.8 12 4.8s-7.1 0-8.8.4A2.6 2.6 0 0 0 1.4 7C1 8.6 1 12 1 12s0 3.4.4 5a2.6 2.6 0 0 0 1.8 1.8c1.7.4 8.8.4 8.8.4s7.1 0 8.8-.4A2.6 2.6 0 0 0 22.6 17c.4-1.6.4-5 .4-5zM9.8 15.3V8.7l5.7 3.3-5.7 3.3z" /></svg>
               </a>
-              <a href={`https://wa.me/${SITE.whatsapp}`} aria-label="WhatsApp" target="_blank" rel="noopener">
+              <a href={WA_GENERIC} aria-label="WhatsApp" target="_blank" rel="noopener">
                 <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.5 15.3L2 22l4.8-1.3A10 10 0 1 0 12 2zm5.8 14.2c-.2.7-1.2 1.3-1.7 1.3-.4 0-1 .1-3.3-.9-2.7-1.2-4.4-4-4.6-4.2-.1-.2-1-1.4-1-2.6s.6-1.8.8-2.1c.2-.2.4-.3.6-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.3 0 .5l-.4.6c-.2.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.2.1.4 0 .5-.1l.7-.9c.2-.2.4-.2.6-.1l1.9.9c.2.1.4.2.4.3.1.2.1.7-.1 1.4z" /></svg>
               </a>
             </div>
