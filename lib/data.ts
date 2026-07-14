@@ -1,8 +1,10 @@
 /* ===========================================================
    SRI HARI INDUSTRIES — product catalogue (content)
-   Edit content here. Add a product by adding an item to the
-   right category's `items` as ["Display Name","image-slug"]
-   and drop the photo at  public/images/products/<slug>.jpg
+   Every product below is backed by a real photo from the
+   client's own SHI EQUIPMENTS photo set (see public/images/products).
+   Add a product by adding an item to the right category's `items`
+   as ["Display Name","image-slug"] and drop the photo at
+   public/images/products/<slug>.jpg
    Optional long form:
      ["Name","slug","description",[features],[[spec,value]]]
    =========================================================== */
@@ -42,12 +44,35 @@ export const PCATS: Category[] = [
     tag: 'a heavy-duty LPG cooking unit in food-grade stainless steel, built for daily high-volume use.',
     feats: ['Food-grade SS 304 body', 'High-efficiency burners', 'Heavy-duty commercial build', 'Custom sizes on request'],
     items: [
-      ['Single Burner', 'single-burner'], ['Two Burner', 'two-burner'], ['Three Burner', 'three-burner'],
-      ['Bulk Cooking Range', 'bulk-cooking-range'], ['Tandoori', 'tandoori'], ['Chinese Range', 'chinese-range'],
-      ['Four Burner Continental', 'four-burner-continental'],
-      ['Barbecue', 'barbeque'], ['Griller', 'griller'], ['Shawarma', 'shawarma'], ['Deep Fryer', 'deep-fryer'],
-      ['Bulk Cooker', 'bulk-cooker'], ['Hot Plate with Griddle', 'hot-plate-griddle'],
-      ['Dosa Plate', 'dosa-plate'], ['Chapati Plate', 'chappathi-plate'],
+      ['Single Burner', 'single-burner',
+        'Single high-pressure LPG burner range in food-grade stainless steel — ideal for boiling, frying and everyday à-la-carte cooking.'],
+      ['Two Burner', 'two-burner',
+        'Twin high-pressure burner range on a sturdy SS body — cook two vessels side by side for busy South-Indian kitchens.'],
+      ['Three Burner', 'three-burner',
+        'Three-burner commercial gas range that keeps rice, curry and gravy going at once without slowing service.'],
+      ['Four Burner Continental', 'four-burner-continental',
+        'Four-burner continental range with an open under-shelf — a European-style cooking line for hotels and multi-cuisine kitchens.'],
+      ['Chinese Range', 'chinese-range',
+        'High-flame Chinese cooking range with a water-cooled top and foot-operated taps, built for fast wok tossing and continuous stir-fry.',
+        ['Water-cooled work top', 'Foot-operated water taps', 'High-pressure jet burners', 'Heavy SS 304 fabrication']],
+      ['Bulk Cooking Range', 'bulk-cooking-range',
+        'Heavy-duty bulk cooking range with an extra-large burner and reinforced frame for big vessels — made for canteens, messes and catering.'],
+      ['Tandoori', 'tandoori',
+        'Stainless-steel tandoor with a clay-lined drum for authentic naan, roti and tandoori grilling at high heat.',
+        ['Clay-lined drum', 'Insulated SS outer body', 'High-heat charcoal / gas', 'Skewer set included']],
+      ['Barbecue Grill', 'barbeque',
+        'Commercial charcoal barbecue grill in stainless steel with an adjustable grate for kebabs, tikka and grilled meats.',
+        ['Adjustable grill grate', 'Charcoal tray', 'All stainless-steel build', 'Open-air commercial grilling']],
+      ['Shawarma', 'shawarma',
+        'Vertical gas shawarma machine with a rotating spit and multiple burners for even roasting of chicken and mutton shawarma.',
+        ['Rotating vertical spit', 'Multiple gas burners', 'Adjustable heat zones', 'Drip tray & SS body']],
+      ['Deep Fryer', 'deep-fryer',
+        'Single-tank gas deep fryer with a wire basket and drain tap — steady oil temperature for bhaji, fries and fried snacks.',
+        ['Stainless-steel oil tank', 'Wire frying basket', 'Oil drain tap', 'Adjustable flame control']],
+      ['Dosa Plate', 'dosa-plate',
+        'Flat SS dosa hot-plate (tawa) with even heat spread across the surface for crisp dosa, uttapam and roti.'],
+      ['Cooking Wok', 'cook-wok',
+        'Deep stainless-steel cooking wok on a dedicated high-flame burner — for bulk gravies, biryani and Chinese cooking.'],
     ],
   },
   {
@@ -62,10 +87,17 @@ export const PCATS: Category[] = [
       ['Janatha Idly Plant', 'janatha-idly-plant', 'High-capacity idli steaming plant that turns out soft idlis in large batches for messes and halls.'],
       ['Idiyappam Machine', 'idiyappam-machine', 'Steam idiyappam press for soft, consistent string hoppers in volume.'],
       ['Ball Cutting Machine', 'ball-cutting-machine', 'Cuts dough into uniform balls at speed for chapati and poori production.'],
-      ['Ball Pressing Machine', 'ball-pressing-machine', 'Presses dough balls into even rounds, ready for roasting.'],
       ['Chapati Making Machine', 'chappathi-making-machine', 'Fully automatic chapati machine that presses, roasts and puffs uniform chapatis at high speed.',
         ['Uniform size & thickness', 'Press + roast + puff in one', 'High-speed automatic output', 'Low manpower needed'],
         [['Output', '1,000 – 2,000 / hr'], ['Material', 'SS 304 + MS frame'], ['Power', 'Electric + LPG']]],
+      ['Dosa Making Machine', 'dosa-making-machine', 'Automatic dosa making machine that batters, spreads and roasts uniform dosas continuously — high output with minimal manpower.',
+        ['Continuous automatic output', 'Uniform size & thickness', 'Batter spreader + roaster', 'Low manpower operation']],
+      ['Vada Making Machine', 'vada-making-machine', 'Vada making machine that shapes perfectly round medu-vadas with a centre hole and drops them for frying — consistent size at speed.',
+        ['Round vadas with centre hole', 'Adjustable vada size', 'Direct drop into fryer', 'Fast, consistent output']],
+      ['Paniyaram Range', 'paniyaram-range', 'Gas paniyaram (kuzhi paniyaram) range with multiple deep moulds for making round paniyarams and appams in bulk.',
+        ['Multiple deep moulds', 'Even gas heating', 'Bulk paniyaram & appam', 'Sturdy SS build']],
+      ['Rumali Range', 'romali-range', 'Dome-top rumali roti range that gives the high, even heat needed to cook thin, soft rumali rotis quickly.',
+        ['Dome-top high-heat plate', 'Even surface temperature', 'Thin rumali roti in seconds', 'Sturdy SS build']],
     ],
   },
   {
@@ -73,9 +105,21 @@ export const PCATS: Category[] = [
     tag: 'a commercial food-processing machine that cuts prep time and labour across the kitchen.',
     feats: ['Powerful commercial motor', 'Food-grade contact parts', 'Easy to operate & clean', 'Durable heavy-duty build'],
     items: [
-      ['Rice Washer', 'rice-washer'], ['Wet Grinder', 'wet-grinder'], ['Tilting Grinder', 'tilting-grinder'],
-      ['Pulverizer', 'pulverizer'], ['Masala Grinder', 'masala-grinder'], ['Veg Cutting Machine', 'veg-cutting-machine'],
-      ['Onion Peeler', 'onion-peeler'], ['Potato Peeler', 'potato-peeler'],
+      ['Rice Washer', 'rice-washer', 'Stainless-steel rice washing machine that rinses and drains bulk rice quickly, saving water and manpower before cooking.'],
+      ['Wet Grinder', 'wet-grinder', 'Heavy-duty tilting wet grinder with granite stones for smooth idli / dosa batter in large volumes.',
+        ['Granite grinding stones', 'Tilting drum for easy emptying', 'Smooth batter output', 'Heavy-duty motor']],
+      ['Tilting Grinder', 'tilting-grinder', 'Tilting-drum wet grinder that empties batter easily — high-capacity grinding for busy hotels and mess halls.',
+        ['Granite grinding stones', 'Tilting drum for easy emptying', 'High-capacity grinding', 'Heavy-duty motor']],
+      ['Pulverizer', 'pulverizer', 'Commercial pulverizer for grinding dry spices, grains and masala into fine powder with a powerful motor.'],
+      ['Vegetable Cutting Machine', 'veg-cutting-machine', 'Multi-blade vegetable cutting machine that slices, dices and shreds vegetables fast for bulk prep.'],
+      ['Potato Peeler', 'potato-peeler', 'Rotary potato peeling machine that peels a full batch of potatoes in minutes with an abrasive drum and water rinse.',
+        ['Abrasive peeling drum', 'Water rinse while peeling', 'Peels a full batch in minutes', 'Stainless-steel build']],
+      ['Garlic Peeler', 'garlic-peeler', 'Dry garlic peeling machine that separates clove skins quickly without crushing — clean, ready-to-use garlic in bulk.',
+        ['Dry peeling — no water', 'Peels without crushing', 'Fast batch peeling', 'Food-grade contact parts']],
+      ['Coconut Scraper', 'coconut-scraper', 'Motorised coconut scraper that grates fresh coconut fast and evenly for chutney, curries and sweets.',
+        ['Fast, even scraping', 'Powerful commercial motor', 'Stainless-steel blade & body', 'Easy to clean']],
+      ['Dough Kneader', 'dough-kneader', 'Spiral dough kneading machine that mixes soft, uniform dough for chapati, poori and bakery in large batches.',
+        ['Spiral kneading action', 'Soft, uniform dough', 'Large batch capacity', 'Heavy-duty motor']],
     ],
   },
   {
@@ -83,11 +127,16 @@ export const PCATS: Category[] = [
     tag: 'stainless steel fabrication built for hygiene, strength and everyday commercial use.',
     feats: ['100% SS 304 / 202 build', 'Sturdy, rust-free fabrication', 'Hygienic & easy to clean', 'Made to your size'],
     items: [
-      ['Work Table', 'work-table'],
-      ['Kneading Table', 'kneading-table'], ['Worktable with Sink', 'worktable-sink'],
-      ['Two Sink Unit', 'two-sink-unit'], ['Three Sink Unit', 'three-sink-unit'], ['Chute Table', 'chute-table'],
-      ['Hand Wash Unit', 'hand-wash'], ['Dish Washer', 'dish-washer'], ['Dish Rack', 'dish-rack'],
-      ['Veg Rack', 'veg-rack'], ['Pot Rack', 'pot-rack'], ['Plate Rack', 'plate-rack'],
+      ['Work Table', 'work-table', 'Plain SS 304 work table with a sturdy top and legs — the everyday prep surface for any commercial kitchen.'],
+      ['Worktable with Sink', 'worktable-sink', 'Work table with a built-in sink bowl and drain board — a combined prep and wash station in one unit.'],
+      ['Work Table with Shelves', 'work-table-shelf', 'Work table with overhead and under-shelves for extra storage — keeps utensils and ingredients within reach at the prep line.'],
+      ['Batter Table', 'batter-table', 'Sloped batter table with a collection channel for fermenting and dispensing idli / dosa batter hygienically.'],
+      ['3-Sink Dishwash Unit', 'three-sink-unit', 'Three-bowl stainless-steel dishwashing unit for wash–rinse–sanitise, with drain boards for high-volume ware washing.',
+        ['Three deep wash bowls', 'Wash · rinse · sanitise', 'Drain boards on both sides', 'Rust-free SS 304']],
+      ['Chute Table', 'chute-table', 'SS chute table with a waste chute cut-out that lets staff scrape plates straight into a bin while clearing.'],
+      ['SS Sink', 'sink', 'Single-bowl stainless-steel sink unit with tap point and drain — a durable, rust-free washing station.'],
+      ['Dish Rack', 'dish-rack', 'Multi-tier SS dish rack for draining and storing plates, bowls and utensils hygienically after washing.'],
+      ['Vegetable Rack', 'veg-rack', 'Ventilated SS storage rack that keeps vegetables and provisions organised and off the floor.'],
     ],
   },
   {
@@ -95,8 +144,11 @@ export const PCATS: Category[] = [
     tag: 'service-line / dining equipment for canteens, messes and food courts.',
     feats: ['Durable commercial-grade build', 'Hygienic stainless steel', 'Designed for fast service', 'Custom sizes available'],
     items: [
-      ['Bain-Marie Counter', 'bainmarie-counter'], ['Plate Warmer', 'plate-warmer'], ['Hot Case', 'hot-case'],
-      ['Dining Table', 'dining-table'], ['6 Seater Dining Table', 'dining-6-seater'],
+      ['Bain-Marie Counter', 'bainmarie-counter', 'Hot bain-marie service counter that keeps cooked food warm and ready to serve on a buffet or canteen line.',
+        ['Hot water / dry warming wells', 'Keeps food at serving temp', 'GN-pan compatible', 'Stainless-steel counter']],
+      ['Plate Warmer', 'plate-warmer', 'Stainless-steel plate warming cabinet that holds plates at serving temperature for smooth, fast service.'],
+      ['Dining Table', 'dining-table', 'Compact SS dining table for canteens and messes — hygienic, rust-free and easy to clean.'],
+      ['Dining Table (6 Seater)', 'dining-6-seater', 'Six-seater stainless-steel dining table for canteens and food courts — sturdy, seamless and wipe-clean.'],
     ],
   },
   {
@@ -105,7 +157,8 @@ export const PCATS: Category[] = [
     feats: ['Precise temperature control', 'Energy-efficient cooling', 'Food-safe insulated build', 'Custom sizes available'],
     items: [
       ['Cold Room', 'cold-room', 'Modular walk-in cold room for bulk storage of vegetables, dairy, meat and frozen goods.'],
-      ['Work Top Freezer', 'work-top-freezer'],
+      ['Work Top Freezer', 'work-top-freezer', 'Under-counter worktop freezer that doubles as a chilled prep surface — cold storage right where you cook.',
+        ['Chilled worktop surface', 'Under-counter freezer storage', 'Energy-efficient cooling', 'SS 304 food-safe build']],
     ],
   },
   {
@@ -113,20 +166,21 @@ export const PCATS: Category[] = [
     tag: 'a mobile / storage stainless steel solution that keeps kitchens organised and efficient.',
     feats: ['Smooth-rolling castors', 'Rust-free SS build', 'Heavy load capacity', 'Custom sizes available'],
     items: [
-      ['Utility Trolley', 'utility-trolley'], ['Masala Trolley', 'masala-trolley'],
-      ['Room Service Trolley', 'room-service-trolley'], ['Snacks Trolley', 'snacks-trolley'],
-      ['Service Trolley', 'service-trolley'], ['Onion Bin', 'onion-bin'], ['Potato Bin', 'potato-bin'],
-      ['Waste Collecting Trolley', 'waste-collecting-trolley'],
+      ['Utility Trolley', 'utility-trolley', 'Multi-shelf stainless-steel utility trolley on castors for moving food, utensils and supplies around the kitchen.'],
+      ['Masala Trolley', 'masala-trolley', 'Masala trolley with compartments for holding spices, oils and prep bowls close to the cooking range.'],
+      ['Platform Trolley', 'platform-trolley', 'Heavy-duty platform trolley for shifting bulk vessels, sacks and equipment across the kitchen and stores.'],
+      ['Storage Trolley', 'storage-trolley', 'Enclosed storage trolley with shelves for organising and transporting provisions and utensils.'],
+      ['Onion & Potato Bin', 'onion-bin', 'Ventilated SS storage bin for onions and potatoes that keeps them dry, aired and easy to dispense.'],
     ],
   },
 ];
 
 export const CATMETA: Record<string, CatMeta> = {
   'Cooking Equipment': { ico: 'i-flame', blurb: 'LPG cooking ranges, burners, grills, tandoor & fryers.' },
-  'Indian Range & Automakers': { ico: 'i-pot', blurb: 'Steam cooking & automatic dosa / chapati machines.' },
+  'Indian Range & Automakers': { ico: 'i-pot', blurb: 'Steam cooking & automatic dosa / chapati / vada machines.' },
   'Food Processing Machinery': { ico: 'i-wrench', blurb: 'Grinders, peelers, cutters & dough machines.' },
   'Tables, Sinks & Racks': { ico: 'i-store', blurb: 'SS work tables, sinks, dishwash & storage racks.' },
-  'Dining & Service': { ico: 'i-utensils', blurb: 'Bain-marie counters, hot cases & dining tables.' },
+  'Dining & Service': { ico: 'i-utensils', blurb: 'Bain-marie counters, plate warmers & dining tables.' },
   'Cold Room & Refrigeration': { ico: 'i-snow', blurb: 'Walk-in cold rooms & worktop freezers.' },
   'Trolleys & Storage': { ico: 'i-truck', blurb: 'Service trolleys, bins & mobile storage.' },
 };
@@ -168,21 +222,21 @@ export interface Featured extends Product {
   material: string;
 }
 
-/** Twelve featured products (4×3 desktop, 2-up mobile), spread across the
-    five filter groups so every tab shows real results. */
+/** Featured products spread across the filter groups so every tab shows real
+    results. Only products that have a real photo are listed here. */
 const FEATURED_DEFS: { name: string; group: PGroup; bestseller?: boolean }[] = [
   { name: 'Bulk Cooking Range', group: 'Cooking', bestseller: true },
-  { name: 'Deep Fryer', group: 'Cooking', bestseller: true },
-  { name: 'Tandoori', group: 'Cooking' },
-  { name: 'Wet Grinder', group: 'Preparation', bestseller: true },
-  { name: 'Veg Cutting Machine', group: 'Preparation' },
-  { name: 'Work Table', group: 'Preparation' },
-  { name: 'Cold Room', group: 'Refrigeration', bestseller: true },
+  { name: 'Chinese Range', group: 'Cooking', bestseller: true },
+  { name: 'Barbecue Grill', group: 'Cooking' },
+  { name: 'Deep Fryer', group: 'Cooking' },
+  { name: 'Potato Peeler', group: 'Preparation', bestseller: true },
+  { name: 'Chapati Making Machine', group: 'Preparation', bestseller: true },
+  { name: 'Wet Grinder', group: 'Preparation' },
+  { name: 'Dough Kneader', group: 'Preparation' },
+  { name: 'Cold Room', group: 'Refrigeration' },
   { name: 'Work Top Freezer', group: 'Refrigeration' },
-  { name: 'Two Sink Unit', group: 'Washing' },
-  { name: 'Dish Washer', group: 'Washing' },
+  { name: '3-Sink Dishwash Unit', group: 'Washing' },
   { name: 'Utility Trolley', group: 'Storage' },
-  { name: 'Pot Rack', group: 'Storage' },
 ];
 
 export const FEATURED: Featured[] = FEATURED_DEFS

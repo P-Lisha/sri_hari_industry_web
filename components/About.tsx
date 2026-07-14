@@ -27,7 +27,7 @@ export function About() {
             <span>Years building<br />commercial kitchens</span>
           </div>
         </div>
-        <div className="reveal">
+        <div className="about__intro reveal">
           <span className="eyebrow">About Us</span>
           <h2>Kitchens engineered to run harder, for longer</h2>
           <p>
@@ -41,6 +41,8 @@ export function About() {
             kitchen as our own — no middlemen and no passed-on accountability, just equipment
             we are proud to put our name on.
           </p>
+        </div>
+        <div className="about__more reveal">
           <div className="whyx">
             {WHY.map((w) => (
               <div className="whyx__card" key={w.title}>
