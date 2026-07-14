@@ -25,7 +25,10 @@ export function Gallery() {
           {WORK.map(([src, label, alt]) => (
             <div className="marq__item" key={src}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img loading="lazy" src={src} alt={alt} />
+              {/* NOT loading="lazy": these live in an animated marquee whose items
+                  are laid out off-screen, so lazy-loading never fires and the
+                  images stay blank. Eager + async decode keeps them light. */}
+              <img src={src} alt={alt} decoding="async" />
               <span>{label}</span>
             </div>
           ))}
@@ -33,7 +36,7 @@ export function Gallery() {
           {WORK.map(([src, label]) => (
             <div className="marq__item" aria-hidden="true" key={`dup-${src}`}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img loading="lazy" src={src} alt="" />
+              <img src={src} alt="" decoding="async" />
               <span>{label}</span>
             </div>
           ))}

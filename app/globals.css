@@ -286,7 +286,7 @@ a{text-decoration:none;color:inherit}img{display:block;max-width:100%}
 .pmtile{background:var(--soft);border:1px solid var(--line);border-radius:14px;overflow:hidden;cursor:pointer;text-align:left;font:inherit;color:inherit;display:flex;flex-direction:column;transition:var(--t)}
 .pmtile:hover{transform:translateY(-4px);box-shadow:var(--shadow-sm);border-color:var(--blue)}
 .pmtile__media{position:relative;aspect-ratio:4/3;background:#fff;overflow:hidden;border-bottom:1px solid var(--line)}
-.pmtile__media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;padding:0;z-index:1}
+.pmtile__media img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:center;padding:.55rem;z-index:1}
 .pmtile__ph{position:absolute;inset:0;display:grid;place-items:center;color:var(--ph);background:linear-gradient(135deg,var(--blue-soft),var(--soft))}
 .pmtile__ph .ic{width:34px;height:34px}
 .pmtile h4{font-size:.86rem;color:var(--slate);font-family:var(--font-poppins);font-weight:600;padding:.7rem .8rem;line-height:1.3}
@@ -349,8 +349,10 @@ a{text-decoration:none;color:inherit}img{display:block;max-width:100%}
 .stat>span{display:block;margin-top:.4rem;opacity:.9;font-size:.85rem}
 
 /* ---------- About + certifications ---------- */
-.about{display:grid;grid-template-columns:1fr 1fr;gap:3.2rem;align-items:center}
-.about__media{position:relative}
+.about{display:grid;grid-template-columns:1fr 1fr;grid-template-areas:"intro media" "more media";gap:0 3.2rem;align-items:center}
+.about__intro{grid-area:intro}
+.about__more{grid-area:more}
+.about__media{grid-area:media;position:relative;align-self:center}
 .about__media img{width:100%;border-radius:var(--radius);box-shadow:var(--shadow)}
 .about__badge{position:absolute;left:16px;bottom:16px;display:flex;align-items:center;gap:.7rem;background:linear-gradient(135deg,var(--blue-d),var(--blue));color:#fff;padding:.85rem 1.1rem;border-radius:14px;box-shadow:0 18px 34px -16px rgba(11,26,74,.55);border:1px solid rgba(255,255,255,.16)}
 .about__badge b{font-family:var(--font-poppins);font-weight:800;font-size:2.1rem;line-height:1;color:var(--yellow)}
@@ -377,7 +379,11 @@ a{text-decoration:none;color:inherit}img{display:block;max-width:100%}
 .whyx__card:hover{transform:translateY(-3px);box-shadow:var(--shadow-sm);border-left-color:var(--green-d)}
 .whyx__card h3{font-family:var(--font-poppins);font-size:.95rem;font-weight:700;color:var(--slate);margin:0 0 .3rem}
 .whyx__card p{font-size:.82rem;line-height:1.5;color:var(--muted);margin:0}
-@media(max-width:520px){.whyx{grid-template-columns:1fr;gap:.7rem}}
+/* keep the value cards two-per-row on phones (left & right, like desktop) */
+@media(max-width:520px){.whyx{grid-template-columns:1fr 1fr;gap:.5rem}
+  .whyx__card{padding:.6rem .7rem}
+  .whyx__card h3{font-size:.86rem}
+  .whyx__card p{font-size:.74rem;line-height:1.38}}
 
 /* ---------- Brand partners marquee ---------- */
 .brands{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
@@ -478,14 +484,16 @@ a{text-decoration:none;color:inherit}img{display:block;max-width:100%}
 @media(max-width:900px){
   .sec{padding:2.3rem 0}
   .head{margin-bottom:1.5rem}
-  .split,.about,.contact{grid-template-columns:1fr;gap:1.6rem}
-  .about__media,.split__media{max-width:540px;margin-inline:auto}
-  .about__media img{max-height:240px;object-fit:cover}
+  .split,.contact{grid-template-columns:1fr;gap:1.6rem}
+  .split__media{max-width:540px;margin-inline:auto}
   /* Compact the About section on mobile/tablet to reduce scrolling */
-  .about{gap:1.4rem}
+  .about h2{margin:.4rem 0 .7rem}
+  .about p{margin-bottom:.75rem}
+  .whyx{margin:.9rem 0;gap:.7rem}
+  .whyx__card{padding:.75rem .95rem}
   .abtags{margin-top:1rem}
   .abtags li{font-size:.72rem;padding:.28rem .65rem}
-  .certs{margin-top:1rem}
+  .certs{margin-top:.9rem}
   .dgrid,.tcards{grid-template-columns:repeat(2,1fr)}
   .cats{grid-template-columns:repeat(3,1fr)}
   .fcols{grid-template-columns:1fr 1fr;gap:2rem}
@@ -509,7 +517,15 @@ a{text-decoration:none;color:inherit}img{display:block;max-width:100%}
   .dgrid,.tcards,.why{grid-template-columns:1fr}
   .sec{padding:2.1rem 0}
   .bandbox{padding:2.2rem}
-  .cform .row{grid-template-columns:1fr}
+  .cform{padding:1.3rem}
+  /* keep Name & Phone two-per-row on phones (left & right, like desktop) */
+  .cform .row{grid-template-columns:1fr 1fr;gap:.55rem}
+  .cform label{margin:.55rem 0 .25rem}
+  /* 16px inputs on phones — anything smaller makes iOS Safari zoom in
+     (and jump the page) when a field is focused. */
+  .cform input,.cform select,.cform textarea{padding:.55rem .75rem;font-size:16px}
+  .cform textarea{min-height:64px}
+  .cform .btn{margin-top:.8rem}
   .head{margin-bottom:1.3rem}
   .hero{height:clamp(560px,82vh,660px)}
   .hero p{margin:.7rem 0 1.2rem;font-size:.96rem}
@@ -732,10 +748,13 @@ body{background:#ffffff}
 .pstep__face img{width:124%;height:124%;object-fit:contain;
   filter:drop-shadow(0 14px 12px rgba(0,0,0,.5));
   transform:translateZ(38px);transition:filter var(--t)}
-/* gentle 3D float, staggered per step so the row feels alive */
+/* gentle 3D float, staggered per step so the row feels alive — bobs up
+   and down with a soft rock so each object reads as actually floating */
 .pflow.in .pstep__face img{animation:p3dFloat 3.6s ease-in-out calc(var(--i,0)*.45s) infinite}
-@keyframes p3dFloat{0%,100%{transform:translateZ(38px) scale(1)}
-  50%{transform:translateZ(38px) scale(1.04)}}
+@keyframes p3dFloat{
+  0%{transform:translateZ(38px) translateY(0) rotate(-2deg) scale(1)}
+  50%{transform:translateZ(38px) translateY(-10px) rotate(2deg) scale(1.05)}
+  100%{transform:translateZ(38px) translateY(0) rotate(-2deg) scale(1)}}
 .pstep__node:hover .pstep__face{transform:translateZ(24px)}
 .pstep__node:hover .pstep__face img{animation-duration:1.7s;
   filter:drop-shadow(0 18px 16px rgba(0,0,0,.55)) drop-shadow(0 0 14px rgba(246,178,27,.4))}
@@ -756,9 +775,10 @@ body{background:#ffffff}
    land exactly on the next disc's centre. */
 /* ---- ≤900px: two per row, the route serpentines down the page ---- */
 @media(max-width:900px){
-  .pflow{grid-template-columns:repeat(2,1fr);grid-auto-rows:1fr;--pd:104px;--pgx:1.5rem;--pgy:2rem;
-    gap:var(--pgy) var(--pgx);margin-top:2.4rem}
+  .pflow{grid-template-columns:repeat(2,1fr);grid-auto-rows:1fr;--pd:90px;--pgx:1.5rem;--pgy:1.3rem;
+    gap:var(--pgy) var(--pgx);margin-top:1.5rem}
   .pstep:nth-child(even){margin-top:0}
+  .pstep__node{margin-bottom:.5rem}
   .pstep:nth-child(3){grid-column:2;grid-row:2}
   .pstep:nth-child(4){grid-column:1;grid-row:2}
   .pstep:nth-child(5){grid-column:1;grid-row:3}
@@ -771,8 +791,8 @@ body{background:#ffffff}
   .parc--m-v{top:calc(var(--pd)/2);left:calc(50% - 14px);width:90px;height:calc(100% + var(--pgy))}
   .pstep:nth-child(4) .parc--m-v{left:calc(50% - 76px);transform:scaleX(-1)}
   .pstep__num{min-width:28px;height:28px;font-size:.7rem;top:-6px;right:-6px}
-  .pstep h3{font-size:.93rem}
-  .pstep p{font-size:.78rem;line-height:1.5;max-width:none}
+  .pstep h3{font-size:.9rem;margin-bottom:.2rem}
+  .pstep p{font-size:.76rem;line-height:1.4;max-width:none}
 }
 
 /* ---- entrance cascade: discs pop out of the page one by one,
@@ -942,12 +962,12 @@ html,body{max-width:100%;overflow-x:hidden}
    =========================================================== */
 .pmgrid{grid-template-columns:repeat(4,1fr);gap:.7rem}
 .pmtile__media{aspect-ratio:16/11}
-.pmtile__media img{padding:0}
+.pmtile__media img{padding:.5rem}
 .pmtile h4{font-size:.78rem;padding:.5rem .55rem .55rem;line-height:1.22;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .pmcat-h{margin:.9rem 0 .1rem}
 @media(max-width:680px){
   .pmgrid{grid-template-columns:repeat(3,1fr);gap:.5rem}
-  .pmtile__media img{padding:0}
+  .pmtile__media img{padding:.4rem}
   .pmtile h4{font-size:.7rem;padding:.4rem .45rem .45rem}
 }
 @media(max-width:400px){.pmgrid{grid-template-columns:repeat(2,1fr)}}
@@ -1004,14 +1024,72 @@ html,body{max-width:100%;overflow-x:hidden}
 .mapbar__go{display:inline-flex;align-items:center;background:var(--yellow);color:#3a2900;padding:.55rem 1rem;border-radius:8px;font-family:var(--font-poppins);font-weight:700;font-size:.8rem;white-space:nowrap;box-shadow:var(--shadow-sm);transition:transform .2s}
 .csplit__maplink:hover .mapbar__go{transform:translateX(3px)}
 @media(max-width:900px){
-  .csplit{grid-template-columns:1fr;gap:1.5rem}
+  .csplit{grid-template-columns:1fr;gap:1.2rem}
   .csplit .cinfo{text-align:center}
   .csplit .cbtns{justify-content:center}
   .csplit .clines{margin:0 auto;align-items:flex-start}
   .csplit__media{height:240px;order:2}
 }
-/* About — alternate the image to the RIGHT for zig-zag rhythm (desktop only) */
-@media(min-width:901px){#about .about__media{order:2}}
+/* About — image sits on the RIGHT beside the full text column on desktop
+   (placed via grid-template-areas on .about; no order hack needed).
+
+   Phones & tablets (≤900px): keep the image BESIDE the intro text as a ~40/60
+   split so the section doesn't stack into a very long block. The value cards +
+   certs flow full-width UNDER the split, where they still read as a 2-col grid.
+   (Desktop 2-col stays at ≥901px, matching the original breakpoint.) */
+@media(max-width:900px){
+  .about{
+    grid-template-columns:38% 1fr;
+    grid-template-areas:"media intro" "more more";
+    gap:.4rem 1.1rem;
+    align-items:stretch;
+  }
+  .about__media{align-self:stretch}
+  .about__media img{height:100%;max-height:none;object-fit:cover}
+  /* shrink the years badge so it fits the narrow image column */
+  .about__badge{left:10px;bottom:10px;padding:.55rem .7rem;gap:.5rem;border-radius:11px}
+  .about__badge b{font-size:1.5rem}
+  .about__badge b i{font-size:.85rem}
+  .about__badge span{font-size:.62rem;line-height:1.25}
+  .about__intro h2{margin:.2rem 0 .55rem}
+  .about__more{margin-top:1rem}
+}
+/* ---------- MOBILE COMPACTION: keep each section near one screen ----------
+   Mobile is a redesign, not a shrink: smaller headings/type, tighter padding,
+   and leaner cards so sections read at a glance instead of spanning 2 screens. */
+@media(max-width:560px){
+  .sec{padding:1.9rem 0}
+  /* section headers */
+  .head{margin-bottom:1.05rem}
+  .head h2{font-size:1.5rem;margin:.4rem 0 .5rem}
+  .head p{font-size:.9rem;line-height:1.5}
+  /* About on phones: essentials only so it stops running long. The intro type
+     shrinks; the second (MD) paragraph and the value-card descriptions are
+     desktop-only — on phones the value cards read as compact titled chips. */
+  .about__intro h2{font-size:1.32rem;line-height:1.2;margin:.15rem 0 .4rem}
+  .about__intro p{font-size:.84rem;line-height:1.46;margin-bottom:.4rem}
+  .about__intro p + p{display:none}
+  /* Stack the image as a compact landscape BANNER on top. The earlier side-rail
+     cropped the wide building photo into a tall, stretched sliver that looked
+     bad on phones — a short banner shows the building properly. */
+  .about{grid-template-columns:1fr;grid-template-areas:"media" "intro" "more";gap:.9rem;align-items:start}
+  .about__media{align-self:auto;max-width:100%}
+  .about__media img{height:175px;max-height:none;object-fit:cover;border-radius:16px}
+  .about__badge{left:12px;bottom:12px;padding:.6rem .8rem;gap:.55rem;border-radius:12px}
+  .about__badge b{font-size:1.7rem}
+  .about__badge b i{font-size:.95rem}
+  .about__badge span{font-size:.66rem;line-height:1.28}
+  .about__more{margin-top:.75rem}
+  .whyx{gap:.45rem;margin:0}
+  .whyx__card{padding:.5rem .6rem;border-left-width:3px}
+  .whyx__card h3{font-size:.8rem;margin:0}
+  .whyx__card p{display:none}
+  .certs{gap:.38rem;margin-top:.7rem}
+  .cert{font-size:.72rem;padding:.34rem .58rem}
+  /* Contact — trim the form so it stays near one screen */
+  .cform{padding:1.15rem}
+  .cform label{margin:.4rem 0 .2rem}
+}
 
 @media(prefers-reduced-motion:reduce){*{animation:none!important;scroll-behavior:auto}.js .reveal{opacity:1;transform:none;transition:none}.slide.active .slide__img{transform:scale(1.08)}}
 
@@ -1041,20 +1119,28 @@ html,body{max-width:100%;overflow-x:hidden}
 /* ===========================================================
    FOOTER — compact height (tight padding / gaps / margins)
    =========================================================== */
-.foot{padding:1rem 0 0;font-size:.86rem}
-.fcols{gap:.65rem 1.6rem;padding-bottom:.6rem}
-.foot h4{margin-bottom:.3rem;font-size:.88rem}
-.foot a{margin-bottom:.18rem}
-.fabout{margin-bottom:.4rem;line-height:1.4}
-.fbrand{margin-bottom:.4rem}
-.fbrand__mark{height:34px;width:21px;background-size:auto 34px}
-.fcert{margin-top:.35rem;padding:.3rem .65rem}
-.fcontact li{margin-bottom:.26rem;line-height:1.35}
+.foot{padding:.7rem 0 0;font-size:.86rem}
+.fcols{gap:.5rem 1.6rem;padding-bottom:.4rem}
+.foot h4{margin-bottom:.22rem;font-size:.88rem}
+.foot a{margin-bottom:.12rem}
+.fabout{margin-bottom:.3rem;line-height:1.35}
+.fbrand{margin-bottom:.3rem}
+.fbrand__mark{height:32px;width:20px;background-size:auto 32px}
+.fcert{margin-top:.28rem;padding:.28rem .6rem}
+.fcontact li{margin-bottom:.2rem;line-height:1.3}
 .social{gap:.45rem}
-.social a{width:31px;height:31px}
-.social svg{width:15px;height:15px}
-.fbar{padding:.45rem 0;font-size:.76rem}
-@media(max-width:900px){.foot{padding:.85rem 0 0}.fcols{gap:.6rem 1.2rem;padding-bottom:.55rem}}
+.social a{width:29px;height:29px}
+.social svg{width:14px;height:14px}
+.fbar{padding:.35rem 0;font-size:.76rem}
+@media(max-width:900px){.foot{padding:.6rem 0 0}.fcols{gap:.45rem 1.2rem;padding-bottom:.4rem}}
+/* Very narrow phones: stack the footer columns so long link labels
+   ("Kitchen Equipment", "Consultancy & Design") wrap instead of clipping
+   against the screen edge. */
+@media(max-width:400px){
+  .fcols{grid-template-columns:1fr;gap:1rem}
+  .fcols>div{min-width:0}
+  .foot a{overflow-wrap:anywhere}
+}
 
 /* ===========================================================
    SEO — hero slides 2 & 3 use <h2.hero__h> (single H1 per page);
@@ -1078,7 +1164,7 @@ html,body{max-width:100%;overflow-x:hidden}
 .fmsg.show{display:block}
 .fmsg.err{background:var(--red-soft);color:var(--red-d)}
 .cform button[disabled]{opacity:.7;cursor:not-allowed;transform:none}
-@media(max-width:900px){.csplit--form .cform{order:2}.csplit__media--side{order:1;height:300px}}
+@media(max-width:900px){.csplit--form .cform{order:2}.csplit__media--side{order:1;height:180px;min-height:0}}
 
 /* ===========================================================
    CLIENTS — industry icon cards + rating bar + testimonial stars
@@ -1161,16 +1247,26 @@ html,body{max-width:100%;overflow-x:hidden}
   .bcta{flex-wrap:wrap}
 }
 @media(max-width:640px){
-  .bento{grid-template-columns:repeat(2,1fr);gap:.65rem}
-  .itile{min-height:108px;padding:.8rem .85rem}
-  .itile__ico{width:40px;height:40px}
-  .itile__ico .ic{width:21px;height:21px}
-  .itile__body b{font-size:.92rem}
-  .itile__sub{font-size:.76rem}
-  .indhead__facts{width:100%}
-  .fact{flex:1;min-width:0}
+  /* Compact icon-beside-name rows so 12 sectors don't span two screens.
+     The one-line sub is dropped on phones — icon + sector name says enough. */
+  .bento{grid-template-columns:repeat(2,1fr);gap:.5rem}
+  .itile{min-height:0;flex-direction:row;align-items:center;gap:.55rem;padding:.62rem .7rem;border-radius:13px}
+  .itile__ico{width:34px;height:34px;border-radius:10px}
+  .itile__ico .ic{width:18px;height:18px}
+  .itile__body b{font-size:.84rem;line-height:1.16}
+  .itile__sub{display:none}
+  .indhead{gap:.7rem}
+  .indhead__facts{width:100%;gap:.55rem}
+  .fact{flex:1;min-width:0;padding:.5rem .6rem}
+  .fact b{font-size:1.5rem}
+  /* Trim the "Don't see your sector?" card down on phones — tighter padding,
+     gap and copy so the stacked text + button block isn't so tall. */
+  .bcta{padding:.6rem .8rem;gap:.45rem}
+  .bcta__txt b{font-size:.92rem}
+  .bcta__txt p{font-size:.78rem;line-height:1.35;margin-top:.05rem}
+  .bcta .btn{padding:.5rem 1rem;font-size:.8rem}
 }
-@media(max-width:380px){
+@media(max-width:340px){
   .bento{grid-template-columns:1fr}
 }
 @media(prefers-reduced-motion:reduce){
@@ -1178,45 +1274,29 @@ html,body{max-width:100%;overflow-x:hidden}
   .js .bento:not(.in)>*{opacity:1;transform:none}
 }
 
-/* ---- Clients — compact, lightweight logo strip on a soft band:
-   a small centred heading over one auto-scrolling row of glass logo cards. ---- */
-.clientstrip{position:relative;padding:clamp(2rem,4vw,2.8rem) 0;overflow:hidden}
-.clientstrip__head{text-align:center;margin-bottom:clamp(1.1rem,2.5vw,1.6rem)}
+/* ---- Clients — trust-focused, names only. One elegant light container holds
+   every client as a simple white name chip. No logos, no icons, no stats:
+   white page → light container → white chips. Navy names + gold-on-hover =
+   the navy–gold brand theme, wired to the shared theme variables. ---- */
+.clientstrip{position:relative;padding:clamp(2.4rem,4vw,3.2rem) 0;background:#fff}
+.clientstrip__head{text-align:center;margin-bottom:clamp(1.4rem,2.5vw,2rem)}
 .clientstrip__head h2{font-size:clamp(1.3rem,2.8vw,1.9rem);font-weight:700;color:var(--slate);margin:.6rem 0 0;max-width:600px;margin-inline:auto}
 
-/* frosted-white glass logo cards flowing in a two-row infinite marquee.
-   Rows scroll opposite ways at different speeds; the whole strip fades at
-   the edges and pauses when hovered so a logo can be read. */
-.cmar{position:relative;display:flex;flex-direction:column;gap:clamp(.7rem,1.4vw,1rem);
-  margin:clamp(1.2rem,2.5vw,1.7rem) auto 0;max-width:100%;
-  -webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);
-          mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent)}
-.cmar__row{overflow:hidden}
-.cmar__track{display:flex;gap:clamp(.7rem,1.4vw,1rem);width:max-content;will-change:transform;
-  animation:cmarScroll 42s linear infinite}
-.cmar__row--rev .cmar__track{animation-duration:52s;animation-direction:reverse}
-.cmar:hover .cmar__track{animation-play-state:paused}
-/* each half is an identical copy → -50% loops seamlessly */
-@keyframes cmarScroll{to{transform:translateX(-50%)}}
-.cmar .logocard{flex:0 0 auto;width:172px}
+/* the container: soft theme panel, rounded + softly shadowed */
+.clientbox{max-width:1000px;margin-inline:auto;background:var(--soft);border:1px solid var(--line);border-radius:24px;padding:clamp(1.5rem,3vw,2.75rem);box-shadow:0 16px 44px rgba(15,23,42,.05)}
+/* centred wrap so a partial last row stays balanced for any client count */
+.clientgrid{display:flex;flex-wrap:wrap;justify-content:center;gap:clamp(.7rem,1.4vw,1rem)}
 
-.logocard{display:grid;place-items:center;min-height:74px;padding:.75rem .9rem;background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:0 10px 26px -18px rgba(11,26,74,.4);transition:var(--t)}
-/* logos: grayscale + slightly muted by default, full colour on hover */
-.logocard img{height:34px;width:auto;max-width:140px;object-fit:contain;filter:grayscale(1);opacity:.7;transition:var(--t)}
-.logocard:hover{transform:translateY(-6px);border-color:rgba(22,201,95,.6);box-shadow:0 20px 42px -16px rgba(0,0,0,.75),0 0 0 3px rgba(13,147,71,.22),0 0 28px -4px rgba(22,201,95,.45)}
-.logocard:hover img{filter:grayscale(0);opacity:1}
-/* name-only clients: dark wordmark on the white card, last word tinted green on hover */
-.logocard__name{font-family:var(--font-poppins),system-ui,sans-serif;font-weight:700;font-size:1.15rem;letter-spacing:.005em;color:var(--slate);text-align:center;line-height:1.2;transition:var(--t)}
-.logocard--name:hover .logocard__name span{color:var(--green-d)}
+/* white name chips: navy wordmark, gold border + gold glow on hover */
+.logocard{flex:0 0 auto;width:200px;display:grid;place-items:center;min-height:60px;padding:.85rem 1.2rem;background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:0 1px 2px rgba(15,23,42,.04);transition:var(--t)}
+.logocard__name{font-family:var(--font-poppins),system-ui,sans-serif;font-weight:600;font-size:1.125rem;color:var(--slate);text-align:center;line-height:1.2;transition:var(--t)}
+.logocard:hover{transform:translateY(-3px);border-color:var(--yellow);box-shadow:0 12px 26px -12px rgba(246,178,27,.45)}
 
-@media(max-width:600px){.cmar .logocard{width:142px;min-height:64px;padding:.7rem}.logocard img{max-width:110px;height:30px}.logocard__name{font-size:.98rem}}
-/* reduced motion: no scroll — collapse to one static, centred, wrapped row */
-@media(prefers-reduced-motion:reduce){
-  .cmar{-webkit-mask-image:none;mask-image:none}
-  .cmar__row{overflow:visible}
-  .cmar__row--rev{display:none}
-  .cmar__track{animation:none;flex-wrap:wrap;justify-content:center;width:auto}
-  .cmar__track [aria-hidden="true"]{display:none}
+@media(max-width:600px){
+  .clientbox{padding:1.4rem;border-radius:18px}
+  .clientgrid{gap:.7rem}
+  .logocard{width:calc(50% - .35rem);min-height:52px;padding:.7rem;border-radius:12px}
+  .logocard__name{font-size:1rem}
 }
 
 /* Rating / trust bar between industries and testimonials */
@@ -1331,32 +1411,42 @@ html,body{max-width:100%;overflow-x:hidden}
 @media(max-width:1200px){.prodgrid{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:991px){
   .prodgrid{grid-template-columns:repeat(2,1fr);gap:1rem}
-  .procard__media{height:158px}
-  .procard__img{max-height:132px}
-  .procard__name{font-size:1.12rem}
+  /* image frame scales with the (now wider) 2-up card instead of a fixed short box.
+     White background so white-cut-out product shots sit seamlessly (no grey seam)
+     and the cards read as one consistent set. */
+  .procard__media{height:auto;aspect-ratio:16/10;background:#fff}
+  .procard__img{max-height:100%}
+  .procard__name{font-size:clamp(1.02rem,1.9vw,1.16rem)}
 }
 @media(max-width:640px){
-  .prodgrid{gap:.85rem}
-  .procard{border-radius:16px}
-  .procard__media{height:120px;padding:.7rem}
-  .procard__img{max-height:100px;max-width:92%}
-  .procard__body{padding:.85rem .9rem .95rem;gap:.45rem}
-  .procard__cat{font-size:.64rem;letter-spacing:.06em}
-  .procard__name{font-size:1.02rem;min-height:2.5em}
-  .procard__feats{gap:.34rem}
-  .procard__feats li{font-size:.78rem;padding-left:1.4rem}
-  .procard__feats li:nth-child(3){display:none}   /* 2 features on mobile */
-  .procard__feats li::before{width:1rem;height:1rem;font-size:.62rem}
-  .procard__btn{padding:.58rem .8rem;font-size:.82rem;border-radius:10px}
-  .procard__badge{font-size:.52rem;padding:.28rem .5rem;top:9px}
-  .procard__badge--star{left:9px}
-  .procard__badge--mat{right:9px}
+  .prodgrid{gap:.7rem}
+  .procard{border-radius:14px}
+  /* Proportional image frame: height tracks the card width (aspect-ratio) so the
+     photo fills nicely at EVERY phone size instead of floating in a fixed short
+     box that looks tiny once the card gets wider. */
+  .procard__media{height:auto;aspect-ratio:4/3;padding:.4rem}
+  .procard__img{max-height:100%;max-width:94%;filter:drop-shadow(0 6px 10px rgba(11,26,74,.15))}
+  .procard__body{padding:.5rem .72rem .62rem;gap:.18rem}
+  /* Fluid type: scales smoothly with viewport (clamp) instead of a fixed small
+     size that stays 14px whether the card is 156px or 289px wide. */
+  .procard__cat{font-size:clamp(.64rem,2.3vw,.74rem);letter-spacing:.05em}
+  .procard__name{font-size:clamp(.98rem,3.3vw,1.16rem);font-weight:700;line-height:1.22;min-height:0;margin:.06rem 0 .12rem}
+  /* The whole card is already tappable, so the CTA is a clean text link.
+     margin-top:auto pins it to the card bottom so links line up across a row
+     regardless of whether the title is one line or two. */
+  .procard__btn{width:auto;justify-content:flex-start;padding:.1rem 0;margin-top:auto;background:none;box-shadow:none;color:var(--blue-d);font-size:clamp(.82rem,2.7vw,.94rem)}
+  .procard:hover .procard__btn{filter:none;box-shadow:none}
+  /* Compact, refined corner badges. */
+  .procard__badge{font-size:clamp(.5rem,1.9vw,.62rem);padding:.24rem .5rem;top:8px;box-shadow:0 3px 7px rgba(11,26,74,.16)}
+  .procard__badge--star{left:8px;gap:.25rem}
+  .procard__badge--mat{right:8px}
+  .procard__feats,.procard__feats li{display:none}
   .pmapps li{font-size:.78rem;padding:.3rem .6rem}
 }
 @media(max-width:359px){
-  /* only very narrow phones drop to a single column */
-  .procard__media{height:150px}
-  .procard__name{font-size:.98rem}
+  /* only very narrow phones drop to a single column — wider frame for the
+     full-width single card */
+  .procard__media{aspect-ratio:16/10}
 }
 
 /* ===========================================================
@@ -1427,7 +1517,7 @@ a.procard{text-decoration:none}
 .pdp__app i{font-style:normal;font-size:1rem;line-height:1}
 
 .pdp__actions{display:flex;flex-wrap:wrap;gap:.7rem}
-.pdp__actions .btn{flex:1 1 auto;justify-content:center;padding:.82rem 1.2rem;font-size:.9rem}
+.pdp__actions .btn{flex:0 0 auto;justify-content:center;padding:.82rem 1.9rem;font-size:.9rem}
 
 .pdp__tech{margin-top:2.6rem}
 .pdp__tech table{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden}
@@ -1460,9 +1550,202 @@ a.procard{text-decoration:none}
 .pdp--modal .pdp__h{font-size:1rem;margin-bottom:.6rem}
 .pdp--modal .pdp__specs{gap:.5rem .8rem;margin-bottom:1.1rem}
 .pdp--modal .pdp__apps{margin-bottom:1.2rem}
-.pdp--modal .pdp__actions .btn{padding:.7rem 1rem;font-size:.86rem}
+.pdp--modal .pdp__actions .btn{padding:.72rem 1.7rem;font-size:.88rem}
 @media(max-width:760px){
   .pdp--modal{grid-template-columns:1fr;gap:1.1rem}
   .pdp--modal .pdp__media{height:200px;aspect-ratio:16/10}
   .pdp--modal .pdp__specs{grid-template-columns:1fr}
+}
+/* Phones: trim the detail popup to essentials so it reads without a long
+   scroll — smaller image, condensed specs, generic "Applications" hidden,
+   and a neat action layout (WhatsApp full-width, Call + Brochure paired). */
+@media(max-width:560px){
+  .pmodal__box{padding:1.1rem 1.05rem}
+  .pdp--modal{gap:.85rem}
+  .pdp--modal .pdp__media{height:148px}
+  .pdp__mat{top:10px;right:10px;font-size:.6rem}
+  .pdp--modal .pdp__info h3{font-size:1.22rem;margin:.15rem 0 .3rem}
+  .pdp__stars{margin-bottom:.55rem}
+  .pdp__stars span{font-size:.95rem}
+  .pdp__stars small{display:none}
+  .pdp--modal .pdp__lead{font-size:.85rem;line-height:1.5;margin-bottom:.75rem;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+  .pdp--modal .pdp__h{font-size:.9rem;margin-bottom:.5rem;padding-bottom:.35rem}
+  .pdp--modal .pdp__specs{gap:.32rem .8rem;margin-bottom:.9rem}
+  .pdp__specs li{font-size:.82rem;padding-left:1.45rem}
+  .pdp__specs li::before{width:1.05rem;height:1.05rem;font-size:.66rem}
+  .pdp__h--apps,.pdp__apps--block{display:none}
+  .pdp--modal .pdp__actions{gap:.45rem}
+  .pdp--modal .pdp__actions .btn{flex:0 0 auto;min-width:0;padding:.55rem 1.3rem;font-size:.8rem}
+}
+
+/* ===========================================================
+   MOBILE SCROLL REDUCTION — authoritative phone pass (≤640px)
+   -----------------------------------------------------------
+   ONE consolidated layer that tightens vertical rhythm across
+   EVERY section so the homepage reads in far fewer swipes.
+   Kept last in the file (wins the cascade) and applied to the
+   whole phone range in a single breakpoint (no width-to-width
+   jumps). Mostly padding / margin / height — no layout rebuild,
+   so it's low-risk. Tune the numbers here to taste.
+   =========================================================== */
+@media(max-width:640px){
+  /* 1) Section rhythm — the single biggest scroll win. Every
+        section (light + the dark Process/Stats/Clients bands)
+        gets a much shorter top/bottom. IDs used where a section
+        sets its own padding, so specificity wins. */
+  .sec{padding:1.4rem 0}
+  #products,#industries,#gallery,#clients,#contact,#about{padding:1.4rem 0}
+  #process{padding:1.5rem 0}
+  .stats{padding:1rem 0}
+  .clientstrip{padding:1.4rem 0}
+
+  /* 2) Section headers — tighter eyebrow → title → text stack */
+  .head{margin-bottom:.85rem}
+  .head h2{font-size:1.4rem;margin:.3rem 0 .4rem}
+  .head p{font-size:.86rem;line-height:1.45}
+
+  /* 3) Hero — trim the tall fixed height (was up to 660px) */
+  .hero{height:clamp(430px,66vh,510px)}
+  .hero p{margin:.55rem 0 1rem}
+  .hero__features{margin-top:1rem}
+
+  /* 4) Products — keep the 2×2 featured grid but shorten the
+        image frame and the trailing button gap */
+  .procard__media{aspect-ratio:16/11}
+  #products .ptools{margin-top:1rem}
+
+  /* 5) Process — the longest mobile section. Keep the circuit
+        layout & disc geometry (var-based, don't touch --pd),
+        just squeeze the gaps, labels and surrounding space. */
+  #process .head{margin-bottom:.6rem}
+  #process .pflow{--pgy:.85rem;margin-top:1rem}
+  #process .pstep__node{margin-bottom:.3rem}
+  #process .pstep h3{font-size:.82rem;margin-bottom:.12rem}
+  #process .pstep p{font-size:.7rem;line-height:1.34}
+
+  /* 6) Industries — tighter tiles + fact chips + CTA */
+  .indhead{margin-bottom:.8rem}
+  .bento{gap:.45rem}
+  .itile{padding:.55rem .65rem}
+
+  /* 7) Gallery marquee — shorter tiles (one screen-width strip) */
+  .marq__item{width:210px;height:140px}
+
+  /* 8) Clients logo strip — tighter band + heading */
+  .clientstrip__head{margin-bottom:.9rem}
+
+  /* 9) Contact — shorter map + tighter split */
+  .csplit--form{gap:1rem}
+  .csplit__media--side{height:150px}
+}
+
+/* ===========================================================
+   EXTRA-COMPACT PHONE PASS  (≤640px, then ≤400px)
+   -----------------------------------------------------------
+   One more notch down for phones: shorter section heights,
+   leaner card/box padding, smaller headings + body type and
+   shorter images — so every section reads in fewer swipes.
+   Appended last so it wins the cascade over the earlier phone
+   passes. Font sizes stay ≥12px (16px on inputs so iOS Safari
+   doesn't zoom). Tune the numbers here to taste.
+   =========================================================== */
+@media(max-width:640px){
+  /* — section rhythm: shorter top/bottom on every band — */
+  .sec{padding:1rem 0}
+  #products,#industries,#gallery,#clients,#contact,#about{padding:1rem 0}
+  #process{padding:1.1rem 0}
+  .stats{padding:.7rem 0}
+  .clientstrip{padding:1rem 0}
+
+  /* — section headers: smaller title + tighter stack — */
+  .head{margin-bottom:.6rem}
+  .head h2{font-size:1.2rem;margin:.2rem 0 .3rem}
+  .head p{font-size:.8rem;line-height:1.4}
+  .indhead{margin-bottom:.6rem}
+  .indhead h2{font-size:1.28rem;margin:.25rem 0 .3rem}
+  .indhead p{font-size:.82rem}
+  .clientstrip__head{margin-bottom:.7rem}
+  .clientstrip__head h2{font-size:1.15rem}
+
+  /* — hero: shorter frame, smaller headline + intro — */
+  .hero{height:clamp(360px,54vh,430px)}
+  .hero h1,.hero .hero__h{font-size:clamp(1.5rem,6.5vw,1.7rem)}
+  .hero p{font-size:.82rem;margin:.5rem 0 .9rem;line-height:1.5}
+  .hero__badge{font-size:.66rem;padding:.32rem .8rem;margin-bottom:.7rem}
+  .hero__features{margin-top:.8rem;gap:.35rem .45rem}
+  .hero__feat{font-size:.7rem;padding:.34rem .6rem}
+
+  /* — about: smaller heading + tighter gap to the value cards — */
+  .about__intro h2{font-size:1.15rem;margin:.1rem 0 .35rem}
+  .about__intro p{font-size:.8rem;line-height:1.45;margin-bottom:.35rem}
+  .about__more{margin-top:.45rem}
+  .whyx{gap:.4rem}
+  .whyx__card{padding:.45rem .55rem}
+  .whyx__card h3{font-size:.77rem}
+  .certs{gap:.34rem;margin-top:.55rem}
+  .cert{font-size:.68rem;padding:.3rem .52rem}
+
+  /* — products: slightly shorter image + leaner card body — */
+  .procard__media{aspect-ratio:16/10}
+  .procard__body{padding:.45rem .62rem .55rem;gap:.14rem}
+  .procard__name{font-size:clamp(.92rem,3.1vw,1.08rem)}
+  .procard__cat{font-size:clamp(.6rem,2.1vw,.7rem)}
+  #products .ptools{margin-top:.8rem}
+  .prodgrid--home{gap:.6rem}
+
+  /* — stats: trim the big figures a notch — */
+  .stats .wrap{padding:1rem .3rem}
+  .stat b{font-size:1.8rem}
+  .stat>span{font-size:.56rem}
+
+  /* — process: tighter labels + gaps — */
+  #process .pflow{--pgy:.7rem;margin-top:.8rem}
+  #process .pstep h3{font-size:.78rem}
+  #process .pstep p{font-size:.68rem}
+
+  /* — industries: leaner tiles + fact chips + CTA — */
+  .bento{gap:.4rem}
+  .itile{padding:.5rem .6rem;gap:.5rem}
+  .itile__ico{width:32px;height:32px}
+  .itile__body b{font-size:.8rem}
+  .indhead__facts{gap:.45rem}
+  .fact{padding:.45rem .5rem}
+  .fact b{font-size:1.3rem}
+  .fact span{font-size:.66rem}
+  .bcta{padding:.55rem .7rem}
+  .bcta__txt b{font-size:.86rem}
+  .bcta__txt p{font-size:.74rem}
+
+  /* — gallery marquee: shorter tiles — */
+  .marq__item{width:182px;height:120px}
+
+  /* — contact: leaner form fields, shorter map — */
+  .cform{padding:1rem}
+  .cform__head h3{font-size:1.05rem}
+  .cform__head p{font-size:.78rem}
+  .cform label{font-size:.76rem;margin:.35rem 0 .18rem}
+  .cform input,.cform select,.cform textarea{padding:.5rem .7rem}
+  .cform textarea{min-height:58px}
+  .cform .btn{margin-top:.7rem}
+  .csplit--form{gap:.8rem}
+  .csplit__media--side{height:128px}
+
+  /* — footer: smaller brand mark — */
+  .fbrand__mark{height:28px;width:18px;background-size:auto 28px}
+}
+
+/* about photo banner is stacked on top only ≤560px — shorten it there
+   (561–640px keeps the side-by-side image, so leave that height alone) */
+@media(max-width:560px){
+  .about__media img{height:140px}
+}
+
+/* very small phones — one more step down */
+@media(max-width:400px){
+  .sec,#products,#industries,#gallery,#clients,#contact,#about{padding:.9rem 0}
+  .head h2{font-size:1.12rem}
+  .hero h1,.hero .hero__h{font-size:1.42rem}
+  .about__media img{height:122px}
+  .itile__body b{font-size:.76rem}
+  .fact b{font-size:1.18rem}
 }
