@@ -1,0 +1,72 @@
+<!--
+  Sri Hari Industries — Enquiry email template for EmailJS.
+
+  Setup: EmailJS dashboard → Email Templates → Create New Template → switch
+  to the "Code Editor" view → paste this whole file in → Save.
+  Then on that template's Settings tab set:
+    To Email   = srihariindustriescbe@gmail.com
+    Reply To   = {{email}}
+    From Name  = Sri Hari Industries Website
+    Subject    = New enquiry — {{product}} (from {{from_name}})
+
+  Variables filled in by components/EnquiryForm.tsx:
+    {{from_name}}  {{phone}}  {{email}}  {{product}}  {{message}}  {{submitted_at}}
+-->
+<div style="background:#f4f6fb;padding:32px 16px;font-family:Arial,Helvetica,sans-serif;">
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:600px;margin:0 auto;background:#ffffff;border:1px solid #e3eaf3;border-radius:12px;overflow:hidden;">
+
+    <!-- Header -->
+    <tr>
+      <td style="background:#152c5c;padding:28px 32px;">
+        <p style="margin:0 0 6px;color:#ffffff;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;opacity:.7;">New Website Enquiry</p>
+        <p style="margin:0;color:#ffffff;font-size:20px;font-weight:700;">Sri Hari Industries</p>
+        <p style="margin:2px 0 0;color:#ffffff;font-size:13px;opacity:.8;">Kitchen Consultancy &amp; Designs</p>
+      </td>
+    </tr>
+
+    <!-- Body -->
+    <tr>
+      <td style="padding:28px 32px 8px;">
+        <p style="margin:0 0 22px;color:#16233b;font-size:14px;line-height:1.6;">
+          A visitor submitted the enquiry form on the website. Details below —
+          reply directly to this email to reach the customer.
+        </p>
+
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;">
+          <tr>
+            <td style="width:130px;padding:12px 0;border-bottom:1px solid #e3eaf3;color:#5c6b80;font-size:11px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;vertical-align:top;">Name</td>
+            <td style="padding:12px 0;border-bottom:1px solid #e3eaf3;color:#16233b;font-size:14px;vertical-align:top;">{{from_name}}</td>
+          </tr>
+          <tr>
+            <td style="padding:12px 0;border-bottom:1px solid #e3eaf3;color:#5c6b80;font-size:11px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;vertical-align:top;">Phone / WhatsApp</td>
+            <td style="padding:12px 0;border-bottom:1px solid #e3eaf3;color:#16233b;font-size:14px;vertical-align:top;">{{phone}}</td>
+          </tr>
+          <tr>
+            <td style="padding:12px 0;border-bottom:1px solid #e3eaf3;color:#5c6b80;font-size:11px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;vertical-align:top;">Email</td>
+            <td style="padding:12px 0;border-bottom:1px solid #e3eaf3;color:#16233b;font-size:14px;vertical-align:top;">{{email}}</td>
+          </tr>
+          <tr>
+            <td style="padding:12px 0;border-bottom:1px solid #e3eaf3;color:#5c6b80;font-size:11px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;vertical-align:top;">Requirement</td>
+            <td style="padding:12px 0;border-bottom:1px solid #e3eaf3;vertical-align:top;">
+              <span style="display:inline-block;background:#ecf0fa;color:#2a53a5;font-size:12px;font-weight:700;padding:4px 10px;border-radius:50px;">{{product}}</span>
+            </td>
+          </tr>
+          <tr>
+            <td style="padding:12px 0;color:#5c6b80;font-size:11px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;vertical-align:top;">Message</td>
+            <td style="padding:12px 0;color:#16233b;font-size:14px;line-height:1.6;white-space:pre-line;vertical-align:top;">{{message}}</td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+
+    <!-- Footer -->
+    <tr>
+      <td style="background:#ecf0fa;padding:16px 32px;border-top:1px solid #e3eaf3;">
+        <p style="margin:0;color:#5c6b80;font-size:12px;">
+          Submitted {{submitted_at}} via srihariindustries.in &middot; Urumandampalayam, Coimbatore 641029 &middot; +91 94433 92337
+        </p>
+      </td>
+    </tr>
+
+  </table>
+</div>

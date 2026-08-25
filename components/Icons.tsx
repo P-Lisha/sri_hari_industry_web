@@ -26,6 +26,7 @@ export function IconSprite() {
       <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7" /><path d="m21 21-4.3-4.3" /></symbol>
       <symbol id="i-snow" viewBox="0 0 24 24"><path d="M12 2v20M4.5 7 19.5 17M19.5 7 4.5 17" /><path d="m9 4 3 3 3-3M9 20l3-3 3 3M4 9.5 7.2 12 4 14.5M20 9.5 16.8 12 20 14.5" /></symbol>
       <symbol id="i-wind" viewBox="0 0 24 24"><path d="M3 8h10a3 3 0 1 0-3-3" /><path d="M3 12h16a3 3 0 1 1-3 3" /><path d="M3 16h7a2.5 2.5 0 1 1-2.5 2.5" /></symbol>
+      <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14" /><path d="m13 6 6 6-6 6" /></symbol>
     </svg>
   );
 }
