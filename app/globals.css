@@ -37,6 +37,7 @@ a{text-decoration:none;color:inherit}img{display:block;max-width:100%}
 .eyebrow--y{background:var(--yellow-soft);color:var(--yellow-d)}
 .eyebrow--g{background:var(--green-soft);color:var(--green-d)}
 .tcenter{text-align:center}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 
 /* ---------- Buttons ---------- */
 .btn{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--font-poppins),system-ui,sans-serif;font-weight:600;font-size:.95rem;padding:.9rem 1.7rem;border-radius:50px;border:2px solid transparent;cursor:pointer;transition:var(--t);position:relative;overflow:hidden}
@@ -1184,38 +1185,26 @@ html,body{max-width:100%;overflow-x:hidden}
 .indhead h2{font-size:clamp(1.8rem,4vw,2.4rem);color:var(--slate);margin:.55rem 0 .45rem}
 .indhead h2 em{font-style:normal;background:linear-gradient(120deg,var(--blue),var(--green));-webkit-background-clip:text;background-clip:text;color:transparent}
 .indhead p{color:var(--muted);max-width:560px}
-.indhead__facts{display:flex;gap:.8rem;flex:none}
-.fact{min-width:112px;text-align:center;padding:.6rem 1rem;background:rgba(255,255,255,.75);backdrop-filter:blur(8px);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow-sm)}
+.indhead__facts{display:flex;gap:.7rem;flex:none}
+.fact{min-width:96px;text-align:center;padding:.6rem .8rem;background:rgba(255,255,255,.75);backdrop-filter:blur(8px);border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow-sm)}
 .fact b{display:block;font-family:var(--font-poppins);font-weight:800;font-size:1.35rem;line-height:1.15;background:linear-gradient(120deg,var(--blue-d),var(--blue));-webkit-background-clip:text;background-clip:text;color:transparent}
 .fact span{font-size:.72rem;font-weight:600;letter-spacing:.03em;color:var(--muted)}
 
-/* image-free tile grid: uniform sector tiles auto-fill 4/3/2-up,
+/* flat, monochrome sector list: uniform rows auto-fill 4/3/2-up,
    CTA card spans the whole closing row */
-.bento{display:grid;grid-template-columns:repeat(auto-fill,minmax(232px,1fr));gap:.8rem}
+.bento{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:.7rem}
 
-/* uniform premium sector tiles — icon badge, name, one-liner + hover cue */
-.itile{position:relative;isolation:isolate;overflow:hidden;display:flex;flex-direction:column;gap:.45rem;min-height:0;padding:.85rem 1rem;background:rgba(255,255,255,.82);backdrop-filter:blur(6px);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow-sm);cursor:pointer;transition:var(--t)}
-/* Persistent 3px top accent in each tile's own tone — gives the Industries
-   grid a distinct identity vs the plain white Product cards. Clipped to the
-   rounded top corners by the tile's overflow:hidden. */
-.itile::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:currentColor;z-index:2}
-.itile::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;background:currentColor;opacity:0;transform:scaleX(.35);transform-origin:left;transition:var(--t)}
-.itile:hover{transform:translateY(-6px);border-color:color-mix(in srgb,currentColor 40%,transparent);box-shadow:0 24px 44px -22px color-mix(in srgb,currentColor 55%,rgba(11,26,74,.4))}
-.itile:hover::after{opacity:.9;transform:none}
-.itile__ico{flex:none;width:44px;height:44px;border-radius:12px;display:grid;place-items:center;color:currentColor;box-shadow:inset 0 0 0 1px color-mix(in srgb,currentColor 16%,transparent);transition:var(--t)}
-.itile__ico .ic{width:22px;height:22px;stroke-width:1.7;animation:indFloat 5s ease-in-out infinite}
-.itile:hover .itile__ico{background:currentColor;color:#fff;transform:scale(1.06) rotate(-4deg)}
-.itile__body{display:flex;flex-direction:column;gap:.12rem}
-.itile__body b{font-family:var(--font-poppins);font-weight:700;font-size:1.02rem;color:var(--slate);line-height:1.25}
-.itile__sub{color:var(--muted);font-size:.82rem;line-height:1.4}
-/* colour tones (drive icon colour, badge tint, accent bar + hover glow) */
-.itile--blue{color:var(--blue)}     .itile--blue   .itile__ico{background:linear-gradient(150deg,var(--blue-soft),#fff)}
-.itile--green{color:var(--green-d)}  .itile--green  .itile__ico{background:linear-gradient(150deg,var(--green-soft),#fff)}
-.itile--yellow{color:var(--yellow-d)}.itile--yellow .itile__ico{background:linear-gradient(150deg,var(--yellow-soft),#fff)}
-.itile--red{color:var(--red)}       .itile--red    .itile__ico{background:linear-gradient(150deg,var(--red-soft),#fff)}
+/* uniform sector rows — plain white card, thin border, one icon colour,
+   arrow cue on hover. Premium B2B list, not a colourful icon grid. */
+.itile{position:relative;display:flex;align-items:center;gap:.75rem;min-height:64px;padding:0 1.1rem;background:#fff;border:1px solid var(--line);border-radius:12px;cursor:pointer;transition:var(--t)}
+.itile:hover{border-color:var(--blue);box-shadow:0 10px 24px -16px rgba(42,83,165,.35);transform:translateY(-2px)}
+.itile__ico{flex:none;width:20px;height:20px;color:var(--ink);fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.itile__label{flex:1;font-family:var(--font-poppins);font-weight:600;font-size:.92rem;color:var(--ink);line-height:1.3}
+.itile__arrow{flex:none;width:16px;height:16px;color:var(--muted);fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;transition:var(--t)}
+.itile:hover .itile__arrow{color:var(--blue);transform:translateX(3px)}
 
 /* navy CTA card closing the grid (spans the full row) */
-.bcta{grid-column:1/-1;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:space-between;gap:1.2rem;padding:.7rem 1.2rem;border-radius:14px;color:#fff;background:linear-gradient(135deg,var(--blue-d2),var(--blue-d) 60%,var(--blue));box-shadow:var(--shadow-sm)}
+.bcta{grid-column:1/-1;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:space-between;gap:1.2rem;padding:.7rem 1.2rem;border-radius:12px;color:#fff;background:linear-gradient(135deg,var(--blue-d2),var(--blue-d) 60%,var(--blue));box-shadow:var(--shadow-sm)}
 .bcta::after{content:"";position:absolute;top:-60%;right:-6%;width:240px;height:240px;border-radius:50%;background:radial-gradient(circle,rgba(246,178,27,.35),transparent 70%);pointer-events:none}
 .bcta__txt b{display:block;font-family:var(--font-poppins);font-weight:700;font-size:1rem}
 .bcta__txt p{color:var(--on-navy);font-size:.84rem;margin:.1rem 0 0;max-width:520px}
@@ -1237,28 +1226,22 @@ html,body{max-width:100%;overflow-x:hidden}
 .bento.in>*:nth-child(11){animation-delay:.52s}
 .bento.in>*:nth-child(12){animation-delay:.57s}
 .bento.in>*:nth-child(13){animation-delay:.62s}
-/* desync the idle float so it reads organic, not a synced wave */
-.itile:nth-of-type(2n) .ic{animation-delay:-1.4s}
-.itile:nth-of-type(3n) .ic{animation-delay:-2.7s}
 @keyframes indIn{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
-@keyframes indFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-2.5px)}}
 @media(max-width:900px){
   .indhead{flex-direction:column;align-items:flex-start;gap:.9rem}
   .bcta{flex-wrap:wrap}
 }
 @media(max-width:640px){
-  /* Compact icon-beside-name rows so 12 sectors don't span two screens.
-     The one-line sub is dropped on phones — icon + sector name says enough. */
+  /* Compact icon-beside-name rows so 12 sectors don't span two screens. */
   .bento{grid-template-columns:repeat(2,1fr);gap:.5rem}
-  .itile{min-height:0;flex-direction:row;align-items:center;gap:.55rem;padding:.62rem .7rem;border-radius:13px}
-  .itile__ico{width:34px;height:34px;border-radius:10px}
-  .itile__ico .ic{width:18px;height:18px}
-  .itile__body b{font-size:.84rem;line-height:1.16}
-  .itile__sub{display:none}
+  .itile{min-height:52px;gap:.55rem;padding:0 .7rem;border-radius:11px}
+  .itile__ico{width:17px;height:17px}
+  .itile__label{font-size:.82rem}
+  .itile__arrow{width:14px;height:14px}
   .indhead{gap:.7rem}
-  .indhead__facts{width:100%;gap:.55rem}
-  .fact{flex:1;min-width:0;padding:.5rem .6rem}
-  .fact b{font-size:1.5rem}
+  .indhead__facts{width:100%;gap:.5rem;flex-wrap:wrap}
+  .fact{flex:1;min-width:72px;padding:.5rem .5rem}
+  .fact b{font-size:1.35rem}
   /* Trim the "Don't see your sector?" card down on phones — tighter padding,
      gap and copy so the stacked text + button block isn't so tall. */
   .bcta{padding:.6rem .8rem;gap:.45rem}
@@ -1270,45 +1253,38 @@ html,body{max-width:100%;overflow-x:hidden}
   .bento{grid-template-columns:1fr}
 }
 @media(prefers-reduced-motion:reduce){
-  .itile__ico .ic,.bento.in>*{animation:none}
+  .bento.in>*{animation:none}
   .js .bento:not(.in)>*{opacity:1;transform:none}
 }
 
-/* ---- Clients — trust-focused, names only. One elegant light container holds
-   every client as a simple white name chip. No logos, no icons, no stats:
-   white page → light container → white chips. Navy names + gold-on-hover =
-   the navy–gold brand theme, wired to the shared theme variables. ---- */
-.clientstrip{position:relative;padding:clamp(2.4rem,4vw,3.2rem) 0;background:#fff}
-.clientstrip__head{text-align:center;margin-bottom:clamp(1.4rem,2.5vw,2rem)}
+/* ---- Clients — a two-row auto-scrolling marquee of client name chips
+   (opposite directions, pauses on hover, edges fade out). Names only —
+   no logos, no icons, no invented quotes. Chips sit on a soft tinted
+   surface (not plain white) so they read clearly against the section's
+   white background; navy names + gold-on-hover = the navy–gold brand
+   theme, wired to the shared theme variables. ---- */
+.clientstrip{position:relative;padding:clamp(1.6rem,2.6vw,2.2rem) 0;background:#fff}
+.clientstrip__head{text-align:center;margin-bottom:clamp(.9rem,1.6vw,1.2rem)}
 .clientstrip__head h2{font-size:clamp(1.3rem,2.8vw,1.9rem);font-weight:700;color:var(--slate);margin:.6rem 0 0;max-width:600px;margin-inline:auto}
 
-/* the container: soft theme panel, rounded + softly shadowed */
-.clientbox{max-width:1000px;margin-inline:auto;background:var(--soft);border:1px solid var(--line);border-radius:24px;padding:clamp(1.5rem,3vw,2.75rem);box-shadow:0 16px 44px rgba(15,23,42,.05)}
-/* centred wrap so a partial last row stays balanced for any client count */
-.clientgrid{display:flex;flex-wrap:wrap;justify-content:center;gap:clamp(.7rem,1.4vw,1rem)}
+/* Two-row marquee: row A scrolls left, row B (reverse) scrolls right */
+.clientmarq{display:flex;flex-direction:column;gap:.9rem;margin-top:clamp(1rem,2vw,1.4rem);-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+.clientmarq__row{overflow:hidden}
+.clientmarq__track{display:flex;gap:1rem;width:max-content;animation:scrollx 40s linear infinite}
+.clientmarq__row--rev .clientmarq__track{animation-direction:reverse;animation-duration:46s}
+.clientmarq:hover .clientmarq__track{animation-play-state:paused}
 
-/* white name chips: navy wordmark, gold border + gold glow on hover */
-.logocard{flex:0 0 auto;width:200px;display:grid;place-items:center;min-height:60px;padding:.85rem 1.2rem;background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:0 1px 2px rgba(15,23,42,.04);transition:var(--t)}
-.logocard__name{font-family:var(--font-poppins),system-ui,sans-serif;font-weight:600;font-size:1.125rem;color:var(--slate);text-align:center;line-height:1.2;transition:var(--t)}
+/* soft-tinted name chips: navy wordmark, gold border/glow on hover */
+.logocard{flex:0 0 auto;display:grid;place-items:center;min-width:170px;min-height:56px;padding:.8rem 1.3rem;background:var(--soft);border:1px solid var(--line);border-radius:14px;box-shadow:0 1px 2px rgba(15,23,42,.04);transition:var(--t)}
+.logocard__name{font-family:var(--font-poppins),system-ui,sans-serif;font-weight:600;font-size:1.05rem;color:var(--slate);white-space:nowrap;line-height:1.2;transition:var(--t)}
 .logocard:hover{transform:translateY(-3px);border-color:var(--yellow);box-shadow:0 12px 26px -12px rgba(246,178,27,.45)}
 
 @media(max-width:600px){
-  .clientbox{padding:1.4rem;border-radius:18px}
-  .clientgrid{gap:.7rem}
-  .logocard{width:calc(50% - .35rem);min-height:52px;padding:.7rem;border-radius:12px}
-  .logocard__name{font-size:1rem}
+  .clientmarq{gap:.6rem;margin-top:1.4rem}
+  .clientmarq__track{gap:.7rem}
+  .logocard{min-width:140px;min-height:48px;padding:.65rem 1rem}
+  .logocard__name{font-size:.92rem}
 }
-
-/* Rating / trust bar between industries and testimonials */
-.trustbar{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:1.3rem;margin:2.4rem auto 2rem;padding:1rem 1.8rem;width:fit-content;max-width:100%;background:var(--soft);border:1px solid var(--line);border-radius:16px}
-.trustbar__rate{display:flex;align-items:center;gap:.5rem}
-.trustbar__rate .stars{color:var(--yellow-d);font-size:1.15rem;letter-spacing:.08rem}
-.trustbar__rate b{font-family:var(--font-poppins);font-weight:800;font-size:1.15rem;color:var(--slate)}
-.trustbar__fig{display:flex;flex-direction:column;line-height:1.15;text-align:center}
-.trustbar__fig b{font-family:var(--font-poppins);font-weight:700;font-size:.92rem;color:var(--blue-d)}
-.trustbar__fig span{font-size:.72rem;color:var(--muted)}
-.trustbar__sep{width:1px;height:30px;background:var(--line)}
-@media(max-width:560px){.trustbar{gap:.8rem 1rem;padding:.9rem 1.1rem;border-radius:18px}.trustbar__sep{display:none}}
 
 /* Star row on each testimonial card */
 .tcard .tstars{display:block;color:var(--yellow-d);font-size:.95rem;letter-spacing:.12rem;margin-bottom:.8rem}
@@ -1618,7 +1594,7 @@ a.procard{text-decoration:none}
         layout & disc geometry (var-based, don't touch --pd),
         just squeeze the gaps, labels and surrounding space. */
   #process .head{margin-bottom:.6rem}
-  #process .pflow{--pgy:.85rem;margin-top:1rem}
+  #process .pflow{--pgy:.85rem;margin-top:1.7rem}
   #process .pstep__node{margin-bottom:.3rem}
   #process .pstep h3{font-size:.82rem;margin-bottom:.12rem}
   #process .pstep p{font-size:.7rem;line-height:1.34}
@@ -1699,18 +1675,18 @@ a.procard{text-decoration:none}
   .stat>span{font-size:.56rem}
 
   /* — process: tighter labels + gaps — */
-  #process .pflow{--pgy:.7rem;margin-top:.8rem}
+  #process .pflow{--pgy:.7rem;margin-top:1.5rem}
   #process .pstep h3{font-size:.78rem}
   #process .pstep p{font-size:.68rem}
 
-  /* — industries: leaner tiles + fact chips + CTA — */
+  /* — industries: leaner rows + fact chips + CTA — */
   .bento{gap:.4rem}
-  .itile{padding:.5rem .6rem;gap:.5rem}
-  .itile__ico{width:32px;height:32px}
-  .itile__body b{font-size:.8rem}
+  .itile{padding:0 .6rem;gap:.5rem;min-height:48px}
+  .itile__ico{width:16px;height:16px}
+  .itile__label{font-size:.8rem}
   .indhead__facts{gap:.45rem}
   .fact{padding:.45rem .5rem}
-  .fact b{font-size:1.3rem}
+  .fact b{font-size:1.2rem}
   .fact span{font-size:.66rem}
   .bcta{padding:.55rem .7rem}
   .bcta__txt b{font-size:.86rem}
@@ -1720,18 +1696,22 @@ a.procard{text-decoration:none}
   .marq__item{width:182px;height:120px}
 
   /* — contact: leaner form fields, shorter map — */
-  .cform{padding:1rem}
-  .cform__head h3{font-size:1.05rem}
-  .cform__head p{font-size:.78rem}
-  .cform label{font-size:.76rem;margin:.35rem 0 .18rem}
-  .cform input,.cform select,.cform textarea{padding:.5rem .7rem}
-  .cform textarea{min-height:58px}
-  .cform .btn{margin-top:.7rem}
+  .cform{padding:.85rem}
+  .cform__head h3{font-size:1rem}
+  .cform__head p{font-size:.74rem}
+  .cform label{font-size:.72rem;margin:.3rem 0 .15rem}
+  .cform input,.cform select,.cform textarea{padding:.4rem .6rem;border-radius:8px}
+  .cform textarea{min-height:48px}
+  .cform .btn{margin-top:.6rem;padding:.65rem 1rem;font-size:.88rem}
   .csplit--form{gap:.8rem}
   .csplit__media--side{height:128px}
 
   /* — footer: smaller brand mark — */
   .fbrand__mark{height:28px;width:18px;background-size:auto 28px}
+
+  /* — scroll reveal: smaller lift + quicker settle so content doesn't
+     visibly "jump" as it scrolls into view on phones — */
+  .js .reveal{transform:translateY(12px);transition:.4s var(--t)}
 }
 
 /* about photo banner is stacked on top only ≤560px — shorten it there
@@ -1746,6 +1726,6 @@ a.procard{text-decoration:none}
   .head h2{font-size:1.12rem}
   .hero h1,.hero .hero__h{font-size:1.42rem}
   .about__media img{height:122px}
-  .itile__body b{font-size:.76rem}
-  .fact b{font-size:1.18rem}
+  .itile__label{font-size:.76rem}
+  .fact b{font-size:1.1rem}
 }

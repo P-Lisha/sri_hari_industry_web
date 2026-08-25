@@ -51,16 +51,29 @@ export const SITE = {
 } as const;
 
 /**
- * Web3Forms access key — delivers the enquiry form to plisha38@gmail.com.
- * Get a FREE key in ~1 minute:
- *   1. Go to https://web3forms.com
- *   2. Enter the email  plisha38@gmail.com  and click "Create Access Key"
- *   3. Copy the Access Key it emails you and paste it below (replace the
- *      placeholder), OR set NEXT_PUBLIC_WEB3FORMS_KEY in a .env.local file.
- * Until a real key is set, the form will show a friendly "try WhatsApp" error.
+ * EmailJS — delivers the enquiry form as a fully custom-designed HTML email
+ * (branded header, styled customer-details table — see emailjs-template.html
+ * at the repo root) instead of a plain provider-default layout. Runs entirely
+ * client-side, free tier, no backend needed.
+ *
+ * One-time setup (~5 minutes) at https://www.emailjs.com :
+ *   1. Sign up, then Email Services → Add New Service → connect the Gmail
+ *      account srihariindustriescbe@gmail.com. Copy the Service ID.
+ *   2. Email Templates → Create New Template → open the "Code Editor" view
+ *      and paste in the contents of emailjs-template.html (repo root).
+ *      On the same template's Settings tab set: To Email =
+ *      srihariindustriescbe@gmail.com, Reply To = {{email}}. Copy the
+ *      Template ID.
+ *   3. Account → General → copy the Public Key.
+ *   4. Paste the three values below (replacing the placeholders), OR set
+ *      NEXT_PUBLIC_EMAILJS_SERVICE_ID / _TEMPLATE_ID / _PUBLIC_KEY in a
+ *      .env.local file.
+ * Until real values are set, the form will show a friendly "try WhatsApp" error.
  */
-export const WEB3FORMS_KEY =
-  process.env.NEXT_PUBLIC_WEB3FORMS_KEY ?? 'c9ef760e-200a-44fd-9ab5-bc7de71b1952';
+export const EMAILJS_SERVICE_ID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID ?? 'YOUR_SERVICE_ID';
+export const EMAILJS_TEMPLATE_ID =
+  process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID ?? 'YOUR_TEMPLATE_ID';
+export const EMAILJS_PUBLIC_KEY = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY ?? 'YOUR_PUBLIC_KEY';
 
 /**
  * Build a wa.me click-to-chat deep-link with a pre-filled message.
