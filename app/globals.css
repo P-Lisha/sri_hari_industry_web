@@ -69,7 +69,7 @@ a{text-decoration:none;color:inherit}img{display:block;max-width:100%}
 .brand{display:flex;align-items:center;gap:.6rem}
 .brand__mark{height:50px;width:31px;flex:none;background:url(/images/logo.png) no-repeat left center/auto 50px}
 .brand__txt{display:flex;flex-direction:column;line-height:1.04}
-.brand__txt b{font-family:var(--font-poppins),system-ui,sans-serif;font-weight:800;font-size:1.18rem;letter-spacing:.005em;text-transform:uppercase;color:var(--blue);white-space:nowrap}
+.brand__txt b{font-family:var(--font-poppins),system-ui,sans-serif;font-weight:800;font-size:1.18rem;letter-spacing:.005em;text-transform:uppercase;color:var(--green-d);white-space:nowrap}
 .brand__txt b .g{color:var(--green-d)}
 .brand__txt i{font-style:normal;font-size:.64rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:.16rem}
 .menu{margin-left:auto;display:flex;gap:1.6rem}
@@ -445,9 +445,9 @@ a{text-decoration:none;color:inherit}img{display:block;max-width:100%}
 .foot a{color:var(--on-navy-2);display:block;margin-bottom:.55rem;transition:var(--t)}
 .foot a:hover{color:var(--yellow)}
 .fbrand{display:flex;align-items:center;gap:.55rem;margin-bottom:.9rem}
-.fbrand__mark{height:46px;width:29px;flex:none;background:url(/images/logo-footer.png) no-repeat left center/auto 46px}
+.fbrand__mark{height:46px;width:29px;flex:none;background:url(/images/logo.png) no-repeat left center/auto 46px}
 .fbrand__txt{display:flex;flex-direction:column;line-height:1.05}
-.fbrand__txt b{font-family:var(--font-poppins),system-ui,sans-serif;font-weight:800;font-size:1.05rem;letter-spacing:.01em;text-transform:uppercase;color:#fff}
+.fbrand__txt b{font-family:var(--font-poppins),system-ui,sans-serif;font-weight:800;font-size:1.05rem;letter-spacing:.01em;text-transform:uppercase;color:var(--green)}
 .fbrand__txt b .g{color:var(--green)}
 .fbrand__txt i{font-style:normal;font-size:.6rem;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--on-navy-2);margin-top:.14rem}
 .fabout{margin-bottom:1.1rem;line-height:1.6;max-width:300px}
