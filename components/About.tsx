@@ -21,7 +21,7 @@ export function About() {
       <div className="wrap about">
         <div className="about__media reveal">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img loading="lazy" src="/images/factory.jpg" alt="Sri Hari Industries commercial kitchen manufacturing facility in Coimbatore" />
+          <img loading="lazy" src="/images/factory-front.jpg" alt="Sri Hari Industries commercial kitchen manufacturing facility in Coimbatore" />
           <div className="about__badge">
             <b>10<i>+</i></b>
             <span>Years building<br />commercial kitchens</span>
