@@ -1076,10 +1076,14 @@ html,body{max-width:100%;overflow-x:hidden}
   .about{grid-template-columns:1fr;grid-template-areas:"media" "intro" "more";gap:.9rem;align-items:start}
   .about__media{align-self:auto;max-width:100%}
   .about__media img{height:175px;max-height:none;object-fit:cover;border-radius:6px}
-  .about__badge{left:12px;bottom:12px;padding:.6rem .8rem;gap:.55rem;border-radius:6px}
+  /* Phones: the years badge sat ON TOP of the short banner image and covered the
+     signboard. Drop it out of the overlay and render it as a flush caption bar
+     UNDER the image, so nothing overlaps. */
+  .about__badge{position:static;left:auto;bottom:auto;width:100%;margin-top:.5rem;
+    padding:.6rem .9rem;gap:.6rem;border-radius:8px;box-shadow:none}
   .about__badge b{font-size:1.7rem}
   .about__badge b i{font-size:.95rem}
-  .about__badge span{font-size:.66rem;line-height:1.28}
+  .about__badge span{font-size:.72rem;line-height:1.28}
   .about__more{margin-top:.75rem}
   .whyx{gap:.45rem;margin:0}
   .whyx__card{padding:.5rem .6rem;border-left-width:3px}
