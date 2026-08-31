@@ -194,7 +194,7 @@ export const PRODUCTS: Product[] = PCATS.flatMap((g) =>
   g.items.map((it): Product => ({
     name: it[0],
     slug: it[1],
-    img: `/images/products/${it[1]}.jpg`,
+    img: `/images/products/${it[1]}.jpg?v=2`,
     desc: it[2] ?? `${it[0]} — ${g.tag}`,
     feat: it[3] ?? g.feats,
     specs: it[4] ?? null,
