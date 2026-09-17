@@ -44,7 +44,7 @@ export const SITE = {
   brochure: '/brochure/sri-hari-industries-brochure.pdf',
 
   social: {
-    instagram: 'https://instagram.com',
+    instagram: 'https://www.instagram.com/srihariindustriesads',
     facebook: 'https://facebook.com',
     youtube: 'https://youtube.com',
   },
