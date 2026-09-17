@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { WEB3FORMS_KEY } from '@/lib/site';
+import { FORMSUBMIT_ENDPOINT, WEB3FORMS_KEY } from '@/lib/site';
 
 /** Requirement dropdown — mirrors the product categories. */
 const REQUIREMENTS = [
@@ -34,46 +34,76 @@ export function EnquiryForm() {
     const product = (src.get('product') ?? 'General Enquiry').toString().trim();
     const message = (src.get('message') ?? '').toString().trim();
 
-    // Rebuild the payload with neatly-labelled fields so the email that lands
-    // in the inbox reads cleanly (Web3Forms shows each key as-is).
-    const data = new FormData();
-    data.append('access_key', WEB3FORMS_KEY);
-    data.append('from_name', 'Sri Hari Industries Website');
-    data.append('subject', `New enquiry — ${product} (from ${name})`);
+    // Honeypot — bots tick this, humans never see it. Silently pretend
+    // success so the bot doesn't learn it was caught.
+    if (src.get('botcheck')) {
+      form.reset();
+      setState('ok');
+      setFeedback('Thank you! Your enquiry has been sent — we will get back to you shortly.');
+      return;
+    }
 
-    // Reply-To so you can reply straight to the customer from your inbox.
-    if (email) data.append('replyto', email);
-    // Honeypot passthrough — only present when a bot ticked it.
-    const botcheck = src.get('botcheck');
-    if (botcheck) data.append('botcheck', botcheck.toString());
+    const subject = `New enquiry — ${product} (from ${name})`;
 
-    // Order here = order in the email body.
-    data.append('Name', name);
-    data.append('Phone / WhatsApp', phone);
-    data.append('Email', email || '—');
-    data.append('Requirement', product);
-    data.append('Message', message);
-
+    // Primary route: FormSubmit. Neatly-labelled keys = field labels in the
+    // email body; _replyto lets you answer the customer straight from Gmail.
+    let sent = false;
     try {
-      const res = await fetch('https://api.web3forms.com/submit', {
+      const res = await fetch(FORMSUBMIT_ENDPOINT, {
         method: 'POST',
-        body: data,
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          _subject: subject,
+          ...(email ? { _replyto: email } : {}),
+          _template: 'table',
+          Name: name,
+          'Phone / WhatsApp': phone,
+          Email: email || '—',
+          Requirement: product,
+          Message: message,
+        }),
       });
       const json = await res.json();
-      if (json.success) {
-        setState('ok');
-        setFeedback('Thank you! Your enquiry has been sent — we will get back to you shortly.');
-        form.reset();
-      } else {
-        setState('err');
-        setFeedback(
-          json.message ||
-            'Sorry, we could not send your enquiry right now. Please reach us on WhatsApp instead.',
-        );
-      }
+      sent = String(json.success) === 'true';
     } catch {
+      sent = false;
+    }
+
+    // Fallback route: Web3Forms (blocked by Cloudflare on some networks,
+    // hence no longer the primary).
+    if (!sent) {
+      const data = new FormData();
+      data.append('access_key', WEB3FORMS_KEY);
+      data.append('from_name', 'Sri Hari Industries Website');
+      data.append('subject', subject);
+      if (email) data.append('replyto', email);
+      data.append('Name', name);
+      data.append('Phone / WhatsApp', phone);
+      data.append('Email', email || '—');
+      data.append('Requirement', product);
+      data.append('Message', message);
+
+      try {
+        const res = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          body: data,
+        });
+        const json = await res.json();
+        sent = Boolean(json.success);
+      } catch {
+        sent = false;
+      }
+    }
+
+    if (sent) {
+      setState('ok');
+      setFeedback('Thank you! Your enquiry has been sent — we will get back to you shortly.');
+      form.reset();
+    } else {
       setState('err');
-      setFeedback('Network error — please check your connection or reach us on WhatsApp instead.');
+      setFeedback(
+        'Sorry, we could not send your enquiry right now. Please reach us on WhatsApp instead.',
+      );
     }
   }
 

@@ -51,12 +51,22 @@ export const SITE = {
 } as const;
 
 /**
- * Web3Forms access key — delivers the enquiry form to plisha38@gmail.com.
- * To route enquiries to a different inbox later:
- *   1. Go to https://web3forms.com
- *   2. Enter the new email and click "Create Access Key"
- *   3. Replace the key below (or set NEXT_PUBLIC_WEB3FORMS_KEY in .env.local).
+ * Enquiry form delivery — both routes send the enquiry to plisha38@gmail.com.
+ *
+ * Primary: FormSubmit.co (free, no account). One-time step: the first
+ * submission triggers an "Activate Form" email to the inbox — click the
+ * link once and all later submissions deliver normally.
+ *
+ * Fallback: Web3Forms. Used automatically when FormSubmit is unreachable.
+ * Web3Forms sits behind strict Cloudflare bot protection that blocks some
+ * networks/ISPs outright (browser fetch dies with a network error), which is
+ * why it can no longer be the only route.
+ *
+ * To route enquiries to a different inbox later: change the email in the
+ * FormSubmit URL below (re-activation email will arrive on first submit)
+ * and create a fresh Web3Forms key for it at https://web3forms.com.
  */
+export const FORMSUBMIT_ENDPOINT = 'https://formsubmit.co/ajax/plisha38@gmail.com';
 export const WEB3FORMS_KEY =
   process.env.NEXT_PUBLIC_WEB3FORMS_KEY ?? 'c9ef760e-200a-44fd-9ab5-bc7de71b1952';
 
