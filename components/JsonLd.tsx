@@ -59,7 +59,8 @@ export function JsonLd() {
           areaServed: 'IN',
           availableLanguage: ['en', 'ta'],
         },
-        sameAs: [SITE.social.facebook, SITE.social.instagram, SITE.social.youtube],
+        // Only real profiles — add Facebook / YouTube here once those pages exist.
+        sameAs: [SITE.social.instagram],
         hasOfferCatalog: {
           '@type': 'OfferCatalog',
           name: 'Commercial Kitchen Equipment',
@@ -71,11 +72,6 @@ export function JsonLd() {
               itemOffered: { '@type': 'Product', name: it[0] },
             })),
           })),
-        },
-        aggregateRating: {
-          '@type': 'AggregateRating',
-          ratingValue: '4.8',
-          reviewCount: '300',
         },
       },
       {
