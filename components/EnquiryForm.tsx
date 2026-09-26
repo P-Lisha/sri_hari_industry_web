@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { FORMSUBMIT_ENDPOINT, WEB3FORMS_KEY } from '@/lib/site';
+import { FORMSUBMIT_ENDPOINT } from '@/lib/site';
 
 /** Requirement dropdown — mirrors the product categories. */
 const REQUIREMENTS = [
@@ -43,53 +43,52 @@ export function EnquiryForm() {
       return;
     }
 
-    const subject = `New enquiry — ${product} (from ${name})`;
-
-    // Primary route: FormSubmit. Neatly-labelled keys = field labels in the
-    // email body; _replyto lets you answer the customer straight from Gmail.
     let sent = false;
+
+    // Primary: our own branded email (needs RESEND_API_KEY on the server).
     try {
-      const res = await fetch(FORMSUBMIT_ENDPOINT, {
+      const res = await fetch('/api/enquiry', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify({
-          _subject: subject,
-          ...(email ? { _replyto: email } : {}),
-          _template: 'table',
-          Name: name,
-          'Phone / WhatsApp': phone,
-          Email: email || '—',
-          Requirement: product,
-          Message: message,
-        }),
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, phone, email, product, message }),
       });
       const json = await res.json();
-      sent = String(json.success) === 'true';
+      sent = res.ok && json.success === true;
     } catch {
       sent = false;
     }
 
-    // Fallback route: Web3Forms (blocked by Cloudflare on some networks,
-    // hence no longer the primary).
+    // Fallback: FormSubmit (used until the branded route is configured, or if it fails).
     if (!sent) {
-      const data = new FormData();
-      data.append('access_key', WEB3FORMS_KEY);
-      data.append('from_name', 'Sri Hari Industries Website');
-      data.append('subject', subject);
-      if (email) data.append('replyto', email);
-      data.append('Name', name);
-      data.append('Phone / WhatsApp', phone);
-      data.append('Email', email || '—');
-      data.append('Requirement', product);
-      data.append('Message', message);
-
+      const received = new Date().toLocaleString('en-IN', {
+        timeZone: 'Asia/Kolkata',
+        day: '2-digit',
+        month: 'short',
+        year: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: true,
+      });
       try {
-        const res = await fetch('https://api.web3forms.com/submit', {
+        const res = await fetch(FORMSUBMIT_ENDPOINT, {
           method: 'POST',
-          body: data,
+          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+          body: JSON.stringify({
+            _subject: `New Enquiry: ${product} - ${name}`,
+            ...(email ? { _replyto: email } : {}),
+            _template: 'table',
+            _honey: '',
+            'Customer Name': name,
+            'Phone / WhatsApp': phone,
+            'Email Address': email || 'Not provided',
+            'Requirement': product,
+            'Message': message || 'No message',
+            'Received (IST)': received,
+            'Sent From': window.location.origin,
+          }),
         });
         const json = await res.json();
-        sent = Boolean(json.success);
+        sent = String(json.success) === 'true';
       } catch {
         sent = false;
       }
