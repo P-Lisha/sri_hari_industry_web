@@ -427,13 +427,13 @@ a{text-decoration:none;color:inherit}img{display:block;max-width:100%}
 .cline:nth-child(3) .ci2{background:var(--yellow-soft);color:var(--yellow-d)}
 .cline b{display:block;color:var(--slate);font-size:.95rem}
 .cline span{color:var(--muted);font-size:.88rem}
-.cform{background:var(--slate);border:1px solid var(--navy-line);border-radius:var(--radius);padding:1.5rem;box-shadow:var(--shadow)}
+.cform{background:var(--slate);border:1px solid var(--navy-line);border-radius:var(--radius);padding:1.1rem 1.25rem;box-shadow:var(--shadow);max-width:460px;width:100%;justify-self:start}
 .cform .row{display:grid;grid-template-columns:1fr 1fr;gap:.7rem}
-.cform label{display:block;font-size:.8rem;font-weight:600;color:var(--on-navy);margin:.7rem 0 .3rem}
-.cform input,.cform select,.cform textarea{width:100%;padding:.6rem .8rem;border:1px solid var(--line);border-radius:4px;font-family:inherit;font-size:.88rem;color:var(--ink);background:var(--soft);transition:var(--t)}
+.cform label{display:block;font-size:.8rem;font-weight:600;color:var(--on-navy);margin:.45rem 0 .2rem}
+.cform input,.cform select,.cform textarea{width:100%;padding:.5rem .7rem;border:1px solid var(--line);border-radius:4px;font-family:inherit;font-size:.88rem;color:var(--ink);background:var(--soft);transition:var(--t)}
 .cform input:focus,.cform select:focus,.cform textarea:focus{outline:none;border-color:var(--blue);background:#fff;box-shadow:0 0 0 4px var(--blue-soft)}
-.cform textarea{resize:vertical;min-height:74px}
-.cform .btn{width:100%;justify-content:center;margin-top:1rem}
+.cform textarea{resize:vertical;min-height:56px}
+.cform .btn{width:100%;justify-content:center;margin-top:.7rem}
 .fmsg{display:none;margin-top:1rem;padding:.8rem 1rem;border-radius:6px;background:var(--green-soft);color:var(--green-d);font-weight:600;font-size:.9rem;text-align:center}
 
 /* ---------- Footer ---------- */
@@ -1317,7 +1317,7 @@ html,body{max-width:100%;overflow-x:hidden}
 .cpanel .cbtns{margin:0;justify-content:flex-start}
 .cpanel .btn--ghost{border-color:rgba(255,255,255,.55);color:#fff;background:rgba(255,255,255,.06)}
 .cpanel .btn--ghost:hover{background:#fff;color:var(--blue-d)}
-@media(max-width:900px){.csplit--form .cform{order:1}.csplit--form .cpanel{order:2}.cpanel{padding:1.6rem 1.3rem}}
+@media(max-width:900px){.csplit--form .cform{order:1;max-width:none}.csplit--form .cpanel{order:2}.cpanel{padding:1.6rem 1.3rem}}
 
 /* ===========================================================
    PER-SECTION LIGHT SHADES — 4 soft light tints, all on the light side

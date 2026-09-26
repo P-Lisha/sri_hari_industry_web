@@ -18,8 +18,7 @@ export const SITE = {
 
   phoneDisplay: '+91 94433 92337',
   phoneHref: '+919443392337',
-  // WhatsApp enquiries route to this number (call/display number above is unchanged).
-  whatsapp: '917604960852',
+  whatsapp: '919443392337',
   email: 'srihariindustriescbe@gmail.com',
 
   managingDirector: 'Mr. Mahesh Kumar',
@@ -51,24 +50,11 @@ export const SITE = {
 } as const;
 
 /**
- * Enquiry form delivery — both routes send the enquiry to plisha38@gmail.com.
- *
- * Primary: FormSubmit.co (free, no account). One-time step: the first
- * submission triggers an "Activate Form" email to the inbox — click the
- * link once and all later submissions deliver normally.
- *
- * Fallback: Web3Forms. Used automatically when FormSubmit is unreachable.
- * Web3Forms sits behind strict Cloudflare bot protection that blocks some
- * networks/ISPs outright (browser fetch dies with a network error), which is
- * why it can no longer be the only route.
- *
- * To route enquiries to a different inbox later: change the email in the
- * FormSubmit URL below (re-activation email will arrive on first submit)
- * and create a fresh Web3Forms key for it at https://web3forms.com.
+ * Enquiry form delivery via FormSubmit.co (already activated). Enquiries go to
+ * srihariindustriescbe@gmail.com.
+ * To change the inbox, edit the email in the URL (re-activation needed).
  */
-export const FORMSUBMIT_ENDPOINT = 'https://formsubmit.co/ajax/plisha38@gmail.com';
-export const WEB3FORMS_KEY =
-  process.env.NEXT_PUBLIC_WEB3FORMS_KEY ?? 'c9ef760e-200a-44fd-9ab5-bc7de71b1952';
+export const FORMSUBMIT_ENDPOINT = 'https://formsubmit.co/ajax/srihariindustriescbe@gmail.com';
 
 /**
  * Build a wa.me click-to-chat deep-link with a pre-filled message.
