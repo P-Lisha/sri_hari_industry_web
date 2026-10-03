@@ -33,7 +33,7 @@ export function About() {
           <p>
             Since 2016, <strong>Sri Hari Industries</strong> has manufactured commercial kitchen
             equipment in Coimbatore — from a single burner to complete turnkey kitchens. We have
-            delivered <strong>500+ projects</strong> for <strong>300+ happy clients</strong>, with
+            delivered <strong>100+ projects</strong> for <strong>300+ happy clients</strong>, with
             our equipment running in kitchens across <strong>Tamil Nadu and South India</strong>.
           </p>
           <p>
