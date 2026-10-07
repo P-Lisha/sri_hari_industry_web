@@ -56,7 +56,7 @@ export function Services() {
               <span>Industries</span>
             </div>
             <div className="fact">
-              <b>150+</b>
+              <b>100+</b>
               <span>Projects</span>
             </div>
             <div className="fact">

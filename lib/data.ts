@@ -84,7 +84,7 @@ export const PCATS: Category[] = [
         ['Fast steam generation', 'Pressure gauge & safety valve', 'Low fuel consumption', '50–500 L capacity options'],
         [['Capacity', '50 – 500 litres'], ['Material', 'SS 304 food-grade'], ['Fuel', 'LPG / Diesel / Electric']]],
       ['Rice / Dhal Vessels', 'rice-dhal-vessels', 'Steam-jacketed vessels for cooking rice, sambar and dhal in bulk with even, no-burn heat.'],
-      ['Janatha Idly Plant', 'janatha-idly-plant', 'High-capacity idli steaming plant that turns out soft idlis in large batches for messes and halls.'],
+      ['Janatha Idli Plant', 'janatha-idly-plant', 'High-capacity idli steaming plant that turns out soft idlis in large batches for messes and halls.'],
       ['Idiyappam Machine', 'idiyappam-machine', 'Steam idiyappam press for soft, consistent string hoppers in volume.'],
       ['Ball Cutting Machine', 'ball-cutting-machine', 'Cuts dough into uniform balls at speed for chapati and poori production.'],
       ['Chapati Making Machine', 'chappathi-making-machine', 'Fully automatic chapati machine that presses, roasts and puffs uniform chapatis at high speed.',
@@ -128,7 +128,7 @@ export const PCATS: Category[] = [
     feats: ['100% SS 304 / 202 build', 'Sturdy, rust-free fabrication', 'Hygienic & easy to clean', 'Made to your size'],
     items: [
       ['Work Table', 'work-table', 'Plain SS 304 work table with a sturdy top and legs — the everyday prep surface for any commercial kitchen.'],
-      ['Worktable with Sink', 'worktable-sink', 'Work table with a built-in sink bowl and drain board — a combined prep and wash station in one unit.'],
+      ['Work Table with Sink', 'worktable-sink', 'Work table with a built-in sink bowl and drain board — a combined prep and wash station in one unit.'],
       ['Work Table with Shelves', 'work-table-shelf', 'Work table with overhead and under-shelves for extra storage — keeps utensils and ingredients within reach at the prep line.'],
       ['Batter Table', 'batter-table', 'Sloped batter table with a collection channel for fermenting and dispensing idli / dosa batter hygienically.'],
       ['3-Sink Dishwash Unit', 'three-sink-unit', 'Three-bowl stainless-steel dishwashing unit for wash–rinse–sanitise, with drain boards for high-volume ware washing.',

@@ -1,6 +1,6 @@
 import { SITE } from '@/lib/site';
 import { PCATS, PRODUCTS } from '@/lib/data';
-import { SERVICE_AREAS } from '@/lib/seo';
+import { SERVICE_AREAS, FAQS } from '@/lib/seo';
 
 /** Schema.org structured data (JSON-LD) for rich results & local SEO. */
 export function JsonLd() {
@@ -59,18 +59,32 @@ export function JsonLd() {
           areaServed: 'IN',
           availableLanguage: ['en', 'ta'],
         },
-        // Only real profiles — add Facebook / YouTube here once those pages exist.
-        sameAs: [SITE.social.instagram],
+        // Empty social links are filtered out — only real profiles appear.
+        sameAs: [SITE.social.facebook, SITE.social.instagram, SITE.social.youtube].filter(Boolean),
         hasOfferCatalog: {
           '@type': 'OfferCatalog',
           name: 'Commercial Kitchen Equipment',
           itemListElement: PCATS.map((c) => ({
             '@type': 'OfferCatalog',
             name: c.cat,
-            itemListElement: c.items.map((it) => ({
-              '@type': 'Offer',
-              itemOffered: { '@type': 'Product', name: it[0] },
-            })),
+            itemListElement: c.items.map((it) => {
+              const p = PRODUCTS.find((x) => x.slug === it[1]);
+              return {
+                '@type': 'Offer',
+                priceCurrency: 'INR',
+                availability: 'https://schema.org/InStock',
+                itemCondition: 'https://schema.org/NewCondition',
+                seller: { '@id': `${SITE.url}/#business` },
+                itemOffered: {
+                  '@type': 'Product',
+                  name: it[0],
+                  ...(p?.desc ? { description: p.desc } : {}),
+                  category: c.cat,
+                  ...(p ? { image: `${SITE.url}${p.img}` } : {}),
+                  brand: { '@id': `${SITE.url}/#business` },
+                },
+              };
+            }),
           })),
         },
       },
@@ -93,6 +107,15 @@ export function JsonLd() {
         inLanguage: 'en-IN',
       },
       {
+        '@type': 'FAQPage',
+        '@id': `${SITE.url}/#faq`,
+        mainEntity: FAQS.map((f) => ({
+          '@type': 'Question',
+          name: f.q,
+          acceptedAnswer: { '@type': 'Answer', text: f.a },
+        })),
+      },
+      {
         '@type': 'BreadcrumbList',
         '@id': `${SITE.url}/#breadcrumb`,
         itemListElement: [
@@ -111,10 +134,24 @@ export function JsonLd() {
           position: i + 1,
           item: {
             '@type': 'Product',
+            '@id': `${SITE.url}/#product-${p.slug}`,
             name: p.name,
+            description: p.desc,
             category: p.cat,
+            sku: p.slug,
             image: `${SITE.url}${p.img}`,
+            url: `${SITE.url}/#products`,
+            material: 'SS 304 food-grade stainless steel',
             brand: { '@type': 'Brand', name: SITE.name },
+            manufacturer: { '@id': `${SITE.url}/#business` },
+            offers: {
+              '@type': 'Offer',
+              priceCurrency: 'INR',
+              availability: 'https://schema.org/InStock',
+              itemCondition: 'https://schema.org/NewCondition',
+              seller: { '@id': `${SITE.url}/#business` },
+              url: `${SITE.url}/#products`,
+            },
           },
         })),
       },
