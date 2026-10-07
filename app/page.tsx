@@ -9,6 +9,7 @@ import { Clients } from '@/components/Clients';
 import { Gallery } from '@/components/Gallery';
 import { About } from '@/components/About';
 import { Contact } from '@/components/Contact';
+import { Faq } from '@/components/Faq';
 import { Footer } from '@/components/Footer';
 import { BackToTop } from '@/components/BackToTop';
 import { WhatsAppFab } from '@/components/WhatsAppFab';
@@ -28,6 +29,7 @@ export default function Home() {
         <Services />
         <Gallery />
         <Clients />
+        <Faq />
         <Contact />
       </main>
       <Footer />

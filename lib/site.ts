@@ -42,10 +42,12 @@ export const SITE = {
 
   brochure: '/brochure/sri-hari-industries-brochure.pdf',
 
+  // Only real, verified profiles — leave a value '' to hide its icon and keep
+  // it out of the JSON-LD sameAs (never point sameAs at a generic homepage).
   social: {
     instagram: 'https://www.instagram.com/srihariindustriesads',
-    facebook: 'https://facebook.com',
-    youtube: 'https://youtube.com',
+    facebook: '',
+    youtube: '',
   },
 } as const;
 
