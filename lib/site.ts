@@ -13,8 +13,8 @@ export const SITE = {
   longDesc:
     'Sri Hari Industries — manufacturers of commercial kitchen equipment & stainless steel fabrication in Coimbatore. Cooking ranges, automatic dosa/chapati makers, exhaust systems, cold rooms & complete turnkey kitchen solutions. ISO 9001:2015 certified.',
 
-  // Update this to your live domain before deploying.
-  url: 'https://www.srihariindustries.in',
+  // Live domain.
+  url: 'https://srihariindustries.com',
 
   phoneDisplay: '+91 94433 92337',
   phoneHref: '+919443392337',
