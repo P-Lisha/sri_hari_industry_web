@@ -114,6 +114,10 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${outfit.variable} ${poppins.variable}`} suppressHydrationWarning>
+      <head>
+        {/* LCP image: fetch before the Hero component renders */}
+        <link rel="preload" as="image" href="/images/hero-1.webp" fetchPriority="high" />
+      </head>
       <body id="top">
         {/* Mark JS as available BEFORE paint so scroll-reveal only hides
             content when JS can bring it back. No-JS → everything visible. */}
