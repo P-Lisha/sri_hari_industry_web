@@ -24,7 +24,7 @@ interface Slide {
 
 const SLIDES: Slide[] = [
   {
-    img: '/images/hero-1.jpg',
+    img: '/images/hero-1.webp',
     alt: 'Complete commercial kitchen solutions',
     badge: 'Designed for Performance · Built for Excellence',
     title: 'Complete Commercial ',
@@ -36,7 +36,7 @@ const SLIDES: Slide[] = [
     ],
   },
   {
-    img: '/images/hero-2.jpg',
+    img: '/images/hero-2.webp',
     alt: 'Gas cooking equipment range',
     badge: 'Gas Cooking Equipment',
     title: 'All Your Kitchen Needs ',
@@ -48,7 +48,7 @@ const SLIDES: Slide[] = [
     ],
   },
   {
-    img: '/images/hero-3.jpg',
+    img: '/images/hero-3.webp',
     alt: 'Food processing, exhaust & cold room systems',
     badge: 'Food Processing · Exhaust · Cold Room',
     title: 'End-to-End ',
@@ -87,7 +87,13 @@ export function Hero() {
       {SLIDES.map((s, i) => (
         <div className={`slide${i === cur ? ' active' : ''}`} key={s.img}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img className="slide__img" src={s.img} alt={s.alt} fetchPriority={i === 0 ? 'high' : 'auto'} />
+          <img
+            className="slide__img"
+            src={s.img}
+            alt={s.alt}
+            fetchPriority={i === 0 ? 'high' : 'low'}
+            decoding="async"
+          />
           <div className="hero__overlay">
             <div className="wrap">
               <div className="hero__content">
