@@ -63,7 +63,7 @@ export function Gallery() {
           <div>
             <span className="eyebrow">Our Work</span>
             <h2>Kitchens We&apos;ve Built</h2>
-            <p>Real commercial kitchens designed, fabricated and installed by our team across Tamil Nadu.</p>
+            <p>Real commercial kitchens designed, fabricated and installed by our team across India.</p>
           </div>
           <a className="btn btn--line" href="#contact">Plan Your Kitchen →</a>
         </div>
@@ -84,7 +84,6 @@ export function Gallery() {
             <button className="showcase__main" type="button" onClick={() => setOpen(active)} aria-label={`Enlarge ${cur.title}`}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img key={cur.img} src={cur.img} alt={cur.alt} decoding="async" />
-              <span className="showcase__zoom" aria-hidden="true">⤢</span>
             </button>
             <div className="showcase__info">
               <span className="showcase__tag">{cur.type && cur.city ? `${cur.type} · ${cur.city}` : cur.area}</span>

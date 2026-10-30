@@ -10,7 +10,7 @@ import { ScrollReveal } from '@/components/ScrollReveal';
 
 export const metadata: Metadata = {
   title: 'Commercial Kitchen Equipment Products',
-  description: 'Browse commercial kitchen equipment by Sri Hari Industries, Coimbatore — cooking ranges, SS tables, bulk cookers and custom fabrication.',
+  description: 'Commercial kitchen equipment made in Coimbatore by Sri Hari Industries — cooking ranges, kitchen machines, SS tables and trolleys, delivered all over India.',
   alternates: { canonical: '/products' },
 };
 

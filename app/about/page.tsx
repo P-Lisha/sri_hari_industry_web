@@ -10,7 +10,7 @@ import { ScrollReveal } from '@/components/ScrollReveal';
 
 export const metadata: Metadata = {
   title: 'About Us',
-  description: 'About Sri Hari Industries — commercial kitchen equipment manufacturers and kitchen consultants in Coimbatore.',
+  description: 'About Sri Hari Industries — commercial kitchen equipment manufacturer and kitchen consultant in Coimbatore, serving kitchens all over India.',
   alternates: { canonical: '/about' },
 };
 

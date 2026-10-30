@@ -14,22 +14,22 @@
 import { Icon } from './Icons';
 import { waLink, WA_MESSAGES } from '@/lib/site';
 
-// The sectors we build for. `ico` references an Icons sprite id.
+// The sectors we build for.
 // Ordered by real presence in our client base — marriage halls & convention
 // centres (our largest segment) first, down to specialist sectors.
-const SECTORS: { label: string; ico: string }[] = [
-  { label: 'Marriage Halls & Convention Centres', ico: 'i-sparkles' },
-  { label: 'Hotels & Resorts', ico: 'i-store' },
-  { label: 'Industrial & Corporate Canteens', ico: 'i-factory' },
-  { label: 'Restaurants & Cafés', ico: 'i-hat' },
-  { label: 'Educational Institutions', ico: 'i-cap' },
-  { label: 'Hospitals & Healthcare', ico: 'i-cross' },
-  { label: 'Catering Services', ico: 'i-truck' },
-  { label: 'Microbreweries & Bars', ico: 'i-cup' },
-  { label: 'Bakeries & Sweet Shops', ico: 'i-flame' },
-  { label: 'Food Processing Units', ico: 'i-pot' },
-  { label: 'Defence & Government', ico: 'i-shield' },
-  { label: 'Social & Recreation Clubs', ico: 'i-utensils' },
+const SECTORS: { label: string }[] = [
+  { label: 'Marriage Halls & Convention Centres' },
+  { label: 'Hotels & Resorts' },
+  { label: 'Industrial & Corporate Canteens' },
+  { label: 'Restaurants & Cafés' },
+  { label: 'Educational Institutions' },
+  { label: 'Hospitals & Healthcare' },
+  { label: 'Catering Services' },
+  { label: 'Microbreweries & Bars' },
+  { label: 'Bakeries & Sweet Shops' },
+  { label: 'Food Processing Units' },
+  { label: 'Defence & Government' },
+  { label: 'Social & Recreation Clubs' },
 ];
 
 const enquiry = (sector: string) => waLink(WA_MESSAGES.sector(sector));
@@ -47,7 +47,7 @@ export function Services() {
             <p>
               From single cooking units to full turnkey builds — high-output, food-grade
               SS 304 equipment trusted by marriage halls, hotels, canteens and institutions
-              across Tamil Nadu, Kerala, Karnataka, Andhra Pradesh &amp; beyond.
+              all over India — from Tamil Nadu, Kerala, Karnataka and Andhra Pradesh to every other state.
             </p>
           </div>
           <div className="indhead__facts">
@@ -72,7 +72,6 @@ export function Services() {
               rel="noopener"
               aria-label={`Enquire about kitchen equipment for ${s.label}`}
             >
-              <Icon name={s.ico} className="itile__ico" />
               <span className="itile__label">{s.label}</span>
               <Icon name="i-arrow" className="itile__arrow" />
             </a>

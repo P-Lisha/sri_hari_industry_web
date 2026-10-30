@@ -1,13 +1,13 @@
 import Link from 'next/link';
-import { FEATURED, PRODUCTS, PRODUCTS_BY_CAT, PCATS, CATMETA } from '@/lib/data';
-import { Icon } from './Icons';
+import { PRODUCTS, PRODUCTS_BY_CAT, PCATS, CATMETA } from '@/lib/data';
 import { ProductImg } from './ProductImg';
-import { ProductCard } from './ProductCard';
+import { catSlug } from '@/lib/categories';
 
-/** /products page body: bestsellers + the full catalogue as crawlable links. */
+/** Anchor id for a category section on this page. */
+const catId = (cat: string) => 'cat-' + catSlug(cat);
+
+/** /products page body: one card style, one section per category, all crawlable links. */
 export function Products() {
-  const bestsellers = FEATURED.filter((p) => p.bestseller);
-
   return (
     <section className="sec subpage catpage" id="products">
       <div className="wrap">
@@ -20,34 +20,38 @@ export function Products() {
           </p>
         </div>
 
-        <h2 className="pmcat-h">★ Bestsellers</h2>
-        <div className="prodgrid prodgrid--home reveal">
-          {bestsellers.map((p) => (
-            <ProductCard key={p.slug} p={p} bestseller material={p.material} />
+        <nav className="catnav" aria-label="Product categories">
+          {PRODUCTS_BY_CAT.map((g) => (
+            <Link key={g.cat} href={`/products/category/${catSlug(g.cat)}`}>
+              {g.cat} <span>{g.products.length}</span>
+            </Link>
           ))}
-        </div>
+        </nav>
 
-        <div className="pmgrid pmgrid--page">
-          {PRODUCTS_BY_CAT.map((group) => (
-            <div key={group.cat} style={{ display: 'contents' }}>
-              <h2 className="pmcat-h">
-                <Icon name={group.ico} />
-                {group.cat}
-                <small>
-                  {CATMETA[group.cat]?.blurb}
-                </small>
+        {PRODUCTS_BY_CAT.map((group) => (
+          <section className="catsec" key={group.cat} id={catId(group.cat)} aria-labelledby={`${catId(group.cat)}-h`}>
+            <header className="catsec__head">
+              <h2 id={`${catId(group.cat)}-h`}>
+                <Link href={`/products/category/${catSlug(group.cat)}`}>{group.cat}</Link>
               </h2>
+              <p>
+                {CATMETA[group.cat]?.blurb} <span>· {group.products.length} models</span>{" "}
+                <Link className="catsec__all" href={`/products/category/${catSlug(group.cat)}`}>View all →</Link>
+              </p>
+            </header>
+            <div className="catsec__grid">
               {group.products.map((p) => (
                 <Link className="pmtile" key={p.slug} href={`/products/${p.slug}`}>
                   <div className="pmtile__media">
                     <ProductImg src={p.img} alt={`${p.name} — ${group.cat}`} />
                   </div>
                   <h3 className="pmtile__h">{p.name}</h3>
+                  <span className="pmtile__more">View details →</span>
                 </Link>
               ))}
             </div>
-          ))}
-        </div>
+          </section>
+        ))}
       </div>
     </section>
   );

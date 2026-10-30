@@ -17,7 +17,7 @@ export function FeaturedProducts() {
         </div>
         <div className="prodgrid prodgrid--home reveal">
           {HOME_FEATURED.map((p) => (
-            <ProductCard key={p.slug} p={p} bestseller={p.bestseller} material={p.material} />
+            <ProductCard key={p.slug} p={p} />
           ))}
         </div>
         <div className="ptools reveal">

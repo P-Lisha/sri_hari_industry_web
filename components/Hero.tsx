@@ -1,16 +1,10 @@
 'use client';
 
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { Icon } from './Icons';
 
 // Quick trust/feature badges shown as floating pills inside the hero
 // (previously the separate "Pills" strip below the hero).
-const FEATURES: [string, string][] = [
-  ['i-truck', 'Quick Delivery'],
-  ['i-shield', 'Food-Grade SS 304'],
-  ['i-wrench', 'AMC Available'],
-  ['i-clock', '24/7 Service'],
-];
+const FEATURES = ['Pan-India Delivery', 'Food-Grade SS 304', 'AMC Available', '24/7 Service'];
 
 interface Slide {
   img: string;
@@ -29,7 +23,7 @@ const SLIDES: Slide[] = [
     badge: 'Designed for Performance · Built for Excellence',
     title: 'Complete Commercial ',
     emphasis: 'Kitchen Solutions',
-    text: 'Premium quality stainless steel equipment manufactured in Coimbatore, built to last — from essential cooking units to complete turnkey kitchen setups across Tamil Nadu.',
+    text: 'Premium quality stainless steel equipment manufactured in Coimbatore, built to last — from essential cooking units to complete turnkey kitchen setups all over India.',
     ctas: [
       { href: '/products', label: 'Explore Products', cls: 'btn btn--blue' },
       { href: '/#contact', label: 'Free Consultation', cls: 'btn btn--ghost' },
@@ -112,9 +106,8 @@ export function Hero() {
                   ))}
                 </div>
                 <ul className="hero__features">
-                  {FEATURES.map(([ico, label]) => (
+                  {FEATURES.map((label) => (
                     <li className="hero__feat" key={label}>
-                      <Icon name={ico} />
                       {label}
                     </li>
                   ))}
