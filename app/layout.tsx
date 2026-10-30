@@ -1,9 +1,9 @@
 import type { Metadata, Viewport } from 'next';
-import { Outfit, Poppins } from 'next/font/google';
+import { Outfit, Montserrat } from 'next/font/google';
 import './globals.css';
 import { SITE } from '@/lib/site';
 import { IconSprite } from '@/components/Icons';
-import { JsonLd } from '@/components/JsonLd';
+
 
 const outfit = Outfit({
   subsets: ['latin'],
@@ -12,10 +12,10 @@ const outfit = Outfit({
   display: 'swap',
 });
 
-const poppins = Poppins({
+const montserrat = Montserrat({
   subsets: ['latin'],
-  weight: ['600', '700', '800'],
-  variable: '--font-poppins',
+  weight: ['500', '600', '700', '800'],
+  variable: '--font-head',
   display: 'swap',
 });
 
@@ -113,14 +113,14 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${outfit.variable} ${poppins.variable}`} suppressHydrationWarning>
+    <html lang="en" className={`${outfit.variable} ${montserrat.variable}`} suppressHydrationWarning>
       <body id="top">
         {/* Mark JS as available BEFORE paint so scroll-reveal only hides
             content when JS can bring it back. No-JS → everything visible. */}
         <script dangerouslySetInnerHTML={{ __html: "document.documentElement.classList.add('js')" }} />
         <IconSprite />
         {children}
-        <JsonLd />
+        
       </body>
     </html>
   );

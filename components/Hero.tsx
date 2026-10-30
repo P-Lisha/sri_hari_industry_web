@@ -31,20 +31,20 @@ const SLIDES: Slide[] = [
     emphasis: 'Kitchen Solutions',
     text: 'Premium quality stainless steel equipment manufactured in Coimbatore, built to last — from essential cooking units to complete turnkey kitchen setups across Tamil Nadu.',
     ctas: [
-      { href: '#products', label: 'Explore Products', cls: 'btn btn--y' },
-      { href: '#contact', label: 'Free Consultation', cls: 'btn btn--ghost' },
+      { href: '/products', label: 'Explore Products', cls: 'btn btn--blue' },
+      { href: '/#contact', label: 'Free Consultation', cls: 'btn btn--ghost' },
     ],
   },
   {
     img: '/images/hero-2.jpg',
     alt: 'Gas cooking equipment range',
-    badge: 'Gas Cooking Equipment',
-    title: 'All Your Kitchen Needs ',
-    emphasis: 'In One Place',
+    badge: 'Burners · Ranges · Grills',
+    title: 'Gas Cooking Equipment, ',
+    emphasis: 'Built to Last',
     text: 'Burners, cooking ranges, bratt pans, grills & boiling pans — 100% food-grade stainless steel, engineered for heavy-duty performance.',
     ctas: [
-      { href: '#products', label: 'View Range', cls: 'btn btn--y' },
-      { href: '#contact', label: 'Enquire Now', cls: 'btn btn--ghost' },
+      { href: '/products', label: 'View Range', cls: 'btn btn--blue' },
+      { href: '/#contact', label: 'Enquire Now', cls: 'btn btn--ghost' },
     ],
   },
   {
@@ -55,8 +55,8 @@ const SLIDES: Slide[] = [
     emphasis: 'Kitchen Engineering',
     text: 'Food processing machinery, exhaust & fresh-air systems and modular cold rooms — designed, fabricated and installed by one expert team.',
     ctas: [
-      { href: '#services', label: 'Turnkey Design', cls: 'btn btn--y' },
-      { href: '#contact', label: 'Talk to Us', cls: 'btn btn--ghost' },
+      { href: '/#industries', label: 'Turnkey Design', cls: 'btn btn--blue' },
+      { href: '/#contact', label: 'Talk to Us', cls: 'btn btn--ghost' },
     ],
   },
 ];

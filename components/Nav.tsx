@@ -3,11 +3,11 @@
 import { useEffect, useState } from 'react';
 
 const LINKS = [
-  ['#home', 'Home'],
-  ['#products', 'Products'],
-  ['#process', 'Process'],
-  ['#about', 'About'],
-  ['#contact', 'Contact'],
+  ['/', 'Home'],
+  ['/products', 'Products'],
+  ['/#process', 'Process'],
+  ['/about', 'About'],
+  ['/#contact', 'Contact'],
 ];
 
 export function Nav() {
@@ -24,7 +24,7 @@ export function Nav() {
   return (
     <header className={`nav${scrolled ? ' scrolled' : ''}`} id="nav">
       <div className="wrap">
-        <a className="brand" href="#top" aria-label="Sri Hari Industries — Mfrs. of Commercial Kitchen Equipment">
+        <a className="brand" href="/" aria-label="Sri Hari Industries — Mfrs. of Commercial Kitchen Equipment">
           <span className="brand__mark" aria-hidden="true" />
           <span className="brand__txt">
             <b><span className="g">Sri</span> Hari <span className="g">Industries</span></b>
@@ -47,6 +47,7 @@ export function Nav() {
             </a>
           ))}
         </nav>
+        <a className="btn btn--blue navcta" href="/#contact">Get a Quote</a>
       </div>
     </header>
   );

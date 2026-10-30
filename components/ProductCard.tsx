@@ -1,23 +1,21 @@
-'use client';
-
-import type { Product } from '@/lib/data';
+import Link from 'next/link';
+import { isSS304, type Product } from '@/lib/data';
 import { ProductImg } from './ProductImg';
 
-/** Compact product card. Clicking it opens the detail popup (no navigation). */
+/** Compact product card linking to the product's own page. */
 export function ProductCard({
-  p, bestseller = false, material = 'SS304', onOpen,
+  p, bestseller = false, material = 'SS304',
 }: {
   p: Product;
   bestseller?: boolean;
   material?: string;
-  onOpen: (p: Product) => void;
 }) {
   return (
-    <button className="procard" type="button" aria-label={p.name} onClick={() => onOpen(p)}>
+    <Link className="procard" href={`/products/${p.slug}`}>
       <div className="procard__media">
         {bestseller && <span className="procard__badge procard__badge--star">★ Bestseller</span>}
-        <span className="procard__badge procard__badge--mat">{material}</span>
-        <ProductImg src={p.img} alt={p.name} className="procard__img" />
+        {isSS304(p) && <span className="procard__badge procard__badge--mat">{material}</span>}
+        <ProductImg src={p.img} alt={`${p.name} — commercial kitchen equipment`} className="procard__img" />
       </div>
       <div className="procard__body">
         <span className="procard__cat">{p.cat}</span>
@@ -27,6 +25,6 @@ export function ProductCard({
           <i className="procard__arrow" aria-hidden="true">→</i>
         </span>
       </div>
-    </button>
+    </Link>
   );
 }

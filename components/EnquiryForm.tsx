@@ -167,7 +167,7 @@ export function EnquiryForm() {
         placeholder="Tell us about your kitchen requirement — items, quantity, kitchen size, location…"
       />
 
-      <button className="btn btn--g" type="submit" disabled={state === 'sending'}>
+      <button className="btn btn--blue" type="submit" disabled={state === 'sending'}>
         {state === 'sending' ? 'Sending…' : 'Send Enquiry'}
       </button>
 

@@ -2,12 +2,12 @@ import { TopBar } from '@/components/TopBar';
 import { Nav } from '@/components/Nav';
 import { Hero } from '@/components/Hero';
 import { Stats } from '@/components/Stats';
-import { Products } from '@/components/Products';
+import { FeaturedProducts } from '@/components/FeaturedProducts';
+import { JsonLd } from '@/components/JsonLd';
 import { Process } from '@/components/Process';
 import { Services } from '@/components/Services';
 import { Clients } from '@/components/Clients';
 import { Gallery } from '@/components/Gallery';
-import { About } from '@/components/About';
 import { Contact } from '@/components/Contact';
 import { Faq } from '@/components/Faq';
 import { Footer } from '@/components/Footer';
@@ -22,9 +22,8 @@ export default function Home() {
       <Nav />
       <main>
         <Hero />
-        <About />
         <Stats />
-        <Products />
+        <FeaturedProducts />
         <Process />
         <Services />
         <Gallery />
@@ -36,6 +35,7 @@ export default function Home() {
       <BackToTop />
       <WhatsAppFab />
       <ScrollReveal />
+      <JsonLd />
     </>
   );
 }
