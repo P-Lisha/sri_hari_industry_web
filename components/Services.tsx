@@ -56,14 +56,6 @@ export function Services() {
               <span>Industries</span>
             </div>
             <div className="fact">
-              <b>100+</b>
-              <span>Projects</span>
-            </div>
-            <div className="fact">
-              <b>10+</b>
-              <span>Years</span>
-            </div>
-            <div className="fact">
               <b>24/7</b>
               <span>Support</span>
             </div>
@@ -95,7 +87,7 @@ export function Services() {
               </p>
             </div>
             <a
-              className="btn btn--y"
+              className="btn btn--ghost"
               href={waLink(WA_MESSAGES.turnkey)}
               target="_blank"
               rel="noopener"

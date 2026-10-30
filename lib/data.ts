@@ -73,6 +73,12 @@ export const PCATS: Category[] = [
         'Flat SS dosa hot-plate (tawa) with even heat spread across the surface for crisp dosa, uttapam and roti.'],
       ['Cooking Wok', 'cook-wok',
         'Deep stainless-steel cooking wok on a dedicated high-flame burner — for bulk gravies, biryani and Chinese cooking.'],
+      ['Two Burner Indian Range', 'two-burner-indian', 'Two-burner Indian-style gas range with heavy cast-iron burners and an under-shelf, built for large South-Indian cooking vessels.'],
+      ['Three Burner Indian Range', 'three-burner-indian', 'Three-burner Indian-style gas range with an under-shelf, keeping rice, sambar and gravy going side by side.'],
+      ['Chapati Plate', 'chappathi-plate', 'Gas-heated SS chapati plate (tawa) on a stand with a wide, even-heat surface for roti, chapati and parotta in bulk.'],
+      ['Hot Plate Griddle', 'hot-plate-griddle', 'Flat-top gas griddle with independent burner controls for dosa, omelette, parotta and grilled sandwiches.'],
+      ['Charcoal Griller', 'griller', 'Stainless-steel charcoal griller with a slotted grill grate for kebabs, tikka and barbecue on a tall stand.'],
+      ['Tilting Bulk Cooker', 'bulk-cooker', 'Tilting bulk cooking kettle with a hand-wheel tilt for easy pouring — cooks rice, sambar and curries in large batches.'],
     ],
   },
   {
@@ -98,6 +104,7 @@ export const PCATS: Category[] = [
         ['Multiple deep moulds', 'Even gas heating', 'Bulk paniyaram & appam', 'Sturdy SS build']],
       ['Rumali Range', 'romali-range', 'Dome-top rumali roti range that gives the high, even heat needed to cook thin, soft rumali rotis quickly.',
         ['Dome-top high-heat plate', 'Even surface temperature', 'Thin rumali roti in seconds', 'Sturdy SS build']],
+      ['Ball Pressing Machine', 'ball-pressing-machine', 'Dough ball pressing machine that flattens dough balls evenly for chapati and poori production lines.'],
     ],
   },
   {
@@ -120,6 +127,8 @@ export const PCATS: Category[] = [
         ['Fast, even scraping', 'Powerful commercial motor', 'Stainless-steel blade & body', 'Easy to clean']],
       ['Dough Kneader', 'dough-kneader', 'Spiral dough kneading machine that mixes soft, uniform dough for chapati, poori and bakery in large batches.',
         ['Spiral kneading action', 'Soft, uniform dough', 'Large batch capacity', 'Heavy-duty motor']],
+      ['Masala Grinder', 'masala-grinder', 'Heavy-duty masala grinder for grinding wet and dry masala, chutney and spice pastes in bulk.'],
+      ['Onion Peeler', 'onion-peeler', 'Commercial onion peeling machine that peels onions in batches, saving hours of manual prep.'],
     ],
   },
   {
@@ -137,6 +146,14 @@ export const PCATS: Category[] = [
       ['SS Sink', 'sink', 'Single-bowl stainless-steel sink unit with tap point and drain — a durable, rust-free washing station.'],
       ['Dish Rack', 'dish-rack', 'Multi-tier SS dish rack for draining and storing plates, bowls and utensils hygienically after washing.'],
       ['Vegetable Rack', 'veg-rack', 'Ventilated SS storage rack that keeps vegetables and provisions organised and off the floor.'],
+      ['Work Table with Under Shelf', 'work-table-us', 'SS work table with a full-length under-shelf for storing vessels and provisions below the prep surface.'],
+      ['Work Table with Backsplash', 'work-table-backsplash', 'SS work table with a raised backsplash that keeps the wall clean behind the prep area.'],
+      ['Preparation Table', 'preparation-table', 'Heavy-duty SS preparation table with a backsplash and two under-shelves for busy prep sections.'],
+      ['Kneading Table', 'kneading-table', 'Sturdy SS kneading table with a smooth top and under-shelf for dough work in chapati and bakery sections.'],
+      ['2-Sink Unit', 'two-sink-unit', 'Two-bowl stainless-steel sink unit with an under-shelf — separate wash and rinse bowls in one station.'],
+      ['Hand Wash Sink', 'hand-wash', 'Wall-mounted SS hand wash sink with taps for staff hygiene at kitchen entries and prep areas.'],
+      ['Plate Rack', 'plate-rack', 'Multi-tier SS plate rack that stores and air-dries plates upright after washing.'],
+      ['Pot Rack', 'pot-rack', 'Four-tier slatted SS pot rack for storing heavy vessels, pots and pans off the floor.'],
     ],
   },
   {
@@ -149,6 +166,9 @@ export const PCATS: Category[] = [
       ['Plate Warmer', 'plate-warmer', 'Stainless-steel plate warming cabinet that holds plates at serving temperature for smooth, fast service.'],
       ['Dining Table', 'dining-table', 'Compact SS dining table for canteens and messes — hygienic, rust-free and easy to clean.'],
       ['Dining Table (6 Seater)', 'dining-6-seater', 'Six-seater stainless-steel dining table for canteens and food courts — sturdy, seamless and wipe-clean.'],
+      ['Hot Case', 'hot-case', 'Heated SS hot case with lidded round wells that keep sambar, rasam, curries and rice hot at the service counter.'],
+      ['Dining Table (4 Seater)', 'dining-4-seater', 'Four-seater SS dining table with attached stools for canteens and messes — sturdy and easy to clean.'],
+      ['Dining Table (8 Seater)', 'dining-8-seater', 'Eight-seater SS dining table with attached stools for high-capacity canteens and dining halls.'],
     ],
   },
   {
@@ -171,6 +191,12 @@ export const PCATS: Category[] = [
       ['Platform Trolley', 'platform-trolley', 'Heavy-duty platform trolley for shifting bulk vessels, sacks and equipment across the kitchen and stores.'],
       ['Storage Trolley', 'storage-trolley', 'Enclosed storage trolley with shelves for organising and transporting provisions and utensils.'],
       ['Onion & Potato Bin', 'onion-bin', 'Ventilated SS storage bin for onions and potatoes that keeps them dry, aired and easy to dispense.'],
+      ['Service Trolley', 'service-trolley', 'Three-shelf SS service trolley on castors for moving food, plates and utensils between kitchen and dining.'],
+      ['Pickup Trolley', 'pickup-trolley', 'Three-tier SS pickup trolley for clearing plates and ware from dining areas quickly.'],
+      ['Snacks Trolley', 'snacks-trolley', 'SS snacks trolley with tray slides for carrying snacks, sweets and trays to the service line.'],
+      ['Room Service Trolley', 'room-service-trolley', 'Wire-cage SS trolley on castors for carrying linen, supplies and goods safely around hotels and kitchens.'],
+      ['Cleaning Trolley', 'cleaning-trolley', 'Housekeeping and cleaning trolley with storage bins for mops, cleaning supplies and waste.'],
+      ['Waste Collecting Trolley', 'waste-collecting-trolley', 'Twin-bin waste collecting trolley on wheels for segregated, hygienic waste handling in kitchens.'],
     ],
   },
 ];
@@ -194,7 +220,7 @@ export const PRODUCTS: Product[] = PCATS.flatMap((g) =>
   g.items.map((it): Product => ({
     name: it[0],
     slug: it[1],
-    img: `/images/products/${it[1]}.jpg?v=2`,
+    img: `/images/products/${it[1]}.jpg?v=3`,
     desc: it[2] ?? `${it[0]} — ${g.tag}`,
     feat: it[3] ?? g.feats,
     specs: it[4] ?? null,
@@ -246,18 +272,27 @@ export const FEATURED: Featured[] = FEATURED_DEFS
   })
   .filter((p): p is Featured => Boolean(p));
 
-/** Typical use-cases shown as emoji tags under "Applications" on the detail page. */
+/** Typical use-cases shown under "Applications" on the detail page (icon = sprite id). */
 export const APPLICATIONS: { icon: string; label: string }[] = [
-  { icon: '🏨', label: 'Hotels' },
-  { icon: '🍽️', label: 'Restaurants' },
-  { icon: '🏥', label: 'Hospitals' },
-  { icon: '🏭', label: 'Industries' },
-  { icon: '🏫', label: 'Institutions' },
-  { icon: '🍲', label: 'Canteens' },
+  { icon: 'i-store', label: 'Hotels' },
+  { icon: 'i-utensils', label: 'Restaurants' },
+  { icon: 'i-cross', label: 'Hospitals' },
+  { icon: 'i-factory', label: 'Industries' },
+  { icon: 'i-cap', label: 'Institutions' },
+  { icon: 'i-pot', label: 'Canteens' },
 ];
 
 /** Homepage featured set — the four bestsellers (compact cards + View All). */
 export const HOME_FEATURED: Featured[] = FEATURED.filter((p) => p.bestseller).slice(0, 4);
+
+/** Products whose body is not SS 304 (painted, insulated-panel or plastic-bin builds) —
+    they must not carry the "SS304" badge or the SS 304 material claim. */
+const NOT_SS304 = new Set(['barbeque', 'cold-room', 'cleaning-trolley', 'waste-collecting-trolley']);
+
+/** True when the product is built in SS 304 and may show the SS304 badge. */
+export function isSS304(p: Product): boolean {
+  return !NOT_SS304.has(p.slug);
+}
 
 /** Find a single product by its slug. */
 export function getProduct(slug: string): Product | undefined {
@@ -283,11 +318,12 @@ export function techSpecs(p: Product): Spec[] {
     seen.add(key);
     rows.push([label, value]);
   };
-  add('Material', 'SS 304 food-grade stainless steel');
+  // product's own specs first, so its real values win over the generic defaults
   (p.specs ?? []).forEach(([k, v]) => add(k, v));
+  if (isSS304(p)) add('Material', 'SS 304 food-grade stainless steel');
   add('Build', 'Heavy-duty commercial grade');
   add('Customisation', 'Custom sizes made to order');
-  add('Finish', 'Hygienic, rust-free stainless steel');
+  if (isSS304(p)) add('Finish', 'Hygienic, rust-free stainless steel');
   return rows;
 }
 

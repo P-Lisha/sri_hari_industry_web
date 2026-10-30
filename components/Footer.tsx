@@ -46,19 +46,19 @@ export function Footer() {
 
           <div>
             <h4>Quick Links</h4>
-            <a href="#home">Home</a>
-            <a href="#products">Products</a>
-            <a href="#services">Services</a>
-            <a href="#about">About Us</a>
-            <a href="#contact">Contact</a>
+            <a href="/">Home</a>
+            <a href="/products">Products</a>
+            <a href="/#industries">Services</a>
+            <a href="/about">About Us</a>
+            <a href="/#contact">Contact</a>
           </div>
 
           <div>
             <h4>Services</h4>
-            <a href="#services">Kitchen Equipment</a>
-            <a href="#services">Consultancy &amp; Design</a>
-            <a href="#services">Turnkey Setup</a>
-            <a href="#services">Installation &amp; AMC</a>
+            <a href="/#industries">Kitchen Equipment</a>
+            <a href="/#industries">Consultancy &amp; Design</a>
+            <a href="/#industries">Turnkey Setup</a>
+            <a href="/#industries">Installation &amp; AMC</a>
           </div>
 
           <div>

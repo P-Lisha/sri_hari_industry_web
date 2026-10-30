@@ -29,11 +29,11 @@ export function About() {
         </div>
         <div className="about__intro reveal">
           <span className="eyebrow">About Us</span>
-          <h2>Kitchens engineered to run harder, for longer</h2>
+          <h1>Kitchens engineered to run harder, for longer</h1>
           <p>
             Since 2016, <strong>Sri Hari Industries</strong> has manufactured commercial kitchen
             equipment in Coimbatore — from a single burner to complete turnkey kitchens. We have
-            delivered <strong>100+ projects</strong> for <strong>300+ happy clients</strong>, with
+            delivered <strong>150+ projects</strong> for <strong>300+ happy clients</strong>, with
             our equipment running in kitchens across <strong>Tamil Nadu and South India</strong>.
           </p>
           <p>
