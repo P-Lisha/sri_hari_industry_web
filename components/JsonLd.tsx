@@ -22,6 +22,7 @@ export function JsonLd() {
         foundingDate: String(SITE.yearFounded),
         founder: { '@type': 'Person', name: SITE.managingDirector },
         areaServed: [
+          { '@type': 'Country', name: 'India' },
           { '@type': 'State', name: 'Tamil Nadu' },
           ...SERVICE_AREAS.map((c) => ({ '@type': 'City', name: c })),
         ],

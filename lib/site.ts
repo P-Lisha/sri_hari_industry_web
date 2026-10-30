@@ -11,7 +11,7 @@ export const SITE = {
   shortDesc:
     'Commercial kitchen equipment & stainless steel fabrication — from cooking units to complete turnkey kitchens.',
   longDesc:
-    'Sri Hari Industries — manufacturers of commercial kitchen equipment & stainless steel fabrication in Coimbatore. Cooking ranges, automatic dosa/chapati makers, exhaust systems, cold rooms & complete turnkey kitchen solutions. ISO 9001:2015 certified.',
+    'Sri Hari Industries — manufacturers of commercial kitchen equipment & stainless steel fabrication in Coimbatore, supplying kitchens all over India. Cooking ranges, automatic dosa/chapati makers, exhaust systems, cold rooms & complete turnkey kitchen solutions. ISO 9001:2015 certified.',
 
   // Update this to your live domain before deploying.
   url: 'https://www.srihariindustries.in',

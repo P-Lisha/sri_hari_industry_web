@@ -10,9 +10,9 @@ import { WhatsAppFab } from '@/components/WhatsAppFab';
 import { ScrollReveal } from '@/components/ScrollReveal';
 import { ProductImg } from '@/components/ProductImg';
 import { ProductCard } from '@/components/ProductCard';
-import { Icon } from '@/components/Icons';
 import { ProductTabs } from '@/components/ProductTabs';
-import { PRODUCTS, APPLICATIONS, getProduct, isSS304, relatedProducts, techSpecs } from '@/lib/data';
+import { PRODUCTS, APPLICATIONS, aliasOf, getProduct, isSS304, metaDescription, relatedProducts, techSpecs } from '@/lib/data';
+import { categoryOf } from '@/lib/categories';
 import { SITE, waLink, WA_MESSAGES } from '@/lib/site';
 
 type Params = { params: Promise<{ slug: string }> };
@@ -26,8 +26,9 @@ export const dynamicParams = false;
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const p = getProduct((await params).slug);
   if (!p) return {};
-  const title = `${p.name} Manufacturer in Coimbatore`;
-  const description = `${p.desc} Made by ${SITE.name}, Coimbatore — custom sizes, installation & service across Tamil Nadu.`;
+  const alias = aliasOf(p);
+  const title = `${p.name}${alias ? ` (${alias})` : ''} Manufacturer in India`;
+  const description = metaDescription(p);
   const url = `/products/${p.slug}`;
   return {
     title,
@@ -43,6 +44,9 @@ export default async function ProductPage({ params }: Params) {
   if (!p) notFound();
 
   const url = `${SITE.url}/products/${p.slug}`;
+  const cat = categoryOf(p.cat);
+  const catHref = cat ? `/products/category/${cat.slug}` : '/products';
+  const uses = cat?.uses ?? APPLICATIONS;
   const related = relatedProducts(p.slug, 4);
   const specs = techSpecs(p);
 
@@ -53,6 +57,7 @@ export default async function ProductPage({ params }: Params) {
         '@type': 'Product',
         '@id': `${url}#product`,
         name: p.name,
+        ...(aliasOf(p) ? { alternateName: aliasOf(p) } : {}),
         description: p.desc,
         image: `${SITE.url}${p.img}`,
         url,
@@ -68,7 +73,8 @@ export default async function ProductPage({ params }: Params) {
         itemListElement: [
           { '@type': 'ListItem', position: 1, name: 'Home', item: SITE.url },
           { '@type': 'ListItem', position: 2, name: 'Products', item: `${SITE.url}/products` },
-          { '@type': 'ListItem', position: 3, name: p.name, item: url },
+          { '@type': 'ListItem', position: 3, name: p.cat, item: `${SITE.url}${catHref}` },
+          { '@type': 'ListItem', position: 4, name: p.name, item: url },
         ],
       },
     ],
@@ -85,6 +91,7 @@ export default async function ProductPage({ params }: Params) {
               <ol className="crumbs">
                 <li><Link href="/">Home</Link></li>
                 <li><Link href="/products">Products</Link></li>
+                <li><Link href={catHref}>{p.cat}</Link></li>
                 <li aria-current="page">{p.name}</li>
               </ol>
             </nav>
@@ -92,12 +99,13 @@ export default async function ProductPage({ params }: Params) {
             <div className="pdp">
               <div className="pdp__media">
                 {isSS304(p) && <span className="pdp__mat">SS304</span>}
-                <ProductImg src={p.img} alt={`${p.name} — ${p.cat} by ${SITE.name}, Coimbatore`} className="pdp__img" />
+                <ProductImg src={p.img} alt={`${p.name} — ${p.cat} by ${SITE.name}, Coimbatore`} className="pdp__img" priority />
               </div>
 
               <div className="pdp__info">
                 <span className="eyebrow">{p.cat}</span>
                 <h1>{p.name}</h1>
+                {aliasOf(p) && <p className="pdp__aka">Also known as: {aliasOf(p)}</p>}
                 <p className="pdp__lead">{p.desc}</p>
 
                 <ul className="pdp__quick">
@@ -116,11 +124,11 @@ export default async function ProductPage({ params }: Params) {
                 </div>
 
                 <dl className="pdp__meta">
-                  <div><dt>Category:</dt><dd><Link href="/products">{p.cat}</Link></dd></div>
+                  <div><dt>Category:</dt><dd><Link href={catHref}>{p.cat}</Link></dd></div>
                   {isSS304(p) && <div><dt>Material:</dt><dd>SS 304 food-grade stainless steel</dd></div>}
                   <div><dt>Sizes:</dt><dd>Standard &amp; custom-made to order</dd></div>
                 </dl>
-                <p className="pdp__assure">Delivery, installation &amp; after-sales service across Tamil Nadu</p>
+                <p className="pdp__assure">Delivery, installation &amp; after-sales service all over India</p>
               </div>
             </div>
 
@@ -149,9 +157,8 @@ export default async function ProductPage({ params }: Params) {
                         </ul>
                         <h3>Ideal For</h3>
                         <ul className="pdesc__apps">
-                          {APPLICATIONS.map((a) => (
+                          {uses.map((a) => (
                             <li key={a.label}>
-                              <i aria-hidden="true"><Icon name={a.icon} /></i>
                               {a.label}
                             </li>
                           ))}
@@ -187,10 +194,13 @@ export default async function ProductPage({ params }: Params) {
 
             {related.length > 0 && (
               <div className="pdp__related">
-                <h2 className="pdp__h">Related Products</h2>
+                <div className="pdp__relhead">
+                  <h2 className="pdp__h">More {p.cat}</h2>
+                  <Link href={catHref}>View all {p.cat} →</Link>
+                </div>
                 <div className="prodgrid prodgrid--home">
                   {related.map((r) => (
-                    <ProductCard key={r.slug} p={r} />
+                    <ProductCard key={r.slug} p={r} showCat={false} />
                   ))}
                 </div>
               </div>

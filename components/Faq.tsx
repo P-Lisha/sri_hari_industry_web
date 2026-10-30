@@ -8,7 +8,7 @@ export function Faq() {
         <div className="head reveal">
           <span className="eyebrow">Questions &amp; Answers</span>
           <h2>Commercial Kitchen Equipment in Coimbatore — FAQ</h2>
-          <p>Common questions about our kitchen equipment, turnkey setup and service across Coimbatore &amp; Tamil Nadu.</p>
+          <p>Common questions about our kitchen equipment, turnkey setup and service from Coimbatore to all over India.</p>
         </div>
         <div className={styles.wrap}>
           {FAQS.map((f) => (

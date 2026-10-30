@@ -19,7 +19,7 @@ const montserrat = Montserrat({
   display: 'swap',
 });
 
-const TITLE = `${SITE.name} — Commercial Kitchen Equipment Manufacturers | Coimbatore`;
+const TITLE = `${SITE.name} — Commercial Kitchen Equipment Manufacturer in India | Coimbatore`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
@@ -44,6 +44,7 @@ export const metadata: Metadata = {
     'bain marie counter',
     'cold room manufacturer Coimbatore',
     'commercial kitchen equipment Tamil Nadu',
+    'commercial kitchen equipment manufacturers India',
     'turnkey kitchen solutions Coimbatore',
     'hotel kitchen equipment',
     'restaurant kitchen equipment',

@@ -30,7 +30,7 @@ export interface Faq {
 export const FAQS: Faq[] = [
   {
     q: 'Who is a trusted commercial kitchen equipment manufacturer in Coimbatore?',
-    a: 'Sri Hari Industries is an ISO 9001:2015 certified commercial kitchen equipment manufacturer based in Urumandampalayam, Coimbatore. We manufacture cooking ranges, automatic dosa & chapati machines, exhaust systems, cold rooms and complete stainless steel kitchen fabrication for hotels, restaurants, canteens and marriage halls across Coimbatore and Tamil Nadu.',
+    a: 'Sri Hari Industries is an ISO 9001:2015 certified commercial kitchen equipment manufacturer based in Urumandampalayam, Coimbatore. We manufacture cooking ranges, automatic dosa & chapati machines, exhaust systems, cold rooms and complete stainless steel kitchen fabrication for hotels, restaurants, canteens and marriage halls in Coimbatore, Tamil Nadu and all over India.',
   },
   {
     q: 'What commercial kitchen equipment do you manufacture?',
@@ -38,7 +38,7 @@ export const FAQS: Faq[] = [
   },
   {
     q: 'Do you provide turnkey kitchen setup and installation in Coimbatore?',
-    a: 'Yes. Sri Hari Industries handles complete A-to-Z turnkey commercial kitchen projects in Coimbatore and across Tamil Nadu — kitchen consultancy and 3D design, manufacturing, exhaust and ventilation planning, on-site installation, plus service and annual maintenance contracts (AMC) after handover.',
+    a: 'Yes. Sri Hari Industries handles complete A-to-Z turnkey commercial kitchen projects in Coimbatore, across Tamil Nadu and all over India — kitchen consultancy and 3D design, manufacturing, exhaust and ventilation planning, on-site installation, plus service and annual maintenance contracts (AMC) after handover.',
   },
   {
     q: 'Is your kitchen equipment ISO certified and food-grade?',
