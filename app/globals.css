@@ -1838,7 +1838,7 @@ html .stats .wrap{background:#fff;border:1px solid var(--line);border-radius:var
 .itile:hover{transform:none}
 .fact{background:#fff;backdrop-filter:none;box-shadow:none}
 .fact b{background:none;-webkit-background-clip:initial;background-clip:initial;color:var(--slate);font-weight:600}
-.bcta{background:var(--slate);box-shadow:none}
+.bcta{background:linear-gradient(135deg,var(--blue-d2),var(--blue-d) 60%,var(--blue));box-shadow:none}
 
 /* ---- process: keep the entrance, drop the endless motion ---- */
 html .pflow.in .parc__via,html .pflow.in .pstep__face img,html .pstep__node:hover .pstep__ring{animation:none}
