@@ -97,7 +97,7 @@ export default async function CategoryPage({ params }: Params) {
             </nav>
 
             <header className="cathero">
-              <span className="eyebrow">{c.cat} · {products.length} models</span>
+              <span className="eyebrow">{c.cat}</span>
               <h1>{c.heading}</h1>
               {c.intro.map((t) => (
                 <p key={t.slice(0, 24)}>{t}</p>

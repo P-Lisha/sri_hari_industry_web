@@ -22,13 +22,16 @@ interface Project {
 }
 
 const PROJECTS: Project[] = [
-  { img: '/images/work-1.jpg', products: ['work-table', 'work-table-shelf'], area: 'Complete Kitchen', title: 'Cooking & Prep Line', desc: 'A full kitchen line: cooking ranges, SS prep tables and a single exhaust hood running the length of the room.', alt: 'Commercial kitchen with cooking line, prep tables and exhaust hood' },
-  { img: '/images/work-2.jpg', products: ['four-burner-continental', 'work-table', 'sink'], area: 'Cooking Line', title: 'Cooking Range Island', desc: 'Island cooking range with an overhead utensil rail, so chefs work from both sides.', alt: 'Island cooking range with overhead utensil rail' },
-  { img: '/images/work-6.jpg', products: ['chinese-range', 'two-burner', 'sink'], area: 'Indian & Chinese Cooking', title: 'Chinese Range, Burner & Sink', desc: 'A two-wok Chinese range with water taps, a two-burner range and an SS sink under one exhaust hood.', alt: 'Chinese wok range, two-burner range and stainless-steel sink under an exhaust hood' },
-  { img: '/images/work-7.jpg', products: ['four-burner-continental', 'deep-fryer', 'work-table-shelf'], area: 'Cooking Line', title: 'Continental Cooking Line', desc: 'Continental line with ranges and a salamander under a full-length hood.', alt: 'Continental cooking line with salamander and exhaust hood' },
-  { img: '/images/work-8.jpg', products: ['work-table'], area: 'Bulk Cooking', title: 'Tilting Pans & Prep', desc: 'A tilting bratt pan and tilting kettles beside a long SS prep table, built for high-volume bulk cooking.', alt: 'Tilting bratt pans and prep table for bulk cooking' },
-  { img: '/images/work-9.jpg', products: ['four-burner-continental', 'deep-fryer'], area: 'Cooking Line', title: 'Range, Fryer & Hood Line', desc: 'Six-burner range with oven, deep fryer and an overhead pot shelf under a lit exhaust hood.', alt: 'Six-burner range, deep fryer and pot shelf under a lit exhaust hood' },
+  { img: '/images/work-1.webp', products: ['work-table', 'work-table-shelf'], area: 'Complete Kitchen', title: 'Cooking & Prep Line', desc: 'A full kitchen line: cooking ranges, SS prep tables and a single exhaust hood running the length of the room.', alt: 'Commercial kitchen with cooking line, prep tables and exhaust hood' },
+  { img: '/images/work-2.webp', products: ['four-burner-continental', 'work-table', 'sink'], area: 'Cooking Line', title: 'Cooking Range Island', desc: 'Island cooking range with an overhead utensil rail, so chefs work from both sides.', alt: 'Island cooking range with overhead utensil rail' },
+  { img: '/images/work-6.webp', products: ['chinese-range', 'two-burner', 'sink'], area: 'Indian & Chinese Cooking', title: 'Chinese Range, Burner & Sink', desc: 'A two-wok Chinese range with water taps, a two-burner range and an SS sink under one exhaust hood.', alt: 'Chinese wok range, two-burner range and stainless-steel sink under an exhaust hood' },
+  { img: '/images/work-7.webp', products: ['four-burner-continental', 'deep-fryer', 'work-table-shelf'], area: 'Cooking Line', title: 'Continental Cooking Line', desc: 'Continental line with ranges and a salamander under a full-length hood.', alt: 'Continental cooking line with salamander and exhaust hood' },
+  { img: '/images/work-8.webp', products: ['work-table'], area: 'Bulk Cooking', title: 'Tilting Pans & Prep', desc: 'A tilting bratt pan and tilting kettles beside a long SS prep table, built for high-volume bulk cooking.', alt: 'Tilting bratt pans and prep table for bulk cooking' },
+  { img: '/images/work-9.webp', products: ['four-burner-continental', 'deep-fryer'], area: 'Cooking Line', title: 'Range, Fryer & Hood Line', desc: 'Six-burner range with oven, deep fryer and an overhead pot shelf under a lit exhaust hood.', alt: 'Six-burner range, deep fryer and pot shelf under a lit exhaust hood' },
 ];
+
+/** Small rail thumbnail for a full-size image: /images/work-9.webp → /images/work-9-thumb.webp */
+const thumbOf = (img: string) => img.replace(/\.webp$/, '-thumb.webp');
 
 const ALL = 'All';
 
@@ -111,7 +114,7 @@ export function Gallery() {
               {shown.map((p, i) => (
                 <button key={p.img} type="button" className={i === active ? 'on' : ''} onClick={() => setActive(i)} aria-label={`Show ${p.title}`}>
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={p.img} alt="" loading="lazy" decoding="async" />
+                  <img src={thumbOf(p.img)} alt="" loading="lazy" decoding="async" />
                 </button>
               ))}
             </div>

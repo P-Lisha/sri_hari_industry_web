@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { PRODUCTS, PRODUCTS_BY_CAT, PCATS, CATMETA } from '@/lib/data';
+import { PRODUCTS_BY_CAT, CATMETA } from '@/lib/data';
 import { ProductImg } from './ProductImg';
 import { catSlug } from '@/lib/categories';
 
@@ -15,15 +15,15 @@ export function Products() {
           <span className="eyebrow">Our Products</span>
           <h1>Commercial Kitchen Equipment</h1>
           <p>
-            {PRODUCTS.length} models across {PCATS.length} categories — food-grade stainless-steel
-            equipment built in Coimbatore for hotels, restaurants, hospitals and institutional kitchens.
+            Food-grade stainless-steel commercial kitchen equipment built in Coimbatore for
+            hotels, restaurants, hospitals and institutional kitchens.
           </p>
         </div>
 
         <nav className="catnav" aria-label="Product categories">
           {PRODUCTS_BY_CAT.map((g) => (
             <Link key={g.cat} href={`/products/category/${catSlug(g.cat)}`}>
-              {g.cat} <span>{g.products.length}</span>
+              {g.cat}
             </Link>
           ))}
         </nav>
@@ -35,7 +35,7 @@ export function Products() {
                 <Link href={`/products/category/${catSlug(group.cat)}`}>{group.cat}</Link>
               </h2>
               <p>
-                {CATMETA[group.cat]?.blurb} <span>· {group.products.length} models</span>{" "}
+                {CATMETA[group.cat]?.blurb}{" "}
                 <Link className="catsec__all" href={`/products/category/${catSlug(group.cat)}`}>View all →</Link>
               </p>
             </header>
