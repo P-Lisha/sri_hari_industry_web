@@ -98,7 +98,6 @@ export default async function ProductPage({ params }: Params) {
 
             <div className="pdp">
               <div className="pdp__media">
-                {isSS304(p) && <span className="pdp__mat">SS304</span>}
                 <ProductImg src={p.img} alt={`${p.name} — ${p.cat} by ${SITE.name}, Coimbatore`} className="pdp__img" priority />
               </div>
 
