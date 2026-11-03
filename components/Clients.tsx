@@ -18,7 +18,7 @@
 
 // ---- Real clients (name chips) ----
 const CLIENTS: string[] = [
-  'Amrita Vishwa Vidyapeetham',
+  'Amrita Viswapeedam',
   'Mahindra',
   'BorgWarner',
   'Orbinox',

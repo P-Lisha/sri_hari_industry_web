@@ -91,7 +91,7 @@ a{text-decoration:none;color:inherit}img{display:block;max-width:100%}
 .slide.active .slide__img{animation:kenburns 6.5s ease-out forwards}
 @keyframes kenburns{from{transform:scale(1.04)}to{transform:scale(1.16)}}
 .slide::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,18,52,.86) 0%,rgba(8,18,52,.6) 45%,rgba(8,18,52,.15) 100%)}
-.hero__overlay{position:absolute;inset:0;z-index:5;display:flex;align-items:center}
+.hero__overlay{position:absolute;inset:0;z-index:5;display:flex;align-items:center;background:linear-gradient(90deg,rgba(8,20,45,.92) 0%,rgba(8,20,45,.78) 38%,rgba(8,20,45,.42) 70%,rgba(8,20,45,.18) 100%)}
 .hero__content{max-width:620px;color:#fff}
 .hero__badge{display:inline-block;background:rgba(246,178,27,.18);border:1px solid rgba(246,178,27,.55);color:var(--yellow);padding:.4rem 1rem;border-radius:50px;font-size:.76rem;font-weight:600;letter-spacing:.05em;margin-bottom:1.1rem}
 .hero h1{font-size:clamp(2rem,5vw,3.4rem);font-weight:800;letter-spacing:-.02em;text-shadow:0 2px 20px rgba(0,0,0,.3)}
@@ -170,7 +170,7 @@ a{text-decoration:none;color:inherit}img{display:block;max-width:100%}
 .split__media{position:relative}
 .split__media img{width:100%;border-radius:var(--radius);box-shadow:var(--shadow)}
 .split__badge{position:absolute;top:16px;left:16px;background:var(--yellow);color:#3a2900;padding:.45rem 1rem;border-radius:4px;font-size:.8rem;font-weight:700;font-family:var(--font-head);box-shadow:var(--shadow-sm)}
-.split h2{font-size:clamp(1.7rem,3.5vw,2.3rem);color:var(--slate);margin:.6rem 0 1rem}
+.split h2{font-size:clamp(1.4rem,3vw,2rem);color:var(--slate);margin:.6rem 0 1rem}
 .split p{color:var(--muted);margin-bottom:1rem}
 .tick{list-style:none;margin:1.1rem 0 1.6rem}
 .tick li{padding-left:2rem;position:relative;margin-bottom:.6rem;color:var(--ink)}
@@ -409,14 +409,14 @@ a{text-decoration:none;color:inherit}img{display:block;max-width:100%}
 .band{padding:3.4rem 0}
 .bandbox{background:linear-gradient(120deg,var(--blue-d),var(--blue) 60%,var(--green-d));border-radius:8px;padding:3.4rem;text-align:center;color:#fff;box-shadow:var(--shadow);position:relative;overflow:hidden}
 .bandbox::after{content:"";position:absolute;top:-40%;right:-8%;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,rgba(246,178,27,.42),transparent 70%)}
-.bandbox h2{font-size:clamp(1.7rem,3.5vw,2.2rem);margin-bottom:.7rem;position:relative}
+.bandbox h2{font-size:clamp(1.4rem,3vw,2rem);margin-bottom:.7rem;position:relative}
 .bandbox p{opacity:.92;margin-bottom:1.6rem;position:relative}
 .bandbox .cta{position:relative;display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
 
 /* ---------- Contact ---------- */
 .contact{max-width:560px;margin:0 auto}
 .cinfo{text-align:center}
-.cinfo h2{font-size:clamp(1.7rem,3.5vw,2.2rem);color:var(--slate);margin:.6rem 0 1rem}
+.cinfo h2{font-size:clamp(1.4rem,3vw,2rem);color:var(--slate);margin:.6rem 0 1rem}
 .cinfo p{color:var(--muted);margin-bottom:1.5rem}
 .cbtns{display:flex;gap:.8rem;flex-wrap:wrap;justify-content:center;margin:.4rem 0 1.8rem}
 .clines{display:inline-flex;flex-direction:column;gap:1rem;text-align:left;margin:0 auto}
@@ -1800,7 +1800,7 @@ html .sec.subpage{padding-top:2rem}
 .slide.active .slide__img{animation:none;transform:none}
 .slide__img{transform:none}
 .slide::after{background:linear-gradient(90deg,rgba(8,18,52,.74) 0%,rgba(8,18,52,.42) 50%,rgba(8,18,52,.05) 100%)}
-.hero h1,.hero .hero__h{font-size:clamp(2.4rem,5.4vw,4rem);font-weight:600;letter-spacing:-.035em;line-height:1.06;text-shadow:none}
+.hero h1,.hero .hero__h{font-size:clamp(1.9rem,4vw,2.9rem);font-weight:600;letter-spacing:-.035em;line-height:1.08;text-shadow:none}
 .hero h1 span,.hero .hero__h span{color:inherit}
 .hero p{font-size:1.15rem;line-height:1.65}
 .hero__badge{background:none;border:0;padding:0;border-radius:0;animation:none;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase}
@@ -1858,7 +1858,7 @@ html .pflow.in .parc__run{display:none}
    Montserrat headings (matches the logo lettering), bigger section
    titles, product photos on light grey with no card chrome, and an
    outline secondary button. */
-.head h2,.indhead h2,.clientstrip__head h2,.about h1,.about h2,.catpage h1{font-size:clamp(2rem,4.2vw,3.1rem);font-weight:600;letter-spacing:-.03em;line-height:1.1}
+.head h2,.indhead h2,.clientstrip__head h2,.about h1,.about h2,.catpage h1{font-size:clamp(1.5rem,3.2vw,2.3rem);font-weight:600;letter-spacing:-.03em;line-height:1.12}
 .hero h1,.hero .hero__h{font-weight:700;letter-spacing:-.03em}
 
 .procard{border:0;border-radius:2px;background:transparent}
@@ -1895,7 +1895,7 @@ html .pflow.in .parc__run{display:none}
 @media(max-width:480px){.projgrid{grid-template-columns:1fr}}
 /* featured layout (Electrolux / ChefGear style): project 1 spans 2×2 */
 .projhead{display:flex;align-items:flex-end;justify-content:space-between;gap:1.5rem;margin-bottom:2.2rem}
-.projhead h2{font-size:clamp(2rem,4.2vw,3.1rem);font-weight:600;letter-spacing:-.03em;line-height:1.1;color:var(--slate);margin:.6rem 0 .5rem}
+.projhead h2{font-size:clamp(1.5rem,3.2vw,2.3rem);font-weight:600;letter-spacing:-.03em;line-height:1.12;color:var(--slate);margin:.6rem 0 .5rem}
 .projhead p{color:var(--muted);max-width:560px}
 .projhead .btn{flex:none}
 .projgrid{grid-auto-rows:1fr}
@@ -2021,7 +2021,7 @@ html .brand__txt i,html .fbrand__txt i{font-size:11px}
 .catnav a:hover{border-color:var(--blue);color:var(--blue)}
 .catsec{padding-top:1rem;margin-bottom:4.5rem;scroll-margin-top:96px}
 .catsec__head{display:flex;align-items:baseline;justify-content:space-between;gap:1.5rem;flex-wrap:wrap;padding-bottom:1rem;margin-bottom:1.8rem;border-bottom:1px solid var(--line)}
-.catsec__head h2{font-size:clamp(1.5rem,2.6vw,2rem);letter-spacing:-.02em;color:var(--slate)}
+.catsec__head h2{font-size:clamp(1.3rem,2.2vw,1.7rem);letter-spacing:-.02em;color:var(--slate)}
 .catsec__head p{color:var(--muted);font-size:.98rem}
 .catsec__head p span{color:var(--slate);font-weight:500}
 .catsec__grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2.4rem 1.4rem}
@@ -2075,6 +2075,42 @@ html .brand__txt i,html .fbrand__txt i{font-size:11px}
 .cert,.cert.b,.cert.y,.cert.r{background:#fff;color:var(--slate);border:1px solid var(--line)}
 /* value cards: brand blue accent (green is reserved for WhatsApp) */
 .whyx__card{border-left-color:var(--blue)}
+
+/* ---- product cards: crisp bordered white cards, compact content ---- */
+.catsec__grid{gap:1.5rem 1.4rem}
+.catsec .pmtile{background:#fff;border:1px solid var(--line);border-radius:8px;overflow:hidden;
+  transition:transform .3s var(--t),box-shadow .3s var(--t),border-color .3s var(--t)}
+.catsec .pmtile:hover{transform:translateY(-4px);box-shadow:var(--shadow-sm);border-color:rgba(42,83,165,.35)}
+.catsec .pmtile__media{aspect-ratio:4/3;background:#eef2f8;border-bottom:1px solid var(--line);border-radius:0}
+.catsec .pmtile__media img{padding:.5rem;mix-blend-mode:multiply}
+.catsec .pmtile .pmtile__h{padding:.7rem .85rem .15rem;font-size:.95rem;line-height:1.3}
+.catsec .pmtile__more{display:inline-block;padding:0 .85rem .8rem}
+/* feature bullets: subtle rounded dots instead of hard squares */
+.pdp__quick li::before{border-radius:50%;width:.4rem;height:.4rem;top:.66em}
+
+/* ---- products page: brand colour so it isn't all-white ---- */
+.catpage{background:linear-gradient(180deg,#e7eefa 0,#f4f8fd 460px)}
+.catsec__head{border-bottom-color:#d8e3f3}
+.catsec__head h2{position:relative;padding-left:.95rem}
+.catsec__head h2::before{content:"";position:absolute;left:0;top:.14em;bottom:.14em;width:4px;border-radius:3px;
+  background:linear-gradient(180deg,var(--blue),var(--blue-d))}
+.catnav a:hover,.catnav a:focus-visible{background:var(--blue-soft);border-color:var(--blue);color:var(--blue-d)}
+/* tighter top spacing on the products page (less space/padding) */
+html .catpage.sec.subpage{padding-top:1rem}
+.catpage .head{margin-bottom:1.2rem}
+.catpage .head h1{margin:.4rem 0 .5rem}
+.catpage .catnav{margin-bottom:1.5rem}
+.catpage .catsec:first-of-type{padding-top:0}
+/* deeper, cleaner product panel so cards read as framed, not blank white */
+.catsec .pmtile__media{background:#e8eef7}
+
+/* ---- product DETAIL page: branded panels + subtle tint, not all-white ---- */
+.pdp-wrap{background:linear-gradient(180deg,#e7eefa 0,#f5f8fd 440px)}
+.pdp__media{background:radial-gradient(120% 120% at 50% 25%,#f2f6fc,#dde7f5)}
+.pdp__img{mix-blend-mode:multiply}
+/* related-product cards on the detail page: same framed panels */
+.procard__media{background:#e8eef7}
+.procard__img{mix-blend-mode:multiply}
 
 /* ===========================================================
    RESPONSIVE FIXES (phones / tablets) — sits after the refresh

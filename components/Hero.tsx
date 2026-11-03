@@ -18,7 +18,7 @@ interface Slide {
 
 const SLIDES: Slide[] = [
   {
-    img: '/images/hero-1.webp',
+    img: '/images/hero-1.webp?v=6',
     alt: 'Complete commercial kitchen solutions',
     badge: 'Designed for Performance · Built for Excellence',
     title: 'Complete Commercial ',
@@ -30,19 +30,19 @@ const SLIDES: Slide[] = [
     ],
   },
   {
-    img: '/images/hero-2.webp',
-    alt: 'Gas cooking equipment range',
-    badge: 'Burners · Ranges · Grills',
-    title: 'Gas Cooking Equipment, ',
-    emphasis: 'Built to Last',
-    text: 'Burners, cooking ranges, bratt pans, grills & boiling pans — 100% food-grade stainless steel, engineered for heavy-duty performance.',
+    img: '/images/hero-2.webp?v=12',
+    alt: 'Clean professional commercial kitchen with stainless steel machinery',
+    badge: 'Processing · Prep · Machinery',
+    title: 'Food Processing & ',
+    emphasis: 'Kitchen Machinery',
+    text: 'Grinders, mixers, dough kneaders, peelers and automatic machines — powerful commercial equipment that cuts prep time and labour across the kitchen.',
     ctas: [
-      { href: '/products', label: 'View Range', cls: 'btn btn--blue' },
+      { href: '/products', label: 'View Machines', cls: 'btn btn--blue' },
       { href: '/#contact', label: 'Enquire Now', cls: 'btn btn--ghost' },
     ],
   },
   {
-    img: '/images/hero-3.webp',
+    img: '/images/hero-3.webp?v=7',
     alt: 'Food processing, exhaust & cold room systems',
     badge: 'Food Processing · Exhaust · Cold Room',
     title: 'End-to-End ',
