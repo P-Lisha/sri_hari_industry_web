@@ -32,6 +32,3 @@ next-env.d.ts
 # local TLS root bundle (machine-specific) + server log
 .certs/
 .server.log
-
-# local backup/export archives (large, not for the repo)
-*.zip
