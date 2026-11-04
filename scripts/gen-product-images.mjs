@@ -38,6 +38,12 @@ const MAP = {
   'SINGLE BURNER': 'single-burner',
   'TANDOORI': 'tandoori',
   'VEG RACK': 'veg-rack',
+  'HOT PLATE GRIDDLE': 'hot-plate-griddle',
+  'PANIYARAM RANGE': 'paniyaram-range',
+  'PLATFORM TROLLEY': 'platform-trolley',
+  'PULVERIZER': 'pulverizer',
+  'COOK WOK': 'cook-wok',
+  'RICE DHAL VESSELS': 'rice-dhal-vessels',
   'AUTOMATIC DOUGH NEEDER WITH BALL CUUTING MACHINE': 'dough-kneader', // combo render
   // --- SHI EQUIPMENTS (nested) ---
   '2 BURNER INDIAN RANGE': 'two-burner-indian',

@@ -18,7 +18,7 @@ interface Slide {
 
 const SLIDES: Slide[] = [
   {
-    img: '/images/hero-1.webp?v=6',
+    img: '/images/hero-1.webp',
     alt: 'Complete commercial kitchen solutions',
     badge: 'Designed for Performance · Built for Excellence',
     title: 'Complete Commercial ',
@@ -30,7 +30,7 @@ const SLIDES: Slide[] = [
     ],
   },
   {
-    img: '/images/hero-2.webp?v=12',
+    img: '/images/hero-2.webp',
     alt: 'Clean professional commercial kitchen with stainless steel machinery',
     badge: 'Processing · Prep · Machinery',
     title: 'Food Processing & ',
@@ -42,7 +42,7 @@ const SLIDES: Slide[] = [
     ],
   },
   {
-    img: '/images/hero-3.webp?v=7',
+    img: '/images/hero-3.webp',
     alt: 'Food processing, exhaust & cold room systems',
     badge: 'Food Processing · Exhaust · Cold Room',
     title: 'End-to-End ',

@@ -66,7 +66,7 @@ export const metadata: Metadata = {
     description: SITE.longDesc,
     images: [
       {
-        url: '/images/hero-1.jpg?v=3',
+        url: '/images/hero-1.jpg',
         width: 1200,
         height: 630,
         alt: 'Sri Hari Industries — Complete Commercial Kitchen Solutions',
@@ -77,7 +77,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: TITLE,
     description: SITE.shortDesc,
-    images: ['/images/hero-1.jpg?v=3'],
+    images: ['/images/hero-1.jpg'],
   },
   icons: {
     icon: [
@@ -117,7 +117,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" className={`${outfit.variable} ${montserrat.variable}`} suppressHydrationWarning>
       <head>
         {/* LCP image: fetch before the Hero component renders */}
-        <link rel="preload" as="image" href="/images/hero-1.webp?v=6" fetchPriority="high" />
+        <link rel="preload" as="image" href="/images/hero-1.webp" fetchPriority="high" />
       </head>
       <body id="top">
         {/* Mark JS as available BEFORE paint so scroll-reveal only hides
