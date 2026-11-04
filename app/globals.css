@@ -2192,3 +2192,21 @@ html .catpage.sec.subpage{padding-top:1rem}
 @media(max-width:900px){.catsec .catsec__grid,.pdp__related .prodgrid{scroll-padding-inline:5vw}}
 /* tablets: featured products 4 across instead of 2×2 */
 @media(min-width:641px) and (max-width:991px){html .prodgrid--home{grid-template-columns:repeat(4,1fr);gap:.9rem}html .prodgrid--home .procard__name{font-size:.95rem}}
+
+/* ===========================================================
+   "What Makes Us Unique" — compact why-choose-us trust strip
+   (icon badge + label; reuses .wico from the Why block above)
+   =========================================================== */
+#why-us .whyu{list-style:none;margin:0 auto;padding:0;max-width:980px;
+  display:grid;grid-template-columns:repeat(6,1fr);gap:1.6rem 1rem}
+.whyu__item{display:flex;flex-direction:column;align-items:center;text-align:center}
+.whyu__item .wico{margin-bottom:.7rem}
+.whyu__label{font-family:var(--font-head),system-ui,sans-serif;color:var(--slate);font-weight:600;font-size:.92rem;line-height:1.3}
+/* rotate the badge tint across all six so the row reads lively, not uniform */
+.whyu__item:nth-child(6n+2) .wico{background:var(--green-soft);color:var(--green-d)}
+.whyu__item:nth-child(6n+3) .wico{background:var(--yellow-soft);color:var(--yellow-d)}
+.whyu__item:nth-child(6n+4) .wico{background:var(--blue-soft);color:var(--blue-d)}
+.whyu__item:nth-child(6n+5) .wico{background:var(--green-soft);color:var(--green-d)}
+.whyu__item:nth-child(6n)   .wico{background:var(--yellow-soft);color:var(--yellow-d)}
+@media(max-width:900px){#why-us .whyu{grid-template-columns:repeat(3,1fr);gap:1.8rem 1rem}}
+@media(max-width:480px){#why-us .whyu{grid-template-columns:repeat(2,1fr)}.whyu__label{font-size:.85rem}}
