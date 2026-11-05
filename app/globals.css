@@ -76,6 +76,7 @@ a{text-decoration:none;color:inherit}img{display:block;max-width:100%}
 .menu a{font-weight:500;color:var(--ink);position:relative;padding:.2rem 0;transition:var(--t)}
 .menu a::after{content:"";position:absolute;left:0;bottom:-3px;width:0;height:2px;background:var(--yellow);transition:var(--t)}
 .menu a:hover{color:var(--blue)}.menu a:hover::after{width:100%}
+.menu a.active{color:var(--blue);font-weight:600}.menu a.active::after{width:100%}
 .navcta{margin-left:.3rem}
 .burger{display:none;margin-left:auto;width:46px;height:46px;border:1px solid var(--line);background:#fff;border-radius:6px;cursor:pointer;flex-direction:column;align-items:center;justify-content:center;gap:5px;transition:var(--t)}
 .burger span{width:22px;height:2px;background:var(--slate);border-radius:2px;transition:var(--t)}
@@ -509,6 +510,8 @@ a{text-decoration:none;color:inherit}img{display:block;max-width:100%}
   .menu.open{max-height:460px}
   .menu a{padding:.95rem .2rem;border-top:1px solid var(--line)}
   .menu a::after{display:none}
+  /* mobile: underline is hidden, so mark the active page with a left accent */
+  .menu a.active{color:var(--blue);padding-left:.8rem;box-shadow:inset 3px 0 0 var(--yellow)}
   .hero__tagstrip{display:none}
   .hero__dots{bottom:18px}
   .hero{height:clamp(480px,72vh,600px)}
