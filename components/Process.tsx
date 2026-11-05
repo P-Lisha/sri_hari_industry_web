@@ -129,7 +129,6 @@ export function Process() {
                   {/* decorative: the adjacent <h3> names the step */}
                   <img src={s.img} alt="" loading="lazy" width={480} height={480} />
                 </span>
-                <b className="pstep__num">{String(i + 1).padStart(2, '0')}</b>
               </div>
               <h3>{s.title}</h3>
               <p>{s.text}</p>

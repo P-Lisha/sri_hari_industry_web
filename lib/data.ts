@@ -152,7 +152,6 @@ export const PCATS: Category[] = [
       ['Chute Table', 'chute-table', 'SS chute table with a waste chute cut-out that lets staff scrape plates straight into a bin while clearing.'],
       ['Dishwasher', 'dish-washer', 'Undercounter commercial dishwasher that washes and sanitises plates, glasses and trays in a fast cycle — high-volume ware washing with minimal manpower and water.',
         ['Fast wash & sanitise cycle', 'Undercounter SS body', 'Rack-based plate & glass washing', 'Low water & manpower']],
-      ['Work Table', 'work-table', 'Plain SS 304 work table with a sturdy top and legs — the everyday prep surface for any commercial kitchen.'],
       ['Work Table with Shelves', 'work-table-shelf', 'Work table with overhead and under-shelves for extra storage — keeps utensils and ingredients within reach at the prep line.'],
       ['Work Table with Under Shelf', 'work-table-us', 'SS work table with a full-length under-shelf for storing vessels and provisions below the prep surface.'],
       ['Kneading Table', 'kneading-table', 'Sturdy SS kneading table with a smooth top and under-shelf for dough work in chapati and bakery sections.'],
@@ -162,9 +161,7 @@ export const PCATS: Category[] = [
       ['Pot Rack', 'pot-rack', 'Four-tier slatted SS pot rack for storing heavy vessels, pots and pans off the floor.'],
       ['Plate Rack', 'plate-rack', 'Multi-tier SS plate rack that stores and air-dries plates upright after washing.'],
       ['Batter Table', 'batter-table', 'Batter table with lidded SS batter containers set into the top — keeps idli / dosa batter covered, fermenting and hygienic.'],
-      ['SS Sink', 'sink', 'Single-bowl stainless-steel sink unit with tap point and drain — a durable, rust-free washing station.'],
       ['Corner Sink', 'corner-sink', 'Space-saving stainless-steel corner sink unit with a backsplash — fits snugly into a corner to make the most of tight kitchen layouts.'],
-      ['Work Table with Backsplash', 'work-table-backsplash', 'SS work table with a raised backsplash that keeps the wall clean behind the prep area.'],
     ],
   },
   {
