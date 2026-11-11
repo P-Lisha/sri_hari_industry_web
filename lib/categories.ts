@@ -83,7 +83,7 @@ const INFO: Omit<CategoryInfo, 'slug'>[] = [
     ],
     faqs: [
       { q: 'What is the difference between a wet grinder and a tilting grinder?', a: 'Both grind idli and dosa batter with granite stones. A tilting grinder has a drum that tilts forward, so batter can be emptied easily in large batches.' },
-      { q: 'Do you have machines for peeling vegetables?', a: 'Yes — potato peelers, onion peelers and garlic peelers, plus vegetable cutting machines for slicing and dicing.' },
+      // { q: 'Do you have machines for peeling vegetables?', a: 'Yes — potato peelers, onion peelers and garlic peelers, plus vegetable cutting machines for slicing and dicing.' },
       { q: 'Do you provide service for these machines?', a: 'Yes. We provide after-sales service for the food processing machinery we supply.' },
     ],
   },
