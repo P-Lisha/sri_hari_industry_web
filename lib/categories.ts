@@ -60,7 +60,7 @@ const INFO: Omit<CategoryInfo, 'slug'>[] = [
       { icon: 'i-cross', label: 'Hospitals' },
     ],
     faqs: [
-      { q: 'Which automatic machines do you make?', a: 'We make automatic chapati making machines, dosa making machines, vada making machines, ball cutting and ball pressing machines, idiyappam machines and paniyaram and rumali ranges.' },
+      // { q: 'Which automatic machines do you make?', a: 'We make automatic chapati making machines, dosa making machines, vada making machines, ball cutting and ball pressing machines, idiyappam machines and paniyaram and rumali ranges.' },
       { q: 'Do you supply steam boilers for idli and rice cooking?', a: 'Yes. We supply steam boilers together with idli plants and rice / dhal vessels for bulk steam cooking.' },
       { q: 'Is installation and training included?', a: 'We install the machines at your site and show your team how to operate them. Contact us for the details for your order.' },
     ],
