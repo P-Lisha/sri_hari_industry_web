@@ -40,9 +40,9 @@ export interface CatMeta {
 
 export const PCATS: Category[] = [
   {
-    cat: 'Cooking Equipment',
-    tag: 'a heavy-duty LPG cooking unit in food-grade stainless steel, built for daily high-volume use.',
-    feats: ['Food-grade SS 304 body', 'High-efficiency burners', 'Heavy-duty commercial build', 'Custom sizes on request'],
+    cat: 'Kitchen Equipment for Marriage Hall & Hostel',
+    tag: 'a heavy-duty commercial kitchen unit in food-grade stainless steel, built for daily high-volume use in marriage halls and hostels.',
+    feats: ['Food-grade SS 304 body', 'Heavy-duty commercial build', 'Built for bulk daily use', 'Custom sizes on request'],
     items: [
       // Ordered to match the printed SHI brochure (Marriage Hall → Hotels pages); items not in the brochure follow.
       ['Single Burner', 'single-burner',
@@ -90,14 +90,7 @@ export const PCATS: Category[] = [
         ['Lidded round wells', 'Keeps food at serving temp', 'Service-counter ready', 'Food-grade SS build']],
       ['Bain-Marie Counter', 'bainmarie-counter', 'Hot bain-marie service counter that keeps cooked food warm and ready to serve on a buffet or canteen line.',
         ['Hot water / dry warming wells', 'Keeps food at serving temp', 'GN-pan compatible', 'Stainless-steel counter']],
-    ],
-  },
-  {
-    cat: 'Indian Range & Automakers',
-    tag: 'an automatic / steam machine that boosts output and consistency for high-demand kitchens.',
-    feats: ['Food-grade stainless steel', 'High, consistent output', 'Low manpower & maintenance', 'Custom capacities available'],
-    items: [
-      // Ordered to match the printed SHI brochure; items not in the brochure follow.
+      // — steam cooking (brochure: Indian Range page) —
       ['Steam Boiler', 'steam-boiler', 'Compact steam generator that powers bulk steam cooking — idli, rice, dhal and more — with fast steam-up and low fuel use.',
         ['Fast steam generation', 'Pressure gauge & safety valve', 'Low fuel consumption', '50–500 L capacity options'],
         [['Capacity', '50 – 500 litres'], ['Material', 'SS 304 food-grade'], ['Fuel', 'LPG / Diesel / Electric']]],
@@ -107,47 +100,14 @@ export const PCATS: Category[] = [
       ['Rumali Range', 'romali-range', 'Dome-top rumali roti range that gives the high, even heat needed to cook thin, soft rumali rotis quickly.',
         ['Dome-top high-heat plate', 'Even surface temperature', 'Thin rumali roti in seconds', 'Sturdy SS build']],
       ['Janatha Idli Plant', 'janatha-idly-plant', 'High-capacity idli steaming plant that turns out soft idlis in large batches for messes and halls.'],
-      ['Idiyappam Machine', 'idiyappam-machine', 'Steam idiyappam press for soft, consistent string hoppers in volume.'],
-      ['Ball Cutting Machine', 'ball-cutting-machine', 'Cuts dough into uniform balls at speed for chapati and poori production.'],
-      ['Ball Pressing Machine', 'ball-pressing-machine', 'Dough ball pressing machine that flattens dough balls evenly for chapati and poori production lines.'],
-      // ['Chapati Making Machine', 'chappathi-making-machine', 'Fully automatic chapati machine that presses, roasts and puffs uniform chapatis at high speed.',
-      //   ['Uniform size & thickness', 'Press + roast + puff in one', 'High-speed automatic output', 'Low manpower needed'],
-      //   [['Output', '1,000 – 2,000 / hr'], ['Material', 'SS 304 + MS frame'], ['Power', 'Electric + LPG']]],
-      ['Dosa Making Machine', 'dosa-making-machine', 'Automatic dosa making machine that batters, spreads and roasts uniform dosas continuously — high output with minimal manpower.',
-        ['Continuous automatic output', 'Uniform size & thickness', 'Batter spreader + roaster', 'Low manpower operation']],
-      ['Vada Making Machine', 'vada-making-machine', 'Vada making machine that shapes perfectly round medu-vadas with a centre hole and drops them for frying — consistent size at speed.',
-        ['Round vadas with centre hole', 'Adjustable vada size', 'Direct drop into fryer', 'Fast, consistent output']],
+      // — cold room & refrigeration —
+      ['Work Top Freezer', 'work-top-freezer', 'Under-counter worktop freezer that doubles as a chilled prep surface — cold storage right where you cook.',
+        ['Chilled worktop surface', 'Under-counter freezer storage', 'Energy-efficient cooling', 'SS 304 food-safe build']],
+      ['Cold Room', 'cold-room', 'Modular walk-in cold room for bulk storage of vegetables, dairy, meat and frozen goods.'],
     ],
   },
   {
-    cat: 'Food Processing Machinery',
-    tag: 'a commercial food-processing machine that cuts prep time and labour across the kitchen.',
-    feats: ['Powerful commercial motor', 'Food-grade contact parts', 'Easy to operate & clean', 'Durable heavy-duty build'],
-    items: [
-      // Ordered to match the printed SHI brochure (Machinaries page); items not in the brochure follow.
-      ['Rice Washer', 'rice-washer', 'Stainless-steel rice washing machine that rinses and drains bulk rice quickly, saving water and manpower before cooking.'],
-      ['Wet Grinder', 'wet-grinder', 'Heavy-duty wet grinder with granite stones on an SS base cabinet with drain tap — smooth idli / dosa batter in large volumes.',
-        ['Granite grinding stones', 'SS base cabinet with drain tap', 'Smooth batter output', 'Heavy-duty motor']],
-      ['Tilting Grinder', 'tilting-grinder', 'Tilting-drum wet grinder that empties batter easily — high-capacity grinding for busy hotels and mess halls.',
-        ['Granite grinding stones', 'Tilting drum for easy emptying', 'High-capacity grinding', 'Heavy-duty motor']],
-      ['Pulverizer', 'pulverizer', 'Commercial pulverizer for grinding dry spices, grains and masala into fine powder with a powerful motor.'],
-      ['Masala Grinder', 'masala-grinder', 'Heavy-duty masala grinder for grinding wet and dry masala, chutney and spice pastes in bulk.'],
-      ['Vegetable Cutting Machine', 'veg-cutting-machine', 'Multi-blade vegetable cutting machine that slices, dices and shreds vegetables fast for bulk prep.'],
-      ['Onion Peeler', 'onion-peeler', 'Commercial onion peeling machine that peels onions in batches, saving hours of manual prep.'],
-      // ['Potato Peeler', 'potato-peeler', 'Rotary potato peeling machine that peels a full batch of potatoes in minutes with an abrasive drum and water rinse.',
-      //   ['Abrasive peeling drum', 'Water rinse while peeling', 'Peels a full batch in minutes', 'Stainless-steel build']],
-      ['Dough Kneader', 'dough-kneader', 'Dough kneading machine with a stainless-steel mixing trough that mixes soft, uniform dough for chapati, poori and bakery in large batches.',
-        ['SS mixing trough', 'Soft, uniform dough', 'Large batch capacity', 'Heavy-duty motor']],
-      ['Veg Cutter', 'veg-cutter', 'Compact tabletop veg cutter with a continuous feed chute and pusher handle — slices and shreds vegetables fast for bulk prep.',
-        ['Continuous feed chute', 'Fast slicing & shredding', 'Compact tabletop unit', 'Food-grade contact parts']],
-      ['Coconut Scraper', 'coconut-scraper', 'Motorised coconut scraper that grates fresh coconut fast and evenly for chutney, curries and sweets.',
-        ['Fast, even scraping', 'Powerful commercial motor', 'Stainless-steel blade & body', 'Easy to clean']],
-      ['Dishwasher', 'dish-washer', 'Undercounter commercial dishwasher that washes and sanitises plates, glasses and trays in a fast cycle — high-volume ware washing with minimal manpower and water.',
-        ['Fast wash & sanitise cycle', 'Undercounter SS body', 'Rack-based plate & glass washing', 'Low water & manpower']],
-    ],
-  },
-  {
-    cat: 'Tables, Sinks & Racks',
+    cat: 'Tables & Racks',
     tag: 'stainless steel fabrication built for hygiene, strength and everyday commercial use.',
     feats: ['100% SS 304 build', 'Sturdy, rust-free fabrication', 'Hygienic & easy to clean', 'Made to your size'],
     items: [
@@ -168,14 +128,7 @@ export const PCATS: Category[] = [
       ['Plate Rack', 'plate-rack', 'Multi-tier SS plate rack that stores and air-dries plates upright after washing.'],
       ['Batter Table', 'batter-table', 'Batter table with lidded SS batter containers set into the top — keeps idli / dosa batter covered, fermenting and hygienic.'],
       ['Corner Sink', 'corner-sink', 'Space-saving stainless-steel corner sink unit with a backsplash — fits snugly into a corner to make the most of tight kitchen layouts.'],
-    ],
-  },
-  {
-    cat: 'Dining & Service',
-    tag: 'a stainless-steel dining solution built for canteens, messes and food courts.',
-    feats: ['Durable commercial-grade build', 'Hygienic stainless steel', 'Designed for fast service', 'Custom sizes available'],
-    items: [
-      // Ordered to match the printed SHI brochure.
+      // — dining tables —
       ['Dining Table', 'dining-table', 'Compact SS dining table for canteens and messes — hygienic, rust-free and easy to clean.'],
       ['Dining Table (4 Seater)', 'dining-4-seater', 'Four-seater SS dining table with attached stools for canteens and messes — sturdy and easy to clean.'],
       ['Dining Table (6 Seater)', 'dining-6-seater', 'Six-seater stainless-steel dining table for canteens and food courts — sturdy, seamless and wipe-clean.'],
@@ -183,18 +136,45 @@ export const PCATS: Category[] = [
     ],
   },
   {
-    cat: 'Cold Room & Refrigeration',
-    tag: 'temperature-controlled storage that keeps ingredients fresh and safe.',
-    feats: ['Precise temperature control', 'Energy-efficient cooling', 'Food-safe insulated build', 'Custom sizes available'],
+    cat: 'Machineries',
+    tag: 'a commercial kitchen machine that cuts prep time and labour across the kitchen.',
+    feats: ['Powerful commercial motor', 'Food-grade contact parts', 'Easy to operate & clean', 'Durable heavy-duty build'],
     items: [
-      // Ordered to match the printed SHI brochure.
-      ['Work Top Freezer', 'work-top-freezer', 'Under-counter worktop freezer that doubles as a chilled prep surface — cold storage right where you cook.',
-        ['Chilled worktop surface', 'Under-counter freezer storage', 'Energy-efficient cooling', 'SS 304 food-safe build']],
-      ['Cold Room', 'cold-room', 'Modular walk-in cold room for bulk storage of vegetables, dairy, meat and frozen goods.'],
+      // Ordered to match the printed SHI brochure (Machinaries page); automatic making machines follow.
+      ['Rice Washer', 'rice-washer', 'Stainless-steel rice washing machine that rinses and drains bulk rice quickly, saving water and manpower before cooking.'],
+      ['Wet Grinder', 'wet-grinder', 'Heavy-duty wet grinder with granite stones on an SS base cabinet with drain tap — smooth idli / dosa batter in large volumes.',
+        ['Granite grinding stones', 'SS base cabinet with drain tap', 'Smooth batter output', 'Heavy-duty motor']],
+      ['Tilting Grinder', 'tilting-grinder', 'Tilting-drum wet grinder that empties batter easily — high-capacity grinding for busy hotels and mess halls.',
+        ['Granite grinding stones', 'Tilting drum for easy emptying', 'High-capacity grinding', 'Heavy-duty motor']],
+      ['Pulverizer', 'pulverizer', 'Commercial pulverizer for grinding dry spices, grains and masala into fine powder with a powerful motor.'],
+      ['Masala Grinder', 'masala-grinder', 'Heavy-duty masala grinder for grinding wet and dry masala, chutney and spice pastes in bulk.'],
+      ['Vegetable Cutting Machine', 'veg-cutting-machine', 'Multi-blade vegetable cutting machine that slices, dices and shreds vegetables fast for bulk prep.'],
+      ['Onion Peeler', 'onion-peeler', 'Commercial onion peeling machine that peels onions in batches, saving hours of manual prep.'],
+      // ['Potato Peeler', 'potato-peeler', 'Rotary potato peeling machine that peels a full batch of potatoes in minutes with an abrasive drum and water rinse.',
+      //   ['Abrasive peeling drum', 'Water rinse while peeling', 'Peels a full batch in minutes', 'Stainless-steel build']],
+      ['Dough Kneader', 'dough-kneader', 'Dough kneading machine with a stainless-steel mixing trough that mixes soft, uniform dough for chapati, poori and bakery in large batches.',
+        ['SS mixing trough', 'Soft, uniform dough', 'Large batch capacity', 'Heavy-duty motor']],
+      ['Veg Cutter', 'veg-cutter', 'Compact tabletop veg cutter with a continuous feed chute and pusher handle — slices and shreds vegetables fast for bulk prep.',
+        ['Continuous feed chute', 'Fast slicing & shredding', 'Compact tabletop unit', 'Food-grade contact parts']],
+      ['Coconut Scraper', 'coconut-scraper', 'Motorised coconut scraper that grates fresh coconut fast and evenly for chutney, curries and sweets.',
+        ['Fast, even scraping', 'Powerful commercial motor', 'Stainless-steel blade & body', 'Easy to clean']],
+      ['Dishwasher', 'dish-washer', 'Undercounter commercial dishwasher that washes and sanitises plates, glasses and trays in a fast cycle — high-volume ware washing with minimal manpower and water.',
+        ['Fast wash & sanitise cycle', 'Undercounter SS body', 'Rack-based plate & glass washing', 'Low water & manpower']],
+      // — automatic making machines —
+      ['Idiyappam Machine', 'idiyappam-machine', 'Steam idiyappam press for soft, consistent string hoppers in volume.'],
+      ['Ball Cutting Machine', 'ball-cutting-machine', 'Cuts dough into uniform balls at speed for chapati and poori production.'],
+      ['Ball Pressing Machine', 'ball-pressing-machine', 'Dough ball pressing machine that flattens dough balls evenly for chapati and poori production lines.'],
+      // ['Chapati Making Machine', 'chappathi-making-machine', 'Fully automatic chapati machine that presses, roasts and puffs uniform chapatis at high speed.',
+      //   ['Uniform size & thickness', 'Press + roast + puff in one', 'High-speed automatic output', 'Low manpower needed'],
+      //   [['Output', '1,000 – 2,000 / hr'], ['Material', 'SS 304 + MS frame'], ['Power', 'Electric + LPG']]],
+      ['Dosa Making Machine', 'dosa-making-machine', 'Automatic dosa making machine that batters, spreads and roasts uniform dosas continuously — high output with minimal manpower.',
+        ['Continuous automatic output', 'Uniform size & thickness', 'Batter spreader + roaster', 'Low manpower operation']],
+      ['Vada Making Machine', 'vada-making-machine', 'Vada making machine that shapes perfectly round medu-vadas with a centre hole and drops them for frying — consistent size at speed.',
+        ['Round vadas with centre hole', 'Adjustable vada size', 'Direct drop into fryer', 'Fast, consistent output']],
     ],
   },
   {
-    cat: 'Trolleys & Storage',
+    cat: 'Trolleys & Bins',
     tag: 'a mobile / storage stainless steel solution that keeps kitchens organised and efficient.',
     feats: ['Smooth-rolling castors', 'Rust-free SS build', 'Heavy load capacity', 'Custom sizes available'],
     items: [
@@ -215,13 +195,10 @@ export const PCATS: Category[] = [
 ];
 
 export const CATMETA: Record<string, CatMeta> = {
-  'Cooking Equipment': { ico: 'i-flame', blurb: 'LPG cooking ranges, grills, fryers, hot cases & warmers.' },
-  'Indian Range & Automakers': { ico: 'i-pot', blurb: 'Steam cooking & automatic dosa / chapati / vada machines.' },
-  'Food Processing Machinery': { ico: 'i-wrench', blurb: 'Grinders, peelers, cutters, dishwashers & dough machines.' },
-  'Tables, Sinks & Racks': { ico: 'i-store', blurb: 'SS work tables, sinks, dishwash & storage racks.' },
-  'Dining & Service': { ico: 'i-utensils', blurb: 'SS dining tables for canteens, messes & food courts.' },
-  'Cold Room & Refrigeration': { ico: 'i-snow', blurb: 'Walk-in cold rooms & worktop freezers.' },
-  'Trolleys & Storage': { ico: 'i-truck', blurb: 'Service trolleys, bins & mobile storage.' },
+  'Kitchen Equipment for Marriage Hall & Hostel': { ico: 'i-flame', blurb: 'Cooking ranges, steam cooking, hot cases & cold rooms.' },
+  'Tables & Racks': { ico: 'i-store', blurb: 'SS work tables, sinks, storage racks & dining tables.' },
+  'Machineries': { ico: 'i-wrench', blurb: 'Grinders, peelers, cutters & automatic making machines.' },
+  'Trolleys & Bins': { ico: 'i-truck', blurb: 'Service trolleys, bins & mobile storage.' },
 };
 
 function titleCase(s: string): string {

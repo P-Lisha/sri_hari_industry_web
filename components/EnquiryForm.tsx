@@ -6,13 +6,10 @@ import { FORMSUBMIT_ENDPOINT } from '@/lib/site';
 /** Requirement dropdown — mirrors the product categories. */
 const REQUIREMENTS = [
   'General Enquiry',
-  'Cooking Equipment',
-  'Indian Range & Automakers',
-  'Food Processing Machinery',
-  'Tables, Sinks & Racks',
-  'Dining & Service',
-  'Cold Room & Refrigeration',
-  'Trolleys & Storage',
+  'Kitchen Equipment for Marriage Hall & Hostel',
+  'Tables & Racks',
+  'Machineries',
+  'Trolleys & Bins',
   'Complete Turnkey Kitchen',
 ];
 
