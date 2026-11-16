@@ -9,7 +9,7 @@ const CERTS = [
 
 // "Why choose us" value cards shown above the certifications.
 const WHY = [
-  { title: 'Food-grade steel', text: 'SS 304 / SS 202 throughout — hygienic, rust-free and made to last.' },
+  { title: 'Food-grade steel', text: 'SS 304 throughout — hygienic, rust-free and made to last.' },
   { title: 'Built for high volume', text: 'Heavy-duty engineering that holds heat and output through a full service.' },
   { title: 'Made to your size', text: 'Custom fabrication to fit your space, workflow and budget.' },
   { title: 'Start to finish', text: 'Consultancy, 3D design, manufacturing, installation and AMC — all under one roof.' },
@@ -23,7 +23,7 @@ export function About() {
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img loading="lazy" src="/images/factory-front.jpg" alt="Sri Hari Industries commercial kitchen manufacturing facility in Coimbatore" />
           <div className="about__badge">
-            <b>10<i>+</i></b>
+            <b>15<i>+</i></b>
             <span>Years building<br />commercial kitchens</span>
           </div>
         </div>
@@ -31,9 +31,9 @@ export function About() {
           <span className="eyebrow">About Us</span>
           <h1>Kitchens engineered to run harder, for longer</h1>
           <p>
-            Since 2016, <strong>Sri Hari Industries</strong> has manufactured commercial kitchen
+            For over 15 years, <strong>Sri Hari Industries</strong> has manufactured commercial kitchen
             equipment in Coimbatore — from a single burner to complete turnkey kitchens. We have
-            delivered <strong>150+ projects</strong> for <strong>300+ happy clients</strong>, with
+            delivered <strong>300+ projects</strong> for <strong>500+ happy clients</strong>, with
             our equipment running in kitchens across <strong>Tamil Nadu and all over India</strong>.
           </p>
           <p>

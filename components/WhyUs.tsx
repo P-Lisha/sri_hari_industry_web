@@ -10,18 +10,18 @@
 
 import { Icon } from './Icons';
 
-const USPS: { icon: string; label: string }[] = [
-  { icon: 'i-truck', label: 'Quick Delivery' },
-  { icon: 'i-check', label: 'Assured Quality' },
-  { icon: 'i-coins', label: 'Affordable Price' },
-  { icon: 'i-shield', label: '1 Year Warranty' },
-  { icon: 'i-wrench', label: 'AMC Available' },
-  { icon: 'i-clock', label: '24/7 Service Available' },
+const USPS: { icon: string; label: string; text: string }[] = [
+  { icon: 'i-truck', label: 'Quick Delivery', text: 'On-time manufacturing and dispatch on every order.' },
+  { icon: 'i-check', label: 'Assured Quality', text: 'Food-grade SS 304 with strict quality checks.' },
+  { icon: 'i-coins', label: 'Affordable Price', text: 'Factory-direct rates — no middlemen, no markups.' },
+  { icon: 'i-shield', label: '1 Year Warranty', text: 'Every equipment covered for a full year.' },
+  { icon: 'i-wrench', label: 'AMC Available', text: 'Annual maintenance contracts to keep you running.' },
+  { icon: 'i-clock', label: '24/7 Service Available', text: 'Support whenever your kitchen needs it.' },
 ];
 
 export function WhyUs() {
   return (
-    <section className="sec" id="why-us">
+    <section className="sec bluesoft" id="why-us">
       <div className="wrap">
         <div className="head reveal">
           <span className="eyebrow">Why Choose Us</span>
@@ -37,7 +37,10 @@ export function WhyUs() {
               <span className="wico">
                 <Icon name={u.icon} />
               </span>
-              <span className="whyu__label">{u.label}</span>
+              <div className="whyu__body">
+                <span className="whyu__label">{u.label}</span>
+                <p className="whyu__text">{u.text}</p>
+              </div>
             </li>
           ))}
         </ul>

@@ -23,7 +23,8 @@ export const SITE = {
 
   managingDirector: 'Mr. Mahesh Kumar',
   iso: 'ISO 9001:2015',
-  yearFounded: 2016,
+  // Matches the "15+ years" claim used across the site (2026).
+  yearFounded: 2011,
 
   address: {
     line: '6/23A, Uzhaippalar Road, Urumandampalayam',
