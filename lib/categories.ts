@@ -22,57 +22,35 @@ export interface CategoryInfo {
 
 const INFO: Omit<CategoryInfo, 'slug'>[] = [
   {
-    cat: 'Cooking Equipment',
-    heading: 'Commercial Cooking Equipment Manufacturer',
-    metaDesc: 'Commercial cooking ranges, Indian & Chinese burners, tandoor, grills, fryers, hot cases & bain-marie counters made in Coimbatore. Pan-India delivery.',
+    cat: 'Kitchen Equipment for Marriage Hall & Hostel',
+    heading: 'Kitchen Equipment for Marriage Halls & Hostels',
+    metaDesc: 'Commercial kitchen equipment for marriage halls & hostels — cooking ranges, steam boilers, idli plants, hot cases & cold rooms. Made in Coimbatore.',
     intro: [
-      'Sri Hari Industries manufactures commercial cooking equipment in Coimbatore — single, two and three burner ranges, Indian and continental ranges, Chinese wok ranges, bulk cooking ranges, tandoors, grills, shawarma machines and fryers, plus plate warmers, hot cases and bain-marie counters that keep food hot through service.',
-      'Every range is fabricated in our own workshop for daily high-volume use in hotels, restaurants, canteens and marriage halls. Ranges are built to your vessel sizes and kitchen layout, and we deliver, install and service them all over India.',
+      'Sri Hari Industries manufactures commercial kitchen equipment in Coimbatore for marriage halls, hostels and hotels — single, two and three burner ranges, Indian and continental ranges, Chinese wok ranges, bulk cooking ranges, tandoors, grills, shawarma machines and fryers, plus plate warmers, hot cases and bain-marie counters that keep food hot through service.',
+      'For bulk steam cooking we build steam boilers, rice and dhal vessels, Janatha idli plants and paniyaram and rumali ranges, and for cold storage we supply walk-in cold rooms and worktop freezers. Every unit is fabricated in our own workshop for daily high-volume use, and we deliver, install and service them all over India.',
     ],
     uses: [
+      { icon: 'i-sparkles', label: 'Marriage halls' },
+      { icon: 'i-cap', label: 'Hostels & colleges' },
       { icon: 'i-store', label: 'Hotels' },
       { icon: 'i-utensils', label: 'Restaurants' },
       { icon: 'i-pot', label: 'Canteens' },
-      { icon: 'i-sparkles', label: 'Marriage halls' },
       { icon: 'i-cross', label: 'Hospitals' },
-      { icon: 'i-hat', label: 'Cloud kitchens' },
     ],
     faqs: [
       { q: 'Can you make a cooking range in a custom size?', a: 'Yes. Our cooking ranges are fabricated in our Coimbatore workshop, so the number of burners, the size of the range and the under-shelf can be made to suit your vessels and kitchen layout.' },
-      { q: 'Do you install cooking ranges outside Tamil Nadu?', a: 'Yes. We deliver, install and service our commercial cooking equipment all over India.' },
-      { q: 'How do I get a quote for a cooking range?', a: 'Send us your requirement on WhatsApp or through the enquiry form — the type of range, number of burners and your kitchen size — and we will share a quote.' },
-      { q: 'What is the difference between a bain-marie and a hot case?', a: 'A bain-marie counter keeps food warm in serving pans along a counter. Our hot case has lidded round wells that keep sambar, rasam, curries and rice hot.' },
-    ],
-  },
-  {
-    cat: 'Indian Range & Automakers',
-    heading: 'Idli, Dosa & Chapati Machine Manufacturer',
-    metaDesc: 'Steam boilers, idli plants and automatic dosa, chapati and vada machines for canteens and hostels. Made in Coimbatore, delivered all over India.',
-    intro: [
-      'For kitchens that serve South-Indian food in volume, Sri Hari Industries builds steam boilers, rice and dhal vessels, Janatha idli plants, idiyappam machines and automatic dosa, chapati and vada making machines.',
-      'These machines raise output and keep every idli, dosa and chapati consistent while cutting manpower — ideal for industrial canteens, college and hostel messes, marriage halls and large hotels.',
-    ],
-    uses: [
-      { icon: 'i-pot', label: 'Industrial canteens' },
-      { icon: 'i-cap', label: 'Colleges & hostels' },
-      { icon: 'i-sparkles', label: 'Marriage halls' },
-      { icon: 'i-store', label: 'Hotels' },
-      { icon: 'i-factory', label: 'Factories' },
-      { icon: 'i-cross', label: 'Hospitals' },
-    ],
-    faqs: [
-      // { q: 'Which automatic machines do you make?', a: 'We make automatic chapati making machines, dosa making machines, vada making machines, ball cutting and ball pressing machines, idiyappam machines and paniyaram and rumali ranges.' },
       { q: 'Do you supply steam boilers for idli and rice cooking?', a: 'Yes. We supply steam boilers together with idli plants and rice / dhal vessels for bulk steam cooking.' },
-      { q: 'Is installation and training included?', a: 'We install the machines at your site and show your team how to operate them. Contact us for the details for your order.' },
+      { q: 'What is the difference between a bain-marie and a hot case?', a: 'A bain-marie counter keeps food warm in serving pans along a counter. Our hot case has lidded round wells that keep sambar, rasam, curries and rice hot.' },
+      { q: 'Do you install kitchen equipment outside Tamil Nadu?', a: 'Yes. We deliver, install and service our commercial kitchen equipment all over India.' },
     ],
   },
   {
-    cat: 'Food Processing Machinery',
-    heading: 'Commercial Food Processing Machinery',
-    metaDesc: 'Wet grinders, pulverizers, veg cutters, potato & onion peelers, coconut scrapers, dough kneaders & dishwashers for commercial kitchens. Made in Coimbatore.',
+    cat: 'Machineries',
+    heading: 'Commercial Kitchen Machinery Manufacturer',
+    metaDesc: 'Wet grinders, pulverizers, veg cutters, peelers, dough kneaders, dishwashers and automatic dosa, vada & idiyappam machines. Made in Coimbatore.',
     intro: [
-      'Preparation is where a busy kitchen loses the most time. Sri Hari Industries supplies commercial food processing machines that take over the slowest jobs — wet and tilting grinders, pulverizers and masala grinders, vegetable cutting machines and veg cutters, potato and onion peelers, coconut scrapers, rice washers, dough kneaders and commercial dishwashers.',
-      'Each machine is chosen for continuous commercial use and food-safe contact parts, and is supplied with installation and after-sales service all over India.',
+      'Preparation is where a busy kitchen loses the most time. Sri Hari Industries supplies commercial kitchen machineries that take over the slowest jobs — wet and tilting grinders, pulverizers and masala grinders, vegetable cutting machines and veg cutters, onion peelers, coconut scrapers, rice washers, dough kneaders and commercial dishwashers.',
+      'For high-volume output we also build automatic making machines — dosa, vada and idiyappam machines, and ball cutting and ball pressing machines — that keep every piece consistent while cutting manpower. Each machine is supplied with installation and after-sales service all over India.',
     ],
     uses: [
       { icon: 'i-store', label: 'Hotels' },
@@ -85,15 +63,16 @@ const INFO: Omit<CategoryInfo, 'slug'>[] = [
     faqs: [
       { q: 'What is the difference between a wet grinder and a tilting grinder?', a: 'Both grind idli and dosa batter with granite stones. A tilting grinder has a drum that tilts forward, so batter can be emptied easily in large batches.' },
       // { q: 'Do you have machines for peeling vegetables?', a: 'Yes — potato peelers and onion peelers, plus vegetable cutting machines and veg cutters for slicing, shredding and dicing.' },
-      { q: 'Do you provide service for these machines?', a: 'Yes. We provide after-sales service for the food processing machinery we supply.' },
+      { q: 'Is installation and training included?', a: 'We install the machines at your site and show your team how to operate them. Contact us for the details for your order.' },
+      { q: 'Do you provide service for these machines?', a: 'Yes. We provide after-sales service for the kitchen machineries we supply.' },
     ],
   },
   {
-    cat: 'Tables, Sinks & Racks',
-    heading: 'Stainless Steel Work Tables, Sinks & Racks',
-    metaDesc: 'SS work tables, preparation tables, sink units, hand wash sinks, dish racks, plate racks and pot racks made to size in Coimbatore. Delivered all over India.',
+    cat: 'Tables & Racks',
+    heading: 'Stainless Steel Work Tables, Racks & Dining Tables',
+    metaDesc: 'SS work tables, sink units, dish, plate & pot racks and dining tables (4, 6 & 8 seater) made to size in Coimbatore. Delivered all over India.',
     intro: [
-      'Stainless steel fabrication is the backbone of every commercial kitchen. Sri Hari Industries fabricates work tables (plain, with sink, with shelves, under-shelf and backsplash), preparation, kneading, batter and chute tables, single, two and three bowl sink units, hand wash sinks, and dish, plate, pot and vegetable racks.',
+      'Stainless steel fabrication is the backbone of every commercial kitchen. Sri Hari Industries fabricates work tables (plain, with sink, with shelves, under-shelf and backsplash), preparation, kneading, batter and chute tables, single, two and three bowl sink units, hand wash sinks, and dish, plate, pot and vegetable racks — plus stainless-steel dining tables with attached stools in 4, 6 and 8 seater sizes.',
       'Everything is made to your measurements in SS 304 food-grade stainless steel — hygienic, rust-free and easy to clean — and delivered and installed all over India.',
     ],
     uses: [
@@ -107,56 +86,12 @@ const INFO: Omit<CategoryInfo, 'slug'>[] = [
     faqs: [
       { q: 'Can work tables and sinks be made to my kitchen size?', a: 'Yes. All our tables, sinks and racks are fabricated to order, so length, width, height, shelves and backsplash can match your kitchen.' },
       { q: 'Which steel do you use for tables and sinks?', a: 'We fabricate tables, sinks and racks in SS 304 food-grade stainless steel, which is hygienic and rust-free.' },
-      { q: 'Do you make 2-sink and 3-sink dishwash units?', a: 'Yes. We make single, two-bowl and three-bowl sink units, with drain boards and under-shelves as required.' },
-    ],
-  },
-  {
-    cat: 'Dining & Service',
-    heading: 'Stainless Steel Dining Tables Manufacturer',
-    metaDesc: 'Stainless-steel dining tables with attached stools in 4, 6 & 8 seater sizes for canteens, hostels and food courts. Made in Coimbatore.',
-    intro: [
-      'A canteen dining hall takes heavy use every single day. Sri Hari Industries makes stainless-steel dining tables for canteens, messes and food courts — compact tables and tables with attached stools in 4, 6 and 8 seater sizes.',
-      'Every table is fabricated in rust-free stainless steel with a smooth, easy-clean top, built for daily service in industrial canteens, college and hostel messes, hospitals and food courts, and delivered and installed all over India.',
-    ],
-    uses: [
-      { icon: 'i-pot', label: 'Industrial canteens' },
-      { icon: 'i-cap', label: 'Colleges & hostels' },
-      { icon: 'i-cross', label: 'Hospitals' },
-      { icon: 'i-utensils', label: 'Food courts' },
-      { icon: 'i-sparkles', label: 'Marriage halls' },
-      { icon: 'i-factory', label: 'Factories' },
-    ],
-    faqs: [
       { q: 'What sizes of dining tables do you make?', a: 'We make stainless-steel dining tables with attached stools in 4 seater, 6 seater and 8 seater sizes, and can fabricate other sizes on request.' },
-      { q: 'Are the dining tables easy to clean?', a: 'Yes. The tables are stainless steel with smooth, seamless tops, so they wipe clean quickly and stay hygienic through daily canteen use.' },
-      { q: 'Can you furnish a complete canteen dining hall?', a: 'Yes. We supply dining tables in bulk for canteens, messes and food courts, along with the full service line, as part of turnkey canteen projects.' },
     ],
   },
   {
-    cat: 'Cold Room & Refrigeration',
-    heading: 'Cold Room & Commercial Refrigeration',
-    metaDesc: 'Modular walk-in cold rooms and under-counter worktop freezers for hotels, hospitals and catering. Supplied and installed all over India from Coimbatore.',
-    intro: [
-      'Fresh ingredients need reliable cold storage. Sri Hari Industries supplies modular walk-in cold rooms for bulk storage of vegetables, dairy, meat and frozen goods, and under-counter worktop freezers that double as a chilled prep surface.',
-      'Cold rooms are planned to the space and storage you need, and are supplied and installed all over India as part of a complete kitchen or on their own.',
-    ],
-    uses: [
-      { icon: 'i-store', label: 'Hotels' },
-      { icon: 'i-cross', label: 'Hospitals' },
-      { icon: 'i-truck', label: 'Catering units' },
-      { icon: 'i-bag', label: 'Supermarkets' },
-      { icon: 'i-utensils', label: 'Restaurants' },
-      { icon: 'i-factory', label: 'Food factories' },
-    ],
-    faqs: [
-      { q: 'Can a cold room be built to fit my space?', a: 'Yes. Our walk-in cold rooms are modular, so the size is planned to your available space and storage needs.' },
-      { q: 'What can be stored in a walk-in cold room?', a: 'Vegetables, dairy, meat and frozen goods — depending on the temperature the cold room is set up for.' },
-      { q: 'Do you install cold rooms outside Tamil Nadu?', a: 'Yes. We supply and install cold rooms all over India.' },
-    ],
-  },
-  {
-    cat: 'Trolleys & Storage',
-    heading: 'Stainless Steel Kitchen Trolleys & Storage',
+    cat: 'Trolleys & Bins',
+    heading: 'Stainless Steel Kitchen Trolleys & Bins',
     metaDesc: 'SS service, utility, pickup, snacks, platform, masala and waste trolleys plus onion & potato bins for commercial kitchens. Made in Coimbatore.',
     intro: [
       'Moving food, ware and supplies safely keeps a kitchen running. Sri Hari Industries makes utility, service, pickup, snacks, room service, platform, storage and masala trolleys, waste collecting and cleaning trolleys, and ventilated onion and potato bins.',
@@ -178,7 +113,7 @@ const INFO: Omit<CategoryInfo, 'slug'>[] = [
   },
 ];
 
-/** "Tables, Sinks & Racks" → "tables-sinks-racks" */
+/** "Trolleys & Bins" → "trolleys-bins" */
 export function catSlug(cat: string): string {
   return cat.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 }
