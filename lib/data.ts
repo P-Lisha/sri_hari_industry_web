@@ -84,6 +84,12 @@ export const PCATS: Category[] = [
         ['Steam-jacketed even heating', 'Hinged lid & tilt pour', 'Electric — no open flame', 'SS 304 food-grade build']],
       ['Induction Top', 'induction-top', 'Flat-top commercial induction range with digital temperature control and a backsplash — fast, flameless and energy-efficient cooking for modern commercial kitchens.',
         ['Digital temperature control', 'Flameless & energy-efficient', 'Flat SS cooking top', 'Heavy-duty commercial build']],
+      ['Plate Warmer', 'plate-warmer', 'Stainless-steel plate warming cabinet that holds plates at serving temperature for smooth, fast service.',
+        ['Holds plates at serving temp', 'Insulated SS cabinet', 'Smooth, fast plate service', 'Hygienic & easy to clean']],
+      ['Hot Case', 'hot-case', 'Heated SS hot case with lidded round wells that keep sambar, rasam, curries and rice hot at the service counter.',
+        ['Lidded round wells', 'Keeps food at serving temp', 'Service-counter ready', 'Food-grade SS build']],
+      ['Bain-Marie Counter', 'bainmarie-counter', 'Hot bain-marie service counter that keeps cooked food warm and ready to serve on a buffet or canteen line.',
+        ['Hot water / dry warming wells', 'Keeps food at serving temp', 'GN-pan compatible', 'Stainless-steel counter']],
     ],
   },
   {
@@ -132,16 +138,18 @@ export const PCATS: Category[] = [
       //   ['Abrasive peeling drum', 'Water rinse while peeling', 'Peels a full batch in minutes', 'Stainless-steel build']],
       ['Dough Kneader', 'dough-kneader', 'Dough kneading machine with a stainless-steel mixing trough that mixes soft, uniform dough for chapati, poori and bakery in large batches.',
         ['SS mixing trough', 'Soft, uniform dough', 'Large batch capacity', 'Heavy-duty motor']],
-      ['Garlic Peeler', 'garlic-peeler', 'Dry garlic peeling machine that separates clove skins quickly without crushing — clean, ready-to-use garlic in bulk.',
-        ['Dry peeling — no water', 'Peels without crushing', 'Fast batch peeling', 'Food-grade contact parts']],
+      ['Veg Cutter', 'veg-cutter', 'Compact tabletop veg cutter with a continuous feed chute and pusher handle — slices and shreds vegetables fast for bulk prep.',
+        ['Continuous feed chute', 'Fast slicing & shredding', 'Compact tabletop unit', 'Food-grade contact parts']],
       ['Coconut Scraper', 'coconut-scraper', 'Motorised coconut scraper that grates fresh coconut fast and evenly for chutney, curries and sweets.',
         ['Fast, even scraping', 'Powerful commercial motor', 'Stainless-steel blade & body', 'Easy to clean']],
+      ['Dishwasher', 'dish-washer', 'Undercounter commercial dishwasher that washes and sanitises plates, glasses and trays in a fast cycle — high-volume ware washing with minimal manpower and water.',
+        ['Fast wash & sanitise cycle', 'Undercounter SS body', 'Rack-based plate & glass washing', 'Low water & manpower']],
     ],
   },
   {
     cat: 'Tables, Sinks & Racks',
     tag: 'stainless steel fabrication built for hygiene, strength and everyday commercial use.',
-    feats: ['100% SS 304 / 202 build', 'Sturdy, rust-free fabrication', 'Hygienic & easy to clean', 'Made to your size'],
+    feats: ['100% SS 304 build', 'Sturdy, rust-free fabrication', 'Hygienic & easy to clean', 'Made to your size'],
     items: [
       // Ordered to match the printed SHI brochure (Hotels & Tables/Racks pages); items not in the brochure follow.
       ['Hand Wash Sink', 'hand-wash', 'Wall-mounted SS hand wash sink with taps for staff hygiene at kitchen entries and prep areas.'],
@@ -150,8 +158,6 @@ export const PCATS: Category[] = [
       ['3-Sink Dishwash Unit', 'three-sink-unit', 'Three-bowl stainless-steel dishwashing unit for wash–rinse–sanitise, with drain boards for high-volume ware washing.',
         ['Three deep wash bowls', 'Wash · rinse · sanitise', 'Drain boards on both sides', 'Rust-free SS 304']],
       ['Chute Table', 'chute-table', 'SS chute table with a waste chute cut-out that lets staff scrape plates straight into a bin while clearing.'],
-      ['Dishwasher', 'dish-washer', 'Undercounter commercial dishwasher that washes and sanitises plates, glasses and trays in a fast cycle — high-volume ware washing with minimal manpower and water.',
-        ['Fast wash & sanitise cycle', 'Undercounter SS body', 'Rack-based plate & glass washing', 'Low water & manpower']],
       ['Work Table with Shelves', 'work-table-shelf', 'Work table with overhead and under-shelves for extra storage — keeps utensils and ingredients within reach at the prep line.'],
       ['Work Table with Under Shelf', 'work-table-us', 'SS work table with a full-length under-shelf for storing vessels and provisions below the prep surface.'],
       ['Kneading Table', 'kneading-table', 'Sturdy SS kneading table with a smooth top and under-shelf for dough work in chapati and bakery sections.'],
@@ -166,15 +172,11 @@ export const PCATS: Category[] = [
   },
   {
     cat: 'Dining & Service',
-    tag: 'service-line / dining equipment for canteens, messes and food courts.',
+    tag: 'a stainless-steel dining solution built for canteens, messes and food courts.',
     feats: ['Durable commercial-grade build', 'Hygienic stainless steel', 'Designed for fast service', 'Custom sizes available'],
     items: [
       // Ordered to match the printed SHI brochure.
       ['Dining Table', 'dining-table', 'Compact SS dining table for canteens and messes — hygienic, rust-free and easy to clean.'],
-      ['Plate Warmer', 'plate-warmer', 'Stainless-steel plate warming cabinet that holds plates at serving temperature for smooth, fast service.'],
-      ['Hot Case', 'hot-case', 'Heated SS hot case with lidded round wells that keep sambar, rasam, curries and rice hot at the service counter.'],
-      ['Bain-Marie Counter', 'bainmarie-counter', 'Hot bain-marie service counter that keeps cooked food warm and ready to serve on a buffet or canteen line.',
-        ['Hot water / dry warming wells', 'Keeps food at serving temp', 'GN-pan compatible', 'Stainless-steel counter']],
       ['Dining Table (4 Seater)', 'dining-4-seater', 'Four-seater SS dining table with attached stools for canteens and messes — sturdy and easy to clean.'],
       ['Dining Table (6 Seater)', 'dining-6-seater', 'Six-seater stainless-steel dining table for canteens and food courts — sturdy, seamless and wipe-clean.'],
       ['Dining Table (8 Seater)', 'dining-8-seater', 'Eight-seater SS dining table with attached stools for high-capacity canteens and dining halls.'],
@@ -213,11 +215,11 @@ export const PCATS: Category[] = [
 ];
 
 export const CATMETA: Record<string, CatMeta> = {
-  'Cooking Equipment': { ico: 'i-flame', blurb: 'LPG cooking ranges, burners, grills, tandoor & fryers.' },
+  'Cooking Equipment': { ico: 'i-flame', blurb: 'LPG cooking ranges, grills, fryers, hot cases & warmers.' },
   'Indian Range & Automakers': { ico: 'i-pot', blurb: 'Steam cooking & automatic dosa / chapati / vada machines.' },
-  'Food Processing Machinery': { ico: 'i-wrench', blurb: 'Grinders, peelers, cutters & dough machines.' },
+  'Food Processing Machinery': { ico: 'i-wrench', blurb: 'Grinders, peelers, cutters, dishwashers & dough machines.' },
   'Tables, Sinks & Racks': { ico: 'i-store', blurb: 'SS work tables, sinks, dishwash & storage racks.' },
-  'Dining & Service': { ico: 'i-utensils', blurb: 'Bain-marie counters, plate warmers & dining tables.' },
+  'Dining & Service': { ico: 'i-utensils', blurb: 'SS dining tables for canteens, messes & food courts.' },
   'Cold Room & Refrigeration': { ico: 'i-snow', blurb: 'Walk-in cold rooms & worktop freezers.' },
   'Trolleys & Storage': { ico: 'i-truck', blurb: 'Service trolleys, bins & mobile storage.' },
 };

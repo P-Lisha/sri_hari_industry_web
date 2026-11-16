@@ -24,9 +24,9 @@ const INFO: Omit<CategoryInfo, 'slug'>[] = [
   {
     cat: 'Cooking Equipment',
     heading: 'Commercial Cooking Equipment Manufacturer',
-    metaDesc: 'Commercial cooking ranges, Indian & Chinese burners, tandoor, grills and fryers made in Coimbatore. Custom sizes, pan-India delivery & installation.',
+    metaDesc: 'Commercial cooking ranges, Indian & Chinese burners, tandoor, grills, fryers, hot cases & bain-marie counters made in Coimbatore. Pan-India delivery.',
     intro: [
-      'Sri Hari Industries manufactures commercial cooking equipment in Coimbatore — single, two and three burner ranges, Indian and continental ranges, Chinese wok ranges, bulk cooking ranges, tandoors, grills, shawarma machines and fryers.',
+      'Sri Hari Industries manufactures commercial cooking equipment in Coimbatore — single, two and three burner ranges, Indian and continental ranges, Chinese wok ranges, bulk cooking ranges, tandoors, grills, shawarma machines and fryers, plus plate warmers, hot cases and bain-marie counters that keep food hot through service.',
       'Every range is fabricated in our own workshop for daily high-volume use in hotels, restaurants, canteens and marriage halls. Ranges are built to your vessel sizes and kitchen layout, and we deliver, install and service them all over India.',
     ],
     uses: [
@@ -41,6 +41,7 @@ const INFO: Omit<CategoryInfo, 'slug'>[] = [
       { q: 'Can you make a cooking range in a custom size?', a: 'Yes. Our cooking ranges are fabricated in our Coimbatore workshop, so the number of burners, the size of the range and the under-shelf can be made to suit your vessels and kitchen layout.' },
       { q: 'Do you install cooking ranges outside Tamil Nadu?', a: 'Yes. We deliver, install and service our commercial cooking equipment all over India.' },
       { q: 'How do I get a quote for a cooking range?', a: 'Send us your requirement on WhatsApp or through the enquiry form — the type of range, number of burners and your kitchen size — and we will share a quote.' },
+      { q: 'What is the difference between a bain-marie and a hot case?', a: 'A bain-marie counter keeps food warm in serving pans along a counter. Our hot case has lidded round wells that keep sambar, rasam, curries and rice hot.' },
     ],
   },
   {
@@ -68,9 +69,9 @@ const INFO: Omit<CategoryInfo, 'slug'>[] = [
   {
     cat: 'Food Processing Machinery',
     heading: 'Commercial Food Processing Machinery',
-    metaDesc: 'Wet grinders, pulverizers, vegetable cutters, potato, onion & garlic peelers, coconut scrapers and dough kneaders for commercial kitchens. Made in Coimbatore.',
+    metaDesc: 'Wet grinders, pulverizers, veg cutters, potato & onion peelers, coconut scrapers, dough kneaders & dishwashers for commercial kitchens. Made in Coimbatore.',
     intro: [
-      'Preparation is where a busy kitchen loses the most time. Sri Hari Industries supplies commercial food processing machines that take over the slowest jobs — wet and tilting grinders, pulverizers and masala grinders, vegetable cutting machines, potato, onion and garlic peelers, coconut scrapers, rice washers and dough kneaders.',
+      'Preparation is where a busy kitchen loses the most time. Sri Hari Industries supplies commercial food processing machines that take over the slowest jobs — wet and tilting grinders, pulverizers and masala grinders, vegetable cutting machines and veg cutters, potato and onion peelers, coconut scrapers, rice washers, dough kneaders and commercial dishwashers.',
       'Each machine is chosen for continuous commercial use and food-safe contact parts, and is supplied with installation and after-sales service all over India.',
     ],
     uses: [
@@ -83,7 +84,7 @@ const INFO: Omit<CategoryInfo, 'slug'>[] = [
     ],
     faqs: [
       { q: 'What is the difference between a wet grinder and a tilting grinder?', a: 'Both grind idli and dosa batter with granite stones. A tilting grinder has a drum that tilts forward, so batter can be emptied easily in large batches.' },
-      // { q: 'Do you have machines for peeling vegetables?', a: 'Yes — potato peelers, onion peelers and garlic peelers, plus vegetable cutting machines for slicing and dicing.' },
+      // { q: 'Do you have machines for peeling vegetables?', a: 'Yes — potato peelers and onion peelers, plus vegetable cutting machines and veg cutters for slicing, shredding and dicing.' },
       { q: 'Do you provide service for these machines?', a: 'Yes. We provide after-sales service for the food processing machinery we supply.' },
     ],
   },
@@ -111,11 +112,11 @@ const INFO: Omit<CategoryInfo, 'slug'>[] = [
   },
   {
     cat: 'Dining & Service',
-    heading: 'Bain-Marie Counters, Hot Cases & Dining Tables',
-    metaDesc: 'Bain-marie counters, hot cases, plate warmers and SS dining tables (4, 6 & 8 seater) for canteens, hostels and food courts. Made in Coimbatore.',
+    heading: 'Stainless Steel Dining Tables Manufacturer',
+    metaDesc: 'Stainless-steel dining tables with attached stools in 4, 6 & 8 seater sizes for canteens, hostels and food courts. Made in Coimbatore.',
     intro: [
-      'The service line decides how fast a canteen can feed people. Sri Hari Industries makes bain-marie counters and hot cases that keep food hot at serving temperature, plate warmers, and stainless-steel dining tables with attached stools in 4, 6 and 8 seater sizes.',
-      'Our dining and service equipment is built for heavy daily use in industrial canteens, college and hostel messes, hospitals and food courts, and is delivered and installed all over India.',
+      'A canteen dining hall takes heavy use every single day. Sri Hari Industries makes stainless-steel dining tables for canteens, messes and food courts — compact tables and tables with attached stools in 4, 6 and 8 seater sizes.',
+      'Every table is fabricated in rust-free stainless steel with a smooth, easy-clean top, built for daily service in industrial canteens, college and hostel messes, hospitals and food courts, and delivered and installed all over India.',
     ],
     uses: [
       { icon: 'i-pot', label: 'Industrial canteens' },
@@ -127,8 +128,8 @@ const INFO: Omit<CategoryInfo, 'slug'>[] = [
     ],
     faqs: [
       { q: 'What sizes of dining tables do you make?', a: 'We make stainless-steel dining tables with attached stools in 4 seater, 6 seater and 8 seater sizes, and can fabricate other sizes on request.' },
-      { q: 'What is the difference between a bain-marie and a hot case?', a: 'A bain-marie counter keeps food warm in serving pans along a counter. Our hot case has lidded round wells that keep sambar, rasam, curries and rice hot.' },
-      { q: 'Can you set up a complete canteen service line?', a: 'Yes. We supply and install complete service lines — bain-marie counters, hot cases, plate warmers and dining tables — as part of turnkey canteen projects.' },
+      { q: 'Are the dining tables easy to clean?', a: 'Yes. The tables are stainless steel with smooth, seamless tops, so they wipe clean quickly and stay hygienic through daily canteen use.' },
+      { q: 'Can you furnish a complete canteen dining hall?', a: 'Yes. We supply dining tables in bulk for canteens, messes and food courts, along with the full service line, as part of turnkey canteen projects.' },
     ],
   },
   {
