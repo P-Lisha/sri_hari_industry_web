@@ -3,9 +3,9 @@
 import { useEffect, useRef, useState } from 'react';
 
 const STATS = [
-  { to: 10, label: 'Years of Experience' },
-  { to: 150, label: 'Projects Completed' },
-  { to: 300, label: 'Happy Clients' },
+  { to: 15, label: 'Years of Experience' },
+  { to: 300, label: 'Projects Completed' },
+  { to: 500, label: 'Happy Clients' },
 ];
 
 const fmt = (n: number) => n.toLocaleString('en-IN');
