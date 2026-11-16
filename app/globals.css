@@ -2197,26 +2197,70 @@ html .catpage.sec.subpage{padding-top:1rem}
 @media(min-width:641px) and (max-width:991px){html .prodgrid--home{grid-template-columns:repeat(4,1fr);gap:.9rem}html .prodgrid--home .procard__name{font-size:.95rem}}
 
 /* ===========================================================
-   "What Makes Us Unique" — why-choose-us USP cards
-   (white cards on the soft-blue band; icon badge + label +
-   one-line support copy; reuses .wico from the Why block above)
+   "What Makes Us Unique" — colour-block band (client ref)
+   (six USPs as bold solid-gradient cards — brand green/gold/
+   red/blue — centred white icon + title + copy on each,
+   middle column staggered up on desktop, soft organic blobs
+   behind. Left-aligned header; trust row + gold CTA below.
+   Markup: components/WhyUs.tsx)
    =========================================================== */
-#why-us .whyu{list-style:none;margin:0 auto;padding:0;max-width:1040px;
-  display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
-.whyu__item{display:flex;align-items:flex-start;gap:1rem;background:#fff;
-  border:1px solid var(--line);border-radius:var(--radius);padding:1.4rem 1.3rem;
-  transition:var(--t)}
-.whyu__item:hover{transform:translateY(-6px);box-shadow:var(--shadow-sm);border-color:transparent}
-.whyu__item .wico{margin-bottom:0;flex:none;width:50px;height:50px;font-size:1.4rem}
-.whyu__body{min-width:0}
-.whyu__label{display:block;font-family:var(--font-head),system-ui,sans-serif;color:var(--slate);font-weight:700;font-size:1rem;line-height:1.3;margin:.2rem 0 .3rem}
-.whyu__text{margin:0;color:var(--muted);font-size:.86rem;line-height:1.5}
-/* rotate the badge tint across all six so the grid reads lively, not uniform */
-.whyu__item:nth-child(6n+2) .wico{background:var(--green-soft);color:var(--green-d)}
-.whyu__item:nth-child(6n+3) .wico{background:var(--yellow-soft);color:var(--yellow-d)}
-.whyu__item:nth-child(6n+4) .wico{background:var(--blue-soft);color:var(--blue-d)}
-.whyu__item:nth-child(6n+5) .wico{background:var(--green-soft);color:var(--green-d)}
-.whyu__item:nth-child(6n)   .wico{background:var(--yellow-soft);color:var(--yellow-d)}
-@media(max-width:900px){#why-us .whyu{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:560px){#why-us .whyu{grid-template-columns:1fr}
-  .whyu__item{padding:1.15rem 1.1rem}}
+#why-us.wb{position:relative;overflow:hidden;background:#fff}
+/* soft organic blobs behind the cards, like the reference */
+#why-us.wb::before{content:'';position:absolute;left:-16%;top:26%;width:560px;height:560px;
+  background:var(--red-soft);border-radius:58% 42% 64% 36%/48% 60% 40% 52%}
+#why-us.wb::after{content:'';position:absolute;right:-14%;top:-20%;width:620px;height:620px;
+  background:var(--blue-soft);border-radius:44% 56% 38% 62%/60% 42% 58% 40%}
+#why-us.wb .wrap{position:relative;z-index:1}
+.wb__head{max-width:780px;margin:0 0 1.4rem}
+.wb__eyebrow{color:var(--muted);font-size:.9rem;font-weight:500}
+.wb__head h2{color:var(--slate);font-size:clamp(1.8rem,3.6vw,2.5rem);margin:.7rem 0 .6rem}
+.wb__head h2 em{font-style:italic;color:var(--yellow-d)}
+.wb__intro{color:var(--muted);font-size:.98rem;line-height:1.65;max-width:62ch;margin:0}
+.wb__grid{list-style:none;margin:0 0 2.2rem;padding:1.8rem 0 .4rem;
+  display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+/* tone = card colour pair */
+.wb__card{--c1:var(--blue);--c2:var(--blue-d);
+  position:relative;background:linear-gradient(170deg,var(--c1),var(--c2));
+  border-radius:18px;padding:2.3rem 1.6rem 2.1rem;text-align:center;color:#fff;
+  transition:var(--t);box-shadow:0 26px 44px -26px var(--c2)}
+.wb__card--g{--c1:var(--green);--c2:var(--green-d)}
+.wb__card--y{--c1:var(--yellow);--c2:var(--yellow-d)}
+.wb__card--r{--c1:var(--red);--c2:var(--red-d)}
+/* staggered rhythm — middle column floats higher */
+.wb__grid li:nth-child(3n+2){margin-top:-1.7rem;margin-bottom:1.7rem}
+.wb__card:hover{transform:translateY(-6px);box-shadow:0 34px 54px -26px var(--c2)}
+.wb__ic{display:flex;justify-content:center;color:#fff;margin:0 0 1.2rem;transition:var(--t)}
+.wb__ic svg{width:40px;height:40px}
+.wb__card:hover .wb__ic{transform:scale(1.12)}
+.wb__tag{position:absolute;top:1.05rem;right:1.05rem;background:rgba(255,255,255,.2);
+  border:1px solid rgba(255,255,255,.55);color:#fff;font-size:.64rem;font-weight:700;
+  letter-spacing:.08em;padding:.24rem .62rem;border-radius:50px;text-transform:uppercase}
+.wb__card b{display:block;font-family:var(--font-head),system-ui,sans-serif;font-weight:700;
+  font-size:1.18rem;color:#fff;line-height:1.3;margin-bottom:.55rem}
+.wb__card p{margin:0 auto;color:rgba(255,255,255,.9);font-size:.86rem;line-height:1.6;max-width:30ch}
+.wb__foot{display:flex;align-items:center;justify-content:space-between;gap:1.2rem;
+  flex-wrap:wrap;border-top:1px solid var(--line);padding-top:1.5rem}
+.wb__trust{color:var(--muted);font-size:.72rem;font-weight:600;
+  letter-spacing:.13em;text-transform:uppercase}
+.wb__cta{flex:none}
+@media(max-width:900px){
+  .wb__grid{grid-template-columns:1fr 1fr;gap:1.1rem;padding-top:1rem}
+  .wb__grid li:nth-child(3n+2){margin-top:0;margin-bottom:0}
+  .wb__grid li:nth-child(2n){margin-top:-1rem;margin-bottom:1rem}
+}
+@media(max-width:560px){
+  .wb__head{margin-bottom:1.2rem}
+  .wb__intro{font-size:.88rem}
+  .wb__grid{gap:.8rem;margin-bottom:1.7rem}
+  .wb__card{padding:1.5rem 1rem 1.4rem;border-radius:14px}
+  .wb__card b{font-size:.98rem}
+  .wb__card p{font-size:.76rem;line-height:1.5}
+  .wb__ic{margin-bottom:.8rem}
+  .wb__ic svg{width:30px;height:30px}
+  .wb__foot{flex-direction:column;align-items:flex-start;gap:1rem;padding-top:1.2rem}
+  .wb__trust{font-size:.64rem;letter-spacing:.09em;line-height:1.8}
+}
+@media(max-width:420px){
+  .wb__grid{grid-template-columns:1fr}
+  .wb__grid li:nth-child(2n){margin-top:0;margin-bottom:0}
+}
