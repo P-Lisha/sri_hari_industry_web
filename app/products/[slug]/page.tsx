@@ -178,6 +178,21 @@ export default async function ProductPage({ params }: Params) {
               </aside>
             </div>
 
+            <div className="pdp-band reveal">
+              <div className="pdp-band__txt">
+                <b>Not sure this is the right fit?</b>
+                <p>Tell us your menu, volume and kitchen size — we&rsquo;ll recommend the right equipment and send a quote.</p>
+              </div>
+              <div className="pdp-band__cta">
+                <a className="btn btn--y" href={waLink(WA_MESSAGES.product(p.name))} target="_blank" rel="noopener">
+                  Ask on WhatsApp
+                </a>
+                <a className="btn btn--ghost" href={`tel:${SITE.phoneHref}`}>
+                  Call {SITE.phoneDisplay}
+                </a>
+              </div>
+            </div>
+
             {related.length > 0 && (
               <div className="pdp__related">
                 <div className="pdp__relhead">
