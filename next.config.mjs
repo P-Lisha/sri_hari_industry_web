@@ -9,6 +9,16 @@ const nextConfig = {
     // on any host (Vercel, static, shared hosting).
     unoptimized: true,
   },
+  async redirects() {
+    return [
+      // Category renamed "Machineries" -> "Machinery"; keep old indexed links alive.
+      {
+        source: '/products/category/machineries',
+        destination: '/products/category/machinery',
+        permanent: true,
+      },
+    ];
+  },
   async headers() {
     return [
       {

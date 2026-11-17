@@ -17,7 +17,7 @@ import { waLink, WA_MESSAGES } from '@/lib/site';
 
 // Featured sectors — our 6 biggest segments, with a one-line capability note.
 const FEATURED: { label: string; note: string }[] = [
-  { label: 'Marriage Halls & Convention Centres', note: 'Bulk cooking lines for 1000+ plates a sitting' },
+  { label: 'Marriage Halls & Convention Centres', note: 'Bulk cooking lines for 1000+ plates per sitting' },
   { label: 'Hotels & Resorts', note: 'Multi-cuisine kitchens, buffet and banquet lines' },
   { label: 'Industrial & Corporate Canteens', note: 'High-output lines that run three shifts' },
   { label: 'Restaurants & Cafés', note: 'Compact layouts that maximise every square foot' },

@@ -8,7 +8,7 @@ const REQUIREMENTS = [
   'General Enquiry',
   'Kitchen Equipment for Marriage Hall & Hostel',
   'Tables & Racks',
-  'Machineries',
+  'Machinery',
   'Trolleys & Bins',
   'Complete Turnkey Kitchen',
 ];

@@ -151,7 +151,7 @@ export const PCATS: Category[] = [
     ],
   },
   {
-    cat: 'Machineries',
+    cat: 'Machinery',
     tag: 'a commercial kitchen machine that cuts prep time and labour across the kitchen.',
     feats: ['Powerful commercial motor', 'Food-grade contact parts', 'Easy to operate & clean', 'Durable heavy-duty build'],
     items: [
@@ -212,7 +212,7 @@ export const PCATS: Category[] = [
 export const CATMETA: Record<string, CatMeta> = {
   'Kitchen Equipment for Marriage Hall & Hostel': { ico: 'i-flame', blurb: 'Cooking ranges, steam cooking, hot cases & cold rooms.' },
   'Tables & Racks': { ico: 'i-store', blurb: 'SS work tables, sinks, storage racks & dining tables.' },
-  'Machineries': { ico: 'i-wrench', blurb: 'Grinders, peelers, cutters & automatic making machines.' },
+  'Machinery': { ico: 'i-wrench', blurb: 'Grinders, peelers, cutters & automatic making machines.' },
   'Trolleys & Bins': { ico: 'i-truck', blurb: 'Service trolleys, bins & mobile storage.' },
 };
 
