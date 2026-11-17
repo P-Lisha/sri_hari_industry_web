@@ -8,6 +8,7 @@ import { Footer } from '@/components/Footer';
 import { BackToTop } from '@/components/BackToTop';
 import { WhatsAppFab } from '@/components/WhatsAppFab';
 import { ScrollReveal } from '@/components/ScrollReveal';
+import { StickyCta } from '@/components/StickyCta';
 import { ProductImg } from '@/components/ProductImg';
 import { ProductCard } from '@/components/ProductCard';
 import { ProductTabs } from '@/components/ProductTabs';
@@ -215,6 +216,7 @@ export default async function ProductPage({ params }: Params) {
       <Footer />
       <BackToTop />
       <WhatsAppFab />
+      <StickyCta waMessage={WA_MESSAGES.product(p.name)} />
       <ScrollReveal />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
     </>
