@@ -9,7 +9,7 @@ import { BackToTop } from '@/components/BackToTop';
 import { WhatsAppFab } from '@/components/WhatsAppFab';
 import { ScrollReveal } from '@/components/ScrollReveal';
 import { StickyCta } from '@/components/StickyCta';
-import { ProductImg } from '@/components/ProductImg';
+import { PdpZoom } from '@/components/PdpZoom';
 import { ProductCard } from '@/components/ProductCard';
 import { PRODUCTS, APPLICATIONS, aliasOf, getProduct, isSS304, metaDescription, relatedProducts, techSpecs } from '@/lib/data';
 import { categoryOf } from '@/lib/categories';
@@ -97,9 +97,7 @@ export default async function ProductPage({ params }: Params) {
             </nav>
 
             <div className="pdp">
-              <div className="pdp__media">
-                <ProductImg src={p.img} alt={`${p.name} — ${p.cat} by ${SITE.name}, Coimbatore`} className="pdp__img" priority />
-              </div>
+              <PdpZoom src={p.img} alt={`${p.name} — ${p.cat} by ${SITE.name}, Coimbatore`} />
 
               <div className="pdp__info">
                 <span className="eyebrow">{p.cat}</span>
@@ -137,21 +135,23 @@ export default async function ProductPage({ params }: Params) {
             </div>
 
             <div className="pdesc2 pdx">
-              <div className="pdesc2__main">
-                <h2 className="pdesc__h">Specifications</h2>
-                <div className="pdp__tech">
-                  <table>
-                    <tbody>
-                      {specs.map(([k, v]) => (
-                        <tr key={k}>
-                          <th scope="row">{k}</th>
-                          <td>{v}</td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
+              {specs.length >= 2 && (
+                <div className="pdesc2__main">
+                  <h2 className="pdesc__h">Specifications</h2>
+                  <div className="pdp__tech">
+                    <table>
+                      <tbody>
+                        {specs.map(([k, v]) => (
+                          <tr key={k}>
+                            <th scope="row">{k}</th>
+                            <td>{v}</td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
                 </div>
-              </div>
+              )}
               <aside className="pdesc2__side">
                 <div className="pdesc2__card">
                   <h3>Built to Last</h3>

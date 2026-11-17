@@ -369,10 +369,27 @@ export function techSpecs(p: Product): Spec[] {
   };
   // product's own specs first, so its real values win over the generic defaults
   (p.specs ?? []).forEach(([k, v]) => add(k, v));
-  if (isSS304(p)) add('Material', 'SS 304 food-grade stainless steel');
+
+  // rows derived from the product's own name/description — never invented
+  const text = `${p.name} ${p.desc}`.toLowerCase();
+  const burners = /\bsingle burner\b/.test(text) ? '1'
+    : /\btwo[- ]burner\b|\btwin\b.*burner/.test(text) ? '2'
+    : /\bthree[- ]burner\b/.test(text) ? '3'
+    : /\bfour[- ]burner\b/.test(text) ? '4'
+    : null;
+  if (burners) add('Burners', burners);
+  if (/charcoal/.test(text)) add('Fuel', 'Charcoal');
+  else if (/electric/.test(text)) add('Power', 'Electric');
+  else if (/steam/.test(text)) add('Heating', 'Steam');
+  else if (/lpg|gas|burner|flame|tandoor/.test(text)) add('Fuel', 'LPG / gas');
+  if (/countertop|table[- ]top/.test(text)) add('Mounting', 'Countertop');
+  else if (/trolley|wheel|castor|caster/.test(text)) add('Mobility', 'On castor wheels');
+  else if (/walk-in|modular/.test(text)) add('Type', 'Modular walk-in');
+
+  // Material / Sizes / Warranty live in the facts box next to the product
+  // image — don't repeat them here. The table carries only what the facts
+  // box doesn't: burners, fuel, mounting and build grade.
   add('Build', 'Heavy-duty commercial grade');
-  add('Customisation', 'Custom sizes made to order');
-  if (isSS304(p)) add('Finish', 'Hygienic, rust-free stainless steel');
   return rows;
 }
 
