@@ -1,11 +1,11 @@
 /* ===========================================================
    SRI HARI INDUSTRIES — "What Makes Us Unique" (why-choose-us)
    -----------------------------------------------------------
-   Colour-block band (client reference): six USPs as bold
-   solid-gradient cards — brand green/gold/red/blue — with a
-   centred white icon, title and copy on each, staggered card
-   heights on desktop and soft organic blobs behind. Left-
-   aligned header; hairline trust row + gold CTA below.
+   Theme-matched design: soft section background, centred
+   header with eyebrow pill, six clean white cards with soft
+   brand-colour icon chips (blue / green / gold / red) — same
+   card idiom as the rest of the site (.wcard / .wico style).
+   Trust row + gold CTA centred below.
    Styling lives in globals.css under #why-us (.wb).
    EDIT CONTENT HERE.
    =========================================================== */
@@ -53,7 +53,7 @@ const ICONS: Record<string, ReactElement> = {
   ),
 };
 
-/* tone → card colour: g=green, b=blue, y=gold, r=red (see globals.css) */
+/* tone → icon-chip colour: g=green, b=blue, y=gold, r=red (see globals.css) */
 const USPS: { icon: string; label: string; text: string; tone: 'g' | 'b' | 'y' | 'r'; tag?: string }[] = [
   {
     icon: 'shield',
@@ -71,14 +71,14 @@ const USPS: { icon: string; label: string; text: string; tone: 'g' | 'b' | 'y' |
 
 export function WhyUs() {
   return (
-    <section className="sec wb" id="why-us">
+    <section className="sec soft wb" id="why-us">
       <div className="wrap">
-        <div className="wb__head reveal">
-          <span className="wb__eyebrow">Why Choose Us</span>
+        <div className="head reveal">
+          <span className="eyebrow eyebrow--g">Why Choose Us</span>
           <h2>
-            What Makes Us <em>Unique</em>
+            What Makes Us <em className="wb__em">Unique</em>
           </h2>
-          <p className="wb__intro">
+          <p>
             Every equipment we ship is fabricated in our own Coimbatore workshop —
             and that is exactly why we can stand behind these six promises.
           </p>
@@ -96,9 +96,11 @@ export function WhyUs() {
         </ul>
 
         <div className="wb__foot reveal">
-          <span className="wb__trust">
-            {SITE.iso} Certified Manufacturer&ensp;·&ensp;Factory-Direct&ensp;·&ensp;Coimbatore
-          </span>
+          <ul className="wb__badges">
+            <li>{SITE.iso} Certified Manufacturer</li>
+            <li>Factory-Direct Pricing</li>
+            <li>Made in Coimbatore</li>
+          </ul>
           <a
             className="btn btn--y wb__cta"
             href={waLink(WA_MESSAGES.turnkey)}
