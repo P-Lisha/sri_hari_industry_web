@@ -2471,3 +2471,14 @@ html #process .eyebrow::before{background:var(--yellow)}
 /* FAQ: visibly distinct from the white Clients/Contact around it —
    soft navy tint band instead of a near-invisible gray. */
 #faq{background:var(--blue-soft)}
+
+/* ===========================================================
+   Background video band (Nemil pattern) — looping footage under
+   a deep navy scrim on the Kitchens We've Built section. Content
+   (.wrap) floats above. Hidden when reduced-motion is preferred.
+   =========================================================== */
+#gallery{position:relative;overflow:hidden}
+#gallery .wrap{position:relative;z-index:2}
+.bgvideo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;filter:saturate(.8)}
+.bgvideo__scrim{position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(180deg,rgba(10,27,51,.93) 0%,rgba(10,27,51,.82) 50%,rgba(10,27,51,.93) 100%)}
+@media(prefers-reduced-motion:reduce){.bgvideo{display:none}}

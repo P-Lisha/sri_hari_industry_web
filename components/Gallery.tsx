@@ -61,6 +61,18 @@ export function Gallery() {
 
   return (
     <section className="sec soft" id="gallery">
+      {/* Nemil-style cinematic band: looping kitchen footage under a navy scrim */}
+      <video
+        className="bgvideo"
+        src="/videos/kitchen-bg.mp4"
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="metadata"
+        aria-hidden="true"
+      />
+      <span className="bgvideo__scrim" aria-hidden="true" />
       <div className="wrap">
         <div className="projhead reveal">
           <div>
