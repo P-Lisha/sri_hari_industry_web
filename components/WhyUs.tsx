@@ -1,11 +1,11 @@
 /* ===========================================================
    SRI HARI INDUSTRIES — "What Makes Us Unique" (why-choose-us)
    -----------------------------------------------------------
-   Theme-matched design: soft section background, centred
-   header with eyebrow pill, six clean white cards with soft
-   brand-colour icon chips (blue / green / gold / red) — same
-   card idiom as the rest of the site (.wcard / .wico style).
-   Trust row + gold CTA centred below.
+   Corporate split layout: intro column left (eyebrow, heading,
+   copy, trust ticks, gold CTA), USP cards right in a 2-col grid.
+   First card is the navy "lead" card (Assured Quality / SS 304);
+   the rest are uniform white cards with blue icon chips. Teal
+   only on ticks + tag, gold only on the CTA.
    Styling lives in globals.css under #why-us (.wb).
    EDIT CONTENT HERE.
    =========================================================== */
@@ -53,27 +53,25 @@ const ICONS: Record<string, ReactElement> = {
   ),
 };
 
-/* tone → icon-chip colour: g=green, b=blue, y=gold, r=red (see globals.css) */
-const USPS: { icon: string; label: string; text: string; tone: 'g' | 'b' | 'y' | 'r'; tag?: string }[] = [
+const USPS: { icon: string; label: string; text: string; tag?: string }[] = [
   {
     icon: 'shield',
     label: 'Assured Quality',
     text: 'Food-grade SS 304 with strict quality checks at every weld and polish.',
-    tone: 'g',
     tag: 'SS 304',
   },
-  { icon: 'truck', label: 'Quick Delivery', text: 'On-time manufacturing and dispatch on every order.', tone: 'y' },
-  { icon: 'tag', label: 'Affordable Price', text: 'Factory-direct rates — no middlemen, no markups.', tone: 'r' },
-  { icon: 'award', label: '1 Year Warranty', text: 'Every equipment covered for a full year.', tone: 'b' },
-  { icon: 'wrench', label: 'AMC Available', text: 'Annual maintenance contracts to keep you running.', tone: 'g' },
-  { icon: 'headset', label: '24/7 Service', text: 'Support whenever your kitchen needs it — day or night.', tone: 'y' },
+  { icon: 'truck', label: 'Quick Delivery', text: 'On-time manufacturing and dispatch on every order.' },
+  { icon: 'tag', label: 'Affordable Price', text: 'Factory-direct rates — no middlemen, no markups.' },
+  { icon: 'award', label: '1 Year Warranty', text: 'Every equipment covered for a full year.' },
+  { icon: 'wrench', label: 'AMC Available', text: 'Annual maintenance contracts to keep you running.' },
+  { icon: 'headset', label: '24/7 Service', text: 'Support whenever your kitchen needs it — day or night.' },
 ];
 
 export function WhyUs() {
   return (
     <section className="sec soft wb" id="why-us">
-      <div className="wrap">
-        <div className="head reveal">
+      <div className="wrap wb__cols">
+        <div className="wb__intro reveal">
           <span className="eyebrow eyebrow--g">Why Choose Us</span>
           <h2>
             What Makes Us <em className="wb__em">Unique</em>
@@ -82,20 +80,6 @@ export function WhyUs() {
             Every equipment we ship is fabricated in our own Coimbatore workshop —
             and that is exactly why we can stand behind these six promises.
           </p>
-        </div>
-
-        <ul className="wb__grid reveal">
-          {USPS.map((u) => (
-            <li key={u.label} className={`wb__card wb__card--${u.tone}`}>
-              <span className="wb__ic">{ICONS[u.icon]}</span>
-              {u.tag && <span className="wb__tag">{u.tag}</span>}
-              <b>{u.label}</b>
-              <p>{u.text}</p>
-            </li>
-          ))}
-        </ul>
-
-        <div className="wb__foot reveal">
           <ul className="wb__badges">
             <li>{SITE.iso} Certified Manufacturer</li>
             <li>Factory-Direct Pricing</li>
@@ -110,6 +94,17 @@ export function WhyUs() {
             Talk to Our Team →
           </a>
         </div>
+
+        <ul className="wb__grid reveal">
+          {USPS.map((u, i) => (
+            <li key={u.label} className={`wb__card${i === 0 ? ' wb__card--lead' : ''}`}>
+              <span className="wb__ic">{ICONS[u.icon]}</span>
+              {u.tag && <span className="wb__tag">{u.tag}</span>}
+              <b>{u.label}</b>
+              <p>{u.text}</p>
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   );
