@@ -4,8 +4,8 @@
    Corporate split layout: intro column left (eyebrow, heading,
    copy, trust ticks, gold CTA), USP cards right in a 2-col grid.
    First card is the navy "lead" card (Assured Quality / SS 304);
-   the rest are uniform white cards with blue icon chips. Teal
-   only on ticks + tag, gold only on the CTA.
+   the rest are uniform white cards with blue icon chips. Navy is
+   the single accent (ticks, tags, icons); gold only on the CTA.
    Styling lives in globals.css under #why-us (.wb).
    EDIT CONTENT HERE.
    =========================================================== */
