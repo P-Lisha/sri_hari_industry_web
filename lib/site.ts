@@ -36,10 +36,12 @@ export const SITE = {
   // Approx geo for Urumandampalayam, Coimbatore (for LocalBusiness JSON-LD).
   geo: { lat: 11.0588, lng: 76.9319 },
 
+  // `ll=` centre-only embed: no Google place card / white overlay at all.
+  // The factory spot sits at the exact centre; Contact.tsx draws our own pin.
   mapEmbed:
-    'https://maps.google.com/maps?q=Urumandampalayam%2C%20Coimbatore%20641029&z=14&output=embed',
+    'https://maps.google.com/maps?ll=11.0588,76.9319&z=16&output=embed',
   mapDirections:
-    'https://www.google.com/maps/dir/?api=1&destination=Urumandampalayam%2C+Coimbatore+641029',
+    'https://www.google.com/maps/dir/?api=1&destination=11.0588,76.9319',
 
   brochure: '/brochure/sri-hari-industries-brochure.pdf',
 
