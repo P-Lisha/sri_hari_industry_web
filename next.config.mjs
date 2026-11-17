@@ -16,7 +16,12 @@ const nextConfig = {
         headers: [
           {
             key: 'Cache-Control',
-            value: 'public, max-age=3600, stale-while-revalidate=86400',
+            // dev: always revalidate so replaced images show up on plain refresh;
+            // prod: 1h browser cache (rename the file when swapping a photo)
+            value:
+              process.env.NODE_ENV === 'development'
+                ? 'no-cache'
+                : 'public, max-age=3600, stale-while-revalidate=86400',
           },
         ],
       },

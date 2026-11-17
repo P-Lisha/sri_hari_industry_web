@@ -15,7 +15,7 @@ export function JsonLd() {
         url: SITE.url,
         email: SITE.email,
         telephone: SITE.phoneDisplay,
-        image: `${SITE.url}/images/hero-1.jpg`,
+        image: `${SITE.url}/images/hero-kitchen.jpg`,
         logo: `${SITE.url}/images/logo.png`,
         slogan: 'Designed for Performance, Built for Excellence',
         description: SITE.longDesc,

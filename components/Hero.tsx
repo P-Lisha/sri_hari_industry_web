@@ -18,8 +18,8 @@ interface Slide {
 
 const SLIDES: Slide[] = [
   {
-    img: '/images/hero-1.webp',
-    alt: 'Complete commercial kitchen solutions',
+    img: '/images/hero-kitchen-hd.webp',
+    alt: 'Bright all-stainless commercial kitchen with ranges, ovens and prep tables',
     badge: 'Designed for Performance · Built for Excellence',
     title: 'Complete Commercial ',
     emphasis: 'Kitchen Solutions',
@@ -30,8 +30,8 @@ const SLIDES: Slide[] = [
     ],
   },
   {
-    img: '/images/hero-2.webp',
-    alt: 'Clean professional commercial kitchen with stainless steel machinery',
+    img: '/images/hero-workshop-hd.webp',
+    alt: 'Stainless steel equipment fabrication workshop floor',
     badge: 'Processing · Prep · Machinery',
     title: 'Food Processing & ',
     emphasis: 'Kitchen Machinery',
@@ -42,8 +42,8 @@ const SLIDES: Slide[] = [
     ],
   },
   {
-    img: '/images/hero-3.webp',
-    alt: 'Food processing, exhaust & cold room systems',
+    img: '/images/hero-kettles-hd.webp',
+    alt: 'Steam kettles and food production machinery in a commercial kitchen',
     badge: 'Food Processing · Exhaust · Cold Room',
     title: 'End-to-End ',
     emphasis: 'Kitchen Engineering',
