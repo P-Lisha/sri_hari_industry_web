@@ -2581,3 +2581,9 @@ html #process .eyebrow::before{background:var(--yellow)}
   .pdp__facts div:nth-last-child(-n+2){border-bottom:0}
   .pdx .pdesc2__side{grid-template-columns:1fr}
 }
+
+/* PDP media as a clickable zoom button + "Click to view" hint chip */
+.pdp__media--zoom{cursor:zoom-in;font:inherit;width:100%;text-align:center}
+.pdp__zoomhint{position:absolute;bottom:12px;right:12px;z-index:2;display:inline-flex;align-items:center;gap:.35rem;background:rgba(255,255,255,.95);color:var(--blue-d);font-family:var(--font-head);font-weight:600;font-size:.72rem;padding:.34rem .7rem;border-radius:50px;box-shadow:0 4px 10px rgba(13,27,42,.15);opacity:.9;transition:var(--t)}
+.pdp__zoomhint svg{width:14px;height:14px}
+.pdp__media--zoom:hover .pdp__zoomhint{opacity:1;transform:translateY(-2px)}
