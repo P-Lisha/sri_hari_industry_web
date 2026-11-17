@@ -2394,3 +2394,27 @@ main.subpage>.phero:first-child{margin-top:-1.2rem}
 #products{background:#f3f6fa}
 #faq{background:#f3f6fa}
 #contact{background:#ffffff}
+
+/* ===========================================================
+   Mobile sticky CTA bar (product pages) — Call + WhatsApp
+   pinned to the viewport bottom; desktop hides it. The round
+   WhatsApp fab is hidden while the bar is present.
+   =========================================================== */
+.stickycta{position:fixed;left:0;right:0;bottom:0;z-index:90;display:none;grid-template-columns:1fr 1.6fr;gap:1px;background:var(--line);border-top:1px solid var(--line);box-shadow:0 -8px 24px rgba(13,27,42,.12)}
+.stickycta a{display:flex;align-items:center;justify-content:center;padding:.95rem .5rem;font-family:var(--font-head);font-weight:700;font-size:.92rem;text-decoration:none}
+.stickycta__call{background:#fff;color:var(--blue-d)}
+.stickycta__wa{background:linear-gradient(135deg,var(--yellow),var(--yellow-d));color:#3a2900}
+@media(max-width:860px){
+  .stickycta{display:grid}
+  body:has(.stickycta) .wafab{display:none}
+  body:has(.stickycta) main{padding-bottom:3.4rem}
+  body:has(.stickycta) .toTop{bottom:4.4rem}
+}
+
+/* ===========================================================
+   Accent-bar wipe (Nemil pattern) — 2px navy line sweeps across
+   the top edge of a card on hover. Industries cells + product
+   cards. Pure CSS, no JS.
+   =========================================================== */
+.indcell::before,.procard::before{content:"";position:absolute;left:0;top:0;height:2px;width:0;background:var(--blue);z-index:3;transition:width .4s cubic-bezier(.22,.61,.36,1)}
+.indcell:hover::before,.procard:hover::before{width:100%}
