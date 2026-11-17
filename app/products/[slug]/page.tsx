@@ -114,7 +114,7 @@ export default async function ProductPage({ params }: Params) {
                 </ul>
 
                 <div className="pdp__actions">
-                  <a className="btn btn--g" href={waLink(WA_MESSAGES.product(p.name))} target="_blank" rel="noopener">
+                  <a className="btn btn--y" href={waLink(WA_MESSAGES.product(p.name))} target="_blank" rel="noopener">
                     Get a Quote on WhatsApp
                   </a>
                   <a className="btn btn--line" href={`tel:${SITE.phoneHref}`}>
@@ -127,7 +127,11 @@ export default async function ProductPage({ params }: Params) {
                   {isSS304(p) && <div><dt>Material:</dt><dd>SS 304 food-grade stainless steel</dd></div>}
                   <div><dt>Sizes:</dt><dd>Standard &amp; custom-made to order</dd></div>
                 </dl>
-                <p className="pdp__assure">Delivery, installation &amp; after-sales service all over India</p>
+                <ul className="pdp__trust">
+                  <li>1 Year Warranty</li>
+                  <li>Pan-India Installation</li>
+                  <li>After-Sales Service &amp; AMC</li>
+                </ul>
               </div>
             </div>
 
