@@ -15,7 +15,7 @@ import { SITE, waLink, WA_MESSAGES } from '@/lib/site';
 
 const STATS: { num: string; label: string }[] = [
   { num: '100%', label: 'In-house fabrication' },
-  { num: '1 Yr', label: 'Warranty on every equipment' },
+  { num: '1 Yr', label: 'Warranty on every unit' },
   { num: '3D', label: 'Design before we build' },
   { num: '24/7', label: 'Service support' },
 ];
@@ -32,7 +32,7 @@ export function WhyUs() {
             What Makes Us <em className="wb__em">Unique</em>
           </h2>
           <p>
-            Every equipment we ship is fabricated in our own Coimbatore workshop —
+            Every unit we ship is fabricated in our own Coimbatore workshop —
             and that is exactly why we can stand behind every number here.
           </p>
           <ul className="wb__badges">

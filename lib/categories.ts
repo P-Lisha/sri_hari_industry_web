@@ -45,11 +45,11 @@ const INFO: Omit<CategoryInfo, 'slug'>[] = [
     ],
   },
   {
-    cat: 'Machineries',
+    cat: 'Machinery',
     heading: 'Commercial Kitchen Machinery Manufacturer',
     metaDesc: 'Wet grinders, pulverizers, veg cutters, peelers, dough kneaders, dishwashers and automatic dosa, vada & idiyappam machines. Made in Coimbatore.',
     intro: [
-      'Preparation is where a busy kitchen loses the most time. Sri Hari Industries supplies commercial kitchen machineries that take over the slowest jobs — wet and tilting grinders, pulverizers and masala grinders, vegetable cutting machines and veg cutters, onion peelers, coconut scrapers, rice washers, dough kneaders and commercial dishwashers.',
+      'Preparation is where a busy kitchen loses the most time. Sri Hari Industries supplies commercial kitchen machines that take over the slowest jobs — wet and tilting grinders, pulverizers and masala grinders, vegetable cutting machines and veg cutters, onion peelers, coconut scrapers, rice washers, dough kneaders and commercial dishwashers.',
       'For high-volume output we also build automatic making machines — dosa, vada and idiyappam machines, and ball cutting and ball pressing machines — that keep every piece consistent while cutting manpower. Each machine is supplied with installation and after-sales service all over India.',
     ],
     uses: [
@@ -63,8 +63,8 @@ const INFO: Omit<CategoryInfo, 'slug'>[] = [
     faqs: [
       { q: 'What is the difference between a wet grinder and a tilting grinder?', a: 'Both grind idli and dosa batter with granite stones. A tilting grinder has a drum that tilts forward, so batter can be emptied easily in large batches.' },
       // { q: 'Do you have machines for peeling vegetables?', a: 'Yes — potato peelers and onion peelers, plus vegetable cutting machines and veg cutters for slicing, shredding and dicing.' },
-      { q: 'Is installation and training included?', a: 'We install the machines at your site and show your team how to operate them. Contact us for the details for your order.' },
-      { q: 'Do you provide service for these machines?', a: 'Yes. We provide after-sales service for the kitchen machineries we supply.' },
+      { q: 'Is installation and training included?', a: 'We install the machines at your site and show your team how to operate them. Contact us for details about your order.' },
+      { q: 'Do you provide service for these machines?', a: 'Yes. We provide after-sales service for the kitchen machines we supply.' },
     ],
   },
   {
