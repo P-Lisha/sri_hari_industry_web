@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { TopBar } from '@/components/TopBar';
 import { Nav } from '@/components/Nav';
 import { About } from '@/components/About';
+import { PageHero } from '@/components/PageHero';
 import { Contact } from '@/components/Contact';
 import { Footer } from '@/components/Footer';
 import { BackToTop } from '@/components/BackToTop';
@@ -20,6 +21,12 @@ export default function Page() {
       <TopBar />
       <Nav />
       <main>
+        <PageHero
+          crumbs={[{ label: 'Home', href: '/' }, { label: 'About Us' }]}
+          eyebrow="About Us"
+          title="About Sri Hari Industries"
+          lead="Commercial kitchen equipment manufacturer and kitchen consultants in Coimbatore — building complete turnkey kitchens for over 15 years."
+        />
         <About />
         <Contact />
       </main>

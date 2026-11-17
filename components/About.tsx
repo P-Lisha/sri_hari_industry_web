@@ -9,10 +9,10 @@ const CERTS = [
 
 // "Why choose us" value cards shown above the certifications.
 const WHY = [
-  { title: 'Food-grade steel', text: 'SS 304 throughout — hygienic, rust-free and made to last.' },
-  { title: 'Built for high volume', text: 'Heavy-duty engineering that holds heat and output through a full service.' },
-  { title: 'Made to your size', text: 'Custom fabrication to fit your space, workflow and budget.' },
-  { title: 'Start to finish', text: 'Consultancy, 3D design, manufacturing, installation and AMC — all under one roof.' },
+  { stat: 'SS 304', title: 'Food-grade steel', text: 'Hygienic, rust-free stainless steel throughout — built to last.' },
+  { stat: '300+', title: 'Projects delivered', text: 'Heavy-duty engineering proven across 300+ kitchens in 15+ years.' },
+  { stat: '100%', title: 'Made to your size', text: 'Every piece custom-fabricated to your space, workflow and budget.' },
+  { stat: '1 Team', title: 'Design to AMC', text: 'Consultancy, 3D design, manufacturing, installation and AMC — one team.' },
 ];
 
 export function About() {
@@ -28,8 +28,7 @@ export function About() {
           </div>
         </div>
         <div className="about__intro reveal">
-          <span className="eyebrow">About Us</span>
-          <h1>Kitchens engineered to run harder, for longer</h1>
+          <h2>Kitchens engineered to run harder, for longer</h2>
           <p>
             For over 15 years, <strong>Sri Hari Industries</strong> has manufactured commercial kitchen
             equipment in Coimbatore — from a single burner to complete turnkey kitchens. We have
@@ -46,6 +45,7 @@ export function About() {
           <div className="whyx">
             {WHY.map((w) => (
               <div className="whyx__card" key={w.title}>
+                <b className="whyx__stat">{w.stat}</b>
                 <h3>{w.title}</h3>
                 <p>{w.text}</p>
               </div>

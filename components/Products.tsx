@@ -2,24 +2,32 @@ import Link from 'next/link';
 import { PRODUCTS_BY_CAT, CATMETA } from '@/lib/data';
 import { ProductImg } from './ProductImg';
 import { catSlug } from '@/lib/categories';
+import { PageHero } from './PageHero';
+import { SITE, waLink, WA_MESSAGES } from '@/lib/site';
 
 /** Anchor id for a category section on this page. */
 const catId = (cat: string) => 'cat-' + catSlug(cat);
 
-/** /products page body: one card style, one section per category, all crawlable links. */
+/** /products page body: navy page hero, then one card style, one section per category, all crawlable links. */
 export function Products() {
   return (
-    <section className="sec subpage catpage" id="products">
-      <div className="wrap">
-        <div className="head reveal">
-          <span className="eyebrow">Our Products</span>
-          <h1>Commercial Kitchen Equipment</h1>
-          <p>
-            Food-grade stainless-steel commercial kitchen equipment built in Coimbatore for
-            hotels, restaurants, hospitals and institutional kitchens.
-          </p>
-        </div>
+    <>
+      <PageHero
+        crumbs={[{ label: 'Home', href: '/' }, { label: 'Products' }]}
+        eyebrow="Our Products"
+        title="Commercial Kitchen Equipment"
+        lead="Food-grade stainless-steel commercial kitchen equipment built in Coimbatore for hotels, restaurants, hospitals and institutional kitchens."
+      >
+        <a className="btn btn--y" href={waLink(WA_MESSAGES.generic)} target="_blank" rel="noopener">
+          Get a Quote
+        </a>
+        <a className="btn btn--line" href={`tel:${SITE.phoneHref}`}>
+          Call {SITE.phoneDisplay}
+        </a>
+      </PageHero>
 
+      <section className="sec subpage catpage" id="products">
+      <div className="wrap">
         <nav className="catnav" aria-label="Product categories">
           {PRODUCTS_BY_CAT.map((g) => (
             <Link key={g.cat} href={`/products/category/${catSlug(g.cat)}`}>
@@ -53,6 +61,7 @@ export function Products() {
           </section>
         ))}
       </div>
-    </section>
+      </section>
+    </>
   );
 }

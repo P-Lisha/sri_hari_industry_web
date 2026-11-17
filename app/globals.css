@@ -365,20 +365,19 @@ a{text-decoration:none;color:inherit}img{display:block;max-width:100%}
 .group{display:flex;flex-wrap:wrap;gap:.6rem;margin:1.2rem 0}
 .group span{background:#fff;border:1px solid var(--line);border-radius:50px;padding:.45rem 1rem;font-size:.82rem;font-weight:600;color:var(--blue-d)}
 .certs{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.4rem}
-.cert{display:flex;align-items:center;gap:.5rem;background:var(--green-soft);color:var(--green-d);border:1px solid rgba(21,154,120,.3);border-radius:6px;padding:.5rem .9rem;font-weight:700;font-size:.82rem;font-family:var(--font-head)}
-.cert.b{background:var(--blue-soft);color:var(--blue);border-color:rgba(23,54,93,.38)}
-.cert.y{background:var(--yellow-soft);color:var(--yellow-d);border-color:rgba(229,169,40,.45)}
-.cert.r{background:var(--red-soft);color:var(--red-d);border-color:rgba(200,16,46,.32)}
+.cert{display:flex;align-items:center;gap:.5rem;background:#fff;color:var(--blue-d);border:1px solid var(--line);border-radius:6px;padding:.5rem .9rem;font-weight:700;font-size:.82rem;font-family:var(--font-head)}
+.cert.b,.cert.y,.cert.r{background:#fff;color:var(--blue-d);border-color:var(--line)}
 .abtags{margin-top:1.4rem}
 .abtags__label{display:block;font-family:var(--font-head);font-weight:700;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:.55rem}
 .abtags ul{list-style:none;display:flex;flex-wrap:wrap;gap:.45rem;padding:0;margin:0}
 .abtags li{background:var(--soft);border:1px solid var(--line);color:var(--slate);font-weight:600;font-size:.78rem;padding:.36rem .8rem;border-radius:50px;transition:var(--t)}
 .abtags li:hover{background:var(--blue-soft);border-color:rgba(23,54,93,.3);color:var(--blue)}
 
-/* "Why choose us" value cards (About) — green left accent */
+/* "Why choose us" value cards (About) — white card, hairline border, navy stat */
 .whyx{display:grid;grid-template-columns:1fr 1fr;gap:.9rem;margin:1.4rem 0}
-.whyx__card{background:#fff;border:1px solid var(--line);border-left:4px solid var(--green);border-radius:6px;padding:1rem 1.1rem;transition:var(--t)}
-.whyx__card:hover{transform:translateY(-3px);box-shadow:var(--shadow-sm);border-left-color:var(--green-d)}
+.whyx__card{background:#fff;border:1px solid var(--line);border-radius:6px;padding:1rem 1.1rem;transition:var(--t)}
+.whyx__card:hover{transform:translateY(-3px);box-shadow:var(--shadow-sm);border-color:var(--blue)}
+.whyx__stat{display:block;font-family:var(--font-head);font-weight:700;font-size:1.15rem;color:var(--blue);line-height:1.1;margin-bottom:.25rem}
 .whyx__card h3{font-family:var(--font-head);font-size:.95rem;font-weight:700;color:var(--slate);margin:0 0 .3rem}
 .whyx__card p{font-size:.82rem;line-height:1.5;color:var(--muted);margin:0}
 /* keep the value cards two-per-row on phones (left & right, like desktop) */
@@ -1283,17 +1282,15 @@ html,body{max-width:100%;overflow-x:hidden}
 .clientmarq:hover .clientmarq__track{animation-play-state:paused}
 
 /* soft-tinted name chips: navy wordmark, gold border/glow on hover */
-.logocard{flex:0 0 auto;display:flex;flex-direction:column;align-items:center;justify-content:center;min-width:170px;min-height:60px;padding:.7rem 1.3rem;background:#fff;border:1px solid var(--line);border-radius:8px;box-shadow:0 1px 2px rgba(15,23,42,.04);transition:var(--t)}
-.logocard__name{font-family:var(--font-head),system-ui,sans-serif;font-weight:600;font-size:.98rem;color:var(--slate);white-space:nowrap;line-height:1.25;transition:var(--t)}
-.logocard__sector{font-size:.64rem;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);white-space:nowrap;margin-top:.18rem}
+.logocard{flex:0 0 auto;display:grid;place-items:center;min-width:170px;min-height:58px;padding:.8rem 1.3rem;background:#fff;border:1px solid var(--line);border-radius:8px;box-shadow:0 1px 2px rgba(15,23,42,.04);transition:var(--t)}
+.logocard__name{font-family:var(--font-head),system-ui,sans-serif;font-weight:600;font-size:1rem;color:var(--slate);white-space:nowrap;line-height:1.25;transition:var(--t)}
 .logocard:hover{transform:translateY(-3px);border-color:var(--blue);box-shadow:var(--shadow-sm)}
 
 @media(max-width:600px){
   .clientmarq{gap:.6rem;margin-top:1.4rem}
   .clientmarq__track{gap:.7rem}
-  .logocard{min-width:140px;min-height:50px;padding:.55rem .95rem}
-  .logocard__name{font-size:.86rem}
-  .logocard__sector{font-size:.56rem}
+  .logocard{min-width:140px;min-height:48px;padding:.6rem .95rem}
+  .logocard__name{font-size:.88rem}
 }
 
 /* Star row on each testimonial card */
@@ -1833,7 +1830,6 @@ html .stats .wrap{background:#fff;border:1px solid var(--line);border-radius:var
 .procard__btn,.procard:hover .procard__btn{width:auto;justify-content:flex-start;padding:0;background:none;box-shadow:none;filter:none;color:var(--blue);font-weight:600}
 .pmtile{border-radius:var(--radius);background:#fff}
 .pmtile:hover{transform:none}
-.pdp__media{background:#fff}
 .pdp__img{filter:none}
 .pdp__info h1{font-weight:600;letter-spacing:-.03em}
 .pdp__app i{display:inline-flex}
@@ -2080,17 +2076,15 @@ html .brand__txt i,html .fbrand__txt i{font-size:11px}
 /* certifications: one neutral style instead of four colours */
 .cert,.cert.b,.cert.y,.cert.r{background:#fff;color:var(--slate);border:1px solid var(--line)}
 /* value cards: brand blue accent (green is reserved for WhatsApp) */
-.whyx__card{border-left-color:var(--blue)}
 
 /* ---- product cards: crisp bordered white cards, compact content ---- */
 .catsec__grid{gap:1.5rem 1.4rem}
-.catsec .pmtile{background:#fff;border:1px solid var(--line);border-radius:8px;overflow:hidden;
+.catsec__grid .pmtile{background:#fff;border:1px solid var(--line);border-radius:8px;overflow:hidden;
   transition:transform .3s var(--t),box-shadow .3s var(--t),border-color .3s var(--t)}
-.catsec .pmtile:hover{transform:translateY(-4px);box-shadow:var(--shadow-sm);border-color:rgba(23,54,93,.35)}
-.catsec .pmtile__media{aspect-ratio:4/3;background:#eef2f8;border-bottom:1px solid var(--line);border-radius:0}
-.catsec .pmtile__media img{padding:.5rem;mix-blend-mode:multiply}
-.catsec .pmtile .pmtile__h{padding:.7rem .85rem .15rem;font-size:.95rem;line-height:1.3}
-.catsec .pmtile__more{display:inline-block;padding:0 .85rem .8rem}
+.catsec__grid .pmtile:hover{transform:translateY(-4px);box-shadow:var(--shadow-sm);border-color:rgba(23,54,93,.35)}
+.catsec__grid .pmtile__media{aspect-ratio:4/3;background:#eef2f8;border-bottom:1px solid var(--line);border-radius:0}
+.catsec__grid .pmtile__media img{padding:.5rem;mix-blend-mode:multiply}
+.catsec__grid .pmtile .pmtile__h{padding:.7rem .85rem .15rem;font-size:.95rem;line-height:1.3}
 /* feature bullets: subtle rounded dots instead of hard squares */
 .pdp__quick li::before{border-radius:50%;width:.4rem;height:.4rem;top:.66em}
 
@@ -2203,10 +2197,10 @@ html .catpage.sec.subpage{padding-top:1rem}
    "What Makes Us Unique" — corporate split layout
    (intro column left: eyebrow, heading, copy, vertical trust
    ticks, gold CTA. Right: 2-col USP grid, first card = navy
-   lead card. Teal only on ticks + tag, gold only on the CTA.
+   lead card. Navy single accent on ticks + tags; gold only on the CTA.
    Markup: components/WhyUs.tsx)
    =========================================================== */
-.wb__em{font-style:normal;color:var(--green-d)}
+.wb__em{font-style:normal;color:var(--blue)}
 .wb__cols{display:grid;grid-template-columns:minmax(280px,5fr) 7fr;
   gap:clamp(1.8rem,4vw,3.4rem);align-items:center}
 .wb__intro h2{font-size:clamp(1.9rem,3.6vw,2.5rem);font-weight:600;letter-spacing:-.03em;
@@ -2214,13 +2208,13 @@ html .catpage.sec.subpage{padding-top:1rem}
 .wb__intro>p{color:var(--muted);font-size:1.02rem;line-height:1.7;margin:0 0 1.5rem;max-width:44ch}
 .wb__grid{list-style:none;margin:0;padding:0;
   display:grid;grid-template-columns:1fr 1fr;gap:.9rem}
-.wb__card--lead{grid-column:1/-1;background:var(--navy);border-color:var(--navy)}
-.wb__card--lead b{color:#fff}
-.wb__card--lead p{color:var(--on-navy-2)}
-.wb__card--lead .wb__ic{background:rgba(21,154,120,.18);color:var(--green)}
-.wb__card--lead .wb__tag{border-color:var(--yellow);color:var(--yellow)}
-.wb__card--lead:hover{border-color:var(--green);box-shadow:var(--shadow)}
-.wb__card--lead:hover .wb__ic{background:var(--green);color:#fff}
+.wb__card.wb__card--lead{grid-column:1/-1;background:var(--navy);border-color:var(--navy)}
+.wb__card.wb__card--lead b{color:#fff}
+.wb__card.wb__card--lead p{color:var(--on-navy-2)}
+.wb__card--lead .wb__ic{background:rgba(255,255,255,.12);color:#fff}
+.wb__card--lead .wb__tag{border-color:rgba(255,255,255,.55);color:#fff}
+.wb__card.wb__card--lead:hover{border-color:rgba(255,255,255,.4);box-shadow:var(--shadow)}
+.wb__card--lead:hover .wb__ic{background:rgba(255,255,255,.22);color:#fff}
 .wb__card{position:relative;background:#fff;border:1px solid var(--line);
   border-radius:10px;padding:1.45rem 1.4rem;
   display:grid;grid-template-columns:auto 1fr;grid-template-rows:auto 1fr;
@@ -2230,8 +2224,8 @@ html .catpage.sec.subpage{padding-top:1rem}
   background:var(--blue-soft);color:var(--blue);transition:var(--t)}
 .wb__ic svg{width:22px;height:22px}
 .wb__card:hover .wb__ic{background:var(--blue);color:#fff}
-.wb__tag{position:absolute;top:1rem;right:1rem;border:1px solid var(--green);
-  color:var(--green-d);font-size:.6rem;font-weight:700;letter-spacing:.08em;
+.wb__tag{position:absolute;top:1rem;right:1rem;border:1px solid var(--blue);
+  color:var(--blue);font-size:.6rem;font-weight:700;letter-spacing:.08em;
   padding:.18rem .55rem;border-radius:50px;text-transform:uppercase}
 .wb__card b{display:block;font-family:var(--font-head),system-ui,sans-serif;font-weight:600;
   font-size:1.02rem;color:var(--slate);line-height:1.3;margin:.12rem 0 .3rem}
@@ -2240,7 +2234,7 @@ html .catpage.sec.subpage{padding-top:1rem}
   gap:.65rem;margin:0 0 1.7rem;padding:0}
 .wb__badges li{display:inline-flex;align-items:center;gap:.6rem;
   font-size:.88rem;font-weight:600;color:var(--ink)}
-.wb__badges li::before{content:"✓";color:#fff;background:var(--green);width:1.2rem;height:1.2rem;
+.wb__badges li::before{content:"✓";color:#fff;background:var(--blue);width:1.2rem;height:1.2rem;
   border-radius:50%;display:grid;place-items:center;font-size:.64rem;font-weight:700;flex:none}
 .wb__cta{flex:none}
 @media(max-width:900px){
@@ -2257,3 +2251,51 @@ html .catpage.sec.subpage{padding-top:1rem}
   .wb__badges{gap:.5rem;margin-bottom:1.4rem}
   .wb__badges li{font-size:.8rem}
 }
+
+/* ===========================================================
+   Reusable navy page hero for subpages (.phero)
+   Markup: components/PageHero.tsx — breadcrumb, eyebrow, H1,
+   lead, CTA row on a midnight-navy band with a soft teal glow.
+   =========================================================== */
+.phero{position:relative;overflow:hidden;background:var(--navy);color:var(--on-navy);
+  padding:clamp(1.9rem,4.2vw,3rem) 0 clamp(2.1rem,4.6vw,3.2rem)}
+.phero::before{content:"";position:absolute;inset:0;pointer-events:none;background:
+  radial-gradient(640px 320px at 88% -12%,rgba(21,154,120,.15),transparent 70%),
+  radial-gradient(560px 320px at -8% 118%,rgba(23,54,93,.6),transparent 72%)}
+.phero .wrap{position:relative;z-index:1}
+.phero__crumbs{margin:0 0 1.15rem;color:var(--on-navy-2)}
+.phero__crumbs a{color:var(--on-navy-2)}
+.phero__crumbs a:hover{color:#fff;text-decoration:none}
+.phero__eyebrow{background:rgba(21,154,120,.16);color:#7fd7bd}
+.phero h1{font-family:var(--font-head),system-ui,sans-serif;color:#fff;
+  font-size:clamp(1.8rem,3.8vw,2.6rem);font-weight:600;letter-spacing:-.03em;
+  line-height:1.12;margin:.85rem 0 .6rem;text-wrap:balance}
+.phero__lead{color:var(--on-navy-2);font-size:1.04rem;line-height:1.7;max-width:62ch;margin:0}
+.phero__cta{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:1.5rem}
+.phero .btn--line{background:transparent;border-color:var(--navy-line);color:var(--on-navy)}
+.phero .btn--line:hover{background:rgba(255,255,255,.07);border-color:var(--on-navy-2);color:#fff}
+@media(max-width:640px){
+  .phero{padding:1.5rem 0 1.7rem}
+  .phero__crumbs{margin-bottom:.9rem}
+  .phero__lead{font-size:.95rem}
+  .phero__cta{margin-top:1.1rem;gap:.6rem}
+  .phero__cta .btn{flex:1 1 auto;justify-content:center}
+}
+
+/* hero band sits directly under the nav — trim the surrounding gaps */
+.phero+.sec.subpage{padding-top:2rem}
+main.subpage>.phero:first-child{margin-top:-1.2rem}
+
+/* category intro paragraphs shown under the hero, above the grid */
+.catintro{max-width:72ch;margin:0 0 2rem}
+.catintro p{color:var(--muted);line-height:1.7;margin:0 0 .8rem}
+
+/* cert chips: clean white, navy text — no mixed colour tints */
+.cert,.cert.b,.cert.y,.cert.r{border:1px solid var(--line);color:var(--blue-d);background:#fff}
+
+/* "View details" on product tiles: ghost pill instead of bare text */
+.pmtile__more{display:inline-flex;align-items:center;gap:.3rem;
+  border:1px solid var(--line);border-radius:50px;padding:.32rem .85rem;
+  font-size:.8rem;transition:var(--t)}
+.pmtile:hover .pmtile__more{text-decoration:none;background:var(--blue);border-color:var(--blue);color:#fff}
+.catsec__grid .pmtile__more{margin:0 .85rem .85rem}

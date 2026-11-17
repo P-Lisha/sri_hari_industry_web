@@ -9,6 +9,7 @@ import { BackToTop } from '@/components/BackToTop';
 import { WhatsAppFab } from '@/components/WhatsAppFab';
 import { ScrollReveal } from '@/components/ScrollReveal';
 import { ProductImg } from '@/components/ProductImg';
+import { PageHero } from '@/components/PageHero';
 import { PRODUCTS } from '@/lib/data';
 import { CATEGORIES, getCategory } from '@/lib/categories';
 import { SITE, waLink, WA_MESSAGES } from '@/lib/site';
@@ -86,27 +87,29 @@ export default async function CategoryPage({ params }: Params) {
       <TopBar />
       <Nav />
       <main>
+        <PageHero
+          crumbs={[
+            { label: 'Home', href: '/' },
+            { label: 'Products', href: '/products' },
+            { label: c.cat },
+          ]}
+          eyebrow={c.cat}
+          title={c.heading}
+          lead={c.intro[0]}
+        >
+          <a className="btn btn--y" href={waLink(WA_MESSAGES.generic)} target="_blank" rel="noopener">Get a Quote</a>
+          <a className="btn btn--line" href={`tel:${SITE.phoneHref}`}>Call {SITE.phoneDisplay}</a>
+        </PageHero>
+
         <section className="sec subpage catpage">
           <div className="wrap">
-            <nav aria-label="Breadcrumb">
-              <ol className="crumbs">
-                <li><Link href="/">Home</Link></li>
-                <li><Link href="/products">Products</Link></li>
-                <li aria-current="page">{c.cat}</li>
-              </ol>
-            </nav>
-
-            <header className="cathero">
-              <span className="eyebrow">{c.cat}</span>
-              <h1>{c.heading}</h1>
-              {c.intro.map((t) => (
-                <p key={t.slice(0, 24)}>{t}</p>
-              ))}
-              <div className="cathero__cta">
-                <a className="btn btn--blue" href={waLink(WA_MESSAGES.generic)} target="_blank" rel="noopener">Get a Quote</a>
-                <a className="btn btn--line" href={`tel:${SITE.phoneHref}`}>Call {SITE.phoneDisplay}</a>
+            {c.intro.length > 1 && (
+              <div className="catintro">
+                {c.intro.slice(1).map((t) => (
+                  <p key={t.slice(0, 24)}>{t}</p>
+                ))}
               </div>
-            </header>
+            )}
 
             <div className="catsec__grid">
               {products.map((p, i) => (
