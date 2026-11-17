@@ -2418,3 +2418,56 @@ main.subpage>.phero:first-child{margin-top:-1.2rem}
    =========================================================== */
 .indcell::before,.procard::before{content:"";position:absolute;left:0;top:0;height:2px;width:0;background:var(--blue);z-index:3;transition:width .4s cubic-bezier(.22,.61,.36,1)}
 .indcell:hover::before,.procard:hover::before{width:100%}
+
+/* ===========================================================
+   Tap/click cleanup — kill the browser's default tap-highlight
+   flash on cards/links; replace with a clean navy focus ring
+   for keyboard users only.
+   =========================================================== */
+*{-webkit-tap-highlight-color:transparent}
+a,button{outline:none}
+a:focus-visible,button:focus-visible{outline:2px solid var(--blue);outline-offset:2px;border-radius:2px}
+
+/* ===========================================================
+   Theme boost — more navy presence across sections:
+   eyebrow gets a navy dash; section headings get a short navy
+   underline bar; link color unified to navy.
+   =========================================================== */
+.eyebrow::before{content:"";display:inline-block;width:26px;height:2px;background:var(--blue);margin-right:.55rem;vertical-align:middle}
+html #process .eyebrow::before{background:var(--yellow)}
+#gallery .projhead .eyebrow::before{background:var(--yellow)}
+.head h2::after,.indhead h2::after,.projhead h2::after,.wb__intro h2::after,.clientstrip__head h2::after{content:"";display:block;width:44px;height:3px;background:var(--blue);margin-top:.55rem;border-radius:2px}
+#process .head h2::after,#gallery .projhead h2::after{background:var(--yellow)}
+/* centered section heads: center the underline bar too */
+.head h2::after,.clientstrip__head h2::after{margin-left:auto;margin-right:auto}
+
+/* ===========================================================
+   PDP info redesign — premium B2B product-page pattern:
+   feature list as navy-check 2-col grid, key facts as a 2x2
+   hairline-cell grid (same language as the Why Us stats),
+   CTAs, then slim trust ticks. Replaces the old loose dl.
+   =========================================================== */
+.pdp__quick{grid-template-columns:1fr 1fr;gap:.55rem .9rem;margin-bottom:1.5rem}
+.pdp__quick li{padding-left:1.6rem;font-size:.92rem;line-height:1.45}
+.pdp__quick li::before{content:"✓";top:.1em;width:1.1rem;height:1.1rem;background:var(--blue);color:#fff;border-radius:50%;display:grid;place-items:center;font-size:.6rem;font-weight:700}
+.pdp__facts{display:grid;grid-template-columns:1fr 1fr;margin:0 0 1.4rem;border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.pdp__facts div{display:flex;flex-direction:column;gap:.15rem;padding:.8rem 1rem;border-bottom:1px solid var(--line)}
+.pdp__facts div:nth-child(odd){border-right:1px solid var(--line)}
+.pdp__facts div:nth-last-child(-n+2){border-bottom:0}
+.pdp__facts dt{font-family:var(--font-head);font-weight:600;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.pdp__facts dd{margin:0;font-family:var(--font-head);font-weight:600;font-size:.92rem;color:var(--slate)}
+.pdp__facts dd a{color:var(--blue)}
+.pdp__aka{color:var(--muted);font-size:.9rem;margin:0 0 .8rem}
+@media(max-width:560px){
+  .pdp__quick{grid-template-columns:1fr;gap:.45rem}
+  .pdp__facts div{padding:.65rem .8rem}
+  .pdp__facts dd{font-size:.86rem}
+}
+
+/* Our own map pin — sits over the `ll=` centre-only embed (which has
+   no Google card/marker). Tip of the pin points at the exact centre. */
+.csplit__pin{position:absolute;left:50%;top:50%;transform:translate(-50%,-100%);z-index:2;pointer-events:none;color:var(--red);filter:drop-shadow(0 3px 4px rgba(13,27,42,.35))}
+.csplit__pin svg{width:38px;height:38px}
+/* FAQ: visibly distinct from the white Clients/Contact around it —
+   soft navy tint band instead of a near-invisible gray. */
+#faq{background:var(--blue-soft)}

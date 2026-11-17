@@ -114,6 +114,13 @@ export default async function ProductPage({ params }: Params) {
                   ))}
                 </ul>
 
+                <dl className="pdp__facts">
+                  {isSS304(p) && <div><dt>Material</dt><dd>SS 304 food-grade steel</dd></div>}
+                  <div><dt>Sizes</dt><dd>Standard &amp; custom-made</dd></div>
+                  <div><dt>Warranty</dt><dd>1 year on every unit</dd></div>
+                  <div><dt>Category</dt><dd><Link href={catHref}>{p.cat}</Link></dd></div>
+                </dl>
+
                 <div className="pdp__actions">
                   <a className="btn btn--y" href={waLink(WA_MESSAGES.product(p.name))} target="_blank" rel="noopener">
                     Get a Quote on WhatsApp
@@ -123,15 +130,10 @@ export default async function ProductPage({ params }: Params) {
                   </a>
                 </div>
 
-                <dl className="pdp__meta">
-                  <div><dt>Category:</dt><dd><Link href={catHref}>{p.cat}</Link></dd></div>
-                  {isSS304(p) && <div><dt>Material:</dt><dd>SS 304 food-grade stainless steel</dd></div>}
-                  <div><dt>Sizes:</dt><dd>Standard &amp; custom-made to order</dd></div>
-                </dl>
                 <ul className="pdp__trust">
-                  <li>1 Year Warranty</li>
                   <li>Pan-India Installation</li>
                   <li>After-Sales Service &amp; AMC</li>
+                  <li>Factory-Direct Pricing</li>
                 </ul>
               </div>
             </div>
