@@ -117,7 +117,6 @@ export default async function ProductPage({ params }: Params) {
                   {isSS304(p) && <div><dt>Material</dt><dd>SS 304 food-grade steel</dd></div>}
                   <div><dt>Sizes</dt><dd>Standard &amp; custom-made</dd></div>
                   <div><dt>Warranty</dt><dd>1 year on every unit</dd></div>
-                  <div><dt>Category</dt><dd><Link href={catHref}>{p.cat}</Link></dd></div>
                 </dl>
 
                 <div className="pdp__actions">

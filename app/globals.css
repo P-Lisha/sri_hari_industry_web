@@ -2558,3 +2558,26 @@ html #process .eyebrow::before{background:var(--yellow)}
 /* Specifications + side cards section (replaces the old tabs) */
 .pdx{margin-top:clamp(2.6rem,5vw,4rem)}
 .pdx .pdp__tech{max-width:none}
+
+/* ===========================================================
+   PDP neatness pass (from visual review):
+   · product photo blends into the tint panel (no white sticker)
+   · facts: 3 equal cells in one row (Category cell removed)
+   · specs section: table left, side cards right replaced by
+     table full-width + 3 cards in a row below — no dead gap
+   =========================================================== */
+.pdp__img{mix-blend-mode:multiply}
+.pdp__facts{grid-template-columns:repeat(3,1fr)}
+.pdp__facts div{border-bottom:0;border-right:1px solid rgba(23,54,93,.14)}
+.pdp__facts div:nth-child(odd){border-right:1px solid rgba(23,54,93,.14)}
+.pdp__facts div:last-child{border-right:0}
+.pdx{display:block}
+.pdx .pdp__tech{max-width:none;margin-bottom:1.2rem}
+.pdx .pdesc2__side{grid-template-columns:repeat(3,1fr);align-items:stretch}
+@media(max-width:860px){
+  .pdp__facts{grid-template-columns:1fr 1fr}
+  .pdp__facts div{border-bottom:1px solid rgba(23,54,93,.14);border-right:0}
+  .pdp__facts div:nth-child(odd){border-right:1px solid rgba(23,54,93,.14)}
+  .pdp__facts div:nth-last-child(-n+2){border-bottom:0}
+  .pdx .pdesc2__side{grid-template-columns:1fr}
+}
