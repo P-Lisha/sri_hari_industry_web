@@ -2587,3 +2587,48 @@ html #process .eyebrow::before{background:var(--yellow)}
 .pdp__zoomhint{position:absolute;bottom:12px;right:12px;z-index:2;display:inline-flex;align-items:center;gap:.35rem;background:rgba(255,255,255,.95);color:var(--blue-d);font-family:var(--font-head);font-weight:600;font-size:.72rem;padding:.34rem .7rem;border-radius:50px;box-shadow:0 4px 10px rgba(13,27,42,.15);opacity:.9;transition:var(--t)}
 .pdp__zoomhint svg{width:14px;height:14px}
 .pdp__media--zoom:hover .pdp__zoomhint{opacity:1;transform:translateY(-2px)}
+
+/* ===========================================================
+   Warmth pass — the site had collapsed to navy/white/light-blue
+   only. Reintroduce the brand's warm gold as a disciplined
+   second accent (Nemil-style per-section accent rotation):
+   · gold underline bars under light-section headings
+   · gold label accents in the PDP facts box
+   · navy consultation band on the PDP with gold CTA
+   =========================================================== */
+.head h2::after,.indhead h2::after,.wb__intro h2::after,.clientstrip__head h2::after{background:var(--yellow)}
+.pdp__facts dt{color:var(--yellow-d)}
+.pdp__facts{border-left-color:var(--yellow)}
+.pdesc2__card h3{color:var(--yellow-d)}
+.pdesc2__card{border-left-color:var(--yellow)}
+
+.pdp-band{display:flex;align-items:center;justify-content:space-between;gap:1.2rem;flex-wrap:wrap;margin-top:clamp(2.4rem,5vw,3.6rem);padding:1.5rem 1.8rem;border-radius:8px;color:#fff;background:linear-gradient(135deg,var(--blue-d2),var(--blue-d) 60%,var(--blue))}
+.pdp-band__txt b{display:block;font-family:var(--font-head);font-weight:700;font-size:1.1rem;margin-bottom:.25rem}
+.pdp-band__txt p{margin:0;color:var(--on-navy);font-size:.92rem;line-height:1.55;max-width:52ch}
+.pdp-band__cta{display:flex;gap:.7rem;flex-wrap:wrap}
+.pdp-band .btn{flex:none}
+@media(max-width:560px){.pdp-band{padding:1.1rem 1rem}.pdp-band__cta{width:100%}.pdp-band .btn{flex:1;justify-content:center}}
+
+/* ===========================================================
+   Soft gold/green card surfaces — PDP info cards get light
+   brand-tint backgrounds with matching soft colour shadows:
+   Built to Last = soft gold, Ideal For = soft green (logo
+   green), Custom Build = soft navy. Facts box = soft gold.
+   =========================================================== */
+.pdesc2__card{background:#fdf8ec;border-color:rgba(229,169,40,.28);border-left-color:var(--yellow);box-shadow:0 10px 24px -14px rgba(198,140,14,.25)}
+.pdesc2__card h3{color:var(--yellow-d)}
+.pdesc2__card:nth-child(2){background:#eef8f4;border-color:rgba(21,154,120,.26);border-left-color:var(--green);box-shadow:0 10px 24px -14px rgba(14,122,94,.25)}
+.pdesc2__card:nth-child(2) h3{color:var(--green-d)}
+.pdesc2__card:nth-child(3){background:#eef2f8;border-color:rgba(23,54,93,.2);border-left-color:var(--blue);box-shadow:0 10px 24px -14px rgba(23,54,93,.28)}
+.pdesc2__card:nth-child(3) h3{color:var(--blue)}
+.pdp__facts{background:#fdf8ec;border-color:rgba(229,169,40,.28);border-left-color:var(--yellow);box-shadow:0 10px 24px -14px rgba(198,140,14,.22)}
+.pdp__facts div,.pdp__facts div:nth-child(odd){border-right-color:rgba(229,169,40,.25)}
+.pdp__facts div:last-child{border-right:0}
+
+/* Homepage warm touches — gold trust bar + fact chips, green hover
+   on industry cells. Stat cells stay white (deliberate). */
+.wb__trust{background:#fdf8ec;border-top-color:rgba(229,169,40,.3)}
+.fact{background:#fdf8ec;border-color:rgba(229,169,40,.35)}
+.indcell:hover{background:#eef8f4}
+.indcell:hover .indcell__body b{color:var(--green-d)}
+.indcell:hover .indcell__arrow{color:var(--green-d)}
