@@ -1273,6 +1273,7 @@ html,body{max-width:100%;overflow-x:hidden}
 .clientstrip{position:relative;padding:clamp(1.6rem,2.6vw,2.2rem) 0;background:#fff}
 .clientstrip__head{text-align:center;margin-bottom:clamp(.9rem,1.6vw,1.2rem)}
 .clientstrip__head h2{font-size:clamp(1.3rem,2.8vw,1.9rem);font-weight:700;color:var(--slate);margin:.6rem 0 0;max-width:600px;margin-inline:auto}
+.clientstrip__head p{color:var(--muted);font-size:1rem;line-height:1.65;margin:.7rem auto 0;max-width:540px}
 
 /* Two-row marquee: row A scrolls left, row B (reverse) scrolls right */
 .clientmarq{display:flex;flex-direction:column;gap:.9rem;margin-top:clamp(1rem,2vw,1.4rem);-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
@@ -1282,15 +1283,17 @@ html,body{max-width:100%;overflow-x:hidden}
 .clientmarq:hover .clientmarq__track{animation-play-state:paused}
 
 /* soft-tinted name chips: navy wordmark, gold border/glow on hover */
-.logocard{flex:0 0 auto;display:grid;place-items:center;min-width:170px;min-height:56px;padding:.8rem 1.3rem;background:var(--soft);border:1px solid var(--line);border-radius:6px;box-shadow:0 1px 2px rgba(15,23,42,.04);transition:var(--t)}
-.logocard__name{font-family:var(--font-head),system-ui,sans-serif;font-weight:600;font-size:1.05rem;color:var(--slate);white-space:nowrap;line-height:1.2;transition:var(--t)}
-.logocard:hover{transform:translateY(-3px);border-color:var(--yellow);box-shadow:0 12px 26px -12px rgba(229,169,40,.45)}
+.logocard{flex:0 0 auto;display:flex;flex-direction:column;align-items:center;justify-content:center;min-width:170px;min-height:60px;padding:.7rem 1.3rem;background:#fff;border:1px solid var(--line);border-radius:8px;box-shadow:0 1px 2px rgba(15,23,42,.04);transition:var(--t)}
+.logocard__name{font-family:var(--font-head),system-ui,sans-serif;font-weight:600;font-size:.98rem;color:var(--slate);white-space:nowrap;line-height:1.25;transition:var(--t)}
+.logocard__sector{font-size:.64rem;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);white-space:nowrap;margin-top:.18rem}
+.logocard:hover{transform:translateY(-3px);border-color:var(--blue);box-shadow:var(--shadow-sm)}
 
 @media(max-width:600px){
   .clientmarq{gap:.6rem;margin-top:1.4rem}
   .clientmarq__track{gap:.7rem}
-  .logocard{min-width:140px;min-height:48px;padding:.65rem 1rem}
-  .logocard__name{font-size:.92rem}
+  .logocard{min-width:140px;min-height:50px;padding:.55rem .95rem}
+  .logocard__name{font-size:.86rem}
+  .logocard__sector{font-size:.56rem}
 }
 
 /* Star row on each testimonial card */
@@ -1802,8 +1805,8 @@ html .sec.subpage{padding-top:2rem}
 /* ---- hero: lighter scrim, bigger & lighter headline, plain details ---- */
 .slide.active .slide__img{animation:none;transform:none}
 .slide__img{transform:none}
-.slide::after{background:linear-gradient(90deg,rgba(8,18,52,.74) 0%,rgba(8,18,52,.42) 50%,rgba(8,18,52,.05) 100%)}
-.hero h1,.hero .hero__h{font-size:clamp(1.9rem,4vw,2.9rem);font-weight:600;letter-spacing:-.035em;line-height:1.08;text-shadow:none}
+.slide::after{background:linear-gradient(90deg,rgba(8,18,52,.52) 0%,rgba(8,18,52,.26) 50%,rgba(8,18,52,0) 100%)}
+.hero h1,.hero .hero__h{font-size:clamp(1.9rem,4vw,2.9rem);font-weight:600;letter-spacing:-.035em;line-height:1.08;text-shadow:0 2px 22px rgba(8,18,52,.6)}
 .hero h1 span,.hero .hero__h span{color:inherit}
 .hero p{font-size:1.15rem;line-height:1.65}
 .hero__badge{background:none;border:0;padding:0;border-radius:0;animation:none;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase}
@@ -2197,68 +2200,60 @@ html .catpage.sec.subpage{padding-top:1rem}
 @media(min-width:641px) and (max-width:991px){html .prodgrid--home{grid-template-columns:repeat(4,1fr);gap:.9rem}html .prodgrid--home .procard__name{font-size:.95rem}}
 
 /* ===========================================================
-   "What Makes Us Unique" — theme-matched USP cards
-   (soft section background, centred .head header with green
-   eyebrow pill, six white cards with soft brand-colour icon
-   chips — same idiom as .wcard/.wico. Trust row + gold CTA
-   centred below. Markup: components/WhyUs.tsx)
+   "What Makes Us Unique" — corporate split layout
+   (intro column left: eyebrow, heading, copy, vertical trust
+   ticks, gold CTA. Right: 2-col USP grid, first card = navy
+   lead card. Teal only on ticks + tag, gold only on the CTA.
+   Markup: components/WhyUs.tsx)
    =========================================================== */
-#why-us{position:relative;overflow:hidden}
-#why-us::before{content:"";position:absolute;right:-140px;top:-140px;width:460px;height:460px;
-  border-radius:50%;background:radial-gradient(circle,var(--green-soft),transparent 68%)}
-#why-us::after{content:"";position:absolute;left:-150px;bottom:-170px;width:500px;height:500px;
-  border-radius:50%;background:radial-gradient(circle,var(--blue-soft),transparent 68%)}
-#why-us .wrap{position:relative;z-index:1}
-.wb__em{font-style:normal;color:var(--green-d);position:relative;z-index:0}
-.wb__em::after{content:"";position:absolute;left:-2px;right:-2px;bottom:.08em;height:.38em;
-  background:var(--yellow-soft);z-index:-1;border-radius:3px}
-.wb__grid{list-style:none;margin:0 0 2rem;padding:.6rem 0 0;
-  display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}
-/* tone = accent + icon-chip colour (soft bg + brand ink), like .wico */
-.wb__card{--chip-bg:var(--blue-soft);--chip-ink:var(--blue);
-  --acc1:var(--blue);--acc2:var(--blue-d);--acc-ink:#fff;
-  position:relative;background:#fff;border:1px solid var(--line);
-  border-radius:12px;padding:2rem 1.5rem 1.8rem;transition:var(--t);overflow:hidden}
-.wb__card::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;
-  background:linear-gradient(90deg,var(--acc1),var(--acc2))}
-.wb__card--g{--chip-bg:var(--green-soft);--chip-ink:var(--green-d);--acc1:var(--green);--acc2:var(--green-d)}
-.wb__card--y{--chip-bg:var(--yellow-soft);--chip-ink:var(--yellow-d);--acc1:var(--yellow);--acc2:var(--yellow-d);--acc-ink:#3a2900}
-.wb__card--r{--chip-bg:var(--red-soft);--chip-ink:var(--red);--acc1:var(--red);--acc2:var(--red-d)}
-.wb__card:hover{transform:translateY(-6px);box-shadow:var(--shadow-sm);border-color:transparent}
-.wb__ic{width:58px;height:58px;border-radius:14px;display:grid;place-items:center;
-  background:var(--chip-bg);color:var(--chip-ink);margin-bottom:1.1rem;transition:var(--t)}
-.wb__ic svg{width:28px;height:28px}
-.wb__card:hover .wb__ic{background:linear-gradient(135deg,var(--acc1),var(--acc2));
-  color:var(--acc-ink);transform:translateY(-2px) scale(1.05)}
-.wb__tag{position:absolute;top:1.2rem;right:1.2rem;background:var(--green-soft);
-  color:var(--green-d);font-size:.64rem;font-weight:700;letter-spacing:.08em;
-  padding:.24rem .62rem;border-radius:50px;text-transform:uppercase}
-.wb__card b{display:block;font-family:var(--font-head),system-ui,sans-serif;font-weight:700;
-  font-size:1.1rem;color:var(--slate);line-height:1.3;margin-bottom:.45rem}
-.wb__card p{margin:0;color:var(--muted);font-size:.88rem;line-height:1.6}
-.wb__foot{display:flex;flex-direction:column;align-items:center;gap:1.1rem;text-align:center;
-  border-top:1px solid var(--line);padding-top:1.6rem}
-.wb__badges{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;gap:.6rem;margin:0;padding:0}
-.wb__badges li{display:inline-flex;align-items:center;gap:.5rem;background:#fff;
-  border:1px solid var(--line);border-radius:50px;padding:.45rem 1.05rem;
-  font-size:.78rem;font-weight:600;color:var(--ink)}
-.wb__badges li::before{content:"✓";color:#fff;background:var(--green);width:1.15rem;height:1.15rem;
-  border-radius:50%;display:grid;place-items:center;font-size:.62rem;font-weight:700;flex:none}
+.wb__em{font-style:normal;color:var(--green-d)}
+.wb__cols{display:grid;grid-template-columns:minmax(280px,5fr) 7fr;
+  gap:clamp(1.8rem,4vw,3.4rem);align-items:center}
+.wb__intro h2{font-size:clamp(1.9rem,3.6vw,2.5rem);font-weight:600;letter-spacing:-.03em;
+  line-height:1.12;color:var(--slate);margin:.9rem 0 1rem;text-wrap:balance}
+.wb__intro>p{color:var(--muted);font-size:1.02rem;line-height:1.7;margin:0 0 1.5rem;max-width:44ch}
+.wb__grid{list-style:none;margin:0;padding:0;
+  display:grid;grid-template-columns:1fr 1fr;gap:.9rem}
+.wb__card--lead{grid-column:1/-1;background:var(--navy);border-color:var(--navy)}
+.wb__card--lead b{color:#fff}
+.wb__card--lead p{color:var(--on-navy-2)}
+.wb__card--lead .wb__ic{background:rgba(21,154,120,.18);color:var(--green)}
+.wb__card--lead .wb__tag{border-color:var(--yellow);color:var(--yellow)}
+.wb__card--lead:hover{border-color:var(--green);box-shadow:var(--shadow)}
+.wb__card--lead:hover .wb__ic{background:var(--green);color:#fff}
+.wb__card{position:relative;background:#fff;border:1px solid var(--line);
+  border-radius:10px;padding:1.45rem 1.4rem;
+  display:grid;grid-template-columns:auto 1fr;grid-template-rows:auto 1fr;
+  column-gap:1rem;align-items:start;transition:var(--t)}
+.wb__card:hover{transform:translateY(-3px);box-shadow:var(--shadow-sm);border-color:var(--blue)}
+.wb__ic{grid-row:1/3;width:46px;height:46px;border-radius:10px;display:grid;place-items:center;
+  background:var(--blue-soft);color:var(--blue);transition:var(--t)}
+.wb__ic svg{width:22px;height:22px}
+.wb__card:hover .wb__ic{background:var(--blue);color:#fff}
+.wb__tag{position:absolute;top:1rem;right:1rem;border:1px solid var(--green);
+  color:var(--green-d);font-size:.6rem;font-weight:700;letter-spacing:.08em;
+  padding:.18rem .55rem;border-radius:50px;text-transform:uppercase}
+.wb__card b{display:block;font-family:var(--font-head),system-ui,sans-serif;font-weight:600;
+  font-size:1.02rem;color:var(--slate);line-height:1.3;margin:.12rem 0 .3rem}
+.wb__card p{grid-column:2;margin:0;color:var(--muted);font-size:.87rem;line-height:1.6}
+.wb__badges{list-style:none;display:flex;flex-direction:column;align-items:flex-start;
+  gap:.65rem;margin:0 0 1.7rem;padding:0}
+.wb__badges li{display:inline-flex;align-items:center;gap:.6rem;
+  font-size:.88rem;font-weight:600;color:var(--ink)}
+.wb__badges li::before{content:"✓";color:#fff;background:var(--green);width:1.2rem;height:1.2rem;
+  border-radius:50%;display:grid;place-items:center;font-size:.64rem;font-weight:700;flex:none}
 .wb__cta{flex:none}
 @media(max-width:900px){
-  .wb__grid{grid-template-columns:1fr 1fr;gap:1.1rem}
+  .wb__cols{grid-template-columns:1fr;gap:1.8rem}
+  .wb__intro>p{max-width:56ch}
 }
 @media(max-width:560px){
-  .wb__grid{gap:.8rem;margin-bottom:1.6rem}
-  .wb__card{padding:1.5rem 1rem 1.3rem}
-  .wb__card b{font-size:.98rem}
-  .wb__card p{font-size:.78rem;line-height:1.5}
-  .wb__ic{width:48px;height:48px;border-radius:12px;margin-bottom:.8rem}
-  .wb__ic svg{width:24px;height:24px}
-  .wb__foot{gap:.9rem;padding-top:1.3rem}
-  .wb__badges{gap:.45rem}
-  .wb__badges li{font-size:.7rem;padding:.38rem .85rem}
-}
-@media(max-width:420px){
-  .wb__grid{grid-template-columns:1fr}
+  .wb__grid{grid-template-columns:1fr;gap:.7rem}
+  .wb__card{padding:1.05rem 1rem;column-gap:.85rem}
+  .wb__card b{font-size:.95rem}
+  .wb__card p{font-size:.8rem;line-height:1.5}
+  .wb__ic{width:40px;height:40px;border-radius:9px}
+  .wb__ic svg{width:20px;height:20px}
+  .wb__badges{gap:.5rem;margin-bottom:1.4rem}
+  .wb__badges li{font-size:.8rem}
 }

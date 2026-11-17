@@ -4,10 +4,11 @@
    EDIT CONTENT HERE.
 
    CLIENTS — the real brands / establishments you supply,
-   shown as NAME chips running in two auto-scrolling rows
-   (opposite directions, pause on hover) — the "trust wall"
-   look common on commercial kitchen equipment sites.
-   Names only — no logos, no icons, no invented quotes/testimonials.
+   shown as name cards (name + sector line of business)
+   running in two auto-scrolling rows (opposite directions,
+   pause on hover) — the "trust wall" look common on
+   commercial kitchen equipment sites.
+   No logos, no icons, no invented quotes/testimonials.
 
    To ADD / EDIT a client: change the CLIENTS list below —
    the two rows and the screen-reader list update automatically.
@@ -16,37 +17,38 @@
    "Industries We Serve" section — Services.tsx.)
    =========================================================== */
 
-// ---- Real clients (name chips) ----
-const CLIENTS: string[] = [
-  'Amrita Viswapeedam',
-  'Mahindra',
-  'BorgWarner',
-  'Orbinox',
-  'Suguna Foods',
-  'SE Forge',
-  'Hotel Tamara',
-  'Madras Regimental Centre',
-  'Royal Care Hospital',
-  'Metamorphosis Brewing',
-  'Pancon Knits',
-  'Nila Sea Foods',
-  'Kerala Nut Food',
-  'Icon International School',
-  'Yellow Train',
-  'The Lotus Social Club',
+// ---- Real clients (name + line of business) ----
+const CLIENTS: { name: string; sector: string }[] = [
+  { name: 'Amrita Viswapeedam', sector: 'Education' },
+  { name: 'Mahindra', sector: 'Automotive' },
+  { name: 'BorgWarner', sector: 'Automotive' },
+  { name: 'Orbinox', sector: 'Engineering' },
+  { name: 'Suguna Foods', sector: 'Food Processing' },
+  { name: 'SE Forge', sector: 'Wind Energy' },
+  { name: 'Hotel Tamara', sector: 'Hospitality' },
+  { name: 'Madras Regimental Centre', sector: 'Defence' },
+  { name: 'Royal Care Hospital', sector: 'Healthcare' },
+  { name: 'Metamorphosis Brewing', sector: 'Microbrewery' },
+  { name: 'Pancon Knits', sector: 'Textiles' },
+  { name: 'Nila Sea Foods', sector: 'Seafood Exports' },
+  { name: 'Kerala Nut Food', sector: 'Food Products' },
+  { name: 'Icon International School', sector: 'Education' },
+  { name: 'Yellow Train', sector: 'Education' },
+  { name: 'The Lotus Social Club', sector: 'Social Club' },
 ];
 
 const ROW_A = CLIENTS.slice(0, Math.ceil(CLIENTS.length / 2));
 const ROW_B = CLIENTS.slice(Math.ceil(CLIENTS.length / 2));
 
-function ClientRow({ names, reverse }: { names: string[]; reverse?: boolean }) {
-  const looped = [...names, ...names];
+function ClientRow({ items, reverse }: { items: typeof CLIENTS; reverse?: boolean }) {
+  const looped = [...items, ...items];
   return (
     <div className={`clientmarq__row${reverse ? ' clientmarq__row--rev' : ''}`}>
       <div className="clientmarq__track">
-        {looped.map((name, i) => (
-          <div className="logocard" key={`${name}-${i}`} title={name}>
-            <span className="logocard__name">{name}</span>
+        {looped.map((c, i) => (
+          <div className="logocard" key={`${c.name}-${i}`} title={c.name}>
+            <span className="logocard__name">{c.name}</span>
+            <span className="logocard__sector">{c.sector}</span>
           </div>
         ))}
       </div>
@@ -61,18 +63,24 @@ export function Clients() {
         <div className="clientstrip__head reveal">
           <span className="eyebrow eyebrow--y">Our Clients</span>
           <h2>Trusted by leading restaurants, hotels &amp; institutions across India</h2>
+          <p>
+            {CLIENTS.length}+ organisations — from defence messes and hospitals to
+            microbreweries — run their kitchens on our equipment.
+          </p>
         </div>
 
         {/* Real, un-duplicated list for screen readers / SEO — the marquee below is decorative. */}
         <ul className="sr-only">
-          {CLIENTS.map((name) => (
-            <li key={name}>{name}</li>
+          {CLIENTS.map((c) => (
+            <li key={c.name}>
+              {c.name} ({c.sector})
+            </li>
           ))}
         </ul>
 
         <div className="clientmarq reveal" aria-hidden="true">
-          <ClientRow names={ROW_A} />
-          <ClientRow names={ROW_B} reverse />
+          <ClientRow items={ROW_A} />
+          <ClientRow items={ROW_B} reverse />
         </div>
       </div>
     </section>

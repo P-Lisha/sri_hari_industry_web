@@ -32,6 +32,6 @@ for (const name of ['hero-kitchen', 'hero-workshop', 'hero-kettles']) {
   let pipe = sharp(src).resize({ width: small ? 1600 : 1920, withoutEnlargement: !small, kernel: 'lanczos3' });
   if (ADJUST[name]) pipe = pipe.modulate(ADJUST[name]);
   if (small) pipe = pipe.sharpen({ sigma: 1 });
-  const info = await pipe.webp({ quality: 85 }).toFile(join(DIR, `${name}-hd.webp`));
+  const info = await pipe.webp({ quality: 92, effort: 6, smartSubsample: true }).toFile(join(DIR, `${name}-hd.webp`));
   console.log(`wrote ${name}-hd.webp`, `${info.width}x${info.height}`, `${Math.round(info.size / 1024)}KB`);
 }
