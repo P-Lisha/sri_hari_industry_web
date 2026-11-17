@@ -3,8 +3,8 @@ import { SITE } from '@/lib/site';
 export const runtime = 'nodejs';
 
 const MAX = { name: 100, phone: 30, email: 200, product: 100, message: 3000 };
-const BLUE = '#2a53a5';
-const BLUE_DARK = '#152c5c';
+const BLUE = '#17365d';
+const BLUE_DARK = '#0a1b33';
 
 function clean(v: unknown, max: number): string {
   return typeof v === 'string' ? v.trim().slice(0, max) : '';
@@ -27,7 +27,7 @@ function buildHtml(f: {
   const row = (label: string, valueHtml: string) =>
     `<tr>
       <td style="padding:12px 16px;width:150px;background:#f3f6fc;border-bottom:1px solid #e3e9f5;color:#5b6b8a;font-size:13px;font-weight:600;vertical-align:top">${esc(label)}</td>
-      <td style="padding:12px 16px;border-bottom:1px solid #e3e9f5;color:#0c1a30;font-size:15px;vertical-align:top">${valueHtml}</td>
+      <td style="padding:12px 16px;border-bottom:1px solid #e3e9f5;color:#263445;font-size:15px;vertical-align:top">${valueHtml}</td>
     </tr>`;
 
   const emailCell = f.email
