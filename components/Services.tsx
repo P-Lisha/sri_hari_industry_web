@@ -1,35 +1,39 @@
 /* ===========================================================
-   SRI HARI INDUSTRIES — Industries We Serve (flat sector list)
+   SRI HARI INDUSTRIES — Industries We Serve
    --------------------------------------------------------
-   WHO we serve — a plain, monochrome list so this reads as a
-   premium B2B capability list rather than a colourful app grid:
-   · 12 uniform sector rows — one icon colour, name, arrow cue
-   · 1 navy CTA card ("Don't see your sector?") spanning the row
+   Premium numbered hairline grid (Siemens / NKR pattern — no
+   photos here; "Kitchens We've Built" owns the photography):
+   · 6 featured sectors as hairline cells with large navy index
+     numbers (01–06), sector name + arrow (hover: navy underline)
+   · remaining sectors as a slim "Also serving" text row
+   · 1 navy CTA card ("Don't see your sector?")
    Split header: copy left, live fact chips right.
-   Every row opens a pre-filled WhatsApp enquiry.
-   Styling lives in globals.css under #industries / .itile.
+   Every cell opens a pre-filled WhatsApp enquiry.
+   Styling lives in globals.css under #industries / .indcell.
    EDIT CONTENT HERE.
    =========================================================== */
 
 import { Icon } from './Icons';
 import { waLink, WA_MESSAGES } from '@/lib/site';
 
-// The sectors we build for.
-// Ordered by real presence in our client base — marriage halls & convention
-// centres (our largest segment) first, down to specialist sectors.
-const SECTORS: { label: string }[] = [
-  { label: 'Marriage Halls & Convention Centres' },
-  { label: 'Hotels & Resorts' },
-  { label: 'Industrial & Corporate Canteens' },
-  { label: 'Restaurants & Cafés' },
-  { label: 'Educational Institutions' },
-  { label: 'Hospitals & Healthcare' },
-  { label: 'Catering Services' },
-  { label: 'Microbreweries & Bars' },
-  { label: 'Bakeries & Sweet Shops' },
-  { label: 'Food Processing Units' },
-  { label: 'Defence & Government' },
-  { label: 'Social & Recreation Clubs' },
+// Featured sectors — our 6 biggest segments, with a one-line capability note.
+const FEATURED: { label: string; note: string }[] = [
+  { label: 'Marriage Halls & Convention Centres', note: 'Bulk cooking lines for 1000+ plates a sitting' },
+  { label: 'Hotels & Resorts', note: 'Multi-cuisine kitchens, buffet and banquet lines' },
+  { label: 'Industrial & Corporate Canteens', note: 'High-output lines that run three shifts' },
+  { label: 'Restaurants & Cafés', note: 'Compact layouts that maximise every square foot' },
+  { label: 'Hospitals & Healthcare', note: 'Hygiene-first SS 304 diet kitchens' },
+  { label: 'Educational Institutions', note: 'Hostel and mess kitchens built for daily volume' },
+];
+
+// Specialist sectors — compact text links below the photo grid.
+const MORE: string[] = [
+  'Catering Services',
+  'Microbreweries & Bars',
+  'Bakeries & Sweet Shops',
+  'Food Processing Units',
+  'Defence & Government',
+  'Social & Recreation Clubs',
 ];
 
 const enquiry = (sector: string) => waLink(WA_MESSAGES.sector(sector));
@@ -62,38 +66,51 @@ export function Services() {
           </div>
         </div>
 
-        <div className="bento reveal">
-          {SECTORS.map((s) => (
+        <div className="indgrid reveal">
+          {FEATURED.map((s, i) => (
             <a
-              className="itile"
+              className="indcell"
               key={s.label}
               href={enquiry(s.label)}
               target="_blank"
               rel="noopener"
               aria-label={`Enquire about kitchen equipment for ${s.label}`}
             >
-              <span className="itile__label">{s.label}</span>
-              <Icon name="i-arrow" className="itile__arrow" />
+              <span className="indcell__num">{String(i + 1).padStart(2, '0')}</span>
+              <span className="indcell__body">
+                <b>{s.label}</b>
+                <small>{s.note}</small>
+              </span>
+              <Icon name="i-arrow" className="indcell__arrow" />
             </a>
           ))}
+        </div>
 
-          <div className="bcta">
-            <div className="bcta__txt">
-              <b>Don&rsquo;t see your sector?</b>
-              <p>
-                Every piece is custom-fabricated to your menu, volume and layout — tell us
-                what you run.
-              </p>
-            </div>
-            <a
-              className="btn btn--ghost"
-              href={waLink(WA_MESSAGES.turnkey)}
-              target="_blank"
-              rel="noopener"
-            >
-              Talk to Our Team
+        <div className="indmore reveal" aria-label="More sectors we serve">
+          <span className="indmore__label">Also serving</span>
+          {MORE.map((s) => (
+            <a key={s} href={enquiry(s)} target="_blank" rel="noopener">
+              {s}
             </a>
+          ))}
+        </div>
+
+        <div className="bcta reveal">
+          <div className="bcta__txt">
+            <b>Don&rsquo;t see your sector?</b>
+            <p>
+              Every piece is custom-fabricated to your menu, volume and layout — tell us
+              what you run.
+            </p>
           </div>
+          <a
+            className="btn btn--ghost"
+            href={waLink(WA_MESSAGES.turnkey)}
+            target="_blank"
+            rel="noopener"
+          >
+            Talk to Our Team
+          </a>
         </div>
       </div>
     </section>
