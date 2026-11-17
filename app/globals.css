@@ -2309,26 +2309,20 @@ main.subpage>.phero:first-child{margin-top:-1.2rem}
 .indgrid{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line);margin-bottom:1.1rem}
 .indcell{display:flex;align-items:flex-start;gap:.9rem;padding:1.3rem 1.2rem;background:#fff;border-right:1px solid var(--line);border-bottom:1px solid var(--line);transition:var(--t)}
 .indcell:hover{background:var(--soft)}
-.indcell__num{flex:none;font-family:var(--font-head);font-weight:800;font-size:1.5rem;line-height:1.1;color:var(--blue);opacity:.35;transition:var(--t)}
-.indcell:hover .indcell__num{opacity:1}
 .indcell__body{flex:1;min-width:0}
 .indcell__body b{display:block;font-family:var(--font-head);font-weight:600;font-size:.98rem;line-height:1.3;color:var(--slate);transition:var(--t)}
 .indcell:hover .indcell__body b{color:var(--blue)}
 .indcell__body small{display:block;margin-top:.25rem;font-size:.8rem;line-height:1.45;color:var(--muted)}
-.indcell__arrow{flex:none;align-self:center;width:16px;height:16px;color:var(--muted);fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;transition:var(--t)}
-.indcell:hover .indcell__arrow{color:var(--blue);transform:translateX(4px)}
 .indmore{display:flex;flex-wrap:wrap;align-items:center;gap:.4rem .9rem;margin-bottom:1.1rem;padding:.75rem 0;border-bottom:1px solid var(--line)}
 .indmore__label{font-family:var(--font-head);font-weight:600;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-right:.3rem}
-.indmore a{font-size:.88rem;font-weight:500;color:var(--ink);transition:var(--t)}
-.indmore a:hover{color:var(--blue);text-decoration:underline;text-underline-offset:3px}
+.indmore span:not(.indmore__label){font-size:.88rem;font-weight:500;color:var(--ink)}
 @media(max-width:900px){.indgrid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:560px){
   .indgrid{grid-template-columns:1fr}
   .indcell{padding:.85rem .8rem;gap:.7rem}
-  .indcell__num{font-size:1.2rem}
   .indcell__body b{font-size:.88rem}
   .indcell__body small{font-size:.74rem}
-  .indmore a{font-size:.8rem}
+  .indmore span:not(.indmore__label){font-size:.8rem}
 }
 
 /* ===========================================================
@@ -2358,3 +2352,45 @@ main.subpage>.phero:first-child{margin-top:-1.2rem}
   .wb__trust{padding:.7rem 1rem;gap:.35rem .9rem}
   .wb__trust li{font-size:.76rem}
 }
+
+/* ===========================================================
+   Cursor spotlight — soft navy glow that follows the mouse
+   inside Industries cells and the Why Us panel. Position comes
+   from --sx/--sy set by components/CursorSpotlight.tsx.
+   =========================================================== */
+.indcell,.wb__panel{position:relative;overflow:hidden}
+.indcell::after,.wb__panel::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .35s ease;background:radial-gradient(220px circle at var(--sx,50%) var(--sy,50%),rgba(23,54,93,.08),transparent 65%)}
+.wb__panel::after{background:radial-gradient(340px circle at var(--sx,50%) var(--sy,50%),rgba(23,54,93,.07),transparent 65%)}
+.indcell:hover::after,.wb__panel:hover::after{opacity:1}
+@media(hover:none),(prefers-reduced-motion:reduce){.indcell::after,.wb__panel::after{display:none}}
+
+/* ===========================================================
+   Product page polish — trust ticks under the CTA row (same
+   language as the Why Us trust bar) + spec table refinements.
+   =========================================================== */
+.pdp__trust{list-style:none;display:flex;flex-wrap:wrap;gap:.4rem 1.3rem;margin:1rem 0 0;padding:0}
+.pdp__trust li{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--font-head);font-weight:600;font-size:.84rem;color:var(--slate)}
+.pdp__trust li::before{content:"✓";color:#fff;background:var(--blue);width:1.1rem;height:1.1rem;border-radius:50%;display:grid;place-items:center;font-size:.6rem;font-weight:700;flex:none}
+.pdp__tech tr:hover td{background:var(--soft)}
+@media(max-width:560px){.pdp__trust{gap:.35rem .9rem}.pdp__trust li{font-size:.78rem}}
+
+/* ===========================================================
+   Section rhythm v2 — break the long light run after Process.
+   Flow: Industries(white) -> Gallery(DARK navy, cinematic) ->
+   Clients(white) -> FAQ(deeper gray) -> Contact(white).
+   The white showcase card floats on the navy band; heading and
+   lead go light. Light grays deepened so the rhythm reads.
+   =========================================================== */
+#gallery{background:linear-gradient(180deg,var(--blue-d2),var(--blue-d))}
+#gallery .projhead h2{color:#fff}
+#gallery .projhead .eyebrow{color:var(--yellow)}
+#gallery .projhead p{color:var(--on-navy)}
+#gallery .projhead .btn--line{background:transparent;border:1.5px solid rgba(255,255,255,.55);color:#fff}
+#gallery .projhead .btn--line:hover{background:#fff;color:var(--blue-d)}
+#gallery .projtabs button{background:transparent;border-color:rgba(255,255,255,.3);color:var(--on-navy)}
+#gallery .projtabs button:hover{border-color:#fff;color:#fff}
+#gallery .projtabs button.on{background:#fff;border-color:#fff;color:var(--blue-d)}
+#gallery .showcase{border-color:rgba(255,255,255,.14);box-shadow:0 30px 60px -30px rgba(0,0,0,.5)}
+#products{background:#f3f6fa}
+#faq{background:#f3f6fa}
+#contact{background:#ffffff}

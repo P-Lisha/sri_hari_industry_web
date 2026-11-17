@@ -14,13 +14,13 @@
 import { SITE, waLink, WA_MESSAGES } from '@/lib/site';
 
 const STATS: { num: string; label: string }[] = [
-  { num: '15+', label: 'Years of manufacturing' },
-  { num: '300+', label: 'Projects delivered' },
-  { num: '500+', label: 'Happy clients' },
+  { num: '100%', label: 'In-house fabrication' },
+  { num: '1 Yr', label: 'Warranty on every equipment' },
+  { num: '3D', label: 'Design before we build' },
   { num: '24/7', label: 'Service support' },
 ];
 
-const TRUST: string[] = ['1 Year Warranty', 'AMC Available', 'Factory-Direct Pricing'];
+const TRUST: string[] = ['Factory-Direct Pricing', 'AMC Available', 'Pan-India Installation'];
 
 export function WhyUs() {
   return (
@@ -37,7 +37,7 @@ export function WhyUs() {
           </p>
           <ul className="wb__badges">
             <li>{SITE.iso} Certified Manufacturer</li>
-            <li>Factory-Direct Pricing</li>
+            <li>Own Manufacturing Unit</li>
             <li>Made in Coimbatore</li>
           </ul>
           <a

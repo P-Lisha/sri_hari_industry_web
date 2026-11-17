@@ -15,6 +15,7 @@ import { Footer } from '@/components/Footer';
 import { BackToTop } from '@/components/BackToTop';
 import { WhatsAppFab } from '@/components/WhatsAppFab';
 import { ScrollReveal } from '@/components/ScrollReveal';
+import { CursorSpotlight } from '@/components/CursorSpotlight';
 
 export default function Home() {
   return (
@@ -37,6 +38,7 @@ export default function Home() {
       <BackToTop />
       <WhatsAppFab />
       <ScrollReveal />
+      <CursorSpotlight />
       <JsonLd />
     </>
   );

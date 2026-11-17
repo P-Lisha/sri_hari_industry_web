@@ -3,17 +3,16 @@
    --------------------------------------------------------
    Premium numbered hairline grid (Siemens / NKR pattern — no
    photos here; "Kitchens We've Built" owns the photography):
-   · 6 featured sectors as hairline cells with large navy index
-     numbers (01–06), sector name + arrow (hover: navy underline)
+   · 6 featured sectors as plain hairline cells (sector name +
+     capability note — informational, not clickable)
    · remaining sectors as a slim "Also serving" text row
-   · 1 navy CTA card ("Don't see your sector?")
+   · 1 navy CTA card ("Don't see your sector?") — the only
+     WhatsApp entry point in this section.
    Split header: copy left, live fact chips right.
-   Every cell opens a pre-filled WhatsApp enquiry.
    Styling lives in globals.css under #industries / .indcell.
    EDIT CONTENT HERE.
    =========================================================== */
 
-import { Icon } from './Icons';
 import { waLink, WA_MESSAGES } from '@/lib/site';
 
 // Featured sectors — our 6 biggest segments, with a one-line capability note.
@@ -35,8 +34,6 @@ const MORE: string[] = [
   'Defence & Government',
   'Social & Recreation Clubs',
 ];
-
-const enquiry = (sector: string) => waLink(WA_MESSAGES.sector(sector));
 
 export function Services() {
   return (
@@ -67,31 +64,20 @@ export function Services() {
         </div>
 
         <div className="indgrid reveal">
-          {FEATURED.map((s, i) => (
-            <a
-              className="indcell"
-              key={s.label}
-              href={enquiry(s.label)}
-              target="_blank"
-              rel="noopener"
-              aria-label={`Enquire about kitchen equipment for ${s.label}`}
-            >
-              <span className="indcell__num">{String(i + 1).padStart(2, '0')}</span>
+          {FEATURED.map((s) => (
+            <div className="indcell" key={s.label}>
               <span className="indcell__body">
                 <b>{s.label}</b>
                 <small>{s.note}</small>
               </span>
-              <Icon name="i-arrow" className="indcell__arrow" />
-            </a>
+            </div>
           ))}
         </div>
 
         <div className="indmore reveal" aria-label="More sectors we serve">
           <span className="indmore__label">Also serving</span>
           {MORE.map((s) => (
-            <a key={s} href={enquiry(s)} target="_blank" rel="noopener">
-              {s}
-            </a>
+            <span key={s}>{s}</span>
           ))}
         </div>
 
