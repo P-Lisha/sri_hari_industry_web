@@ -2482,3 +2482,79 @@ html #process .eyebrow::before{background:var(--yellow)}
 .bgvideo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;filter:saturate(.8)}
 .bgvideo__scrim{position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(180deg,rgba(10,27,51,.93) 0%,rgba(10,27,51,.82) 50%,rgba(10,27,51,.93) 100%)}
 @media(prefers-reduced-motion:reduce){.bgvideo{display:none}}
+
+/* Enquiry form card: brand navy gradient (was flat slate) so the
+   form carries the theme like the other navy featured cards. */
+.cform{background:linear-gradient(135deg,var(--blue-d2),var(--blue-d) 60%,var(--blue));border-color:rgba(255,255,255,.14)}
+.cform .btn--blue{background:linear-gradient(135deg,var(--yellow),var(--yellow-d));color:#3a2900}
+.cform label{color:var(--on-navy)}
+.cform__head h3{color:#fff}
+.cform__head p{color:var(--on-navy)}
+.cform input,.cform select,.cform textarea{background:rgba(255,255,255,.95);border-color:transparent}
+.cform input:focus,.cform select:focus,.cform textarea:focus{background:#fff;box-shadow:0 0 0 3px rgba(229,169,40,.35);border-color:var(--yellow)}
+
+/* ===========================================================
+   PDP page arrangement v2 — kill the all-white flatness:
+   soft navy tint band at the top fading to white, product image
+   on a white card that stays sticky while the info scrolls,
+   related products on a gray band for rhythm.
+   =========================================================== */
+.pdp-wrap{background:linear-gradient(180deg,var(--blue-soft) 0%,rgba(233,238,245,.4) 34%,#fff 62%)}
+.pdp{margin-top:1rem}
+.pdp__media{background:#fff;border:1px solid var(--line);border-radius:8px;position:sticky;top:96px}
+.pdp__img{mix-blend-mode:normal}
+.pdp__info{background:transparent}
+.ptabs__bar{background:#fff}
+.pdp__related{background:#f3f6fa;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);padding:clamp(2rem,4vw,3rem) calc(50vw - 50%) clamp(2.2rem,4vw,3.2rem)}
+@media(max-width:860px){.pdp__media{position:static}}
+
+/* ===========================================================
+   PDP Nemil-style boxes — corner-cut panels and navy-tint
+   surfaces (Nemil's offer-stage/chip pattern mapped to navy):
+   · product image card: top-right corner cut, hairline
+   · key-facts box: navy 7% tint + 2px navy left bar, corner cut
+   · trust ticks -> tinted chips (navy 10% bg / 40% border)
+   =========================================================== */
+.pdp__media{border-radius:0;clip-path:polygon(0 0,calc(100% - 16px) 0,100% 16px,100% 100%,0 100%)}
+.pdp__facts{border-radius:0;border:0;border-left:2px solid var(--blue);background:rgba(23,54,93,.06);clip-path:polygon(0 0,calc(100% - 12px) 0,100% 12px,100% 100%,0 100%)}
+.pdp__facts div{border-color:rgba(23,54,93,.14)}
+.pdp__facts div:nth-child(odd){border-right-color:rgba(23,54,93,.14)}
+.pdp__trust{gap:.45rem .5rem}
+.pdp__trust li{background:rgba(23,54,93,.08);border:1px solid rgba(23,54,93,.35);padding:.42rem .8rem;clip-path:polygon(0 0,calc(100% - 8px) 0,100% 8px,100% 100%,0 100%)}
+.pdp__trust li::before{background:var(--blue)}
+
+/* v2 — background-first, no corner cuts: restore straight corners,
+   give the image panel a soft navy-tint surface so the product
+   sits on a coloured background (Nemil box feel via tint, not cut). */
+.pdp__media,.pdp__facts,.pdp__trust li{clip-path:none}
+.pdp__media{border-radius:8px;background:linear-gradient(160deg,#eef2f8,#dde6f2);border:1px solid rgba(23,54,93,.16)}
+.pdp__facts{border-radius:8px;border:1px solid rgba(23,54,93,.16);border-left:2px solid var(--blue)}
+.pdp__trust li{border-radius:50px}
+
+/* ===========================================================
+   PDP Description tab v2 — structured arrangement:
+   Overview + navy-check feature grid left; right rail of three
+   tinted cards (Quality / Ideal For chips / Customisation CTA).
+   =========================================================== */
+.pdesc2{display:grid;grid-template-columns:1.5fr 1fr;gap:clamp(1.6rem,4vw,3rem);align-items:start}
+.pdesc2__main>p{color:var(--muted);line-height:1.75;font-size:1rem;margin-bottom:1.4rem}
+.pdesc2__main h3{font-size:1.05rem;font-weight:600;color:var(--slate);margin:0 0 .8rem}
+.pdesc2__feats{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:1fr 1fr;gap:.55rem .9rem}
+.pdesc2__feats li{position:relative;padding-left:1.6rem;font-size:.92rem;line-height:1.5;color:var(--ink)}
+.pdesc2__feats li::before{content:"✓";position:absolute;left:0;top:.1em;width:1.1rem;height:1.1rem;border-radius:50%;background:var(--blue);color:#fff;display:grid;place-items:center;font-size:.6rem;font-weight:700}
+.pdesc2__side{display:grid;gap:.9rem}
+.pdesc2__card{background:rgba(23,54,93,.05);border:1px solid rgba(23,54,93,.14);border-left:2px solid var(--blue);border-radius:8px;padding:1.1rem 1.2rem}
+.pdesc2__card h3{font-family:var(--font-head);font-weight:600;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);margin:0 0 .6rem}
+.pdesc2__card ul{list-style:none;padding:0;margin:0;display:grid;gap:.45rem}
+.pdesc2__card ul li{position:relative;padding-left:1.1rem;font-size:.88rem;line-height:1.5;color:var(--ink)}
+.pdesc2__card ul li::before{content:"";position:absolute;left:0;top:.6em;width:.4rem;height:.4rem;background:var(--blue);border-radius:1px}
+.pdesc2__chips{display:flex!important;flex-wrap:wrap;gap:.45rem}
+.pdesc2__chips li{padding:.34rem .75rem!important;background:#fff;border:1px solid rgba(23,54,93,.25);border-radius:50px;font-size:.8rem!important;font-weight:600;color:var(--slate)}
+.pdesc2__chips li::before{display:none}
+.pdesc2__card--cta p{margin:0;font-size:.9rem;line-height:1.6;color:var(--ink)}
+.pdesc2__card--cta a{color:var(--blue);font-weight:700}
+@media(max-width:860px){.pdesc2{grid-template-columns:1fr}.pdesc2__feats{grid-template-columns:1fr}}
+
+/* Specifications + side cards section (replaces the old tabs) */
+.pdx{margin-top:clamp(2.6rem,5vw,4rem)}
+.pdx .pdp__tech{max-width:none}

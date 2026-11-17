@@ -11,7 +11,6 @@ import { ScrollReveal } from '@/components/ScrollReveal';
 import { StickyCta } from '@/components/StickyCta';
 import { ProductImg } from '@/components/ProductImg';
 import { ProductCard } from '@/components/ProductCard';
-import { ProductTabs } from '@/components/ProductTabs';
 import { PRODUCTS, APPLICATIONS, aliasOf, getProduct, isSS304, metaDescription, relatedProducts, techSpecs } from '@/lib/data';
 import { categoryOf } from '@/lib/categories';
 import { SITE, waLink, WA_MESSAGES } from '@/lib/site';
@@ -109,7 +108,7 @@ export default async function ProductPage({ params }: Params) {
                 <p className="pdp__lead">{p.desc}</p>
 
                 <ul className="pdp__quick">
-                  {p.feat.slice(0, 4).map((f) => (
+                  {p.feat.map((f) => (
                     <li key={f}>{f}</li>
                   ))}
                 </ul>
@@ -138,65 +137,47 @@ export default async function ProductPage({ params }: Params) {
               </div>
             </div>
 
-            <ProductTabs
-              tabs={[
-                {
-                  label: 'Description',
-                  body: (
-                    <div className="pdesc">
-                      <div>
-                        <h2 className="pdesc__h">Overview</h2>
-                        <p>{p.desc}</p>
-                        <h3>Key Features</h3>
-                        <ul>
-                          {p.feat.map((f) => (
-                            <li key={f}>{f}</li>
-                          ))}
-                        </ul>
-                      </div>
-                      <div>
-                        <h3>Quality</h3>
-                        <ul>
-                          {isSS304(p) && <li>Body made of food-grade SS 304 stainless steel</li>}
-                          <li>Heavy-duty commercial build for daily high-volume use</li>
-                          {isSS304(p) && <li>Hygienic, rust-free finish that is easy to clean</li>}
-                        </ul>
-                        <h3>Ideal For</h3>
-                        <ul className="pdesc__apps">
-                          {uses.map((a) => (
-                            <li key={a.label}>
-                              {a.label}
-                            </li>
-                          ))}
-                        </ul>
-                        <h3>Customisation</h3>
-                        <ul>
-                          <li>Built to your kitchen size and layout</li>
-                          <li>Need a different size or capacity? <a href="#contact">Contact us</a> for a custom build.</li>
-                        </ul>
-                      </div>
-                    </div>
-                  ),
-                },
-                {
-                  label: 'Specifications',
-                  body: (
-                    <div className="pdp__tech">
-                      <table>
-                        <tbody>
-                          {specs.map(([k, v]) => (
-                            <tr key={k}>
-                              <th scope="row">{k}</th>
-                              <td>{v}</td>
-                            </tr>
-                          ))}
-                        </tbody>
-                      </table>
-                    </div>
-                  ),
-                },
-              ]}
-            />
+            <div className="pdesc2 pdx">
+              <div className="pdesc2__main">
+                <h2 className="pdesc__h">Specifications</h2>
+                <div className="pdp__tech">
+                  <table>
+                    <tbody>
+                      {specs.map(([k, v]) => (
+                        <tr key={k}>
+                          <th scope="row">{k}</th>
+                          <td>{v}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <aside className="pdesc2__side">
+                <div className="pdesc2__card">
+                  <h3>Built to Last</h3>
+                  <ul>
+                    <li>Heavy-duty commercial build for daily high-volume use</li>
+                    <li>Every weld and polish quality-checked before dispatch</li>
+                  </ul>
+                </div>
+                <div className="pdesc2__card">
+                  <h3>Ideal For</h3>
+                  <ul className="pdesc2__chips">
+                    {uses.map((a) => (
+                      <li key={a.label}>{a.label}</li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="pdesc2__card pdesc2__card--cta">
+                  <h3>Custom Build</h3>
+                  <p>
+                    Different capacity, size or layout? <a href="#contact">Tell us your
+                    requirement</a> — we fabricate to order.
+                  </p>
+                </div>
+              </aside>
+            </div>
 
             {related.length > 0 && (
               <div className="pdp__related">
