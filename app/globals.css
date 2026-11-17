@@ -2632,3 +2632,25 @@ html #process .eyebrow::before{background:var(--yellow)}
 .indcell:hover{background:#eef8f4}
 .indcell:hover .indcell__body b{color:var(--green-d)}
 .indcell:hover .indcell__arrow{color:var(--green-d)}
+
+/* ===========================================================
+   Hero readability + design pass (from visual review):
+   · stronger Nemil-style left scrim so text reads over bright
+     kitchen photography
+   · gold emphasis word restored in the headline
+   · gold primary CTA (site rule: gold = primary action)
+   · trust line back to soft glass chips so it's visible
+   =========================================================== */
+.slide::after{background:linear-gradient(90deg,rgba(8,16,34,.82) 0%,rgba(8,16,34,.55) 42%,rgba(8,16,34,.18) 72%,rgba(8,16,34,.05) 100%)}
+.hero h1 span,.hero .hero__h span{color:var(--yellow)}
+.hero p{color:rgba(255,255,255,.92);max-width:54ch;text-shadow:0 1px 12px rgba(8,16,34,.5)}
+.hero__badge::before{content:"";display:inline-block;width:26px;height:2px;background:var(--yellow);margin-right:.55rem;vertical-align:middle}
+.hero__feat{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.22);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);padding:.42rem .85rem;border-radius:50px;font-weight:600;font-size:.8rem}
+.hero__feat:not(:last-child)::after{content:none}
+.hero__features{gap:.45rem .55rem;margin-top:1.8rem}
+
+/* Type-scale consistency (from computed-size audit):
+   WhyUs h2 matches every other section heading; fact chip
+   labels never drop below ~11.5px. */
+.wb__intro h2{font-size:clamp(1.5rem,3.2vw,2.3rem)}
+.fact span{font-size:.72rem}
