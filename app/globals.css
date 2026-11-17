@@ -2654,3 +2654,32 @@ html #process .eyebrow::before{background:var(--yellow)}
    labels never drop below ~11.5px. */
 .wb__intro h2{font-size:clamp(1.5rem,3.2vw,2.3rem)}
 .fact span{font-size:.72rem}
+
+/* Page-hero eyebrow on the navy band: drop the light chip bg,
+   gold text + gold dash like the hero badge. */
+.phero .eyebrow,.phero__eyebrow{background:none;color:var(--yellow);padding:0;border-radius:0;letter-spacing:.14em;text-transform:uppercase}
+.phero .eyebrow::before,.phero__eyebrow::before{background:var(--yellow)}
+.nf{padding:clamp(4rem,10vh,7rem) 0}
+.nf__cta{margin-top:1.4rem}
+
+/* ===========================================================
+   Industries photo tiles — sector visuals with navy scrim +
+   white label + capability note (CAT/Hoshizaki pattern).
+   Hover: slow zoom. Non-clickable; the navy CTA card converts.
+   =========================================================== */
+.indpics{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:1.1rem}
+.indpic{position:relative;aspect-ratio:4/3;border-radius:6px;overflow:hidden;background:var(--blue-d2)}
+.indpic img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.indpic:hover img{transform:scale(1.05)}
+.indpic__scrim{position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,27,51,.05) 30%,rgba(10,27,51,.88) 100%)}
+.indpic__txt{position:absolute;left:0;right:0;bottom:0;padding:1rem 1.1rem;color:#fff}
+.indpic__txt b{display:block;font-family:var(--font-head);font-weight:600;font-size:1rem;line-height:1.3}
+.indpic__txt small{display:block;margin-top:.2rem;font-size:.78rem;line-height:1.4;color:rgba(255,255,255,.85)}
+@media(max-width:900px){.indpics{grid-template-columns:repeat(2,1fr);gap:.7rem}}
+@media(max-width:560px){
+  .indpics{gap:.5rem}
+  .indpic{aspect-ratio:16/10}
+  .indpic__txt{padding:.65rem .7rem}
+  .indpic__txt b{font-size:.84rem}
+  .indpic__txt small{font-size:.7rem}
+}
