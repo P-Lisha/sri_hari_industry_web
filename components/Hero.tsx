@@ -25,7 +25,7 @@ const SLIDES: Slide[] = [
     emphasis: 'Kitchen Solutions',
     text: 'Premium quality stainless steel equipment manufactured in Coimbatore, built to last — from essential cooking units to complete turnkey kitchen setups all over India.',
     ctas: [
-      { href: '/products', label: 'Explore Products', cls: 'btn btn--blue' },
+      { href: '/products', label: 'Explore Products', cls: 'btn btn--y' },
       { href: '/#contact', label: 'Free Consultation', cls: 'btn btn--ghost' },
     ],
   },
@@ -37,7 +37,7 @@ const SLIDES: Slide[] = [
     emphasis: 'Kitchen Machinery',
     text: 'Grinders, mixers, dough kneaders, peelers and automatic machines — powerful commercial equipment that cuts prep time and labour across the kitchen.',
     ctas: [
-      { href: '/products', label: 'View Machines', cls: 'btn btn--blue' },
+      { href: '/products', label: 'View Machines', cls: 'btn btn--y' },
       { href: '/#contact', label: 'Enquire Now', cls: 'btn btn--ghost' },
     ],
   },
@@ -49,7 +49,7 @@ const SLIDES: Slide[] = [
     emphasis: 'Kitchen Engineering',
     text: 'Food processing machinery, exhaust & fresh-air systems and modular cold rooms — designed, fabricated and installed by one expert team.',
     ctas: [
-      { href: '/#industries', label: 'Turnkey Design', cls: 'btn btn--blue' },
+      { href: '/#industries', label: 'Turnkey Design', cls: 'btn btn--y' },
       { href: '/#contact', label: 'Talk to Us', cls: 'btn btn--ghost' },
     ],
   },
