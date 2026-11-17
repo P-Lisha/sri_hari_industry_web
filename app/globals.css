@@ -2683,3 +2683,9 @@ html #process .eyebrow::before{background:var(--yellow)}
   .indpic__txt b{font-size:.84rem}
   .indpic__txt small{font-size:.7rem}
 }
+
+/* Industries cells: light navy-blue tint surface (was plain white) */
+.indcell{background:var(--blue-soft)}
+.indcell:hover{background:#dde6f2}
+.indcell:hover .indcell__body b{color:var(--blue)}
+.indcell:hover .indcell__arrow{color:var(--blue)}
