@@ -21,9 +21,9 @@ const SLIDES: Slide[] = [
     img: '/images/hero-kitchen-hd.webp',
     alt: 'Bright all-stainless commercial kitchen with ranges, ovens and prep tables',
     badge: 'Designed for Performance · Built for Excellence',
-    title: 'Complete Commercial ',
-    emphasis: 'Kitchen Solutions',
-    text: 'Premium quality stainless steel equipment manufactured in Coimbatore, built to last — from essential cooking units to complete turnkey kitchen setups all over India.',
+    title: 'Commercial Kitchens, ',
+    emphasis: 'Built to Last',
+    text: 'Food-grade stainless steel equipment, fabricated in Coimbatore and delivered all over India.',
     ctas: [
       { href: '/products', label: 'Explore Products', cls: 'btn btn--y' },
       { href: '/#contact', label: 'Free Consultation', cls: 'btn btn--ghost' },
