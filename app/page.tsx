@@ -2,6 +2,7 @@ import { TopBar } from '@/components/TopBar';
 import { Nav } from '@/components/Nav';
 import { Hero } from '@/components/Hero';
 import { Stats } from '@/components/Stats';
+import { FeatureRow } from '@/components/FeatureRow';
 import { FeaturedProducts } from '@/components/FeaturedProducts';
 import { WhyUs } from '@/components/WhyUs';
 import { JsonLd } from '@/components/JsonLd';
@@ -25,6 +26,7 @@ export default function Home() {
       <main>
         <Hero />
         <Stats />
+        <FeatureRow />
         <FeaturedProducts />
         <WhyUs />
         <Process />
