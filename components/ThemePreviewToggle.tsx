@@ -12,17 +12,18 @@ import { useEffect, useState } from 'react';
  * The choice is saved so the client can browse pages while previewing.
  * Remove this component + its CSS blocks once the design is decided.
  */
-type Mode = 'current' | 'orange' | 'teal';
+type Mode = 'current' | 'orange' | 'teal' | 'ltteal';
 
 const OPTIONS: { id: Mode; label: string; cls: string }[] = [
   { id: 'current', label: 'Light · Bronze', cls: '' },
+  { id: 'ltteal', label: 'Light · Teal', cls: 'theme-ltteal' },
   { id: 'orange', label: 'Dark · Orange', cls: 'theme-orange' },
   { id: 'teal', label: 'Dark · Teal', cls: 'theme-teal' },
 ];
 
 function apply(mode: Mode) {
   const b = document.body;
-  b.classList.remove('theme-orange', 'theme-teal');
+  b.classList.remove('theme-orange', 'theme-teal', 'theme-ltteal');
   const o = OPTIONS.find((x) => x.id === mode);
   if (o && o.cls) b.classList.add(o.cls);
 }
