@@ -3,6 +3,7 @@ import { Outfit, Montserrat } from 'next/font/google';
 import './globals.css';
 import { SITE } from '@/lib/site';
 import { IconSprite } from '@/components/Icons';
+import { ThemePreviewToggle } from '@/components/ThemePreviewToggle';
 
 
 const outfit = Outfit({
@@ -125,7 +126,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <script dangerouslySetInnerHTML={{ __html: "document.documentElement.classList.add('js')" }} />
         <IconSprite />
         {children}
-        
+        <ThemePreviewToggle />
       </body>
     </html>
   );

@@ -2708,3 +2708,61 @@ html #process .eyebrow::before{background:var(--yellow)}
 .indcell:hover{background:#dde6f2}
 .indcell:hover .indcell__body b{color:var(--blue)}
 .indcell:hover .indcell__arrow{color:var(--blue)}
+
+/* ===========================================================
+   TEMPORARY CLIENT PREVIEW — 3-way theme switcher
+   Remove this whole block + components/ThemePreviewToggle.tsx
+   once the design is finalised.
+   =========================================================== */
+.themeswitch{position:fixed;left:50%;bottom:16px;transform:translateX(-50%);z-index:300;
+  display:flex;align-items:center;gap:.3rem;background:rgba(13,27,42,.92);
+  backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.14);border-radius:50px;
+  padding:.35rem .45rem;box-shadow:0 18px 40px -16px rgba(0,0,0,.6)}
+.themeswitch__lbl{color:#93a6be;font-size:.72rem;font-weight:700;letter-spacing:.04em;
+  text-transform:uppercase;padding:0 .5rem}
+.themeswitch__btn{font-family:inherit;font-weight:700;font-size:.78rem;color:#cdd8e8;
+  background:transparent;border:0;border-radius:50px;padding:.5rem .85rem;cursor:pointer;
+  white-space:nowrap;transition:.2s}
+.themeswitch__btn:hover{color:#fff;background:rgba(255,255,255,.08)}
+.themeswitch__btn.on{background:linear-gradient(135deg,var(--yellow),var(--yellow-d));color:#2a1605}
+@media(max-width:560px){.themeswitch{bottom:84px;gap:.15rem;padding:.3rem}
+  .themeswitch__lbl{display:none}.themeswitch__btn{font-size:.72rem;padding:.45rem .6rem}}
+
+/* ----- THEME 2: Navy + Bronze reference style (deeper, richer) ----- */
+body.theme-ref{--blue:#1a3252;--blue-d:#122540;--blue-d2:#0b1a2e;--blue-soft:#e8eef6;}
+body.theme-ref .sec.soft{background:#f3f6fa}
+body.theme-ref .wcard,body.theme-ref .ccard,body.theme-ref .pcard,body.theme-ref .tcard,body.theme-ref .cat{
+  background:#fff;backdrop-filter:none;-webkit-backdrop-filter:none;border:1px solid var(--line)}
+body.theme-ref .nav{background:#fff;backdrop-filter:none;-webkit-backdrop-filter:none}
+
+/* ----- THEME 3: FULL DARK NAVY + bright ORANGE ----- */
+body.theme-orange{
+  --yellow:#f2850d;--yellow-d:#c96a00;--yellow-soft:rgba(242,133,13,.14);
+  --ink:#dbe5f2;--slate:#eaf1fb;--muted:#9fb0c7;--line:#20344f;--soft:#13263d;
+  background:#0b1a2e;color:#dbe5f2;
+}
+body.theme-orange .nav{background:rgba(11,26,46,.92)!important;border-bottom-color:#f2850d;
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+body.theme-orange .nav .menu a,body.theme-orange .brand__txt b,body.theme-orange .brand__txt b .g{color:#eaf1fb}
+body.theme-orange .brand__txt b .g{color:#f2850d}
+body.theme-orange .sec,body.theme-orange .sec.soft,body.theme-orange .sec.bluesoft{background:#0b1a2e!important}
+body.theme-orange .sec.soft{background:#0e2138!important}
+/* cards → dark navy panels */
+body.theme-orange .wcard,body.theme-orange .ccard,body.theme-orange .pcard,
+body.theme-orange .tcard,body.theme-orange .cat,body.theme-orange .svc,
+body.theme-orange .indcell,body.theme-orange .wcard,body.theme-orange .whyx__card{
+  background:#13263d!important;border:1px solid #20344f!important;
+  backdrop-filter:none!important;-webkit-backdrop-filter:none!important;color:#dbe5f2}
+body.theme-orange .ccard h3,body.theme-orange .pcard__body h3,body.theme-orange .wcard h3,
+body.theme-orange .head h2,body.theme-orange .indcell__body b{color:#eaf1fb}
+body.theme-orange .head p,body.theme-orange .ccard p,body.theme-orange .pcard__desc{color:#9fb0c7}
+/* product image tiles keep white so photos read */
+body.theme-orange .pcard__media,body.theme-orange .pcard__media img{background:#fff}
+/* stats / process already dark — keep */
+body.theme-orange .stats,body.theme-orange #process{background:#081524!important}
+/* footer deeper */
+body.theme-orange .foot{background:#081524}
+/* orange theme: stats floating card → dark to match full-navy page */
+body.theme-orange .stats .wrap{background:#13263d!important;border-color:#20344f!important}
+body.theme-orange .stat b .count,body.theme-orange .stat b{color:#f2850d}
+body.theme-orange .stat>span{color:#9fb0c7}
