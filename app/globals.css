@@ -2631,14 +2631,14 @@ html #process .eyebrow::before{background:var(--yellow)}
    Built to Last = soft gold, Ideal For = soft green (logo
    green), Custom Build = soft navy. Facts box = soft gold.
    =========================================================== */
-.pdesc2__card{background:#fdf8ec;border-color:rgba(198,112,46,.28);border-left-color:var(--yellow);box-shadow:0 10px 24px -14px rgba(156,83,28,.25)}
+/* Unified clean card — all three share one premium style (no pastel mix).
+   White surface, hairline border, a bronze accent rule on the left. */
+.pdesc2__card{background:#fff;border:1px solid var(--line);border-left:3px solid var(--yellow);border-radius:8px;box-shadow:0 8px 22px -16px rgba(13,27,42,.35);transition:var(--t)}
+.pdesc2__card:hover{box-shadow:0 14px 30px -16px rgba(13,27,42,.4);transform:translateY(-2px)}
 .pdesc2__card h3{color:var(--yellow-d)}
-.pdesc2__card:nth-child(2){background:#eef8f4;border-color:rgba(21,154,120,.26);border-left-color:var(--green);box-shadow:0 10px 24px -14px rgba(14,122,94,.25)}
-.pdesc2__card:nth-child(2) h3{color:var(--green-d)}
-.pdesc2__card:nth-child(3){background:#eef2f8;border-color:rgba(23,54,93,.2);border-left-color:var(--blue);box-shadow:0 10px 24px -14px rgba(23,54,93,.28)}
-.pdesc2__card:nth-child(3) h3{color:var(--blue)}
-.pdp__facts{background:#fdf8ec;border-color:rgba(198,112,46,.28);border-left-color:var(--yellow);box-shadow:0 10px 24px -14px rgba(156,83,28,.22)}
-.pdp__facts div,.pdp__facts div:nth-child(odd){border-right-color:rgba(198,112,46,.25)}
+.pdesc2__card ul li::before{background:var(--yellow)}
+.pdp__facts{background:var(--soft);border:1px solid var(--line);border-left:3px solid var(--yellow);box-shadow:0 8px 22px -16px rgba(13,27,42,.3)}
+.pdp__facts div,.pdp__facts div:nth-child(odd){border-right-color:var(--line)}
 .pdp__facts div:last-child{border-right:0}
 
 /* Homepage warm touches — gold trust bar + fact chips, green hover
@@ -2937,3 +2937,19 @@ body.theme-teal .wcard:hover,body.theme-teal .tcard:hover{
 body.theme-orange .fcert{background:linear-gradient(135deg,rgba(242,133,13,.22),rgba(242,133,13,.1));border-color:rgba(242,133,13,.55);box-shadow:0 6px 16px -8px rgba(242,133,13,.5)}
 body.theme-teal .fcert{background:linear-gradient(135deg,rgba(47,184,168,.22),rgba(47,184,168,.1));border-color:rgba(47,184,168,.55);box-shadow:0 6px 16px -8px rgba(47,184,168,.5)}
 body.theme-ltteal .fcert{background:linear-gradient(135deg,rgba(18,160,138,.2),rgba(18,160,138,.09));border-color:rgba(18,160,138,.5)}
+
+/* ===== dark themes: remaining light chips (cert, catnav, spec list) ===== */
+/* About page certification chips */
+body.theme-orange .cert{background:#13263d!important;border-color:#20344f!important;color:#cdd8e8!important}
+body.theme-teal .cert{background:#102523!important;border-color:#1f3a38!important;color:#cde6e2!important}
+/* Products page category nav pills */
+body.theme-orange .catnav a{background:#13263d!important;border-color:#20344f!important;color:#cdd8e8!important}
+body.theme-orange .catnav a:hover{border-color:#f2850d!important;color:#f2850d!important}
+body.theme-teal .catnav a{background:#102523!important;border-color:#1f3a38!important;color:#cde6e2!important}
+body.theme-teal .catnav a:hover{border-color:#2fb8a8!important;color:#2fb8a8!important}
+/* Info page spec feature list items that render as white cards */
+body.theme-orange .pmfeat li,body.theme-orange .pdp__info li,body.theme-orange .pdp ul li{background:#13263d!important;color:#cdd8e8!important;border-color:#20344f!important}
+body.theme-teal .pmfeat li,body.theme-teal .pdp__info li,body.theme-teal .pdp ul li{background:#102523!important;color:#cde6e2!important;border-color:#1f3a38!important}
+/* info page "Ideal For" chips */
+body.theme-orange .pdesc2__chips li{background:#1a3050!important;color:#cdd8e8!important;border-color:#2a4062!important}
+body.theme-teal .pdesc2__chips li{background:#143330!important;color:#cde6e2!important;border-color:#1f3a38!important}
