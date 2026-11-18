@@ -2889,3 +2889,46 @@ body.theme-orange .catsec__head p,body.theme-teal .catsec__head p{color:#9fb0c7!
 /* dark themes: hint uses the accent */
 body.theme-orange .pmtile__media::after,body.theme-orange .procard__media::after{background:#f2850d;color:#2a1605}
 body.theme-teal .pmtile__media::after,body.theme-teal .procard__media::after{background:#2fb8a8;color:#06312a}
+
+/* ===== dark themes: product INFO page (pdp) — kill stray cream/mint/blue cards ===== */
+body.theme-orange .pdp__facts,body.theme-orange .pdesc2__card,
+body.theme-orange .pdp__related,body.theme-orange table,body.theme-orange th,
+body.theme-orange td,body.theme-orange .pdp li{background:#13263d!important;border-color:#20344f!important;color:#dbe5f2!important}
+body.theme-teal .pdp__facts,body.theme-teal .pdesc2__card,
+body.theme-teal .pdp__related,body.theme-teal table,body.theme-teal th,
+body.theme-teal td,body.theme-teal .pdp li{background:#102523!important;border-color:#1f3a38!important;color:#d6e6e3!important}
+/* headings/labels in pdp */
+body.theme-orange .pdp h1,body.theme-orange .pdp h2,body.theme-orange .pdp h3,body.theme-orange .pdesc2__card h3,body.theme-orange .pdesc2__card b,
+body.theme-teal .pdp h1,body.theme-teal .pdp h2,body.theme-teal .pdp h3,body.theme-teal .pdesc2__card h3,body.theme-teal .pdesc2__card b{color:#fff!important}
+body.theme-orange .pdp p,body.theme-orange .pdp li,body.theme-orange .pdesc2__card p,body.theme-orange td,
+body.theme-teal .pdp p,body.theme-teal .pdp li,body.theme-teal .pdesc2__card p,body.theme-teal td{color:#9fb0c7!important}
+body.theme-teal .pdp p,body.theme-teal .pdp li,body.theme-teal .pdesc2__card p,body.theme-teal td{color:#9fb8b4!important}
+/* related-products section background */
+body.theme-orange .pdp__related{background:#0e2138!important}
+body.theme-teal .pdp__related{background:#0e2220!important}
+/* spec table header row + alt rows */
+body.theme-orange th{background:#0e2138!important}body.theme-teal th{background:#0e2220!important}
+/* keep product photo + zoom hint on white */
+body.theme-orange .pdp__media,body.theme-teal .pdp__media,
+body.theme-orange .procard__media,body.theme-teal .procard__media{background:#fff!important}
+
+/* ===== dark themes: soft depth shadow on cards (lift them off the bg) ===== */
+body.theme-orange .pcard,body.theme-orange .pmtile,body.theme-orange .wcard,
+body.theme-orange .ccard,body.theme-orange .tcard,body.theme-orange .pdesc2__card,
+body.theme-orange .wb__panel,body.theme-orange .showcase,body.theme-orange .fact,
+body.theme-teal .pcard,body.theme-teal .pmtile,body.theme-teal .wcard,
+body.theme-teal .ccard,body.theme-teal .tcard,body.theme-teal .pdesc2__card,
+body.theme-teal .wb__panel,body.theme-teal .showcase,body.theme-teal .fact{
+  box-shadow:0 10px 28px -14px rgba(0,0,0,.65),0 2px 6px -3px rgba(0,0,0,.5)!important}
+/* hover: deeper shadow + faint accent glow so the card "pops" */
+body.theme-orange .pcard:hover,body.theme-orange .pmtile:hover,body.theme-orange .ccard:hover,
+body.theme-orange .wcard:hover,body.theme-orange .tcard:hover{
+  box-shadow:0 20px 40px -16px rgba(0,0,0,.7),0 0 0 1px rgba(242,133,13,.4)!important}
+body.theme-teal .pcard:hover,body.theme-teal .pmtile:hover,body.theme-teal .ccard:hover,
+body.theme-teal .wcard:hover,body.theme-teal .tcard:hover{
+  box-shadow:0 20px 40px -16px rgba(0,0,0,.7),0 0 0 1px rgba(47,184,168,.4)!important}
+
+/* ===== ISO footer badge — accent-match per theme (not hardcoded bronze) ===== */
+body.theme-orange .fcert{background:linear-gradient(135deg,rgba(242,133,13,.22),rgba(242,133,13,.1));border-color:rgba(242,133,13,.55);box-shadow:0 6px 16px -8px rgba(242,133,13,.5)}
+body.theme-teal .fcert{background:linear-gradient(135deg,rgba(47,184,168,.22),rgba(47,184,168,.1));border-color:rgba(47,184,168,.55);box-shadow:0 6px 16px -8px rgba(47,184,168,.5)}
+body.theme-ltteal .fcert{background:linear-gradient(135deg,rgba(18,160,138,.2),rgba(18,160,138,.09));border-color:rgba(18,160,138,.5)}
