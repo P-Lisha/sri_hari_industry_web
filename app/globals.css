@@ -2641,7 +2641,7 @@ html #process .eyebrow::before{background:var(--yellow)}
    · gold primary CTA (site rule: gold = primary action)
    · trust line back to soft glass chips so it's visible
    =========================================================== */
-.slide::after{background:linear-gradient(90deg,rgba(8,16,34,.82) 0%,rgba(8,16,34,.55) 42%,rgba(8,16,34,.18) 72%,rgba(8,16,34,.05) 100%)}
+.slide::after{background:linear-gradient(90deg,rgba(3,8,18,.92) 0%,rgba(3,8,18,.68) 38%,rgba(3,8,18,.28) 68%,rgba(3,8,18,.06) 100%)}
 .hero h1 span,.hero .hero__h span{color:var(--yellow)}
 .hero p{color:rgba(255,255,255,.92);max-width:54ch;text-shadow:0 1px 12px rgba(8,16,34,.5)}
 .hero__badge::before{content:"";display:inline-block;width:26px;height:2px;background:var(--yellow);margin-right:.55rem;vertical-align:middle}
