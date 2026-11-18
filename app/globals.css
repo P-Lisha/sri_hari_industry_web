@@ -91,7 +91,7 @@ a{text-decoration:none;color:inherit}img{display:block;max-width:100%}
 .slide__img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.01)}
 .slide.active .slide__img{animation:kenburns 6.5s ease-out forwards}
 @keyframes kenburns{from{transform:scale(1.01)}to{transform:scale(1.07)}}
-.slide::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,18,36,.55) 0%,rgba(10,18,36,.3) 42%,rgba(10,18,36,.06) 72%,rgba(10,18,36,0) 100%)}
+.slide::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,18,36,.78) 0%,rgba(10,18,36,.72) 34%,rgba(10,18,36,.42) 58%,rgba(10,18,36,.1) 80%,rgba(10,18,36,0) 100%)}
 .hero__overlay{position:absolute;inset:0;z-index:5;display:flex;align-items:center}
 .hero__content{max-width:620px;color:#fff}
 .hero__badge{display:inline-block;background:rgba(198,112,46,.18);border:1px solid rgba(198,112,46,.55);color:var(--yellow);padding:.4rem 1rem;border-radius:50px;font-size:.76rem;font-weight:600;letter-spacing:.05em;margin-bottom:1.1rem}
