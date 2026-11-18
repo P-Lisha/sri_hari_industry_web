@@ -2728,12 +2728,6 @@ html #process .eyebrow::before{background:var(--yellow)}
 @media(max-width:560px){.themeswitch{bottom:84px;gap:.15rem;padding:.3rem}
   .themeswitch__lbl{display:none}.themeswitch__btn{font-size:.72rem;padding:.45rem .6rem}}
 
-/* ----- THEME 2: Navy + Bronze reference style (deeper, richer) ----- */
-body.theme-ref{--blue:#1a3252;--blue-d:#122540;--blue-d2:#0b1a2e;--blue-soft:#e8eef6;}
-body.theme-ref .sec.soft{background:#f3f6fa}
-body.theme-ref .wcard,body.theme-ref .ccard,body.theme-ref .pcard,body.theme-ref .tcard,body.theme-ref .cat{
-  background:#fff;backdrop-filter:none;-webkit-backdrop-filter:none;border:1px solid var(--line)}
-body.theme-ref .nav{background:#fff;backdrop-filter:none;-webkit-backdrop-filter:none}
 
 /* ----- THEME 3: FULL DARK NAVY + bright ORANGE ----- */
 body.theme-orange{
@@ -2766,3 +2760,74 @@ body.theme-orange .foot{background:#081524}
 body.theme-orange .stats .wrap{background:#13263d!important;border-color:#20344f!important}
 body.theme-orange .stat b .count,body.theme-orange .stat b{color:#f2850d}
 body.theme-orange .stat>span{color:#9fb0c7}
+
+/* ===== orange (full-dark) theme — fix all light spots ===== */
+/* FAQ */
+body.theme-orange #faq{background:#0b1a2e!important}
+body.theme-orange .faq__q,body.theme-orange .faq__item,body.theme-orange details,
+body.theme-orange .faq summary,body.theme-orange [class*="faq"] button{
+  background:#13263d!important;color:#eaf1fb!important;border-color:#20344f!important}
+body.theme-orange .faq__a,body.theme-orange .faq p,body.theme-orange [class*="faq"] p{color:#9fb0c7!important}
+/* client logo strip */
+body.theme-orange .clientstrip{background:#0e2138!important}
+body.theme-orange .logocard,body.theme-orange .bl{background:#13263d!important;border-color:#20344f!important;color:#cdd8e8!important}
+/* gradient-text words (Unique / Serve / facts) → solid orange on dark */
+body.theme-orange .wb__em,body.theme-orange .indhead h2 em{color:#f2850d!important;background:none!important;-webkit-text-fill-color:#f2850d}
+body.theme-orange .fact b,body.theme-orange .wnum{background:none!important;-webkit-text-fill-color:#f2850d;color:#f2850d!important}
+body.theme-orange .fact{background:#13263d!important;border-color:#20344f!important}
+body.theme-orange .fact span{color:#9fb0c7!important}
+/* WhyUs assured-quality inner stat cells → dark */
+body.theme-orange .wb__stats,body.theme-orange .wb__stat{background:#0e2138!important;border-color:#20344f!important}
+body.theme-orange .wb__stat dd{color:#eaf1fb!important}
+body.theme-orange .wb__stat dt{color:#9fb0c7!important}
+body.theme-orange .wb__trust{background:#13263d!important}
+body.theme-orange .wb__trust li{color:#cdd8e8!important}
+/* gallery / showcase captions */
+body.theme-orange .showcase__panel,body.theme-orange [class*="showcase"]{color:#eaf1fb}
+/* section-underline accent → orange */
+body.theme-orange .head h2::after,body.theme-orange .indhead h2::after,
+body.theme-orange .wb__intro h2::after,body.theme-orange .clientstrip__head h2::after{background:#f2850d!important}
+/* generic: any remaining white-bg card inside dark sections */
+body.theme-orange .indmore span,body.theme-orange .indcell{background:#13263d!important;color:#cdd8e8!important;border-color:#20344f!important}
+
+/* ===== THEME: Dark · Teal (smoked teal, research-backed) ===== */
+body.theme-teal{
+  --yellow:#2fb8a8;--yellow-d:#1d8378;--yellow-soft:rgba(47,184,168,.14);
+  --ink:#d6e6e3;--slate:#e9f4f2;--muted:#9fb8b4;--line:#1f3a38;--soft:#10211f;
+  background:#0a1a18;color:#d6e6e3;
+}
+body.theme-teal .nav{background:rgba(10,26,24,.92)!important;border-bottom-color:#2fb8a8;
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+body.theme-teal .nav .menu a,body.theme-teal .brand__txt b{color:#e9f4f2}
+body.theme-teal .brand__txt b .g{color:#2fb8a8}
+body.theme-teal .sec,body.theme-teal .sec.soft,body.theme-teal .sec.bluesoft{background:#0a1a18!important}
+body.theme-teal .sec.soft{background:#0e2220!important}
+body.theme-teal .wcard,body.theme-teal .ccard,body.theme-teal .pcard,
+body.theme-teal .tcard,body.theme-teal .cat,body.theme-teal .indcell,
+body.theme-teal .whyx__card,body.theme-teal .fact{
+  background:#102523!important;border:1px solid #1f3a38!important;
+  backdrop-filter:none!important;-webkit-backdrop-filter:none!important;color:#d6e6e3}
+body.theme-teal .ccard h3,body.theme-teal .pcard__body h3,body.theme-teal .wcard h3,
+body.theme-teal .head h2,body.theme-teal .indcell__body b{color:#e9f4f2}
+body.theme-teal .head p,body.theme-teal .ccard p,body.theme-teal .pcard__desc{color:#9fb8b4}
+body.theme-teal .pcard__media,body.theme-teal .pcard__media img{background:#fff}
+body.theme-teal .stats,body.theme-teal #process{background:#071513!important}
+body.theme-teal .stats .wrap{background:#102523!important;border-color:#1f3a38!important}
+body.theme-teal .foot{background:#071513}
+/* FAQ + logos */
+body.theme-teal #faq{background:#0a1a18!important}
+body.theme-teal .faq__q,body.theme-teal .faq__item,body.theme-teal details,
+body.theme-teal [class*="faq"] button{background:#102523!important;color:#e9f4f2!important;border-color:#1f3a38!important}
+body.theme-teal [class*="faq"] p{color:#9fb8b4!important}
+body.theme-teal .clientstrip{background:#0e2220!important}
+body.theme-teal .logocard,body.theme-teal .bl{background:#102523!important;border-color:#1f3a38!important;color:#cde6e2!important}
+/* gradient-text words → solid teal */
+body.theme-teal .wb__em,body.theme-teal .indhead h2 em{color:#2fb8a8!important;background:none!important;-webkit-text-fill-color:#2fb8a8}
+body.theme-teal .fact b,body.theme-teal .wnum{background:none!important;-webkit-text-fill-color:#2fb8a8;color:#2fb8a8!important}
+body.theme-teal .fact span{color:#9fb8b4!important}
+body.theme-teal .wb__stats,body.theme-teal .wb__stat{background:#0e2220!important;border-color:#1f3a38!important}
+body.theme-teal .wb__stat dd{color:#e9f4f2!important}body.theme-teal .wb__stat dt{color:#9fb8b4!important}
+body.theme-teal .wb__trust{background:#102523!important}body.theme-teal .wb__trust li{color:#cde6e2!important}
+body.theme-teal .head h2::after,body.theme-teal .indhead h2::after,
+body.theme-teal .wb__intro h2::after,body.theme-teal .clientstrip__head h2::after{background:#2fb8a8!important}
+body.theme-teal .indmore span{background:#102523!important;color:#cde6e2!important;border-color:#1f3a38!important}
