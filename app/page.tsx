@@ -2,7 +2,6 @@ import { TopBar } from '@/components/TopBar';
 import { Nav } from '@/components/Nav';
 import { Hero } from '@/components/Hero';
 import { Stats } from '@/components/Stats';
-import { FeatureRow } from '@/components/FeatureRow';
 import { ServiceGrid } from '@/components/ServiceGrid';
 import { FeaturedProducts } from '@/components/FeaturedProducts';
 import { WhyUs } from '@/components/WhyUs';
@@ -27,7 +26,6 @@ export default function Home() {
       <main>
         <Hero />
         <Stats />
-        <FeatureRow />
         <ServiceGrid />
         <FeaturedProducts />
         <WhyUs />
