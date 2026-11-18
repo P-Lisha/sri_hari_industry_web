@@ -2831,3 +2831,26 @@ body.theme-teal .wb__trust{background:#102523!important}body.theme-teal .wb__tru
 body.theme-teal .head h2::after,body.theme-teal .indhead h2::after,
 body.theme-teal .wb__intro h2::after,body.theme-teal .clientstrip__head h2::after{background:#2fb8a8!important}
 body.theme-teal .indmore span{background:#102523!important;color:#cde6e2!important;border-color:#1f3a38!important}
+
+/* ===== dark themes: fix remaining light panels (wb__panel, showcase gallery) ===== */
+body.theme-orange .wb__panel,body.theme-teal .wb__panel{background:transparent!important}
+body.theme-orange .wb__lead,body.theme-teal .wb__lead{background:#0e2138!important}
+body.theme-teal .wb__lead{background:#0e2220!important}
+/* showcase (Kitchens We've Built) */
+body.theme-orange .showcase,body.theme-orange .showcase__main,
+body.theme-orange .showcase__panel,body.theme-orange .showcase__thumb{
+  background:#13263d!important;border-color:#20344f!important;color:#dbe5f2!important}
+body.theme-teal .showcase,body.theme-teal .showcase__main,
+body.theme-teal .showcase__panel,body.theme-teal .showcase__thumb{
+  background:#102523!important;border-color:#1f3a38!important;color:#d6e6e3!important}
+body.theme-orange .showcase h3,body.theme-orange .showcase b,
+body.theme-teal .showcase h3,body.theme-teal .showcase b{color:#fff!important}
+body.theme-orange .showcase p,body.theme-orange .showcase small,
+body.theme-teal .showcase p,body.theme-teal .showcase small{color:#9fb0c7!important}
+/* dark themes: showcase equipment chips readable */
+body.theme-orange .showcase__prods a{color:#f2850d!important;border-color:#2a4062!important;background:#0e2138!important}
+body.theme-orange .showcase__prods a:hover{border-color:#f2850d!important;background:#13263d!important}
+body.theme-teal .showcase__prods a{color:#2fb8a8!important;border-color:#1f3a38!important;background:#0e2220!important}
+body.theme-teal .showcase__prods a:hover{border-color:#2fb8a8!important;background:#102523!important}
+body.theme-orange .showcase__prods b,body.theme-teal .showcase__prods b,
+body.theme-orange .showcase__eq b,body.theme-teal .showcase__eq b{color:#fff!important}
