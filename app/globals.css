@@ -2279,7 +2279,11 @@ html .catpage.sec.subpage{padding-top:1rem}
   .phero__crumbs{margin-bottom:.9rem}
   .phero__lead{font-size:.95rem}
   .phero__cta{margin-top:1.1rem;gap:.6rem}
-  .phero__cta .btn{flex:1 1 auto;justify-content:center}
+  /* Stack hero CTAs full-width on phones so long labels (e.g. "Call +91 …")
+     wrap instead of pushing the button row past the viewport and getting
+     clipped by .phero{overflow:hidden}. */
+  .phero__cta{flex-direction:column;align-items:stretch}
+  .phero__cta .btn{flex:1 1 100%;width:100%;justify-content:center}
 }
 
 /* hero band sits directly under the nav — trim the surrounding gaps */
