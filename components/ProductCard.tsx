@@ -14,10 +14,6 @@ export function ProductCard({ p, showCat = true }: { p: Product; showCat?: boole
       <div className="procard__body">
         {showCat && <span className="procard__cat">{p.cat}</span>}
         <h3 className="procard__name">{p.name}</h3>
-        <span className="procard__btn">
-          View Details
-          <i className="procard__arrow" aria-hidden="true">→</i>
-        </span>
       </div>
     </Link>
   );
