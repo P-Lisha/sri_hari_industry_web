@@ -114,6 +114,16 @@ a{text-decoration:none;color:inherit}img{display:block;max-width:100%}
 .sec.soft{background:var(--soft)}
 .sec.bluesoft{background:var(--blue-soft)}
 .head{max-width:660px;margin:0 auto 1.5rem;text-align:center}
+/* DePue-style connector motif: a short vertical bronze line capped by a dot
+   node, centered above each section heading. One element, decorative only. */
+.head::before{content:"";display:block;width:9px;height:34px;margin:0 auto 1rem;
+  border-radius:50px;
+  background:
+    radial-gradient(circle 4.5px at 50% 4.5px,var(--yellow) 0 4.5px,transparent 5px),
+    linear-gradient(180deg,rgba(198,112,46,.55) 0,rgba(198,112,46,0) 100%);
+  background-repeat:no-repeat;
+  background-size:9px 9px, 2px 100%;
+  background-position:center top, center top}
 .head h2{font-size:clamp(1.8rem,4vw,2.5rem);color:var(--slate);margin:.7rem 0}
 .head p{color:var(--muted)}
 
@@ -1767,8 +1777,8 @@ a.pmtile{text-decoration:none}
 
 /* ---- type ---- */
 body{font-size:1.0625rem;line-height:1.7}
-h1,h2,h3{font-weight:600;letter-spacing:-.025em;line-height:1.12}
-.head h2,.indhead h2,.clientstrip__head h2,.about h1,.about h2,.catpage h1{font-size:clamp(1.9rem,3.6vw,2.5rem);font-weight:600;letter-spacing:-.03em;color:var(--slate)}
+h1,h2,h3{font-weight:700;letter-spacing:-.025em;line-height:1.12}
+.head h2,.indhead h2,.clientstrip__head h2,.about h1,.about h2,.catpage h1{font-size:clamp(2.05rem,3.9vw,2.75rem);font-weight:800;letter-spacing:-.03em;color:var(--slate)}
 .head p,.indhead p{font-size:1.05rem;line-height:1.7}
 .head{margin-bottom:2.6rem}
 .indhead h2 em{background:none;-webkit-background-clip:initial;background-clip:initial;color:var(--blue)}
