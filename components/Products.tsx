@@ -54,7 +54,6 @@ export function Products() {
                     <ProductImg src={p.img} alt={`${p.name} — ${group.cat}`} />
                   </div>
                   <h3 className="pmtile__h">{p.name}</h3>
-                  <span className="pmtile__more">View details →</span>
                 </Link>
               ))}
             </div>
