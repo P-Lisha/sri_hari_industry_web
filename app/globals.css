@@ -2953,3 +2953,53 @@ body.theme-teal .pmfeat li,body.theme-teal .pdp__info li,body.theme-teal .pdp ul
 /* info page "Ideal For" chips */
 body.theme-orange .pdesc2__chips li{background:#1a3050!important;color:#cdd8e8!important;border-color:#2a4062!important}
 body.theme-teal .pdesc2__chips li{background:#143330!important;color:#cde6e2!important;border-color:#1f3a38!important}
+
+/* ===========================================================
+   MOBILE / TABLET APP-LIKE POLISH  (appended last → wins)
+   Tighter type, smaller buttons, compact cards & spacing so
+   phone/tablet feels like a neat native app with less scroll.
+   =========================================================== */
+
+/* ---- Tablet (≤900px): trim section rhythm & headings ---- */
+@media(max-width:900px){
+  :root{--sec-y:clamp(2.4rem,5vw,3.4rem)}
+  .head h2,.indhead h2,.clientstrip__head h2,.about h1,.about h2,.catpage h1{
+    font-size:clamp(1.55rem,3.4vw,2.1rem);margin:.45rem 0}
+  .head p,.indhead p{font-size:.95rem}
+  .btn{font-size:.88rem;padding:.72rem 1.3rem}
+}
+
+/* ---- Phone (≤560px): compact, app-like ---- */
+@media(max-width:560px){
+  :root{--sec-y:2rem;--wrap-w:92%}
+  body{line-height:1.55}
+
+  /* Headings & copy */
+  .head h2,.indhead h2,.clientstrip__head h2,.about h1,.about h2,.catpage h1{
+    font-size:clamp(1.35rem,6vw,1.7rem);margin:.35rem 0;letter-spacing:-.02em}
+  .head{margin-bottom:1.2rem}
+  .head p,.indhead p,.split p,.about p{font-size:.9rem;line-height:1.55}
+  .eyebrow{font-size:.68rem;padding:.3rem .8rem}
+
+  /* Buttons — smaller tap targets, app-like */
+  .btn{font-size:.85rem;padding:.68rem 1.2rem;gap:.4rem}
+  .btn .ic,.btn svg{width:16px;height:16px}
+
+  /* Cards — less padding, tighter gaps */
+  .ccard,.pcard,.wcard,.tcard,.scard,.cat,.svc,.whyx__card,.cinfo,.bandbox{
+    padding:1rem 1rem}
+  .scards,.ccats,.whyx,.svcgrid{gap:.7rem}
+
+  /* Product cards (grid) — compact */
+  .procard__body{padding:.6rem .7rem .8rem}
+  .procard__name{font-size:.9rem;line-height:1.2}
+  .procard__cat{font-size:.6rem}
+
+  /* Images — contained, no overscaled heights */
+  .split img,.smedia img,.about img{max-height:200px;object-fit:cover}
+  figure,img{border-radius:var(--radius)}
+
+  /* Stats row — tighter */
+  .stat b{font-size:clamp(1.8rem,8vw,2.4rem)}
+  .stat>span{font-size:.72rem}
+}
