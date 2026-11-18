@@ -30,12 +30,12 @@ const SLIDES: Slide[] = [
     ],
   },
   {
-    img: '/images/hero-workshop-hd.webp',
-    alt: 'Stainless steel equipment fabrication workshop floor',
-    badge: 'Processing · Prep · Machinery',
-    title: 'Food Processing & ',
-    emphasis: 'Kitchen Machinery',
-    text: 'Grinders, mixers, dough kneaders, peelers and automatic machines — powerful commercial equipment that cuts prep time and labour across the kitchen.',
+    img: '/images/fabrication.jpg',
+    alt: 'Sri Hari fabricators welding and polishing stainless steel kitchen equipment',
+    badge: 'Our Own Manufacturing Unit',
+    title: 'Fabricated In-House, ',
+    emphasis: 'Built to Last',
+    text: 'Every unit is cut, welded and finished by our own team in Coimbatore — food-grade SS 304, ISO 9001:2015 quality, powerful machinery that cuts prep time and labour.',
     ctas: [
       { href: '/products', label: 'View Machines', cls: 'btn btn--y' },
       { href: '/#contact', label: 'Enquire Now', cls: 'btn btn--ghost' },
